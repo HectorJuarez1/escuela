@@ -1,0 +1,42 @@
+{
+    "sites":[
+        {
+            "site" : "", 
+            "access" : "public", 
+            "role" : ""
+        },
+        {
+            "site" : "signup", 
+            "access" : "public", 
+            "role" : ""
+        },
+        {
+            "site" : "alumnos", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+
+        {
+            "site" : "user", 
+            "access" : "private", 
+            "role" : "user"
+        },
+        {
+            "site" : "admin", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+        {
+            "site" : "profesor", 
+            "access" : "private", 
+            "role" : "profesor"
+        }
+    ],
+
+    "default-sites":{
+        "user": "user",
+        "admin": "admin",
+        "profesor": "profesor"
+        
+    }
+}

@@ -1,0 +1,2 @@
+[04-Nov-2022 17:42:08 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 17:52:03 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
