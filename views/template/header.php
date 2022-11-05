@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/css/bootstrap.css">
 
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/vendors/chartjs/Chart.min.css">
@@ -13,6 +12,10 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/css/app.css">
     <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/assets/images/icono.png" type="image/x-icon">
+   
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/vendors/simple-datatables/style.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+
 </head>
 
 <body>
@@ -23,25 +26,25 @@
                     <img src="<?php echo constant('URL'); ?>public/assets/images/logo.png" alt="" srcset="">
                 </div>
                 <div class="sidebar-menu">
-                    <ul class="menu">
-                        <li class='sidebar-title'>Menú principal</li>
-                        <li class="sidebar-item">
+                    <ul class="menu ">
+                        <li class='sidebar-title '>Menú principal</li>
+                        <li class="sidebar-item ">
                             <a href="<?php echo constant('URL'); ?>admin" class='sidebar-link'>
-                                <i data-feather="home" width="20"></i>
+                            <i data-feather="home" width="20"></i> 
                                 <span>Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="file-text" width="20"></i>
-                                <span>Administracion</span>
+                                <span> <i class="bi bi-people"></i> Administracion</span>
                             </a>
                             <ul class="submenu ">
                                 <li>
-                                    <a href="form-element-input.html">Usuarios</a>
+                                    <a href="<?php echo constant('URL'); ?>NewUsuario">Usuarios</a>
                                 </li>
                                 <li>
-                                    <a href="form-element-input-group.html">Alumnos</a>
+                                    <a href="<?php echo constant('URL'); ?>alumnos">Alumnos</a>
                                 </li>
                                 <li>
                                     <a href="form-element-select.html">Padres</a>
@@ -65,7 +68,7 @@
                         </li>
                     </ul>
                 </div>
-                <button class="sidebar-toggler btn x"><i data-feather="x"></i>X</button>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
         </div>
         <div id="main">

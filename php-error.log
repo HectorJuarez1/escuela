@@ -1,13 +1,69 @@
-[04-Nov-2022 17:42:08 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 17:52:03 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 19:45:43 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 19:45:49 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 19:48:56 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 19:49:00 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 19:49:03 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 19:52:16 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 19:52:24 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 19:52:29 America/Mexico_City] user::constructor() 
-[04-Nov-2022 19:52:29 America/Mexico_City] user::RENDER() 
-[04-Nov-2022 19:52:30 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
-[04-Nov-2022 20:01:32 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:16:15 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:22:40 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:22:57 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:22:58 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:25:19 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:25:32 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:25:44 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:26:02 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:29:03 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:29:50 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:30:00 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:42:32 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:42:52 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:43:42 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\escuela\classes\sessionController.php on line 50
+[04-Nov-2022 20:43:42 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\escuela\classes\sessionController.php on line 52
+[04-Nov-2022 20:43:42 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: sizeof(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\escuela\classes\sessionController.php:148
+Stack trace:
+#0 C:\xampp\htdocs\escuela\classes\sessionController.php(80): SessionController->isPublic()
+#1 C:\xampp\htdocs\escuela\classes\sessionController.php(55): SessionController->validateSession()
+#2 C:\xampp\htdocs\escuela\classes\sessionController.php(22): SessionController->init()
+#3 C:\xampp\htdocs\escuela\controllers\alumnos.php(7): SessionController->__construct()
+#4 C:\xampp\htdocs\escuela\libs\app.php(33): Alumnos->__construct()
+#5 C:\xampp\htdocs\escuela\index.php(34): App->__construct()
+#6 {main}
+  thrown in C:\xampp\htdocs\escuela\classes\sessionController.php on line 148
+[04-Nov-2022 20:43:44 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\escuela\classes\sessionController.php on line 50
+[04-Nov-2022 20:43:44 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\escuela\classes\sessionController.php on line 52
+[04-Nov-2022 20:43:44 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: sizeof(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\escuela\classes\sessionController.php:148
+Stack trace:
+#0 C:\xampp\htdocs\escuela\classes\sessionController.php(80): SessionController->isPublic()
+#1 C:\xampp\htdocs\escuela\classes\sessionController.php(55): SessionController->validateSession()
+#2 C:\xampp\htdocs\escuela\classes\sessionController.php(22): SessionController->init()
+#3 C:\xampp\htdocs\escuela\controllers\admin.php(7): SessionController->__construct()
+#4 C:\xampp\htdocs\escuela\libs\app.php(33): Admin->__construct()
+#5 C:\xampp\htdocs\escuela\index.php(34): App->__construct()
+#6 {main}
+  thrown in C:\xampp\htdocs\escuela\classes\sessionController.php on line 148
+[04-Nov-2022 20:43:45 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:43:45 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\escuela\classes\sessionController.php on line 50
+[04-Nov-2022 20:43:45 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\escuela\classes\sessionController.php on line 52
+[04-Nov-2022 20:43:45 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: sizeof(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\escuela\classes\sessionController.php:148
+Stack trace:
+#0 C:\xampp\htdocs\escuela\classes\sessionController.php(80): SessionController->isPublic()
+#1 C:\xampp\htdocs\escuela\classes\sessionController.php(55): SessionController->validateSession()
+#2 C:\xampp\htdocs\escuela\classes\sessionController.php(22): SessionController->init()
+#3 C:\xampp\htdocs\escuela\controllers\login.php(7): SessionController->__construct()
+#4 C:\xampp\htdocs\escuela\libs\app.php(22): Login->__construct()
+#5 C:\xampp\htdocs\escuela\index.php(34): App->__construct()
+#6 {main}
+  thrown in C:\xampp\htdocs\escuela\classes\sessionController.php on line 148
+[04-Nov-2022 20:43:47 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:43:47 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\escuela\classes\sessionController.php on line 50
+[04-Nov-2022 20:43:47 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\escuela\classes\sessionController.php on line 52
+[04-Nov-2022 20:43:47 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: sizeof(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\escuela\classes\sessionController.php:148
+Stack trace:
+#0 C:\xampp\htdocs\escuela\classes\sessionController.php(80): SessionController->isPublic()
+#1 C:\xampp\htdocs\escuela\classes\sessionController.php(55): SessionController->validateSession()
+#2 C:\xampp\htdocs\escuela\classes\sessionController.php(22): SessionController->init()
+#3 C:\xampp\htdocs\escuela\controllers\login.php(7): SessionController->__construct()
+#4 C:\xampp\htdocs\escuela\libs\app.php(22): Login->__construct()
+#5 C:\xampp\htdocs\escuela\index.php(34): App->__construct()
+#6 {main}
+  thrown in C:\xampp\htdocs\escuela\classes\sessionController.php on line 148
+[04-Nov-2022 20:43:51 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:44:41 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:48:22 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:48:26 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 20:56:42 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[04-Nov-2022 21:09:50 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9

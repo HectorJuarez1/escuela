@@ -11,11 +11,15 @@
             "role" : ""
         },
         {
+            "site" : "Newusuario", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+        {
             "site" : "alumnos", 
             "access" : "private", 
             "role" : "admin"
         },
-
         {
             "site" : "user", 
             "access" : "private", 
