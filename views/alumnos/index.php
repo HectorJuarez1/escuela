@@ -34,7 +34,7 @@
             <?php foreach ($this->varTodas as $row) {
               $alumnos = new varTodas();
               $alumnos = $row;
-              $ruta = "public/images/Alumnos/" . $alumnos->vw_Foto_alumno;
+              $ruta = "public/assets/images/Alumnos/" . $alumnos->vw_Foto_alumno;
             ?>
               <tr>
                 <td><?php echo $alumnos->vw_Nombre_Completo; ?></td>
@@ -48,11 +48,10 @@
                     } elseif ($alumnos->vw_id_Estatus == 101) {
                       echo '<span class="badge bg-danger">Baja</span>';
                     }
-
                     ?></td>
                 <td class="text-center">
-                  <a href="<?php echo constant('URL') . 'alumnos/verDetalle/' . $alumnos->vw_id_alumno ?>" class="btn btn-warning"><i class='bi bi-pen'></i></a>
-                  <a href="<?php echo constant('URL') . 'alumnos/eliminarAl/' . $alumnos->vw_id_alumno ?>" class="btn btn-danger"><i class="bi bi-x"></i></a>
+                  <a href="<?php echo constant('URL') . 'alumnos/verDetalle/' . $alumnos->vw_id_alumno ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
+                  <a href="<?php echo constant('URL') . 'alumnos/eliminarAl/' . $alumnos->vw_id_alumno ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
                 </td>
               </tr>
             <?php } ?>

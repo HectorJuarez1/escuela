@@ -37,7 +37,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="file-text" width="20"></i>
-                                <span> <i class="bi bi-people"></i> Administracion</span>
+                                <span>Administracion</span>
                             </a>
                             <ul class="submenu ">
                                 <li>
@@ -79,18 +79,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
-                        <li class="dropdown nav-icon me-2">
-                            <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="d-lg-inline-block">
-                                    <i data-feather="mail"></i>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
-                            </div>
-                        </li>
                         <li class="dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar me-2">
@@ -101,7 +89,7 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?php echo constant('URL'); ?>logout"><i data-feather="log-out"></i> Logout</a>
+                                <a class="dropdown-item" href="<?php echo constant('URL'); ?>logout"><i data-feather="log-out"></i>Cerrar sesión</a>
                             </div>
                         </li>
                     </ul>

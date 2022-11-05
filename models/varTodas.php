@@ -1,6 +1,11 @@
 <?php
 
 class varTodas{
+    // users
+    public $username;
+    public $role;
+
+
 
     //alumno
     public $id_alumno;
