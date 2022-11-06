@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <div id="auth">
         <div class="container">
             <div class="row">
@@ -23,7 +24,7 @@
                                 <h2>Bienvenido...</h2>
                             </div>
                             <form action="<?php echo constant('URL'); ?>login/authenticate" method="POST" autocomplete="off">
-                                <div><?php (isset($this->errorMessage)) ?  $this->errorMessage : '' ?></div>
+
                                 <div class="form-group position-relative has-icon-left">
                                     <label for="username">NOMBRE DE USUARIO</label>
                                     <div class="position-relative">
@@ -47,6 +48,8 @@
                                 <div class="clearfix">
                                     <button class="btn btn-primary float-end">Inicia sesión</button>
                                 </div>
+                                <?php $this->showMessages(); ?>
+                                <?php (isset($this->errorMessage)) ?  $this->errorMessage : '' ?>
                             </form>
                         </div>
                     </div>

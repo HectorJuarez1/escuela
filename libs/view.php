@@ -61,9 +61,9 @@ class View{
 
     public function showError(){
         if(array_key_exists('error', $this->d)){
-            echo '
-            <div class="alert alert-danger alert-dismissible show fade">
-            ' . ' <b> ' . $this->d['error']. ' </b> ' . '      
+            echo '<br>
+            <div class="alert alert-danger">
+            ' .  $this->d['error']. '      
             </div>
             ';
         }
@@ -72,9 +72,9 @@ class View{
     public function showSuccess(){
         if(array_key_exists('success', $this->d)){
     
-            echo '
-            <div class="alert alert-success alert-dismissible show fade">
-            ' . ' <b> ' . $this->d['success']. ' </b> ' . '   
+            echo '<br>
+            <div class="alert alert-success">
+            ' .  $this->d['success'] . '   
             </div>
             ';
         }

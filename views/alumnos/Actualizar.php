@@ -19,37 +19,37 @@
         </div>
         <div class="card mt-3">
             <div class="card-body">
-                <form class="form" action="<?php echo constant('URL'); ?>alumnos/ActualizarR" method="POST">
+                <form class="form" action="<?php echo constant('URL'); ?>alumnos/ActualizarR" method="POST" enctype="multipart/form-data" accept=".png, .jpg, .jpeg, .webp">
                     <div class="row">
                         <input type="hidden" class="form-control" name="txt_IdAlumno" value="<?php echo $this->varTodas->id_alumno; ?>" readonly>
                         <div class="col-md-4 col-12">
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <input type="text" class="form-control" name="txt_nombre" value="<?php echo $this->varTodas->Nombres; ?>" required>
+                                <input type="text" class="form-control" name="txt_nombre" value="<?php echo $this->varTodas->Nombres; ?>">
                             </div>
                         </div>
                         <div class="col-md-4 col-12">
                             <div class="form-group">
                                 <label for="city-column">Apellido Paterno</label>
-                                <input type="text" class="form-control" name="txt_ApPaterno" value="<?php echo $this->varTodas->Apellido_Paterno; ?>" required>
+                                <input type="text" class="form-control" name="txt_ApPaterno" value="<?php echo $this->varTodas->Apellido_Paterno; ?>">
                             </div>
                         </div>
                         <div class="col-md-4 col-12">
                             <div class="form-group">
                                 <label>Apellido Materno</label>
-                                <input type="text" class="form-control" name="txt_ApMaterno" value="<?php echo $this->varTodas->Apellido_Materno; ?>" required>
+                                <input type="text" class="form-control" name="txt_ApMaterno" value="<?php echo $this->varTodas->Apellido_Materno; ?>">
                             </div>
                         </div>
                         <div class="col-md-3 col-12">
                             <div class="form-group">
                                 <label>Fecha de nacimiento</label>
-                                <input type="date" class="form-control" name="txt_FeNacimiento" value="<?php echo $this->varTodas->Fecha_nacimiento; ?>" required>
+                                <input type="date" class="form-control" name="txt_FeNacimiento" value="<?php echo $this->varTodas->Fecha_nacimiento; ?>">
                             </div>
                         </div>
                         <div class="col-md-2 col-12">
                             <div class="form-group">
                                 <label>Sexo</label>
-                                <select class="form-select" name="txt_sexo" required>
+                                <select class="form-select" name="txt_sexo" >
                                     <option><?php echo $this->varTodas->Sexo; ?></option>
                                     <option>Femenino</option>
                                     <option>Maculino</option>
@@ -60,17 +60,7 @@
                         <div class="col-md-7 col-12">
                             <div class="form-group">
                                 <label>Curp</label>
-                                <input type="text" class="form-control" name="txt_curp" value="<?php echo $this->varTodas->Curp; ?>" required>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-12">
-                            <?php $ruta = "public/images/Alumnos/" . $this->varTodas->Foto_Alumno; ?>
-                            <img src="<?php echo constant('URL') . $ruta; ?>" height="90px" width="90px">
-                        </div>
-                        <div class="col-md-8 col-12">
-                            <div class="form-group"><br>
-                                <label>Subir Foto Nueva</label>
-                                <input type="file" class="form-control" name="filename" value="<?php echo $this->varTodas->Foto_Alumno; ?>" required>
+                                <input type="text" class="form-control" name="txt_curp" value="<?php echo $this->varTodas->Curp; ?>" >
                             </div>
                         </div>
                         <div class="col-12 d-flex justify-content-end mt-4">
@@ -78,6 +68,7 @@
                         </div>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

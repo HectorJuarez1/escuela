@@ -82,7 +82,7 @@
                         <li class="dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar me-2">
-                                    <img src="<?php echo constant('URL'); ?>public/assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                    <img src="<?php echo constant('URL'); ?>public/assets/images/avatar/avatar-s-5.png" alt="" srcset="">
                                 </div>
                                 <div class="d-none d-md-block d-lg-inline-block">hector.coyotl</div>
                             </a>
