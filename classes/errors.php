@@ -9,6 +9,7 @@ class Errors{
     //const ERROR_ADMIN_NEWCATEGORY_EXISTS = "El nombre de la categoría ya existe, intenta otra";
     const ERROR_ALTA_ALUMNO        = "1f8f0a";
     const ERROR_DELATE       = "1f8f1b";
+    const ERROR_DELATE_TUTOR       = "0f0735";
     const ERROR_NO_DELATE       = "1C4f0b";
 
     const ERROR_ADMIN_NEWCATEGORY_EXISTS        = "1f8f0ae8963b16403c3ec9ebb851f156";
@@ -41,7 +42,8 @@ class Errors{
 
             Errors::ERROR_ALTA_ALUMNO            => 'Hubo un error al intentar registrarte. Intenta de nuevo',
             Errors::ERROR_DELATE            => 'Alumno dado de baja',
-            Errors::ERROR_NO_DELATE            => 'Hubo un error al eliminar el alumno. Intenta de nuevo',
+            Errors::ERROR_NO_DELATE            => 'Hubo un error  el registro. Intenta de nuevo',
+            Errors::ERROR_DELATE_TUTOR            => 'Tutor Eliminado',
 
             Errors::ERROR_ADMIN_NEWCATEGORY_EXISTS => 'El nombre de la categoría ya existe, intenta otra',
             Errors::ERROR_EXPENSES_DELETE           => 'Hubo un problema el eliminar el gasto, inténtalo de nuevo',

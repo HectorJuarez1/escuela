@@ -16,6 +16,11 @@
             "role" : "admin"
         },
         {
+            "site" : "tutor", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+        {
             "site" : "alumnos", 
             "access" : "private", 
             "role" : "admin"

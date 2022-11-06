@@ -75,9 +75,11 @@ class Alumnos extends SessionController
         $Dalumnos[4]   = trim($_POST['txt_FeNacimiento']);
         $Dalumnos[5]   = trim($_POST['txt_sexo']);
         $Dalumnos[6]   = trim($_POST['txt_curp']);
+        $Dalumnos[7]   = trim($_POST['com_estatus']);
         if ($this->model->update([
             'txt_IdAlumno' => $Dalumnos[0], 'txt_nombre' =>  $Dalumnos[1], 'txt_ApPaterno' =>  $Dalumnos[2],
-            'txt_ApMaterno' =>  $Dalumnos[3], 'txt_FeNacimiento' =>  $Dalumnos[4], 'txt_sexo' =>  $Dalumnos[5], 'txt_curp' =>  $Dalumnos[6]
+            'txt_ApMaterno' =>  $Dalumnos[3], 'txt_FeNacimiento' =>  $Dalumnos[4], 'txt_sexo' =>  $Dalumnos[5],
+            'txt_curp' =>  $Dalumnos[6],'com_estatus' =>  $Dalumnos[7]
         ])) {
             // actualizar alumno exito
             $alumnos = new varTodas();
@@ -88,6 +90,7 @@ class Alumnos extends SessionController
             $alumnos->Fecha_nacimiento =  $Dalumnos[4];
             $alumnos->Sexo =  $Dalumnos[5];
             $alumnos->Curp =  $Dalumnos[6];
+            $alumnos->id_Estatus =  $Dalumnos[7];
             $this->view->varTodas = $alumnos;
             error_log('ActualizarR::Datos del Alumnos Actualizados');
             $this->redirect('alumnos', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);

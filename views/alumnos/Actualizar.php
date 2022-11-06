@@ -46,23 +46,38 @@
                                 <input type="date" class="form-control" name="txt_FeNacimiento" value="<?php echo $this->varTodas->Fecha_nacimiento; ?>">
                             </div>
                         </div>
+
                         <div class="col-md-2 col-12">
                             <div class="form-group">
                                 <label>Sexo</label>
-                                <select class="form-select" name="txt_sexo" >
-                                    <option><?php echo $this->varTodas->Sexo; ?></option>
-                                    <option>Femenino</option>
-                                    <option>Maculino</option>
-                                    <option>Otro</option>
+                                <select class="form-select" name="txt_sexo">
+                                    <option> <?php echo $this->varTodas->Sexo; ?></option>
+                                    <?php
+                                    if ($this->varTodas->Sexo == 'Femenino') {
+                                        echo "<option>Maculino</option>";
+                                    } else {
+                                        echo "<option>Femenino</option>";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-7 col-12">
                             <div class="form-group">
                                 <label>Curp</label>
-                                <input type="text" class="form-control" name="txt_curp" value="<?php echo $this->varTodas->Curp; ?>" >
+                                <input type="text" class="form-control" name="txt_curp" value="<?php echo $this->varTodas->Curp; ?>">
                             </div>
                         </div>
+                        <div class="col-md-2 col-12">
+                            <div class="form-group">
+                                <label>Estatus</label>
+                                <select class="form-select" name="com_estatus">
+                                    <option value="100">Activo</option>
+                                    <option value="101">Baja</option>
+                                </select>
+                            </div>
+                        </div>
+                        
                         <div class="col-12 d-flex justify-content-end mt-4">
                             <button type="submit" class="btn btn-warning me-1 mb-1">Actualizar</button>
                         </div>

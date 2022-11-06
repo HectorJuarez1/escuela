@@ -115,7 +115,7 @@ class AlumnosModel extends Model
     }
     public function update($item){
         $query = $this->db->connect()->prepare("UPDATE alumnos SET Nombres = :Nom,Apellido_Paterno = :Ap,Apellido_Materno = :Am,
-        Sexo = :Sex,Fecha_nacimiento = :Fn,Curp=:Cur WHERE id_alumno = :id_al");
+        Sexo = :Sex,Fecha_nacimiento = :Fn,Curp=:Cur,id_Estatus=:est WHERE id_alumno = :id_al");
         try{
             $query->execute([
                 'id_al'=> $item['txt_IdAlumno'],
@@ -124,7 +124,8 @@ class AlumnosModel extends Model
                 'Am'=> $item['txt_ApMaterno'],
                 'Sex'=> $item['txt_sexo'],
                 'Fn'=> $item['txt_FeNacimiento'],
-                'Cur'=> $item['txt_curp']
+                'Cur'=> $item['txt_curp'],
+                'est'=> $item['com_estatus']
             ]);
             return true;
         }catch(PDOException $e){

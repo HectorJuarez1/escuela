@@ -47,7 +47,7 @@
                                     <a href="<?php echo constant('URL'); ?>alumnos">Alumnos</a>
                                 </li>
                                 <li>
-                                    <a href="form-element-select.html">Padres</a>
+                                    <a href="<?php echo constant('URL'); ?>tutor">Padre / Tutor</a>
                                 </li>
                                 <li>
                                     <a href="form-element-radio.html">Maestro</a>
