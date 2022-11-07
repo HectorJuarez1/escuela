@@ -2,6 +2,7 @@
 
 class varTodas{
     // users
+    public $idUser;
     public $username;
     public $role;
 

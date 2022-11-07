@@ -48,12 +48,6 @@ class AlumnosModel extends Model
             return [];
         }
     }
-
-
-
-
-
-
     public function insertAlumno($datos)
     {
         try {
@@ -81,14 +75,12 @@ class AlumnosModel extends Model
     {
         $query = $this->db->connect()->prepare("UPDATE alumnos SET id_Estatus = 101 WHERE id_alumno = :id_alum");
         try {
-
             $query->execute(['id_alum' => $vw_id_alumno]);
             return true;
         } catch (PDOException $e) {
             return false;
         }
     }
-    
     public function getById($id_alumno){
         $item = new varTodas();
         $query = $this->db->connect()->prepare("SELECT * FROM alumnos WHERE id_alumno = :id_al");

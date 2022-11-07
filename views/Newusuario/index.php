@@ -12,6 +12,9 @@
 <body>
 
     <?php require 'views/template/header.php'; ?>
+    <?php $this->showMessages(); ?>
+
+<a href="<?php echo constant('URL'); ?>Newusuario/new" class="btn btn-success rounded-pill">Nuevo</a><br><br>
     <div class="card">
         <div class="card-header">
             USUARIOS
@@ -22,7 +25,6 @@
                     <tr>
                         <th class="text-center">Usuario</th>
                         <th class="text-center">Rol</th>
-                        <th class="text-center">Estatus</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -34,11 +36,9 @@
                         <tr class="text-center">
                             <td><?php echo $Nusuario->username; ?></td>
                             <td><?php echo $Nusuario->role; ?></td>
-                            <td><?php echo '
-                            <span class="badge bg-success">Active</span>'; ?></td>
                             <td class="text-center">
-                                <a href="<?php echo constant('URL') . 'Nusuario/verDetalle/' . $Nusuario->vw_id_alumno ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
-                                <a href="<?php echo constant('URL') . 'Nusuario/eliminarAl/' . $Nusuario->vw_id_alumno ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
+                                <a href="<?php echo constant('URL') . 'Newusuario/verDetalle/' . $Nusuario->idUser ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
+                                <a href="<?php echo constant('URL') . 'Newusuario/eliminarUser/' . $Nusuario->idUser ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
