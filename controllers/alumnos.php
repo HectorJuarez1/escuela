@@ -9,7 +9,7 @@ class Alumnos extends SessionController
     function render()
     {
 
-        $alumnos = $this->model->getAll();
+        $alumnos = $this->model->getAllAlumnos();
         $this->view->varTodas = $alumnos;
 
 
@@ -18,8 +18,8 @@ class Alumnos extends SessionController
 
     function new()
     {
-        $tutor = $this->model->getTutor();
-        $this->view->TutorCom = $tutor;
+    /*   $tutor = $this->model->getTutor();
+        $this->view->TutorCom = $tutor; */
         $this->view->render('alumnos/nuevo');
     }
 

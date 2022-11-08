@@ -10,6 +10,8 @@ class Success{
     const SUCCESS_ADMIN_UPDATE_ALUMNO    = "6fb34a";
     const SUCCESS_ADMIN_ALTAS      = "fcd919";
     const SUCCESS_ADMIN_NEW_TUTOR    = "8281e0";
+    const SUCCESS_ADMIN_NEW_MAESTRO    = "edabc9e";
+
 
     const SUCCESS_EXPENSES_DELETE       = "fcd919285d5759328b143801573ec47d";
     const SUCCESS_EXPENSES_NEWEXPENSE   = "fbbd0f23184e820e1df466abe6102955";
@@ -29,6 +31,7 @@ class Success{
             Success::SUCCESS_ADMIN_NEW_AULA => "Nueva aula creada",
             Success::SUCCESS_ADMIN_UPDATE_ALUMNO => "Datos del alumno Actualizados",
             Success::SUCCESS_ADMIN_NEW_TUTOR => "Nuevo tutor creado",
+            Success::SUCCESS_ADMIN_NEW_MAESTRO => "Nuevo maestro creado.",
             Success::SUCCESS_USER_UPDATEBUDGET => "Presupuesto actualizado correctamente",
             Success::SUCCESS_USER_UPDATENAME => "Nombre actualizado correctamente",
             Success::SUCCESS_USER_UPDATEPASSWORD => "Contraseña actualizado correctamente",

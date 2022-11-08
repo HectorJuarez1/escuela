@@ -8,23 +8,20 @@ class AlumnosModel extends Model
         parent::__construct();
     }
 
-    public function getAll()
+    public function getAllAlumnos()
     {
         $items = [];
         try {
             $query = $this->db->connect()->query('SELECT * FROM vw_detalle_alumnos');
             while ($row = $query->fetch()) {
                 $item = new varTodas();
-                $item->vw_id_alumno = $row['alumno_id'];
-                $item->vw_Nombre_Completo = $row['Nombre_Completo'];
-                $item->vw_Sexo = $row['Sexo'];
-                $item->vw_Curp = $row['Curp'];
-                $item->vw_Edad = $row['Edad'];
-                $item->vw_Foto_alumno = $row['Foto_alumno'];
-                $item->vw_id_Estatus = $row['id_Estatus'];
-                $item->vw_Estatus_Detalle = $row['Estatus_Detalle'];
-
-    
+                $item->vw_a_alumno_id = $row['alumno_id'];
+                $item->vw_a_Nombre_Completo = $row['Nombre_Completo'];
+                $item->vw_a_Sexo = $row['Sexo'];
+                $item->vw_a_Curp = $row['Curp'];
+                $item->vw_a_Edad = $row['Edad'];
+                $item->vw_a_Foto_alumno = $row['Foto_alumno'];
+                $item->vw_a_id_Estatus = $row['id_Estatus'];
                 array_push($items, $item);
             }
             return $items;
@@ -32,22 +29,22 @@ class AlumnosModel extends Model
             return [];
         }
     }
-    public function getTutor()
-    {
-        $items = [];
-        try {
-            $query = $this->db->connect()->query('SELECT * FROM vw_com_tutor');
-            while ($row = $query->fetch()) {
-                $item = new varTodas();
-                $item->vw_id_Tutor = $row['id_Tutor'];
-                $item->vw_Nombre_tutor = $row['Nombre_Completo'];
-                array_push($items, $item);
+    /*     public function getTutor()
+        {
+            $items = [];
+            try {
+                $query = $this->db->connect()->query('SELECT * FROM vw_com_tutor');
+                while ($row = $query->fetch()) {
+                    $item = new varTodas();
+                    $item->vw_id_Tutor = $row['id_Tutor'];
+                    $item->vw_Nombre_tutor = $row['Nombre_Completo'];
+                    array_push($items, $item);
+                }
+                return $items;
+            } catch (PDOException $e) {
+                return [];
             }
-            return $items;
-        } catch (PDOException $e) {
-            return [];
-        }
-    }
+        } */
     public function insertAlumno($datos)
     {
         try {
@@ -82,21 +79,18 @@ class AlumnosModel extends Model
     }
     public function getById($alumno_id){
         $item = new varTodas();
-        $query = $this->db->connect()->prepare("SELECT * FROM alumnos WHERE alumno_id = :id_al");
+        $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_alumnos WHERE alumno_id = :id_al");
         try{
             $query->execute(['id_al' => $alumno_id]);
             while($row = $query->fetch()){
-                $item->alumno_id = $row['alumno_id'];
-                $item->Nombres = $row['Nombres'];
-                $item->Apellido_Paterno = $row['Apellido_Paterno'];
-                $item->Apellido_Materno = $row['Apellido_Materno'];
-                $item->Sexo = $row['Sexo'];
-                $item->Fecha_nacimiento = $row['Fecha_nacimiento'];
-                $item->Curp = $row['Curp'];
-                $item->Foto_Alumno = $row['Foto_alumno'];
-                $item->id_Estatus = $row['id_Estatus'];
-
-
+                $item->vw_a_alumno_id = $row['alumno_id'];
+                $item->vw_a_Nombres = $row['Nombres'];
+                $item->vw_a_Apellido_Paterno = $row['Apellido_Paterno'];
+                $item->vw_a_Apellido_Materno = $row['Apellido_Materno'];
+                $item->vw_a_Sexo = $row['Sexo'];
+                $item->vw_a_Fecha_nacimiento = $row['Fecha_nacimiento'];
+                $item->vw_a_Curp = $row['Curp'];
+                $item->vw_a_id_Estatus = $row['id_Estatus'];
             }
             return $item;
         }catch(PDOException $e){

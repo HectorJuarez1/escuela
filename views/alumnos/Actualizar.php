@@ -21,29 +21,29 @@
             <div class="card-body">
                 <form class="form" action="<?php echo constant('URL'); ?>alumnos/ActualizarR" method="POST" enctype="multipart/form-data" accept=".png, .jpg, .jpeg, .webp">
                     <div class="row">
-                        <input type="hidden" class="form-control" name="txt_IdAlumno" value="<?php echo $this->varTodas->alumno_id; ?>" readonly>
+                        <input type="hidden" class="form-control" name="txt_IdAlumno" value="<?php echo $this->varTodas->vw_a_alumno_id; ?>" readonly>
                         <div class="col-md-4 col-12">
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <input type="text" class="form-control" name="txt_nombre" value="<?php echo $this->varTodas->Nombres; ?>">
+                                <input type="text" class="form-control" name="txt_nombre" value="<?php echo $this->varTodas->vw_a_Nombres; ?>">
                             </div>
                         </div>
                         <div class="col-md-4 col-12">
                             <div class="form-group">
                                 <label for="city-column">Apellido Paterno</label>
-                                <input type="text" class="form-control" name="txt_ApPaterno" value="<?php echo $this->varTodas->Apellido_Paterno; ?>">
+                                <input type="text" class="form-control" name="txt_ApPaterno" value="<?php echo $this->varTodas->vw_a_Apellido_Paterno; ?>">
                             </div>
                         </div>
                         <div class="col-md-4 col-12">
                             <div class="form-group">
                                 <label>Apellido Materno</label>
-                                <input type="text" class="form-control" name="txt_ApMaterno" value="<?php echo $this->varTodas->Apellido_Materno; ?>">
+                                <input type="text" class="form-control" name="txt_ApMaterno" value="<?php echo $this->varTodas->vw_a_Apellido_Materno; ?>">
                             </div>
                         </div>
                         <div class="col-md-3 col-12">
                             <div class="form-group">
                                 <label>Fecha de nacimiento</label>
-                                <input type="date" class="form-control" name="txt_FeNacimiento" value="<?php echo $this->varTodas->Fecha_nacimiento; ?>">
+                                <input type="date" class="form-control" name="txt_FeNacimiento" value="<?php echo $this->varTodas->vw_a_Fecha_nacimiento; ?>">
                             </div>
                         </div>
 
@@ -51,9 +51,9 @@
                             <div class="form-group">
                                 <label>Sexo</label>
                                 <select class="form-select" name="txt_sexo">
-                                    <option> <?php echo $this->varTodas->Sexo; ?></option>
+                                    <option> <?php echo $this->varTodas->vw_a_Sexo; ?></option>
                                     <?php
-                                    if ($this->varTodas->Sexo == 'Femenino') {
+                                    if ($this->varTodas->vw_a_Sexo == 'Femenino') {
                                         echo "<option>Maculino</option>";
                                     } else {
                                         echo "<option>Femenino</option>";
@@ -65,7 +65,7 @@
                         <div class="col-md-7 col-12">
                             <div class="form-group">
                                 <label>Curp</label>
-                                <input type="text" class="form-control" name="txt_curp" value="<?php echo $this->varTodas->Curp; ?>">
+                                <input type="text" class="form-control" name="txt_curp" value="<?php echo $this->varTodas->vw_a_Curp; ?>">
                             </div>
                         </div>
                         <div class="col-md-2 col-12">
@@ -74,6 +74,7 @@
                                 <select class="form-select" name="com_estatus">
                                     <option value="100">Activo</option>
                                     <option value="101">Baja</option>
+                                    <option value="102">Baja Temporal</option>
                                 </select>
                             </div>
                         </div>

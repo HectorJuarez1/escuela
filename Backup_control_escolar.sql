@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `control_escolar` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `control_escolar`;
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: control_escolar
@@ -55,10 +57,10 @@ CREATE TABLE `alumnos` (
   `Fecha_nacimiento` date NOT NULL,
   `Curp` varchar(45) NOT NULL,
   `Foto_alumno` varchar(45) NOT NULL,
-  `id_Estatus` int NOT NULL,
   `Fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id_Estatus` int NOT NULL,
   PRIMARY KEY (`alumno_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +69,7 @@ CREATE TABLE `alumnos` (
 
 LOCK TABLES `alumnos` WRITE;
 /*!40000 ALTER TABLE `alumnos` DISABLE KEYS */;
-INSERT INTO `alumnos` VALUES (2,'Hector','Coyotl','Juarez','Maculino','2012-09-10','FODF910819HMSLZR07','1.png',101,'2022-11-08 02:51:05'),(3,'Galilea','González','Reyes','Femenino','2015-03-06','FABM770222MMSJNR00','4.png',100,'2022-11-08 02:49:57'),(4,'Juan','Cabrera','Garcia','Maculino','2015-01-10','CAGS620415HVZBRT22','8.png',100,'2022-11-08 02:49:57'),(5,'Karen Odette','Domínguez','Velázquez','Femenino','2015-06-05','CATC650228MMCMRR03','7.png',100,'2022-11-08 02:49:57'),(6,'Lizbeth Soledad','Falcón','Duarte','Femenino','2016-05-01','CAVA550828HGRNLG04','6.png',102,'2022-11-08 02:50:18'),(7,'Oscar','Carranco','Mandujado','Maculino','2014-03-06','CAMJ680624MGRRRN00','9.png',101,'2022-11-08 02:49:57'),(8,'111','11','111','Femenino','1111-12-12','11111','para tarea.png',100,'2022-11-08 03:09:13'),(9,'213','213','213','Femenino','2021-01-01','wqewq','HECTOR_COYOTL.gif',101,'2022-11-08 03:07:39'),(10,'2313adsada','213asdsad','213asdsad','Maculino','2021-01-01','213213213','HECTOR_COYOTL.gif',100,'2022-11-08 03:11:05');
+INSERT INTO `alumnos` VALUES (2,'Hector','Coyotl','Juarez','Maculino','2012-09-10','FODF910819HMSLZR07','1.png','2022-11-08 04:36:56',101),(3,'Galilea','González','Reyes','Femenino','2015-03-06','FABM770222MMSJNR00','4.png','2022-11-03 06:15:55',100),(4,'Juan','Cabrera','Garcia','Maculino','2015-01-10','CAGS620415HVZBRT22','8.png','2022-11-08 04:37:38',100),(5,'Karen Odette','Domínguez','Velázquez','Femenino','2015-06-05','CATC650228MMCMRR03','7.png','2022-11-03 06:16:26',100),(6,'Lizbeth Soledad','Falcón','Duarte','Femenino','2016-05-01','CAVA550828HGRNLG04','6.png','2022-11-03 06:16:26',100),(7,'Oscar','Carranco','Mandujado','Maculino','2014-03-06','CAMJ680624MGRRRN00','9.png','2022-11-08 04:37:42',102),(11,'sadsad','asdsad','asdsad','Maculino','2009-01-09','21321edsad','para tarea.png','2022-11-08 06:24:33',101);
 /*!40000 ALTER TABLE `alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,15 +212,7 @@ CREATE TABLE `notas` (
   `valor_nota` int NOT NULL,
   `periodo_id` int NOT NULL,
   `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`nota_id`),
-  KEY `materia_id` (`materia_id`),
-  KEY `alumno_id` (`alumno_id`),
-  KEY `actividad_id` (`actividad_id`),
-  KEY `periodo_id` (`periodo_id`),
-  CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `notas_ibfk_2` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`alumno_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `notas_ibfk_3` FOREIGN KEY (`actividad_id`) REFERENCES `actividad` (`actividad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `notas_ibfk_4` FOREIGN KEY (`periodo_id`) REFERENCES `periodos` (`periodo_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`nota_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -267,11 +261,7 @@ CREATE TABLE `procesoalumno` (
   `alumno_id` int NOT NULL,
   `proceso_id` int NOT NULL,
   `estadop` int NOT NULL,
-  PRIMARY KEY (`procesoa_id`),
-  KEY `alumno_id` (`alumno_id`),
-  KEY `proceso_id` (`proceso_id`),
-  CONSTRAINT `procesoalumno_ibfk_1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`alumno_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `procesoalumno_ibfk_2` FOREIGN KEY (`proceso_id`) REFERENCES `procesoprofesor` (`proceso_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`procesoa_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -297,13 +287,7 @@ CREATE TABLE `procesoprofesor` (
   `aula_id` int NOT NULL,
   `profesor_id` int NOT NULL,
   `estado` int NOT NULL DEFAULT '1',
-  PRIMARY KEY (`proceso_id`),
-  KEY `grado_id` (`grado_id`),
-  KEY `aula_id` (`aula_id`),
-  KEY `profesor_id` (`profesor_id`),
-  CONSTRAINT `procesoprofesor_ibfk_1` FOREIGN KEY (`aula_id`) REFERENCES `aulas` (`aula_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `procesoprofesor_ibfk_2` FOREIGN KEY (`grado_id`) REFERENCES `grados` (`grado_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `procesoprofesor_ibfk_3` FOREIGN KEY (`profesor_id`) REFERENCES `profesor` (`profesor_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`proceso_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -334,8 +318,9 @@ CREATE TABLE `profesor` (
   `Sexo` varchar(20) NOT NULL,
   `Fecha_nacimiento` date NOT NULL,
   `Fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `estatus_maestro_id` int NOT NULL,
   PRIMARY KEY (`profesor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -344,6 +329,7 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
+INSERT INTO `profesor` VALUES (4,'7777','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','1111111117','Maculino','2010-01-09','2022-11-08 06:03:55',100),(5,'2313','Adriana','Aguilar','Aguilar','Avenida 8 Poniente Puebla Puebla','2222222222','Femenino','2000-12-01','2022-11-08 06:04:06',100),(6,'213443f3a','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2222222222','Femenino','2009-09-09','2022-11-08 06:04:23',101);
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -371,7 +357,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'hector.coyotl','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-10-19 09:19:52'),(2,'laura.romero','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','user','Laura Romero','2022-10-19 09:19:52'),(3,'david.hernandez','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','profesor','David Hernandez','2022-10-19 09:20:45'),(4,'jose.perez','$2y$10$xDcPpocBO.zu58MfNNF.T.IoH0zNO4kU3iuyx.xtbi29ReDrthgIa','admin','Jose Perez Leon','2022-11-08 03:18:34');
+INSERT INTO `users` VALUES (1,'hector.coyotl','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-10-19 09:19:52'),(2,'laura.romero','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','user','Laura Romero','2022-10-19 09:19:52'),(3,'david.hernandez','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','profesor','David Hernandez','2022-10-19 09:20:45');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,6 +381,30 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `Edad`,
  1 AS `Foto_alumno`,
  1 AS `id_Estatus`,
+ 1 AS `Estatus_Detalle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_detalle_maestros`
+--
+
+DROP TABLE IF EXISTS `vw_detalle_maestros`;
+/*!50001 DROP VIEW IF EXISTS `vw_detalle_maestros`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_detalle_maestros` AS SELECT 
+ 1 AS `profesor_id`,
+ 1 AS `Cedula`,
+ 1 AS `Nombre_Completo`,
+ 1 AS `Nombre`,
+ 1 AS `Apellido_Paterno`,
+ 1 AS `Apellido_Materno`,
+ 1 AS `Direccion`,
+ 1 AS `Telefono`,
+ 1 AS `Sexo`,
+ 1 AS `Fecha_nacimiento`,
+ 1 AS `Edad`,
+ 1 AS `estatus_maestro_id`,
  1 AS `Estatus_Detalle`*/;
 SET character_set_client = @saved_cs_client;
 
@@ -423,6 +433,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_detalle_maestros`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_detalle_maestros`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_detalle_maestros` AS select `a`.`profesor_id` AS `profesor_id`,`a`.`Cedula` AS `Cedula`,concat_ws(' ',`a`.`Nombre`,`a`.`Apellido_paterno`,`a`.`Apellido_Materno`) AS `Nombre_Completo`,`a`.`Nombre` AS `Nombre`,`a`.`Apellido_paterno` AS `Apellido_Paterno`,`a`.`Apellido_Materno` AS `Apellido_Materno`,`a`.`Direccion` AS `Direccion`,`a`.`Telefono` AS `Telefono`,`a`.`Sexo` AS `Sexo`,`a`.`Fecha_nacimiento` AS `Fecha_nacimiento`,timestampdiff(YEAR,`a`.`Fecha_nacimiento`,curdate()) AS `Edad`,`a`.`estatus_maestro_id` AS `estatus_maestro_id`,`es`.`Descripcion` AS `Estatus_Detalle` from (`profesor` `a` join `estatus` `es` on((`a`.`estatus_maestro_id` = `es`.`idEstatus`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -433,4 +461,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-07 21:58:46
+-- Dump completed on 2022-11-08  0:29:04

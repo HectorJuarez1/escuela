@@ -50,7 +50,7 @@
                                     <a href="<?php echo constant('URL'); ?>tutor">Padre / Tutor</a>
                                 </li>
                                 <li>
-                                    <a href="form-element-radio.html">Maestro</a>
+                                    <a href="<?php echo constant('URL'); ?>maestros">Maestros</a>
                                 </li>
                             </ul>
                         </li>
