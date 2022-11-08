@@ -50,6 +50,9 @@
                   } elseif ($alumnos->vw_id_Estatus == 101) {
                     echo '<span class="badge bg-danger">Baja</span>';
                   }
+                  elseif ($alumnos->vw_id_Estatus == 102) {
+                    echo '<span class="badge bg-warning">Baja Temporal</span>';
+                  }
                   ?></td>
               <td class="text-center">
                 <a href="<?php echo constant('URL') . 'alumnos/verDetalle/' . $alumnos->vw_id_alumno ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>

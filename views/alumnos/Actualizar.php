@@ -21,7 +21,7 @@
             <div class="card-body">
                 <form class="form" action="<?php echo constant('URL'); ?>alumnos/ActualizarR" method="POST" enctype="multipart/form-data" accept=".png, .jpg, .jpeg, .webp">
                     <div class="row">
-                        <input type="hidden" class="form-control" name="txt_IdAlumno" value="<?php echo $this->varTodas->id_alumno; ?>" readonly>
+                        <input type="hidden" class="form-control" name="txt_IdAlumno" value="<?php echo $this->varTodas->alumno_id; ?>" readonly>
                         <div class="col-md-4 col-12">
                             <div class="form-group">
                                 <label>Nombre</label>

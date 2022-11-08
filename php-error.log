@@ -1,0 +1,8 @@
+[07-Nov-2022 21:09:13 America/Mexico_City] ActualizarR::Datos del Alumnos Actualizados
+[07-Nov-2022 21:11:05 America/Mexico_City] ActualizarR::Datos del Alumnos Actualizados
+[07-Nov-2022 21:18:34 America/Mexico_City] saveUs::Nuevo usuarios creado
+[07-Nov-2022 21:18:39 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[07-Nov-2022 21:18:51 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[07-Nov-2022 22:00:03 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 9
+[07-Nov-2022 22:00:21 America/Mexico_City] ActualizarR::Datos del Alumnos Actualizados
+[07-Nov-2022 22:00:25 America/Mexico_City] eliminarAl::Alumno dado de baja

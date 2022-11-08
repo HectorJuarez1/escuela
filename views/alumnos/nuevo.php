@@ -67,19 +67,6 @@
                                 <input type="file" class="form-control" name="filename" required>
                             </div>
                         </div>
-                            <div class="col-md-5 col-12">
-                                <label>Tutor / Padre</label>
-                                <select class="form-select" name="txt_tutor" id="inputGroupSelect01" required>
-                                    <option selected>Abrir este menú de selección</option>
-                                    <?php foreach ($this->TutorCom as $row) {
-                                        $tutor = new varTodas();
-                                        $tutor = $row; ?>
-                                        <option value="<?php echo $tutor->vw_id_Tutor; ?>">
-                                            <?php echo $tutor->vw_Nombre_tutor; ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-
                             <div class="col-12 d-flex justify-content-end mt-4">
                                 <button type="submit" class="btn btn-success me-1">Registrar</button>
                                 <button type="reset" class="btn btn-light">Limpiar</button>

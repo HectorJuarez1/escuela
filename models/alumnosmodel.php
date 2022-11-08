@@ -15,7 +15,7 @@ class AlumnosModel extends Model
             $query = $this->db->connect()->query('SELECT * FROM vw_detalle_alumnos');
             while ($row = $query->fetch()) {
                 $item = new varTodas();
-                $item->vw_id_alumno = $row['id_alumno'];
+                $item->vw_id_alumno = $row['alumno_id'];
                 $item->vw_Nombre_Completo = $row['Nombre_Completo'];
                 $item->vw_Sexo = $row['Sexo'];
                 $item->vw_Curp = $row['Curp'];
@@ -52,8 +52,8 @@ class AlumnosModel extends Model
     {
         try {
             $query = $this->db->connect()
-                ->prepare('INSERT INTO alumnos(Nombres,Apellido_Paterno,Apellido_Materno,Sexo,Fecha_nacimiento,Curp,Foto_alumno,id_Estatus,id_Tutor) 
-                VALUES (:nom,:ap,:am,:sex,:fn,:cur,:fal,100,:tur)');
+                ->prepare('INSERT INTO alumnos(Nombres,Apellido_Paterno,Apellido_Materno,Sexo,Fecha_nacimiento,Curp,Foto_alumno,id_Estatus) 
+                VALUES (:nom,:ap,:am,:sex,:fn,:cur,:fal,100)');
                 $query->execute([
                 'nom' => $datos['txt_nombre'],
                 'ap' => $datos['txt_ApPaterno'],
@@ -61,8 +61,7 @@ class AlumnosModel extends Model
                 'sex' => $datos['txt_sexo'],
                 'fn' => $datos['txt_FeNacimiento'],
                 'cur' => $datos['txt_curp'],
-                'fal' => $datos['filename'],
-                'tur' => $datos['txt_tutor']
+                'fal' => $datos['filename']
 
             ]);
             return true;
@@ -73,7 +72,7 @@ class AlumnosModel extends Model
     }
     public function deleteAlumno($vw_id_alumno)
     {
-        $query = $this->db->connect()->prepare("UPDATE alumnos SET id_Estatus = 101 WHERE id_alumno = :id_alum");
+        $query = $this->db->connect()->prepare("UPDATE alumnos SET id_Estatus = 101 WHERE alumno_id = :id_alum");
         try {
             $query->execute(['id_alum' => $vw_id_alumno]);
             return true;
@@ -81,13 +80,13 @@ class AlumnosModel extends Model
             return false;
         }
     }
-    public function getById($id_alumno){
+    public function getById($alumno_id){
         $item = new varTodas();
-        $query = $this->db->connect()->prepare("SELECT * FROM alumnos WHERE id_alumno = :id_al");
+        $query = $this->db->connect()->prepare("SELECT * FROM alumnos WHERE alumno_id = :id_al");
         try{
-            $query->execute(['id_al' => $id_alumno]);
+            $query->execute(['id_al' => $alumno_id]);
             while($row = $query->fetch()){
-                $item->id_alumno = $row['id_alumno'];
+                $item->alumno_id = $row['alumno_id'];
                 $item->Nombres = $row['Nombres'];
                 $item->Apellido_Paterno = $row['Apellido_Paterno'];
                 $item->Apellido_Materno = $row['Apellido_Materno'];
@@ -96,7 +95,6 @@ class AlumnosModel extends Model
                 $item->Curp = $row['Curp'];
                 $item->Foto_Alumno = $row['Foto_alumno'];
                 $item->id_Estatus = $row['id_Estatus'];
-                $item->id_Tutor = $row['id_Tutor'];
 
 
             }
@@ -107,7 +105,7 @@ class AlumnosModel extends Model
     }
     public function update($item){
         $query = $this->db->connect()->prepare("UPDATE alumnos SET Nombres = :Nom,Apellido_Paterno = :Ap,Apellido_Materno = :Am,
-        Sexo = :Sex,Fecha_nacimiento = :Fn,Curp=:Cur,id_Estatus=:est WHERE id_alumno = :id_al");
+        Sexo = :Sex,Fecha_nacimiento = :Fn,Curp=:Cur,id_Estatus=:est WHERE alumno_id = :id_al");
         try{
             $query->execute([
                 'id_al'=> $item['txt_IdAlumno'],

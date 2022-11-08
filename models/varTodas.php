@@ -7,7 +7,7 @@ class varTodas{
     public $role;
 
     //alumno
-    public $id_alumno;
+    public $alumno_id;
     public $Nombres;
     public $Apellido_Paterno;
     public $Apellido_Materno;
@@ -16,7 +16,6 @@ class varTodas{
     public $Curp;
     public $Foto_Alumno;
     public $id_Estatus;
-    public $id_Tutor;
 
     // alumno vista
     public $vw_id_alumno;
