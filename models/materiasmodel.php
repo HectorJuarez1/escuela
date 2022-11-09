@@ -1,23 +1,23 @@
 <?php
 include_once 'models/varTodas.php';
 
-class AulasModel extends Model
+class MateriasModel extends Model
 {
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function getAllAulas()
+    public function getAllMaterias()
     {
         $items = [];
         try {
-            $query = $this->db->connect()->query('SELECT * FROM aulas');
+            $query = $this->db->connect()->query('SELECT * FROM materias');
             while ($row = $query->fetch()) {
                 $item = new varTodas();
-                $item->aula_id = $row['aula_id'];
-                $item->nombre_aula = $row['nombre_aula'];
-                $item->estatus_aulas_id = $row['estatus_aulas_id'];
+                $item->materia_id = $row['materia_id'];
+                $item->nombre_materia = $row['nombre_materia'];
+                $item->estatus_materias_id = $row['estatus_materias_id'];
                 array_push($items, $item);
             }
             return $items;
@@ -25,14 +25,14 @@ class AulasModel extends Model
             return [];
         }
     }
-    public function insertAula($datos)
+    public function insertMateria($datos)
     {
         try {
             $query = $this->db->connect()
-                ->prepare('INSERT INTO aulas(nombre_aula,estatus_aulas_id) 
+                ->prepare('INSERT INTO materias(nombre_materia,estatus_materias_id) 
                 VALUES (:nom,100)');
             $query->execute([
-                'nom' => $datos['txt_NomGrado']
+                'nom' => $datos['txt_NomMaterias']
 
             ]);
             return true;
@@ -41,26 +41,26 @@ class AulasModel extends Model
             return false;
         }
     }
-    public function deleteAula($aula_id)
+    public function deleteMateria($materia_id)
     {
-        $query = $this->db->connect()->prepare("UPDATE aulas SET estatus_aulas_id = 103 WHERE aula_id = :id_au");
+        $query = $this->db->connect()->prepare("UPDATE materias SET estatus_materias_id = 103 WHERE materia_id = :id_ma");
         try {
-            $query->execute(['id_au' => $aula_id]);
+            $query->execute(['id_ma' => $materia_id]);
             return true;
         } catch (PDOException $e) {
             return false;
         }
     }
-    public function getById($aula_id)
+    public function getById($materia_id)
     {
         $item = new varTodas();
-        $query = $this->db->connect()->prepare("SELECT * FROM aulas WHERE aula_id = :id_aul");
+        $query = $this->db->connect()->prepare("SELECT * FROM materias WHERE materia_id = :id_mat");
         try {
-            $query->execute(['id_aul' => $aula_id]);
+            $query->execute(['id_mat' => $materia_id]);
             while ($row = $query->fetch()) {
-                $item->aula_id = $row['aula_id'];
-                $item->nombre_aula = $row['nombre_aula'];
-                $item->estatus_aulas_id = $row['estatus_aulas_id'];
+                $item->materia_id = $row['materia_id'];
+                $item->nombre_materia = $row['nombre_materia'];
+                $item->estatus_materias_id = $row['estatus_materias_id'];
             }
             return $item;
         } catch (PDOException $e) {
@@ -69,11 +69,11 @@ class AulasModel extends Model
     }
     public function update($item)
     {
-        $query = $this->db->connect()->prepare("UPDATE aulas SET nombre_aula = :Nom,estatus_aulas_id=:est WHERE aula_id = :id_aul");
+        $query = $this->db->connect()->prepare("UPDATE materias SET nombre_materia = :Nom,estatus_materias_id=:est WHERE materia_id = :id_mat");
         try {
             $query->execute([
-                'id_aul' => $item['txt_IdAulas'],
-                'Nom' => $item['txt_NomGrado'],
+                'id_mat' => $item['txt_IdMaterias'],
+                'Nom' => $item['txt_NomMaterias'],
                 'est' => $item['com_estatus']
             ]);
             return true;

@@ -59,7 +59,7 @@ class Aulas extends SessionController
             $aulas->nombre_aula =  $Daulas[1];
             $aulas->estatus_aulas_id = $Daulas[2];
             $this->view->varTodas = $aulas;
-            error_log('ActGrado::Datos del grado Actualizados');
+            error_log('ActAulas::Datos de la aula Actualizados');
             $this->redirect('aulas', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);
         } else {
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);

@@ -58,6 +58,7 @@ class Controller{
             $params = '?' . $params;
         }
         header('location: ' . constant('URL') . $url . $params);
+        
     }
 }
 

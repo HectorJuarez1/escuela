@@ -67,6 +67,24 @@
                                 <span>Aulas</span>
                             </a>
                         </li>
+                        <li class="sidebar-item  ">
+                            <a href="<?php echo constant('URL'); ?>materias" class='sidebar-link'>
+                                <i data-feather="book-open" width="20"></i>
+                                <span>Materias</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item  ">
+                            <a href="<?php echo constant('URL'); ?>periodos" class='sidebar-link'>
+                                <i data-feather="calendar" width="20"></i>
+                                <span>Periodos</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item  ">
+                            <a href="<?php echo constant('URL'); ?>actividad" class='sidebar-link'>
+                                <i data-feather="plus-circle" width="20"></i>
+                                <span>Actividad</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

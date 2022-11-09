@@ -13,6 +13,12 @@ class Success{
     const SUCCESS_ADMIN_NEW_MAESTRO    = "edabc9e";
 
 
+    const SUCCESS_ADMIN_NEW_MATERIA    = "eSYaic9e";
+    const SUCCESS_ADMIN_UPDATE_MATERIA    = "deYauc9o";
+    const SUCCESS_ADMIN_NEW_PERIODO    = "RqYair9e";
+    const SUCCESS_ADMIN_UPDATE_PERIODO    = "yeYxsc9o";
+
+
     const SUCCESS_EXPENSES_DELETE       = "fcd919285d5759328b143801573ec47d";
     const SUCCESS_EXPENSES_NEWEXPENSE   = "fbbd0f23184e820e1df466abe6102955";
     const SUCCESS_USER_UPDATEBUDGET     = "2ee085ac8828407f4908e4d134195e5c";
@@ -32,6 +38,13 @@ class Success{
             Success::SUCCESS_ADMIN_UPDATE_ALUMNO => "Datos del alumno Actualizados",
             Success::SUCCESS_ADMIN_NEW_TUTOR => "Nuevo tutor creado",
             Success::SUCCESS_ADMIN_NEW_MAESTRO => "Nuevo maestro creado.",
+            Success::SUCCESS_ADMIN_NEW_MATERIA => "Nueva materia creado.",
+            Success::SUCCESS_ADMIN_UPDATE_MATERIA => "Datos de la materia actualizados.",
+            Success::SUCCESS_ADMIN_NEW_PERIODO => "Nueva periodo creado.",
+            Success::SUCCESS_ADMIN_UPDATE_PERIODO => "Datos del periodo actualizados.",
+
+            
+
             Success::SUCCESS_USER_UPDATEBUDGET => "Presupuesto actualizado correctamente",
             Success::SUCCESS_USER_UPDATENAME => "Nombre actualizado correctamente",
             Success::SUCCESS_USER_UPDATEPASSWORD => "Contraseña actualizado correctamente",

@@ -16,6 +16,21 @@
             "role" : "admin"
         },
         {
+            "site" : "actividad", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+        {
+            "site" : "periodos", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+        {
+            "site" : "materias", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+        {
             "site" : "aulas", 
             "access" : "private", 
             "role" : "admin"

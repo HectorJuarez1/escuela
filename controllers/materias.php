@@ -8,59 +8,62 @@ class Materias extends SessionController
     }
     function render()
     {
-        $Naulas = $this->model->getAllAulas();
-        $this->view->varTodas = $Naulas; 
-        $this->view->render('aulas/index');
+      $Nmaterias = $this->model->getAllMaterias();
+        $this->view->varTodas = $Nmaterias;  
+        $this->view->render('materias/index');
+       
     }
     
-    function saveAulas()
+    function saveMaterias()
     {
-        $datos[0]  = trim($_POST['txt_NomGrado']);
+        $datos[0]  = trim($_POST['txt_NomMaterias']);
 
-        if ($this->model->insertAula([
-            'txt_NomGrado' => $datos[0]
+        if ($this->model->insertMateria([
+            'txt_NomMaterias' => $datos[0]
         ])) {
-            error_log('saveAulas::Nuevo Aula creado');
-            $this->redirect('aulas', ['success' => Success::SUCCESS_ADMIN_NEW_MAESTRO]);
+            error_log('saveMaterias::Nueva Materia creada');
+            $this->redirect('materias', ['success' => Success::SUCCESS_ADMIN_NEW_MATERIA]);
+
+
         } else {
            // error_log('saveAl::Error al crear alumno');
            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
-    function eliminarAul($param = null)
+    function eliminarMat($param = null)
     {
-        $Daulas = $param[0];
-        if ($this->model->deleteAula($Daulas)) {
-            error_log('eliminarAul::Aula dado de baja');
-            $this->redirect('aulas', ['error' => Errors::ERROR_DELATE_TUTOR]);
+        $Dmaterias = $param[0];
+        if ($this->model->deleteMateria($Dmaterias)) {
+            error_log('eliminarMat::Materia dado de baja');
+            $this->redirect('materias', ['error' => Errors::ERROR_NO_DELATE_MATERIA]);
         } else {
-            $this->redirect('aulas', ['error' => Errors::ERROR_NO_DELATE]);
+            $this->redirect('materias', ['error' => Errors::ERROR_NO_DELATE]);
         }
     }
     function verDetalle($param = null)
     {
-        $aula_id = $param[0];
-        $grados = $this->model->getById($aula_id);
-        $this->view->varTodas = $grados;
-        $this->view->render('aulas/Actualizar');
+        $materia_id = $param[0];
+        $materias = $this->model->getById($materia_id);
+        $this->view->varTodas = $materias;
+        $this->view->render('materias/Actualizar');
     }
-    function ActAulas()
+    function ActMaterias()
     {
         //modificar
-        $Daulas[0] = trim($_POST['txt_IdAulas']);
-        $Daulas[1] = trim($_POST['txt_NomGrado']);
-        $Daulas[2]  = trim($_POST['com_estatus']);
+        $Dmaterias[0] = trim($_POST['txt_IdMaterias']);
+        $Dmaterias[1] = trim($_POST['txt_NomMaterias']);
+        $Dmaterias[2]  = trim($_POST['com_estatus']);
         if ($this->model->update([
-            'txt_IdAulas' => $Daulas[0], 'txt_NomGrado' =>  $Daulas[1], 'com_estatus' =>  $Daulas[2]
+            'txt_IdMaterias' => $Dmaterias[0], 'txt_NomMaterias' =>  $Dmaterias[1], 'com_estatus' =>  $Dmaterias[2]
         ])) {
             // actualizar maestro exito
-            $aulas = new varTodas();
-            $aulas->aula_id = $Daulas[0];
-            $aulas->nombre_aula =  $Daulas[1];
-            $aulas->estatus_aulas_id = $Daulas[2];
-            $this->view->varTodas = $aulas;
-            error_log('ActGrado::Datos del grado Actualizados');
-            $this->redirect('aulas', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);
+            $materias = new varTodas();
+            $materias->materia_id = $Dmaterias[0];
+            $materias->nombre_materia =  $Dmaterias[1];
+            $materias->estatus_materias_id = $Dmaterias[2];
+            $this->view->varTodas = $materias;
+            error_log('ActMaterias::Datos de la materia actualizados');
+            $this->redirect('materias', ['success' => Success::SUCCESS_ADMIN_UPDATE_MATERIA]);
         } else {
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }

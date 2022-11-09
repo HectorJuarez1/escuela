@@ -44,6 +44,24 @@ class varTodas{
     public $aula_id;
     public $nombre_aula;
     public $estatus_aulas_id;
+        
+    // materias
+    public $materia_id;
+    public $nombre_materia;
+    public $estatus_materias_id;
+
+    // periodos
+    public $periodo_id;
+    public $nombre_periodo;
+    public $estatus_periodos_id;
+
+     // actividad
+    public $actividad_id;
+    public $nombre_actividad;
+    public $estatus_actividad_id;
+    
+
+
 
 
 

@@ -14,20 +14,20 @@
     <div class="card">
         <div class="card-header">
             <h4><b>ACTUALIZAR DATOS</b></h4>
-            <form class="row p-4" action="<?php echo constant('URL'); ?>materias/ActMaterias" method="POST" autocomplete="off">
+            <form class="row p-4" action="<?php echo constant('URL'); ?>periodos/ActPeriodos" method="POST" autocomplete="off">
                 <div class="col-md-5">
-                    <input type="hidden" class="form-control" name="txt_IdMaterias" value="<?php echo $this->varTodas->materia_id; ?>" readonly>
+                    <input type="hidden" class="form-control" name="txt_IdPeriodo" value="<?php echo $this->varTodas->periodo_id; ?>" readonly>
                     <label class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="txt_NomMaterias" value="<?php echo $this->varTodas->nombre_materia; ?>" required>
+                    <input type="text" class="form-control" name="txt_NomPeriodo" value="<?php echo $this->varTodas->nombre_periodo; ?>" required>
                 </div>
                 <div class="col-md-2 col-12">
                     <div class="form-group">
                         <label class="form-label">Estatus</label>
                         <select class="form-select" name="com_estatus">
-                            <?php if ($this->varTodas->estatus_materias_id == 100) { ?>
+                            <?php if ($this->varTodas->estatus_periodos_id == 100) { ?>
                                 <option value="100">Activo</option>
                                 <option value="103">Inactivo</option>
-                            <?php } elseif ($this->varTodas->estatus_materias_id == 103) {
+                            <?php } elseif ($this->varTodas->estatus_periodos_id == 103) {
                                 echo '
                                 <option value="103">Inactivo</option>
                                 <option value="100">Activo</option>
