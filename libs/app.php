@@ -4,15 +4,11 @@ require_once 'controllers/errores.php';
 class App{
 
  
-function Quitar_Espacios($cadena)
-{
-  return implode(' ',array_filter(explode(' ',$cadena))); 
-}
 
     function __construct(){
 
         $url = isset($_GET['url']) ? $_GET['url']: null;
-        $url = Quitar_Espacios($url, '/');
+        $url = rtrim($url, '/');
         //var_dump($url);
         /*
             controlador->[0]

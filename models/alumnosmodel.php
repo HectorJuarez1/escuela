@@ -51,7 +51,7 @@ class AlumnosModel extends Model
             $query = $this->db->connect()
                 ->prepare('INSERT INTO alumnos(Nombres,Apellido_Paterno,Apellido_Materno,Sexo,Fecha_nacimiento,Curp,Foto_alumno,id_Estatus) 
                 VALUES (:nom,:ap,:am,:sex,:fn,:cur,:fal,100)');
-                $query->execute([
+            $query->execute([
                 'nom' => $datos['txt_nombre'],
                 'ap' => $datos['txt_ApPaterno'],
                 'am' => $datos['txt_ApMaterno'],
@@ -77,12 +77,13 @@ class AlumnosModel extends Model
             return false;
         }
     }
-    public function getById($alumno_id){
+    public function getById($alumno_id)
+    {
         $item = new varTodas();
         $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_alumnos WHERE alumno_id = :id_al");
-        try{
+        try {
             $query->execute(['id_al' => $alumno_id]);
-            while($row = $query->fetch()){
+            while ($row = $query->fetch()) {
                 $item->vw_a_alumno_id = $row['alumno_id'];
                 $item->vw_a_Nombres = $row['Nombres'];
                 $item->vw_a_Apellido_Paterno = $row['Apellido_Paterno'];
@@ -93,31 +94,30 @@ class AlumnosModel extends Model
                 $item->vw_a_id_Estatus = $row['id_Estatus'];
             }
             return $item;
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             return null;
         }
     }
-    public function update($item){
+    public function update($item)
+    {
         $query = $this->db->connect()->prepare("UPDATE alumnos SET Nombres = :Nom,Apellido_Paterno = :Ap,Apellido_Materno = :Am,
         Sexo = :Sex,Fecha_nacimiento = :Fn,Curp=:Cur,id_Estatus=:est WHERE alumno_id = :id_al");
-        try{
+        try {
             $query->execute([
-                'id_al'=> $item['txt_IdAlumno'],
-                'Nom'=> $item['txt_nombre'],
-                'Ap'=> $item['txt_ApPaterno'],
-                'Am'=> $item['txt_ApMaterno'],
-                'Sex'=> $item['txt_sexo'],
-                'Fn'=> $item['txt_FeNacimiento'],
-                'Cur'=> $item['txt_curp'],
-                'est'=> $item['com_estatus']
+                'id_al' => $item['txt_IdAlumno'],
+                'Nom' => $item['txt_nombre'],
+                'Ap' => $item['txt_ApPaterno'],
+                'Am' => $item['txt_ApMaterno'],
+                'Sex' => $item['txt_sexo'],
+                'Fn' => $item['txt_FeNacimiento'],
+                'Cur' => $item['txt_curp'],
+                'est' => $item['com_estatus']
             ]);
             return true;
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             error_log($e->getMessage());
-        
+
             return false;
         }
-        
     }
-
 }

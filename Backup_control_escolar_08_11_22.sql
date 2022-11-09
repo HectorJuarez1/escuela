@@ -27,8 +27,10 @@ DROP TABLE IF EXISTS `actividad`;
 CREATE TABLE `actividad` (
   `actividad_id` int NOT NULL AUTO_INCREMENT,
   `nombre_actividad` varchar(100) NOT NULL,
-  `estado` int NOT NULL DEFAULT '1',
-  PRIMARY KEY (`actividad_id`)
+  `estatus_actividad_id` int NOT NULL,
+  PRIMARY KEY (`actividad_id`),
+  KEY `fk_actividad_estatus1_idx` (`estatus_actividad_id`),
+  CONSTRAINT `fk_actividad_estatus1` FOREIGN KEY (`estatus_actividad_id`) REFERENCES `estatus` (`idEstatus`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -59,8 +61,10 @@ CREATE TABLE `alumnos` (
   `Foto_alumno` varchar(45) NOT NULL,
   `Fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_Estatus` int NOT NULL,
-  PRIMARY KEY (`alumno_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`alumno_id`),
+  KEY `fk_alumnos_estatus1_idx` (`id_Estatus`),
+  CONSTRAINT `fk_alumnos_estatus1` FOREIGN KEY (`id_Estatus`) REFERENCES `estatus` (`idEstatus`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +73,7 @@ CREATE TABLE `alumnos` (
 
 LOCK TABLES `alumnos` WRITE;
 /*!40000 ALTER TABLE `alumnos` DISABLE KEYS */;
-INSERT INTO `alumnos` VALUES (2,'Hector','Coyotl','Juarez','Maculino','2012-09-10','FODF910819HMSLZR07','1.png','2022-11-08 04:36:56',101),(3,'Galilea','González','Reyes','Femenino','2015-03-06','FABM770222MMSJNR00','4.png','2022-11-03 06:15:55',100),(4,'Juan','Cabrera','Garcia','Maculino','2015-01-10','CAGS620415HVZBRT22','8.png','2022-11-08 04:37:38',100),(5,'Karen Odette','Domínguez','Velázquez','Femenino','2015-06-05','CATC650228MMCMRR03','7.png','2022-11-03 06:16:26',100),(6,'Lizbeth Soledad','Falcón','Duarte','Femenino','2016-05-01','CAVA550828HGRNLG04','6.png','2022-11-03 06:16:26',100),(7,'Oscar','Carranco','Mandujado','Maculino','2014-03-06','CAMJ680624MGRRRN00','9.png','2022-11-08 04:37:42',102),(11,'sadsad','asdsad','asdsad','Maculino','2009-01-09','21321edsad','para tarea.png','2022-11-08 06:24:33',101);
+INSERT INTO `alumnos` VALUES (2,'Hector','Coyotl','Juarez','Maculino','2012-09-10','FODF910819HMSLZR07','1.png','2022-11-03 06:16:26',100),(3,'Galilea','González','Reyes','Femenino','2015-03-06','FABM770222MMSJNR00','4.png','2022-11-03 06:15:55',100),(4,'Juan','Cabrera','Garcia','Maculino','2015-01-10','CAGS620415HVZBRT22','8.png','2022-11-04 09:08:32',102),(5,'Karen Odette','Domínguez','Velázquez','Femenino','2015-06-05','CATC650228MMCMRR03','7.png','2022-11-03 06:16:26',100),(6,'Lizbeth Soledad','Falcón','Duarte','Femenino','2016-05-01','CAVA550828HGRNLG04','6.png','2022-11-03 06:16:26',100),(7,'Oscar','Carranco','Mandujado','Maculino','2014-03-06','CAMJ680624MGRRRN00','9.png','2022-11-03 06:16:26',101);
 /*!40000 ALTER TABLE `alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,9 +87,11 @@ DROP TABLE IF EXISTS `aulas`;
 CREATE TABLE `aulas` (
   `aula_id` int NOT NULL AUTO_INCREMENT,
   `nombre_aula` varchar(100) NOT NULL,
-  `estado` int NOT NULL DEFAULT '1',
-  PRIMARY KEY (`aula_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `estatus_aulas_id` int NOT NULL,
+  PRIMARY KEY (`aula_id`),
+  KEY `fk_aulas_estatus1_idx` (`estatus_aulas_id`),
+  CONSTRAINT `fk_aulas_estatus1` FOREIGN KEY (`estatus_aulas_id`) REFERENCES `estatus` (`idEstatus`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,6 +100,7 @@ CREATE TABLE `aulas` (
 
 LOCK TABLES `aulas` WRITE;
 /*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
+INSERT INTO `aulas` VALUES (6,'Primero A',100),(7,'Segundo B',100);
 /*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +152,7 @@ CREATE TABLE `estatus` (
 
 LOCK TABLES `estatus` WRITE;
 /*!40000 ALTER TABLE `estatus` DISABLE KEYS */;
-INSERT INTO `estatus` VALUES (100,'Activo'),(101,'Baja'),(102,'Baja Temporal');
+INSERT INTO `estatus` VALUES (100,'Activo'),(101,'Baja'),(102,'Baja Temporal'),(103,'Inactivo');
 /*!40000 ALTER TABLE `estatus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,9 +166,11 @@ DROP TABLE IF EXISTS `grados`;
 CREATE TABLE `grados` (
   `grado_id` int NOT NULL AUTO_INCREMENT,
   `nombre_grado` varchar(100) NOT NULL,
-  `estado` int NOT NULL DEFAULT '1',
-  PRIMARY KEY (`grado_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `estatus_grados_id` int NOT NULL,
+  PRIMARY KEY (`grado_id`),
+  KEY `fk_grados_estatus1_idx` (`estatus_grados_id`),
+  CONSTRAINT `fk_grados_estatus1` FOREIGN KEY (`estatus_grados_id`) REFERENCES `estatus` (`idEstatus`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,6 +179,7 @@ CREATE TABLE `grados` (
 
 LOCK TABLES `grados` WRITE;
 /*!40000 ALTER TABLE `grados` DISABLE KEYS */;
+INSERT INTO `grados` VALUES (7,'Primero',100),(8,'Segundo',100),(9,'Tercero',103),(10,'Cuarto',100),(11,'Quinto',100),(12,'Sexto',100);
 /*!40000 ALTER TABLE `grados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,8 +193,10 @@ DROP TABLE IF EXISTS `materias`;
 CREATE TABLE `materias` (
   `materia_id` int NOT NULL AUTO_INCREMENT,
   `nombre_materia` varchar(100) NOT NULL,
-  `estado` int NOT NULL DEFAULT '1',
-  PRIMARY KEY (`materia_id`)
+  `estatus_materias_id` int NOT NULL,
+  PRIMARY KEY (`materia_id`),
+  KEY `fk_materias_estatus1_idx` (`estatus_materias_id`),
+  CONSTRAINT `fk_materias_estatus1` FOREIGN KEY (`estatus_materias_id`) REFERENCES `estatus` (`idEstatus`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -212,7 +224,15 @@ CREATE TABLE `notas` (
   `valor_nota` int NOT NULL,
   `periodo_id` int NOT NULL,
   `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`nota_id`)
+  PRIMARY KEY (`nota_id`),
+  KEY `materia_id` (`materia_id`),
+  KEY `alumno_id` (`alumno_id`),
+  KEY `actividad_id` (`actividad_id`),
+  KEY `periodo_id` (`periodo_id`),
+  CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `notas_ibfk_2` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`alumno_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `notas_ibfk_3` FOREIGN KEY (`actividad_id`) REFERENCES `actividad` (`actividad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `notas_ibfk_4` FOREIGN KEY (`periodo_id`) REFERENCES `periodos` (`periodo_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -235,8 +255,10 @@ DROP TABLE IF EXISTS `periodos`;
 CREATE TABLE `periodos` (
   `periodo_id` int NOT NULL AUTO_INCREMENT,
   `nombre_periodo` varchar(100) NOT NULL,
-  `estado` int NOT NULL DEFAULT '1',
-  PRIMARY KEY (`periodo_id`)
+  `estatus_periodos_id` int NOT NULL,
+  PRIMARY KEY (`periodo_id`),
+  KEY `fk_periodos_estatus1_idx` (`estatus_periodos_id`),
+  CONSTRAINT `fk_periodos_estatus1` FOREIGN KEY (`estatus_periodos_id`) REFERENCES `estatus` (`idEstatus`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -260,8 +282,14 @@ CREATE TABLE `procesoalumno` (
   `procesoa_id` int NOT NULL AUTO_INCREMENT,
   `alumno_id` int NOT NULL,
   `proceso_id` int NOT NULL,
-  `estadop` int NOT NULL,
-  PRIMARY KEY (`procesoa_id`)
+  `estatus_procesaalumno_id` int NOT NULL,
+  PRIMARY KEY (`procesoa_id`),
+  KEY `alumno_id` (`alumno_id`),
+  KEY `proceso_id` (`proceso_id`),
+  KEY `fk_procesoalumno_estatus1_idx` (`estatus_procesaalumno_id`),
+  CONSTRAINT `fk_procesoalumno_estatus1` FOREIGN KEY (`estatus_procesaalumno_id`) REFERENCES `estatus` (`idEstatus`),
+  CONSTRAINT `procesoalumno_ibfk_1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`alumno_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `procesoalumno_ibfk_2` FOREIGN KEY (`proceso_id`) REFERENCES `procesoprofesor` (`proceso_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -286,8 +314,16 @@ CREATE TABLE `procesoprofesor` (
   `grado_id` int NOT NULL,
   `aula_id` int NOT NULL,
   `profesor_id` int NOT NULL,
-  `estado` int NOT NULL DEFAULT '1',
-  PRIMARY KEY (`proceso_id`)
+  `estatus_procesoprofesor_id` int NOT NULL,
+  PRIMARY KEY (`proceso_id`),
+  KEY `grado_id` (`grado_id`),
+  KEY `aula_id` (`aula_id`),
+  KEY `profesor_id` (`profesor_id`),
+  KEY `fk_procesoprofesor_estatus1_idx` (`estatus_procesoprofesor_id`),
+  CONSTRAINT `fk_procesoprofesor_estatus1` FOREIGN KEY (`estatus_procesoprofesor_id`) REFERENCES `estatus` (`idEstatus`),
+  CONSTRAINT `procesoprofesor_ibfk_1` FOREIGN KEY (`aula_id`) REFERENCES `aulas` (`aula_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `procesoprofesor_ibfk_2` FOREIGN KEY (`grado_id`) REFERENCES `grados` (`grado_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `procesoprofesor_ibfk_3` FOREIGN KEY (`profesor_id`) REFERENCES `profesor` (`profesor_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -319,8 +355,10 @@ CREATE TABLE `profesor` (
   `Fecha_nacimiento` date NOT NULL,
   `Fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `estatus_maestro_id` int NOT NULL,
-  PRIMARY KEY (`profesor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`profesor_id`),
+  KEY `fk_profesor_estatus1_idx` (`estatus_maestro_id`),
+  CONSTRAINT `fk_profesor_estatus1` FOREIGN KEY (`estatus_maestro_id`) REFERENCES `estatus` (`idEstatus`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -329,7 +367,7 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
-INSERT INTO `profesor` VALUES (4,'7777','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','1111111117','Maculino','2010-01-09','2022-11-08 06:03:55',100),(5,'2313','Adriana','Aguilar','Aguilar','Avenida 8 Poniente Puebla Puebla','2222222222','Femenino','2000-12-01','2022-11-08 06:04:06',100),(6,'213443f3a','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2222222222','Femenino','2009-09-09','2022-11-08 06:04:23',101);
+INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Rosas','Acosta','Calle Azucenas Puebla Puebla','1111111111','Maculino','2000-06-01','2022-11-09 03:04:52',100),(5,'213443f3a','Gustavo','Acosta','Valdez','Calle Venustiano Carranza Puebla .Puebla','2222222222','Maculino','1991-05-01','2022-11-09 03:05:28',100);
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -461,4 +499,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-08  0:29:04
+-- Dump completed on 2022-11-08 23:30:58

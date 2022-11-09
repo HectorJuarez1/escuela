@@ -55,14 +55,15 @@
                             </ul>
                         </li>
                         <li class="sidebar-item  ">
-                            <a href="form-layout.html" class='sidebar-link'>
-                                <i data-feather="layout" width="20"></i>
+
+                            <a href="<?php echo constant('URL'); ?>grados" class='sidebar-link'>
+                                <i data-feather="bar-chart-2" width="20"></i>
                                 <span>Grados</span>
                             </a>
                         </li>
                         <li class="sidebar-item  ">
-                            <a href="form-editor.html" class='sidebar-link'>
-                                <i data-feather="layers" width="20"></i>
+                            <a href="<?php echo constant('URL'); ?>aulas" class='sidebar-link'>
+                                <i data-feather="plus-square" width="20"></i>
                                 <span>Aulas</span>
                             </a>
                         </li>

@@ -35,6 +35,25 @@ class varTodas{
     public $vw_m_estatus_maestro_id;
     public $vw_m_Estatus_Detalle;
 
+    // grados
+    public $grado_id;
+    public $nombre_grado;
+    public $estatus_grados_id;
+    
+    // aulas
+    public $aula_id;
+    public $nombre_aula;
+    public $estatus_aulas_id;
+
+
+
+
+
+
+
+
+
+
 
 
         //tutor vista combo
