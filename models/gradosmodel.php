@@ -1,27 +1,23 @@
 <?php
 include_once 'models/varTodas.php';
 
-class AlumnosModel extends Model
+class GradosModel extends Model
 {
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function getAllAlumnos()
+    public function getAllGrados()
     {
         $items = [];
         try {
-            $query = $this->db->connect()->query('SELECT * FROM vw_detalle_alumnos');
+            $query = $this->db->connect()->query('SELECT * FROM grados');
             while ($row = $query->fetch()) {
                 $item = new varTodas();
-                $item->vw_a_alumno_id = $row['alumno_id'];
-                $item->vw_a_Nombre_Completo = $row['Nombre_Completo'];
-                $item->vw_a_Sexo = $row['Sexo'];
-                $item->vw_a_Curp = $row['Curp'];
-                $item->vw_a_Edad = $row['Edad'];
-                $item->vw_a_Foto_alumno = $row['Foto_alumno'];
-                $item->vw_a_id_Estatus = $row['id_Estatus'];
+                $item->grado_id = $row['grado_id'];
+                $item->nombre_grado = $row['nombre_grado'];
+                $item->estatus_grados_id = $row['estatus_grados_id'];
                 array_push($items, $item);
             }
             return $items;
@@ -29,36 +25,14 @@ class AlumnosModel extends Model
             return [];
         }
     }
-    /*     public function getTutor()
-        {
-            $items = [];
-            try {
-                $query = $this->db->connect()->query('SELECT * FROM vw_com_tutor');
-                while ($row = $query->fetch()) {
-                    $item = new varTodas();
-                    $item->vw_id_Tutor = $row['id_Tutor'];
-                    $item->vw_Nombre_tutor = $row['Nombre_Completo'];
-                    array_push($items, $item);
-                }
-                return $items;
-            } catch (PDOException $e) {
-                return [];
-            }
-        } */
-    public function insertAlumno($datos)
+    public function insertGrado($datos)
     {
         try {
             $query = $this->db->connect()
-                ->prepare('INSERT INTO alumnos(Nombres,Apellido_Paterno,Apellido_Materno,Sexo,Fecha_nacimiento,Curp,Foto_alumno,id_Estatus) 
-                VALUES (:nom,:ap,:am,:sex,:fn,:cur,:fal,100)');
+                ->prepare('INSERT INTO grados(nombre_grado,estatus_grados_id) 
+                VALUES (:nom,100)');
             $query->execute([
-                'nom' => $datos['txt_nombre'],
-                'ap' => $datos['txt_ApPaterno'],
-                'am' => $datos['txt_ApMaterno'],
-                'sex' => $datos['txt_sexo'],
-                'fn' => $datos['txt_FeNacimiento'],
-                'cur' => $datos['txt_curp'],
-                'fal' => $datos['filename']
+                'nom' => $datos['txt_NomGrado']
 
             ]);
             return true;
@@ -67,11 +41,11 @@ class AlumnosModel extends Model
             return false;
         }
     }
-    public function deleteAlumno($vw_id_alumno)
+    public function deleteGrado($grado_id)
     {
-        $query = $this->db->connect()->prepare("UPDATE alumnos SET id_Estatus = 101 WHERE alumno_id = :id_alum");
+        $query = $this->db->connect()->prepare("UPDATE grados SET estatus_grados_id = 103 WHERE grado_id = :id_gra");
         try {
-            $query->execute(['id_alum' => $vw_id_alumno]);
+            $query->execute(['id_gra' => $grado_id]);
             return true;
         } catch (PDOException $e) {
             return false;
