@@ -39,44 +39,28 @@ class Grados extends SessionController
     }
     function verDetalle($param = null)
     {
-        $profesor_id = $param[0];
-        $maestros = $this->model->getById($profesor_id);
-        $this->view->varTodas = $maestros;
-        $this->view->render('maestros/Actualizar');
+        $grado_id = $param[0];
+        $grados = $this->model->getById($grado_id);
+        $this->view->varTodas = $grados;
+        $this->view->render('grados/Actualizar');
     }
-    function ActMaestro()
+    function ActAulas()
     {
         //modificar
-        $Dmaestros[0] = trim($_POST['txt_idprofesor']);
-        $Dmaestros[1] = trim($_POST['txt_cedula']);
-        $Dmaestros[2]  = trim($_POST['txt_nombre']);
-        $Dmaestros[3]  = trim($_POST['txt_ApPaterno']);
-        $Dmaestros[4]  = trim($_POST['txt_ApMaterno']);
-        $Dmaestros[5]   = trim($_POST['txt_direccion']);
-        $Dmaestros[6]   = trim($_POST['txt_FeNacimiento']);
-        $Dmaestros[7]   = trim($_POST['txt_telefono']);
-        $Dmaestros[8]   = trim($_POST['txt_sexo']);
-        $Dmaestros[9]   = trim($_POST['com_estatus']);
+        $Dgrados[0] = trim($_POST['txt_IdGrado']);
+        $Dgrados[1] = trim($_POST['txt_NomGrado']);
+        $Dgrados[2]  = trim($_POST['com_estatus']);
         if ($this->model->update([
-            'txt_idprofesor' => $Dmaestros[0], 'txt_cedula' =>  $Dmaestros[1], 'txt_nombre' =>  $Dmaestros[2],
-            'txt_ApPaterno' =>  $Dmaestros[3], 'txt_ApMaterno' =>  $Dmaestros[4], 'txt_direccion' =>  $Dmaestros[5],
-            'txt_FeNacimiento' =>  $Dmaestros[6],'txt_telefono' =>  $Dmaestros[7],'txt_sexo' =>  $Dmaestros[8],'com_estatus' =>  $Dmaestros[9]
+            'txt_IdGrado' => $Dgrados[0], 'txt_NomGrado' =>  $Dgrados[1], 'com_estatus' =>  $Dgrados[2]
         ])) {
             // actualizar maestro exito
             $maestros = new varTodas();
-            $maestros->vw_m_profesor_id = $Dmaestros[0];
-            $maestros->vw_m_Cedula =  $Dmaestros[1];
-            $maestros->vw_m_Nombre = $Dmaestros[2];
-            $maestros->vw_m_Apellido_paterno = $Dmaestros[3];
-            $maestros->vw_m_Apellido_Materno =  $Dmaestros[4];
-            $maestros->vw_m_Direccion =  $Dmaestros[5];
-            $maestros->vw_m_Fecha_nacimiento =  $Dmaestros[6];
-            $maestros->vw_m_Telefono =  $Dmaestros[7];
-            $maestros->vw_m_Sexo =  $Dmaestros[8];
-            $maestros->vw_m_estatus_maestro_id =  $Dmaestros[9];
+            $maestros->grado_id = $Dgrados[0];
+            $maestros->nombre_grado =  $Dgrados[1];
+            $maestros->estatus_grados_id = $Dgrados[2];
             $this->view->varTodas = $maestros;
-            error_log('ActualizarR::Datos del maestros Actualizados');
-            $this->redirect('maestros', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);
+            error_log('ActGrado::Datos del grado Actualizados');
+            $this->redirect('grados', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);
         } else {
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }

@@ -16,6 +16,11 @@
             "role" : "admin"
         },
         {
+            "site" : "aulas", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+        {
             "site" : "grados", 
             "access" : "private", 
             "role" : "admin"

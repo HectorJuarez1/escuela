@@ -39,6 +39,13 @@ class varTodas{
     public $grado_id;
     public $nombre_grado;
     public $estatus_grados_id;
+    
+    // aulas
+    public $aula_id;
+    public $nombre_aula;
+    public $estatus_aulas_id;
+
+
 
 
 
