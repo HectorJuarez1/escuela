@@ -21,7 +21,7 @@ class Actividad extends SessionController
             'txt_NomActividad' => $datos[0]
         ])) {
             error_log('saveActividad::Nueva actividad creada');
-            $this->redirect('actividad', ['success' => Success::SUCCESS_ADMIN_NEW_MAESTRO]);
+            $this->redirect('actividad', ['success' => Success::SUCCESS_ADMIN_NEW_ACTIVIDAD]);
         } else {
            // error_log('saveAl::Error al crear alumno');
            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
@@ -32,7 +32,7 @@ class Actividad extends SessionController
         $Dactividad = $param[0];
         if ($this->model->deleteActividad($Dactividad)) {
             error_log('eliminarAct::Actividad dado de baja');
-            $this->redirect('actividad', ['error' => Errors::ERROR_DELATE_TUTOR]);
+            $this->redirect('actividad', ['error' => Errors::ERROR_NO_DELATE_ACTIVIDAD]);
         } else {
             $this->redirect('actividad', ['error' => Errors::ERROR_NO_DELATE]);
         }
@@ -60,7 +60,7 @@ class Actividad extends SessionController
             $actividad->estatus_actividad_id = $Dactividad[2];
             $this->view->varTodas = $actividad;
             error_log('Actactividad::Datos de la actividad Actualizados');
-            $this->redirect('actividad', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);
+            $this->redirect('actividad', ['success' => Success::SUCCESS_ADMIN_UPDATE_ACTIVIDAD]);
         } else {
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }

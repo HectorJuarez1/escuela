@@ -13,7 +13,11 @@ class Errors{
     const ERROR_NO_DELATE       = "1C4f0b";
     const ERROR_NO_DELATE_MATERIA       = "15ef0b";
 
+    const ERROR_NO_DELATE_ALUMNO       = "a5bcd708";
     const ERROR_NO_DELATE_PERIODO       = "85Sef0b";
+    const ERROR_NO_DELATE_ACTIVIDAD       = "u4Sgf1b";
+    const ERROR_NO_DELATE_GRADO       = "4ESCf1b";
+    const ERROR_NO_DELATE_MAESTRO       = "4ESCf1b";
 
 
 
@@ -45,12 +49,16 @@ class Errors{
         $this->errorsList = [
 
 
-            Errors::ERROR_ALTA_ALUMNO            => 'Hubo un error al intentar registrarte. Intenta de nuevo',
+            Errors::ERROR_ALTA_ALUMNO            => 'Hubo un error al intentar registrarte los datos.',
             Errors::ERROR_DELATE            => 'Alumno dado de baja',
             Errors::ERROR_NO_DELATE            => 'Hubo un error al eliminar el registro.',
             Errors::ERROR_DELATE_TUTOR            => 'Tutor Eliminado',
             Errors::ERROR_NO_DELATE_MATERIA            => 'Materia eliminado',
+            Errors::ERROR_NO_DELATE_ALUMNO            => 'Alumno eliminado',
             Errors::ERROR_NO_DELATE_PERIODO            => 'Periodo eliminado',
+            Errors::ERROR_NO_DELATE_ACTIVIDAD            => 'Actividad eliminada',
+            Errors::ERROR_NO_DELATE_GRADO            => 'Grado eliminada',
+            Errors::ERROR_NO_DELATE_MAESTRO            => 'Maestro eliminada',
 
             Errors::ERROR_ADMIN_NEWCATEGORY_EXISTS => 'El nombre de la categoría ya existe, intenta otra',
             Errors::ERROR_EXPENSES_DELETE           => 'Hubo un problema el eliminar el gasto, inténtalo de nuevo',

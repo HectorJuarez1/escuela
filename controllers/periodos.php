@@ -53,14 +53,14 @@ class Periodos extends SessionController
         if ($this->model->update([
             'txt_IdPeriodo' => $Dperiodos[0], 'txt_NomPeriodo' =>  $Dperiodos[1], 'com_estatus' =>  $Dperiodos[2]
         ])) {
-            // actualizar maestro exito
+            // actualizar periodos exito
             $periodos = new varTodas();
             $periodos->periodo_id = $Dperiodos[0];
             $periodos->nombre_periodo =  $Dperiodos[1];
             $periodos->estatus_periodos_id = $Dperiodos[2];
             $this->view->varTodas = $periodos;
             error_log('ActPeriodos::Datos del periodo actualizados');
-            $this->redirect('periodos', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);
+            $this->redirect('periodos', ['success' => Success::SUCCESS_ADMIN_UPDATE_PERIODO]);
         } else {
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }

@@ -8,11 +8,8 @@ class Alumnos extends SessionController
     }
     function render()
     {
-
         $alumnos = $this->model->getAllAlumnos();
         $this->view->varTodas = $alumnos;
-
-
         $this->view->render('alumnos/index');
     }
 
@@ -52,7 +49,7 @@ class Alumnos extends SessionController
         $alumnos = $param[0];
         if ($this->model->deleteAlumno($alumnos)) {
             error_log('eliminarAl::Alumno dado de baja');
-            $this->redirect('alumnos', ['error' => Errors::ERROR_DELATE]);
+            $this->redirect('alumnos', ['error' => Errors::ERROR_NO_DELATE_ALUMNO]);
         } else {
             //   $this->redirect('c', ['error' => Errors::ERROR_NO_DELATE]);
         }

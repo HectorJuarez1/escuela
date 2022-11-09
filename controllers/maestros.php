@@ -44,7 +44,7 @@ class Maestros extends SessionController
         $Dmaestro = $param[0];
         if ($this->model->deleteMaestros($Dmaestro)) {
             error_log('eliminarMa::Maestro dado de baja');
-            $this->redirect('maestros', ['error' => Errors::ERROR_DELATE_TUTOR]);
+            $this->redirect('maestros', ['error' => Errors::ERROR_NO_DELATE_MAESTRO]);
         } else {
             $this->redirect('maestros', ['error' => Errors::ERROR_NO_DELATE]);
         }
@@ -88,7 +88,7 @@ class Maestros extends SessionController
             $maestros->vw_m_estatus_maestro_id =  $Dmaestros[9];
             $this->view->varTodas = $maestros;
             error_log('ActualizarR::Datos del maestros Actualizados');
-            $this->redirect('maestros', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);
+            $this->redirect('maestros', ['success' => Success::SUCCESS_ADMIN_UPDATE_MAESTRO]);
         } else {
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }

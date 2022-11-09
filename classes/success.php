@@ -5,18 +5,34 @@ class Success{
     //Controller
     //method
     //operation
-    const SUCCESS_ADMIN_NEW_ALUMNO    = "al1235";
-    const SUCCESS_ADMIN_NEW_AULA    = "f52245";
-    const SUCCESS_ADMIN_UPDATE_ALUMNO    = "6fb34a";
+
     const SUCCESS_ADMIN_ALTAS      = "fcd919";
     const SUCCESS_ADMIN_NEW_TUTOR    = "8281e0";
-    const SUCCESS_ADMIN_NEW_MAESTRO    = "edabc9e";
 
+
+
+    const SUCCESS_ADMIN_NEW_ALUMNO    = "al1235";
+    const SUCCESS_ADMIN_UPDATE_ALUMNO    = "6fb34a";
+
+    const SUCCESS_ADMIN_NEW_AULA    = "f52245";
+    const SUCCESS_ADMIN_UPDATE_AULA    = "52ccR4";
 
     const SUCCESS_ADMIN_NEW_MATERIA    = "eSYaic9e";
     const SUCCESS_ADMIN_UPDATE_MATERIA    = "deYauc9o";
+
     const SUCCESS_ADMIN_NEW_PERIODO    = "RqYair9e";
     const SUCCESS_ADMIN_UPDATE_PERIODO    = "yeYxsc9o";
+
+    const SUCCESS_ADMIN_NEW_ACTIVIDAD    = "s3Yaid9e";
+    const SUCCESS_ADMIN_UPDATE_ACTIVIDAD    = "jt3636c";
+
+    const SUCCESS_ADMIN_NEW_GRADO    = "tR3dz9e";
+    const SUCCESS_ADMIN_UPDATE_GRADO    = "jtD83Vc";
+
+    const SUCCESS_ADMIN_NEW_MAESTRO    = "edabc9e";
+    const SUCCESS_ADMIN_UPDATE_MAESTRO    = "T4sD8cVc";
+
+
 
 
     const SUCCESS_EXPENSES_DELETE       = "fcd919285d5759328b143801573ec47d";
@@ -35,13 +51,19 @@ class Success{
             Success::SUCCESS_ADMIN_ALTAS => "Alta Realizada",
             Success::SUCCESS_ADMIN_NEW_ALUMNO => "Alta Realizada",
             Success::SUCCESS_ADMIN_NEW_AULA => "Nueva aula creada",
-            Success::SUCCESS_ADMIN_UPDATE_ALUMNO => "Datos del alumno Actualizados",
+            Success::SUCCESS_ADMIN_UPDATE_ACTIVIDAD => "Datos de la aula actualizados",
+            Success::SUCCESS_ADMIN_UPDATE_ALUMNO => "Datos del alumno actualizados",
             Success::SUCCESS_ADMIN_NEW_TUTOR => "Nuevo tutor creado",
             Success::SUCCESS_ADMIN_NEW_MAESTRO => "Nuevo maestro creado.",
+            Success::SUCCESS_ADMIN_UPDATE_MAESTRO => "Datos del maestro actualizados.",
             Success::SUCCESS_ADMIN_NEW_MATERIA => "Nueva materia creado.",
             Success::SUCCESS_ADMIN_UPDATE_MATERIA => "Datos de la materia actualizados.",
             Success::SUCCESS_ADMIN_NEW_PERIODO => "Nueva periodo creado.",
             Success::SUCCESS_ADMIN_UPDATE_PERIODO => "Datos del periodo actualizados.",
+            Success::SUCCESS_ADMIN_NEW_ACTIVIDAD => "Nueva actividad creado.",
+            Success::SUCCESS_ADMIN_UPDATE_ACTIVIDAD => "Datos de la actividad actualizados.",
+            Success::SUCCESS_ADMIN_NEW_GRADO => "Nuevo grado creado.",
+            Success::SUCCESS_ADMIN_UPDATE_GRADO => "Datos del grado actualizados.",
 
             
 

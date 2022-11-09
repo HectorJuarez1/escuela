@@ -21,7 +21,7 @@ class Aulas extends SessionController
             'txt_NomGrado' => $datos[0]
         ])) {
             error_log('saveAulas::Nuevo Aula creado');
-            $this->redirect('aulas', ['success' => Success::SUCCESS_ADMIN_NEW_MAESTRO]);
+            $this->redirect('aulas', ['success' => Success::SUCCESS_ADMIN_NEW_AULA]);
         } else {
            // error_log('saveAl::Error al crear alumno');
            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);

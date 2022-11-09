@@ -21,7 +21,7 @@ class Grados extends SessionController
             'txt_NomGrado' => $datos[0]
         ])) {
             error_log('saveGrados::Nuevo grado creado');
-            $this->redirect('grados', ['success' => Success::SUCCESS_ADMIN_NEW_MAESTRO]);
+            $this->redirect('grados', ['success' => Success::SUCCESS_ADMIN_NEW_GRADO]);
         } else {
            // error_log('saveAl::Error al crear alumno');
            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
@@ -34,7 +34,7 @@ class Grados extends SessionController
             error_log('eliminarGra::Grado dado de baja');
             $this->redirect('grados', ['error' => Errors::ERROR_DELATE_TUTOR]);
         } else {
-            $this->redirect('grados', ['error' => Errors::ERROR_NO_DELATE]);
+            $this->redirect('grados', ['error' => Errors::ERROR_NO_DELATE_GRADO]);
         }
     }
     function verDetalle($param = null)
@@ -53,14 +53,14 @@ class Grados extends SessionController
         if ($this->model->update([
             'txt_IdGrado' => $Dgrados[0], 'txt_NomGrado' =>  $Dgrados[1], 'com_estatus' =>  $Dgrados[2]
         ])) {
-            // actualizar maestro exito
+            // actualizar grado exito
             $maestros = new varTodas();
             $maestros->grado_id = $Dgrados[0];
             $maestros->nombre_grado =  $Dgrados[1];
             $maestros->estatus_grados_id = $Dgrados[2];
             $this->view->varTodas = $maestros;
             error_log('ActGrado::Datos del grado Actualizados');
-            $this->redirect('grados', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);
+            $this->redirect('grados', ['success' => Success::SUCCESS_ADMIN_UPDATE_GRADO]);
         } else {
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }
