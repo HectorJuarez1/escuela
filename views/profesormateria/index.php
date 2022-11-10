@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/assets/images/icono.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> ASIGNAR MATERIAS</title>
+  <title>Asignar Maestros</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
   <a href="<?php echo constant('URL'); ?>profesormateria/new" class="btn btn-success rounded-pill">Nuevo</a><br><br>
   <div class="card">
     <div class="card-header">
-      ASIGNAR MATERIAS
+    ASIGNAR MAESTROS
     </div>
     <div class="card-body">
       <table class="table table-striped text-center" id="table1">
