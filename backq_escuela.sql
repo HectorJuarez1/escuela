@@ -31,7 +31,7 @@ CREATE TABLE `actividad` (
   PRIMARY KEY (`actividad_id`),
   KEY `fk_actividad_estatus1_idx` (`estatus_actividad_id`),
   CONSTRAINT `fk_actividad_estatus1` FOREIGN KEY (`estatus_actividad_id`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `actividad` (
 
 LOCK TABLES `actividad` WRITE;
 /*!40000 ALTER TABLE `actividad` DISABLE KEYS */;
+INSERT INTO `actividad` VALUES (4,'Evaluación 1',100),(5,'Evaluación 2',100),(6,'Evaluación 4',103);
 /*!40000 ALTER TABLE `actividad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +92,7 @@ CREATE TABLE `aulas` (
   PRIMARY KEY (`aula_id`),
   KEY `fk_aulas_estatus1_idx` (`estatus_aulas_id`),
   CONSTRAINT `fk_aulas_estatus1` FOREIGN KEY (`estatus_aulas_id`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +101,7 @@ CREATE TABLE `aulas` (
 
 LOCK TABLES `aulas` WRITE;
 /*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
-INSERT INTO `aulas` VALUES (6,'Primero A',100),(7,'Segundo B',100);
+INSERT INTO `aulas` VALUES (6,'Primero A',100),(7,'Segundo B',100),(8,'Sexto C',100);
 /*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +198,7 @@ CREATE TABLE `materias` (
   PRIMARY KEY (`materia_id`),
   KEY `fk_materias_estatus1_idx` (`estatus_materias_id`),
   CONSTRAINT `fk_materias_estatus1` FOREIGN KEY (`estatus_materias_id`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,6 +207,7 @@ CREATE TABLE `materias` (
 
 LOCK TABLES `materias` WRITE;
 /*!40000 ALTER TABLE `materias` DISABLE KEYS */;
+INSERT INTO `materias` VALUES (5,'Matemáticas',100),(6,'Español',100),(7,'Ciencias de la Naturaleza',100),(8,'Segunda lengua extranjera',100),(9,'Educación física',100),(10,'Educación Artística',103),(11,'Geografía',100),(12,'Formación Cívica y Ética',100),(13,'Primera lengua extranjera',100),(14,'Lengua castellana y literatura',100),(15,'Historia',100);
 /*!40000 ALTER TABLE `materias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,7 +261,7 @@ CREATE TABLE `periodos` (
   PRIMARY KEY (`periodo_id`),
   KEY `fk_periodos_estatus1_idx` (`estatus_periodos_id`),
   CONSTRAINT `fk_periodos_estatus1` FOREIGN KEY (`estatus_periodos_id`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,6 +270,7 @@ CREATE TABLE `periodos` (
 
 LOCK TABLES `periodos` WRITE;
 /*!40000 ALTER TABLE `periodos` DISABLE KEYS */;
+INSERT INTO `periodos` VALUES (5,'Enero-Agosto',100),(6,'Agosto-Diciembre',100);
 /*!40000 ALTER TABLE `periodos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,7 +389,7 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `Fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -395,7 +398,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'hector.coyotl','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-10-19 09:19:52'),(2,'laura.romero','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','user','Laura Romero','2022-10-19 09:19:52'),(3,'david.hernandez','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','profesor','David Hernandez','2022-10-19 09:20:45');
+INSERT INTO `users` VALUES (1,'hector.coyotl','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-10-19 09:19:52'),(2,'laura.romero','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','user','Laura Romero','2022-10-19 09:19:52'),(3,'david.hernandez','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','profesor','David Hernandez','2022-10-19 09:20:45'),(5,'lucia.coyotl','$2y$10$DVLNxREYiAFZYMD97CLOq.YoqSJeEM7B0ITVBLJqxN9Mda6WVaHpS','user','lucia coyotl juarez','2022-11-10 03:04:44');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -499,4 +502,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-08 23:30:58
+-- Dump completed on 2022-11-09 22:08:26

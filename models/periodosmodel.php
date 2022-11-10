@@ -32,7 +32,7 @@ class PeriodosModel extends Model
                 ->prepare('INSERT INTO periodos(nombre_periodo,estatus_periodos_id) 
                 VALUES (:nom,100)');
             $query->execute([
-                'nom' => $datos['txt_NomActividad']
+                'nom' => $datos['txt_NomPeriodo']
 
             ]);
             return true;

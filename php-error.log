@@ -1,0 +1,17 @@
+[09-Nov-2022 23:01:46 America/Mexico_City] PHP Warning:  Undefined property: varTodas::$profesor_id in C:\xampp\htdocs\escuela\views\profesormateria\nuevo.php on line 30
+[09-Nov-2022 23:01:46 America/Mexico_City] PHP Warning:  Undefined property: varTodas::$Nombre_Completo in C:\xampp\htdocs\escuela\views\profesormateria\nuevo.php on line 31
+[09-Nov-2022 23:01:46 America/Mexico_City] PHP Warning:  Undefined property: varTodas::$profesor_id in C:\xampp\htdocs\escuela\views\profesormateria\nuevo.php on line 30
+[09-Nov-2022 23:01:46 America/Mexico_City] PHP Warning:  Undefined property: varTodas::$Nombre_Completo in C:\xampp\htdocs\escuela\views\profesormateria\nuevo.php on line 31
+[09-Nov-2022 23:08:40 America/Mexico_City] PHP Warning:  Undefined property: View::$varTodas in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36
+[09-Nov-2022 23:08:40 America/Mexico_City] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36
+[09-Nov-2022 23:12:32 America/Mexico_City] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\escuela\libs\app.php on line 11
+[09-Nov-2022 23:12:42 America/Mexico_City] eliminarMa::Maestro dado de baja
+[09-Nov-2022 23:12:45 America/Mexico_City] PHP Warning:  Undefined property: View::$varTodas in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36
+[09-Nov-2022 23:12:45 America/Mexico_City] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36
+[09-Nov-2022 23:12:51 America/Mexico_City] PHP Warning:  Undefined property: View::$varTodas in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36
+[09-Nov-2022 23:12:51 America/Mexico_City] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36
+[09-Nov-2022 23:13:00 America/Mexico_City] ActualizarR::Datos del maestros Actualizados
+[09-Nov-2022 23:13:07 America/Mexico_City] PHP Warning:  Undefined property: View::$varTodas in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36
+[09-Nov-2022 23:13:07 America/Mexico_City] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36
+[09-Nov-2022 23:13:11 America/Mexico_City] PHP Warning:  Undefined property: View::$varTodas in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36
+[09-Nov-2022 23:13:11 America/Mexico_City] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\escuela\views\profesormateria\index.php on line 36

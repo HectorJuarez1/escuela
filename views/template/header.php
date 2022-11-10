@@ -54,8 +54,13 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="sidebar-item ">
+                            <a href="<?php echo constant('URL'); ?>profesormateria" class='sidebar-link'>
+                                <i data-feather="plus-circle" width="20"></i>
+                                <span>Asignar Materias</span>
+                            </a>
+                        </li>
                         <li class="sidebar-item  ">
-
                             <a href="<?php echo constant('URL'); ?>grados" class='sidebar-link'>
                                 <i data-feather="bar-chart-2" width="20"></i>
                                 <span>Grados</span>
@@ -85,6 +90,7 @@
                                 <span>Actividad</span>
                             </a>
                         </li>
+
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
