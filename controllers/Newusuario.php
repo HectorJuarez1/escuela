@@ -10,7 +10,6 @@ class Newusuario extends SessionController
     {
         $Nusuarios = $this->model->getAll();
         $this->view->varTodas = $Nusuarios;
-
         $this->view->render('Newusuario/index');
     }
     

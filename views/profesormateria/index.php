@@ -23,40 +23,28 @@
       <table class="table table-striped text-center" id="table1">
         <thead>
           <tr>
-            <th class="text-center">Nombre</th>
-            <th class="text-center">Curp</th>
-            <th class="text-center">Edad</th>
-            <th class="text-center">Sexo</th>
-            <th class="text-center">Foto</th>
+            <th class="text-center">Profesor</th>
+            <th class="text-center">Materia</th>
+            <th class="text-center">Grado</th>
+            <th class="text-center">Periodo</th>
             <th class="text-center">Estatus</th>
             <th class="text-center">Acciones</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($this->varTodas as $row) {
-            $alumnos = new varTodas();
-            $alumnos = $row;
-            $ruta = "public/assets/images/Alumnos/" . $alumnos->vw_a_Foto_alumno;
+            $DprofesroM = new varTodas();
+            $DprofesroM = $row;
           ?>
             <tr>
-              <td><?php echo $alumnos->vw_a_Nombre_Completo; ?></td>
-              <td><?php echo $alumnos->vw_a_Curp; ?></td>
-              <td><?php echo $alumnos->vw_a_Edad; ?></td>
-              <td><?php echo $alumnos->vw_a_Sexo; ?></td>
-              <td class="text-center"><img src="<?php echo $ruta; ?>" height="50px" width="50px"></td>
-              <td><?php
-                  if ($alumnos->vw_a_id_Estatus == 100) {
-                    echo '  <span class="badge bg-success">Activo</span>';
-                  } elseif ($alumnos->vw_a_id_Estatus == 101) {
-                    echo '<span class="badge bg-danger">Baja</span>';
-                  }
-                  elseif ($alumnos->vw_a_id_Estatus == 102) {
-                    echo '<span class="badge bg-warning">Baja Temporal</span>';
-                  }
-                  ?></td>
+              <td><?php echo $DprofesroM->vw_pm_Nombre_Profesor; ?></td>
+              <td><?php echo $DprofesroM->vw_pm_nombre_materia; ?></td>
+              <td><?php echo $DprofesroM->vw_pm_nombre_grado; ?></td>
+              <td><?php echo $DprofesroM->vw_pm_nombre_periodo; ?></td>
+              <td><?php echo $DprofesroM->vw_pm_Estatus; ?></td>
               <td class="text-center">
-                <a href="<?php echo constant('URL') . 'alumnos/verDetalle/' . $alumnos->vw_a_alumno_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
-                <a href="<?php echo constant('URL') . 'alumnos/eliminarAl/' . $alumnos->vw_a_alumno_id ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
+                <a href="<?php echo constant('URL') . 'DprofesroM/verDetalle/' . $DprofesroM->vw_a_alumno_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
+                <a href="<?php echo constant('URL') . 'DprofesroM/eliminarAl/' . $DprofesroM->vw_a_alumno_id ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
               </td>
             </tr>
           <?php } ?>

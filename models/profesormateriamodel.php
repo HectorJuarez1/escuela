@@ -8,20 +8,20 @@ class ProfesormateriaModel extends Model
         parent::__construct();
     }
 
-    public function getAllAlumnos()
+    public function getAllDprofesor()
     {
         $items = [];
         try {
-            $query = $this->db->connect()->query('SELECT * FROM vw_detalle_alumnos');
+            $query = $this->db->connect()->query('SELECT * FROM vw_detalle_profesormateria');
             while ($row = $query->fetch()) {
                 $item = new varTodas();
-                $item->vw_a_alumno_id = $row['alumno_id'];
-                $item->vw_a_Nombre_Completo = $row['Nombre_Completo'];
-                $item->vw_a_Sexo = $row['Sexo'];
-                $item->vw_a_Curp = $row['Curp'];
-                $item->vw_a_Edad = $row['Edad'];
-                $item->vw_a_Foto_alumno = $row['Foto_alumno'];
-                $item->vw_a_id_Estatus = $row['id_Estatus'];
+                $item->vw_pm_proceso_id = $row['proceso_id'];
+                $item->vw_pm_nombre_grado = $row['nombre_grado'];
+                $item->vw_pm_nombre_aula = $row['nombre_aula'];
+                $item->vw_pm_Nombre_Profesor = $row['Nombre_Profesor'];
+                $item->vw_pm_nombre_materia = $row['nombre_materia'];
+                $item->vw_pm_nombre_periodo = $row['nombre_periodo'];
+                $item->vw_pm_Estatus = $row['Estatus'];
                 array_push($items, $item);
             }
             return $items;

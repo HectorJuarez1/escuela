@@ -55,11 +55,22 @@ class varTodas{
     public $nombre_periodo;
     public $estatus_periodos_id;
 
-     // actividad
+    // actividad
     public $actividad_id;
     public $nombre_actividad;
     public $estatus_actividad_id;
-    
+
+    // profesormateria
+    public $vw_pm_proceso_id;
+    public $vw_pm_nombre_grado;
+    public $vw_pm_nombre_aula;
+    public $vw_pm_Nombre_Profesor;
+    public $vw_pm_nombre_materia;
+    public $vw_pm_nombre_periodo;
+    public $vw_pm_Estatus;
+
+
+
 
 
 

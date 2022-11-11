@@ -8,8 +8,8 @@ class Profesormateria extends SessionController
     }
     function render()
     {
-/*       para mostra en index  $alumnos = $this->model->getAllAlumnos();
-        $this->view->varTodas = $alumnos; */
+        $detalle_profesormateria = $this->model->getAllDprofesor();
+        $this->view->varTodas = $detalle_profesormateria; 
         $this->view->render('profesormateria/index');
     }
 
