@@ -17,30 +17,39 @@ class Profesormateria extends SessionController
     {
         $profesor = $this->model->getProfesor();
         $this->view->ProfesorCom = $profesor;
+
+        $Grados = $this->model->getGrados();
+        $this->view->ComboGrados = $Grados;
+
+        $Aulas = $this->model->getAulas();
+        $this->view->ComboAulas = $Aulas;
+
+        $Materias = $this->model->getMaterias();
+        $this->view->ComboMaterias = $Materias;
+
+        $Periodos = $this->model->getPeriodos();
+        $this->view->ComboPeriodos = $Periodos;
+
         $this->view->render('profesormateria/nuevo');
     }
 
-    function saveAl()
+    function saveProfesorMateria()
     {
-        $datos[0] = trim($_POST['txt_nombre']);
-        $datos[1]  = trim($_POST['txt_ApPaterno']);
-        $datos[2]  = trim($_POST['txt_ApMaterno']);
-        $datos[3]   = trim($_POST['txt_FeNacimiento']);
-        $datos[4]   = trim($_POST['txt_sexo']);
-        $datos[5]   = trim($_POST['txt_curp']);
-        $datos[6] = $_FILES['filename']['name']; // obtiene el nombre
-        $archivotm = $_FILES['filename']['tmp_name']; // obtiene el archiv
-        $ruta = 'public/assets/images/Alumnos/';
-        move_uploaded_file($archivotm, $ruta . $datos[6]);
-        if ($this->model->insertAlumno([
-            'txt_nombre' => $datos[0], 'txt_ApPaterno' => $datos[1], 'txt_ApMaterno' => $datos[2], 'txt_FeNacimiento' => $datos[3],
-            'txt_sexo' => $datos[4], 'txt_curp' => $datos[5], 'filename' => $datos[6]
+    
+        $datos[0]  = trim($_POST['com_grados']);
+        $datos[1]  = trim($_POST['com_aulas']);
+        $datos[2] = trim($_POST['com_profesor']);
+        $datos[3]   = trim($_POST['com_materias']);
+        $datos[4]   = trim($_POST['com_periodos']);
+        if ($this->model->insertProfesorMateria([
+            'com_grados' => $datos[0], 'com_aulas' => $datos[1], 'com_profesor' => $datos[2], 'com_materias' => $datos[3],
+            'com_periodos' => $datos[4]
         ])) {
-            error_log('saveAl::Nuevo AlumnoCreado');
-            $this->redirect('alumnos', ['success' => Success::SUCCESS_ADMIN_NEW_ALUMNO]);
+            error_log('saveProfesorMateria::Nuevo materias asignadas al profesor');
+            $this->redirect('profesormateria', ['success' => Success::SUCCESS_ADMIN_NEW_ALUMNO]);
         } else {
-            error_log('saveAl::Error al crear alumno');
-            $this->redirect('alumnos', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+            error_log('saveProfesorMateria::Error al asignadas materias al profesor');
+            $this->redirect('profesormateria', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
 
