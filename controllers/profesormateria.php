@@ -53,23 +53,35 @@ class Profesormateria extends SessionController
         }
     }
 
-    function eliminarAl($param = null)
-    {
-        $alumnos = $param[0];
-        if ($this->model->deleteAlumno($alumnos)) {
-            error_log('eliminarAl::Alumno dado de baja');
-            $this->redirect('alumnos', ['error' => Errors::ERROR_NO_DELATE_ALUMNO]);
-        } else {
-            //   $this->redirect('c', ['error' => Errors::ERROR_NO_DELATE]);
-        }
-    }
     function verDetalle($param = null)
     {
-        $alumno_id = $param[0];
-        $alumnos = $this->model->getById($alumno_id);
-        $this->view->varTodas = $alumnos;
-        $this->view->render('alumnos/Actualizar');
+        $alumnos = $this->model->getAlumnos();
+        $this->view->Comboalumnos = $alumnos;
+        $proceso_id = $param[0];
+        $proceso = $this->model->getById($proceso_id);
+        $this->view->varTodas = $proceso;
+        $this->view->render('profesormateria/agregarAlumnos');
     }
+    function saveAlumnoProfesor()
+    {
+        $datos[0]  = trim($_POST['txt_idproceso']);
+        $datos[1]  = trim($_POST['com_alumnos']);
+        if ($this->model->insertAlumnosProfesor([
+            'txt_idproceso' => $datos[0], 'com_alumnos' => $datos[1]
+        ])) {
+            error_log('saveAlumnoProfesor::Nuevo AlumnoProfesor asignadas');
+            $this->redirect('profesoralumnos', ['success' => Success::SUCCESS_ADMIN_NEW_ALUMNO]);
+        } else {
+            error_log('saveProfesorMateria::Error al asignadas materias al profesor');
+            $this->redirect('profesoralumnos', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+        }
+    }
+
+
+
+
+
+
     function ActualizarR()
     {
         //modificar

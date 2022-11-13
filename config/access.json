@@ -21,6 +21,11 @@
             "role" : "admin"
         },
         {
+            "site" : "profesoralumnos", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+        {
             "site" : "actividad", 
             "access" : "private", 
             "role" : "admin"

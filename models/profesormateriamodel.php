@@ -94,7 +94,6 @@ class ProfesormateriaModel extends Model
                 return [];
             }
         } 
- 
         public function getMaterias()
         {
             $items = [];
@@ -111,7 +110,22 @@ class ProfesormateriaModel extends Model
                 return [];
             }
         } 
-
+        public function getAlumnos()
+        {
+            $items = [];
+            try {
+                $query = $this->db->connect()->query('SELECT alumno_id,Nombre_Completo from vw_detalle_alumnos where id_Estatus=100;');
+                while ($row = $query->fetch()) {
+                    $item = new varTodas();
+                    $item->vw_a_alumno_id = $row['alumno_id'];
+                    $item->vw_a_Nombre_Completo = $row['Nombre_Completo'];
+                    array_push($items, $item);
+                }
+                return $items;
+            } catch (PDOException $e) {
+                return [];
+            }
+        } 
     public function insertProfesorMateria($datos)
     {
         try {
@@ -124,7 +138,6 @@ class ProfesormateriaModel extends Model
                 'prof' => $datos['com_profesor'],
                 'mat' => $datos['com_materias'],
                 'per' => $datos['com_periodos']
-
             ]);
             return true;
         } catch (PDOException $e) {
@@ -132,31 +145,35 @@ class ProfesormateriaModel extends Model
             return false;
         }
     }
-    public function deleteAlumno($vw_id_alumno)
+    public function insertAlumnosProfesor($datos)
     {
-        $query = $this->db->connect()->prepare("UPDATE alumnos SET id_Estatus = 101 WHERE alumno_id = :id_alum");
         try {
-            $query->execute(['id_alum' => $vw_id_alumno]);
+            $query = $this->db->connect()->prepare('INSERT INTO alumnos_profesor(proceso_id,alumnos_id,estatus_id) 
+                VALUES (:procc,:alum,100)');
+            $query->execute([
+                'procc' => $datos['txt_idproceso'],
+                'alum' => $datos['com_alumnos']
+            ]);
             return true;
         } catch (PDOException $e) {
+            error_log($e->getMessage());
             return false;
         }
     }
-    public function getById($alumno_id)
+    public function getById($proceso_id)
     {
         $item = new varTodas();
-        $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_alumnos WHERE alumno_id = :id_al");
+        $query = $this->db->connect()->prepare("SELECT * from vw_detalle_profesormateria where proceso_id = :id_pro");
         try {
-            $query->execute(['id_al' => $alumno_id]);
+            $query->execute(['id_pro' => $proceso_id]);
             while ($row = $query->fetch()) {
-                $item->vw_a_alumno_id = $row['alumno_id'];
-                $item->vw_a_Nombres = $row['Nombres'];
-                $item->vw_a_Apellido_Paterno = $row['Apellido_Paterno'];
-                $item->vw_a_Apellido_Materno = $row['Apellido_Materno'];
-                $item->vw_a_Sexo = $row['Sexo'];
-                $item->vw_a_Fecha_nacimiento = $row['Fecha_nacimiento'];
-                $item->vw_a_Curp = $row['Curp'];
-                $item->vw_a_id_Estatus = $row['id_Estatus'];
+                $item->vw_pm_proceso_id = $row['proceso_id'];
+                $item->vw_pm_nombre_grado = $row['nombre_grado'];
+                $item->vw_pm_nombre_aula = $row['nombre_aula'];
+                $item->vw_pm_Nombre_Profesor = $row['Nombre_Profesor'];
+                $item->vw_pm_nombre_materia = $row['nombre_materia'];
+                $item->vw_pm_nombre_periodo = $row['nombre_periodo'];
+                $item->vw_pm_Estatus = $row['Estatus'];
             }
             return $item;
         } catch (PDOException $e) {

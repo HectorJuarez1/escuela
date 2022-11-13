@@ -57,7 +57,13 @@
                         <li class="sidebar-item ">
                             <a href="<?php echo constant('URL'); ?>profesormateria" class='sidebar-link'>
                                 <i data-feather="edit-2" width="20"></i>
-                                <span>Asignar Materias</span>
+                                <span>Materias Profesor</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="<?php echo constant('URL'); ?>profesoralumnos" class='sidebar-link'>
+                                <i data-feather="users" width="20"></i>
+                                <span>Profesor Alumnos</span>
                             </a>
                         </li>
                         <li class="sidebar-item  ">

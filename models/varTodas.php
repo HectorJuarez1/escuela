@@ -69,6 +69,17 @@ class varTodas{
     public $vw_pm_nombre_periodo;
     public $vw_pm_Estatus;
 
+    // alumnosAsignanos
+    public $vw_as_proceso_id;
+    public $vw_as_Nombre_Profesor;
+    public $vw_as_NombreAlumno;
+    public $vw_as_nombre_grado;
+    public $vw_as_nombre_aula;
+    public $vw_as_nombre_materia;
+    public $vw_as_nombre_periodo;
+    public $vw_as_estatus_id;
+    public $vw_as_Estatus;
+
 
 
 

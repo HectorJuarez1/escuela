@@ -45,37 +45,6 @@ INSERT INTO `actividad` VALUES (1,'Evaluación 1',100),(2,'Evaluación 2',100),(
 UNLOCK TABLES;
 
 --
--- Table structure for table `alumno_profesor`
---
-
-DROP TABLE IF EXISTS `alumno_profesor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `alumno_profesor` (
-  `procesoa_id` int NOT NULL AUTO_INCREMENT,
-  `alumno_id` int NOT NULL,
-  `proceso_id` int NOT NULL,
-  `estatus_procesaalumno_id` int NOT NULL,
-  PRIMARY KEY (`procesoa_id`),
-  KEY `alumno_id` (`alumno_id`),
-  KEY `proceso_id` (`proceso_id`),
-  KEY `fk_procesoalumno_estatus1_idx` (`estatus_procesaalumno_id`),
-  CONSTRAINT `fk_procesoalumno_estatus1` FOREIGN KEY (`estatus_procesaalumno_id`) REFERENCES `estatus` (`idEstatus`),
-  CONSTRAINT `procesoalumno_ibfk_1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`alumno_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `procesoalumno_ibfk_2` FOREIGN KEY (`proceso_id`) REFERENCES `profesor_materia` (`proceso_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `alumno_profesor`
---
-
-LOCK TABLES `alumno_profesor` WRITE;
-/*!40000 ALTER TABLE `alumno_profesor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `alumno_profesor` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `alumnos`
 --
 
@@ -110,6 +79,38 @@ INSERT INTO `alumnos` VALUES (2,'Hector','Coyotl','Juarez','Maculino','2012-09-1
 UNLOCK TABLES;
 
 --
+-- Table structure for table `alumnos_profesor`
+--
+
+DROP TABLE IF EXISTS `alumnos_profesor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `alumnos_profesor` (
+  `proceso_alumnos_id` int NOT NULL AUTO_INCREMENT,
+  `proceso_id` int NOT NULL,
+  `alumnos_id` int NOT NULL,
+  `estatus_id` int NOT NULL,
+  PRIMARY KEY (`proceso_alumnos_id`),
+  KEY `fk_alumno_profesor_estatus1_idx` (`estatus_id`),
+  KEY `fk_alumnos_profesor_alumnos1_idx` (`alumnos_id`),
+  KEY `fk_alumnos_profesor_profesor_materia1_idx` (`proceso_id`),
+  CONSTRAINT `fk_alumno_profesor_estatus1` FOREIGN KEY (`estatus_id`) REFERENCES `estatus` (`idEstatus`),
+  CONSTRAINT `fk_alumnos_profesor_alumnos1` FOREIGN KEY (`alumnos_id`) REFERENCES `alumnos` (`alumno_id`),
+  CONSTRAINT `fk_alumnos_profesor_profesor_materia1` FOREIGN KEY (`proceso_id`) REFERENCES `profesor_materia` (`proceso_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `alumnos_profesor`
+--
+
+LOCK TABLES `alumnos_profesor` WRITE;
+/*!40000 ALTER TABLE `alumnos_profesor` DISABLE KEYS */;
+INSERT INTO `alumnos_profesor` VALUES (19,11,2,100),(20,11,3,100),(21,11,5,100),(22,11,6,100);
+/*!40000 ALTER TABLE `alumnos_profesor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `aulas`
 --
 
@@ -132,7 +133,7 @@ CREATE TABLE `aulas` (
 
 LOCK TABLES `aulas` WRITE;
 /*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
-INSERT INTO `aulas` VALUES (1,'501',100),(2,'A-2',100),(3,'202',100),(9,'C-1',100);
+INSERT INTO `aulas` VALUES (1,'Primero A',100),(2,'Segundo B',100),(3,'Sexto C',100);
 /*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,7 +337,7 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
-INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2215628900','Maculino','2000-06-01','2022-11-11 04:23:07',100),(5,'213443f3a','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','2232413215','Maculino','1989-05-01','2022-11-11 04:25:19',100),(6,'D54S2V65','Verónica','Hernández','Gil','Calle 16 De Septiembre Puebla.Pue','2211342354','Femenino','1990-01-09','2022-11-11 04:20:03',100),(7,'776ub543','Adriana','León','León','Calle Coronel Jesús González Arratia Puebla.Pue','2276543211','Femenino','1990-03-01','2022-11-11 04:21:22',100),(8,'bg5423i1a','Rene','Fuentes','Fuentes','Calle Mariano Abasolo Puebla.Pue','2232982364','Maculino','1983-09-17','2022-11-11 04:25:28',101);
+INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2215628900','Maculino','2000-06-01','2022-11-11 10:23:07',100),(5,'213443f3a','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','2232413215','Maculino','1989-05-01','2022-11-11 10:25:19',100),(6,'D54S2V65','Verónica','Hernández','Gil','Calle 16 De Septiembre Puebla.Pue','2211342354','Femenino','1990-01-09','2022-11-11 10:20:03',100),(7,'776ub543','Adriana','León','León','Calle Coronel Jesús González Arratia Puebla.Pue','2276543211','Femenino','1990-03-01','2022-11-11 10:21:22',100),(8,'bg5423i1a','Rene','Fuentes','Fuentes','Calle Mariano Abasolo Puebla.Pue','2232982364','Maculino','1983-09-17','2022-11-11 10:25:28',101);
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -368,7 +369,7 @@ CREATE TABLE `profesor_materia` (
   CONSTRAINT `procesoprofesor_ibfk_1` FOREIGN KEY (`aula_id`) REFERENCES `aulas` (`aula_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `procesoprofesor_ibfk_2` FOREIGN KEY (`grado_id`) REFERENCES `grados` (`grado_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `procesoprofesor_ibfk_3` FOREIGN KEY (`profesor_id`) REFERENCES `profesor` (`profesor_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -377,7 +378,7 @@ CREATE TABLE `profesor_materia` (
 
 LOCK TABLES `profesor_materia` WRITE;
 /*!40000 ALTER TABLE `profesor_materia` DISABLE KEYS */;
-INSERT INTO `profesor_materia` VALUES (6,8,3,4,12,1,100),(7,12,1,5,15,2,100),(8,12,3,6,6,2,100);
+INSERT INTO `profesor_materia` VALUES (11,7,1,4,5,1,100),(12,8,2,5,7,1,100),(13,10,3,6,15,1,100);
 /*!40000 ALTER TABLE `profesor_materia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -430,6 +431,26 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `Foto_alumno`,
  1 AS `id_Estatus`,
  1 AS `Estatus_Detalle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_detalle_alumnosasignados`
+--
+
+DROP TABLE IF EXISTS `vw_detalle_alumnosasignados`;
+/*!50001 DROP VIEW IF EXISTS `vw_detalle_alumnosasignados`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_detalle_alumnosasignados` AS SELECT 
+ 1 AS `proceso_id`,
+ 1 AS `Nombre_Profesor`,
+ 1 AS `NombreAlumno`,
+ 1 AS `nombre_grado`,
+ 1 AS `nombre_aula`,
+ 1 AS `nombre_materia`,
+ 1 AS `nombre_periodo`,
+ 1 AS `estatus_id`,
+ 1 AS `Descripcion`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -501,6 +522,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `vw_detalle_alumnosasignados`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_detalle_alumnosasignados`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_detalle_alumnosasignados` AS select `al`.`proceso_id` AS `proceso_id`,`vpm`.`Nombre_Profesor` AS `Nombre_Profesor`,`vda`.`Nombre_Completo` AS `NombreAlumno`,`vpm`.`nombre_grado` AS `nombre_grado`,`vpm`.`nombre_aula` AS `nombre_aula`,`vpm`.`nombre_materia` AS `nombre_materia`,`vpm`.`nombre_periodo` AS `nombre_periodo`,`al`.`estatus_id` AS `estatus_id`,`est`.`Descripcion` AS `Descripcion` from (((`alumnos_profesor` `al` join `vw_detalle_profesormateria` `vpm` on((`vpm`.`proceso_id` = `al`.`proceso_id`))) join `vw_detalle_alumnos` `vda` on((`vda`.`alumno_id` = `al`.`alumnos_id`))) join `estatus` `est` on((`est`.`idEstatus` = `al`.`estatus_id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `vw_detalle_maestros`
 --
 
@@ -545,4 +584,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-10 22:50:54
+-- Dump completed on 2022-11-12 20:36:14

@@ -43,8 +43,8 @@
               <td><?php echo $DprofesroM->vw_pm_nombre_periodo; ?></td>
               <td><?php echo $DprofesroM->vw_pm_Estatus; ?></td>
               <td class="text-center">
-                <a href="<?php echo constant('URL') . 'DprofesroM/verDetalle/' . $DprofesroM->vw_a_alumno_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
-                <a href="<?php echo constant('URL') . 'DprofesroM/eliminarAl/' . $DprofesroM->vw_a_alumno_id ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
+                <a href="<?php echo constant('URL') . 'profesormateria/verDetalle/' . $DprofesroM->vw_pm_proceso_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
+                <a href="<?php echo constant('URL') . 'profesormateria/verDetalle/' . $DprofesroM->vw_pm_proceso_id ?>" class="btn icon btn-primary"><i data-feather="plus"></i></a>
               </td>
             </tr>
           <?php } ?>
@@ -52,7 +52,6 @@
       </table>
     </div>
   </div>
-
 
 
   <?php require 'views/template/footer.php'; ?>
