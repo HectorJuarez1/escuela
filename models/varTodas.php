@@ -5,6 +5,7 @@ class varTodas{
     public $idUser;
     public $username;
     public $role;
+    public $name;
 
     // alumno vista
     public $vw_a_alumno_id;

@@ -20,11 +20,11 @@ class LoginModel extends Model{
                 $user = new UserModel();
                 $user->from($item);
 
-              //  error_log('login: user id '.$user->getId()); 
+                error_log('login: user id '.$user->getId()); 
 
                 if(password_verify($password, $user->getPassword())){
               //      error_log('login: success');
-                    //return ['id' => $item['id'], 'username' => $item['username'], 'role' => $item['role']];
+                   // return ['id' => $item['id'], 'username' => $item['username'], 'role' => $item['role']];
                     return $user;
                     //return $user->getId();
                 }else{

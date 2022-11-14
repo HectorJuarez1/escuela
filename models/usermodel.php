@@ -1,5 +1,5 @@
 <?php
-
+include_once 'models/varTodas.php';
 class UserModel extends Model implements IModel{
 
     private $id;
@@ -83,6 +83,8 @@ class UserModel extends Model implements IModel{
         }
     }
 
+
+
     public function delete($id){
         try{
             $query = $this->prepare('DELETE FROM users WHERE id = :id');
@@ -147,6 +149,42 @@ class UserModel extends Model implements IModel{
             $this->password = $password;
         }
     }
+
+
+    public function getAllAulas($aula_id)
+    {
+        $items = [];
+
+        try {
+            $query = $this->db->connect()->prepare("SELECT * FROM aulas WHERE aula_id = :id_aul");
+            $query->execute(['id_aul' => $aula_id]);
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->aula_id = $row['aula_id'];
+                $item->nombre_aula = $row['nombre_aula'];
+                $item->estatus_aulas_id = $row['estatus_aulas_id'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function setId($id){             $this->id = $id;}
     public function setRole($role){         $this->role = $role;}
     public function setName($name){         $this->name = $name;}
