@@ -20,7 +20,7 @@ class LoginModel extends Model{
                 $user = new UserModel();
                 $user->from($item);
 
-                error_log('login: user id '.$user->getId()); 
+             //  error_log('login: user id '.$user->getId()); 
 
                 if(password_verify($password, $user->getPassword())){
               //      error_log('login: success');
@@ -28,7 +28,7 @@ class LoginModel extends Model{
                     return $user;
                     //return $user->getId();
                 }else{
-                    error_log('LoginModel: login->password no es igual');
+               //     error_log('LoginModel: login->password no es igual');
                     return NULL;
                 }
             }

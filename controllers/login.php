@@ -37,14 +37,14 @@ class Login extends SessionController{
             }else{
                 //error al registrar, que intente de nuevo
                 //$this->errorAtLogin('Nombre de usuario y/o password incorrecto');
-                error_log('Login::authenticate() username and/or password wrong');
+              //  error_log('Login::authenticate() username and/or password wrong');
                 $this->redirect('', ['error' => Errors::ERROR_LOGIN_AUTHENTICATE_DATA]);
                 return;
             }
         }else{
             // error, cargar vista con errores
             //$this->errorAtLogin('Error al procesar solicitud');
-            error_log('Login::authenticate() error with params');
+           // error_log('Login::authenticate() error with params');
             $this->redirect('', ['error' => Errors::ERROR_LOGIN_AUTHENTICATE]);
         }
     }

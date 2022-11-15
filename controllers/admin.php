@@ -9,6 +9,7 @@ class Admin extends SessionController{
     }
     function render(){
         $this->view->render('admin/index');
+
     }
 
     

@@ -115,6 +115,7 @@
                                 <div class="avatar me-2">
                                     <img src="<?php echo constant('URL'); ?>public/assets/images/avatar/usuario.png" alt="" srcset="">
                                 </div>
+                                
                                 <div class="d-none d-md-block d-lg-inline-block">hector.coyotl</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
