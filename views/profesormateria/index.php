@@ -26,6 +26,7 @@
             <th class="text-center">Profesor</th>
             <th class="text-center">Materia</th>
             <th class="text-center">Grado</th>
+            <th class="text-center">Aula</th>
             <th class="text-center">Periodo</th>
             <th class="text-center">Estatus</th>
             <th class="text-center">Acciones</th>
@@ -40,6 +41,7 @@
               <td><?php echo $DprofesroM->vw_pm_Nombre_Profesor; ?></td>
               <td><?php echo $DprofesroM->vw_pm_nombre_materia; ?></td>
               <td><?php echo $DprofesroM->vw_pm_nombre_grado; ?></td>
+              <td><?php echo $DprofesroM->vw_pm_nombre_aula; ?></td>
               <td><?php echo $DprofesroM->vw_pm_nombre_periodo; ?></td>
               <td><?php echo $DprofesroM->vw_pm_Estatus; ?></td>
               <td class="text-center">

@@ -49,8 +49,8 @@ class AlumnosModel extends Model
     {
         try {
             $query = $this->db->connect()
-                ->prepare('INSERT INTO alumnos(Nombres,Apellido_Paterno,Apellido_Materno,Sexo,Fecha_nacimiento,Curp,Foto_alumno,id_Estatus) 
-                VALUES (:nom,:ap,:am,:sex,:fn,:cur,:fal,100)');
+                ->prepare('INSERT INTO alumnos(Nombres,Apellido_Paterno,Apellido_Materno,Sexo,Fecha_nacimiento,Curp,Foto_alumno,No_Alumno,id_Estatus) 
+                VALUES (:nom,:ap,:am,:sex,:fn,:cur,:fal,:Noal,100)');
             $query->execute([
                 'nom' => $datos['txt_nombre'],
                 'ap' => $datos['txt_ApPaterno'],
@@ -58,7 +58,8 @@ class AlumnosModel extends Model
                 'sex' => $datos['txt_sexo'],
                 'fn' => $datos['txt_FeNacimiento'],
                 'cur' => $datos['txt_curp'],
-                'fal' => $datos['filename']
+                'fal' => $datos['filename'],
+                'Noal' => $datos['txt_No_Alumno']
 
             ]);
             return true;

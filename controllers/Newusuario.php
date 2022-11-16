@@ -6,16 +6,30 @@ class Newusuario extends SessionController
     {
         parent::__construct();
     }
+
+
+
     function render()
     {
+        
         $Nusuarios = $this->model->getAll();
         $this->view->varTodas = $Nusuarios;
+
         $this->view->render('Newusuario/index');
     }
     
     function new()
     {
         $this->view->render('Newusuario/nuevo');
+    }
+
+    function verDetalle($Nalumno)
+    {
+
+        $Nalumno[0]  = trim($_POST['txt_usuario']);
+        $alumnos = $this->model->getAllDNombres($Nalumno[0]);
+        $this->view->varTodas = $alumnos;
+        $this->view->render('alumnos/Actualizar');
     }
     
     function saveUs()

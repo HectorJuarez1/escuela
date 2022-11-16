@@ -7,6 +7,38 @@ class NewusuarioModel extends Model{
         parent::__construct();
     }
 
+
+    public function getAllDNombres($No_Alumno)
+    {
+        $items = [];
+
+        try {
+            $query = $this->db->connect()->prepare("SELECT No_Alumno,Nombre_Completo,username  FROM vw_detalle_alumnos WHERE No_Alumno = :no_al");
+            $query->execute(['no_al' => $No_Alumno]);
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->vw_a_No_Alumno = $row['No_Alumno'];
+                $item->vw_a_Nombre_Completo = $row['Nombre_Completo'];
+                $item->vw_a_username = $row['username'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     public function getAll()
     {
         $items = [];

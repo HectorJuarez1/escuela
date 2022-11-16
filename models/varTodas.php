@@ -9,7 +9,9 @@ class varTodas{
 
     // alumno vista
     public $vw_a_alumno_id;
+    public $vw_a_No_Alumno;
     public $vw_a_Nombre_Completo;
+    public $vw_a_username;
     public $vw_a_Nombres;
     public $vw_a_Apellido_Paterno;
     public $vw_a_Apellido_Materno;

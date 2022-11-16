@@ -12,7 +12,9 @@
 <body>
     <?php require 'views/template/header.php'; ?>
 
-        <?php $this->showMessages(); ?>
+        <?php $this->showMessages();
+                $NumerodPedido = "AL" . date("mdHi");
+        ?>
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h2 mb-0 text-gray-800">NUEVO ALUMNO</h1>
@@ -21,6 +23,13 @@
             <div class="card-body">
                 <form class="row p-3" action="saveAl" method="POST" enctype="multipart/form-data" accept=".png, .jpg, .jpeg, .webp">
                     <div class="row">
+
+                    <div class="col-md-12 col-12">
+                            <div class="form-group">
+                                <label>No_Alumno</label>
+                                <input type="text" class="form-control" name="txt_No_Alumno" value="<?php echo $NumerodPedido; ?>" required>
+                            </div>
+                        </div>
                         <div class="col-md-4 col-12">
                             <div class="form-group">
                                 <label>Nombre</label>

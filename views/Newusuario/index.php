@@ -15,6 +15,7 @@
     <?php $this->showMessages(); ?>
 
 <a href="<?php echo constant('URL'); ?>Newusuario/new" class="btn btn-success rounded-pill">Nuevo</a><br><br>
+
     <div class="card">
         <div class="card-header">
             USUARIOS
