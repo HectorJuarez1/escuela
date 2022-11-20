@@ -24,6 +24,7 @@ class NewusuarioModel extends Model{
             }
             return $items;
         } catch (PDOException $e) {
+            error_log($e->getMessage());
             return null;
         }
     }
