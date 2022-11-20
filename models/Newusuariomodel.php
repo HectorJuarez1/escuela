@@ -62,9 +62,10 @@ class NewusuarioModel extends Model{
     {
         try {
             $query = $this->db->connect()
-                ->prepare('INSERT INTO users(username,password,role,name) 
-                VALUES (:usse,:pass,:rol,:nam)');
+                ->prepare('INSERT INTO users(id,username,password,role,name) 
+                VALUES (:id,:usse,:pass,:rol,:nam)');
                 $query->execute([
+                    'id' => $datos['txt_no_usuario'],
                 'usse' => $datos['txt_usuario'],
                 'pass' => $datos['txt_passw'],
                 'rol' => $datos['txt_rol'],

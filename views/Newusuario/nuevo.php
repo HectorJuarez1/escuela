@@ -21,24 +21,30 @@
         <div class="card-body">
             <div class="col-md-5 col-12">
                 <form class="p-3 d-flex" action="verDetalle" method="POST">
-                    <input class="form-control me-2" type="text" name="txt_buscar" placeholder="No Alumno">
+                    <input class="form-control me-2" type="text" name="txt_buscar" placeholder="No Alumno" required>
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
             </div>
             <?php
-            foreach ($this->DatosUsuario as $row) {
-                $Dusuarios = new varTodas();
-                $Dusuarios = $row;
-                $a = $Dusuarios->vw_a_No_Alumno;
-                $b = $Dusuarios->vw_a_username;
-                $c = $Dusuarios->vw_a_Nombre_Completo;
-            } ?>
+            $a = "";
+            $b = "";
+            $c = "";
+            if (isset($_POST['txt_buscar'])) {
+                foreach ($this->DatosUsuario as $row) {
+                    $Dusuarios = new varTodas();
+                    $Dusuarios = $row;
+                    $a = $Dusuarios->vw_a_No_Alumno;
+                    $b = $Dusuarios->vw_a_username;
+                    $c = $Dusuarios->vw_a_Nombre_Completo;
+                }
+            }
+            ?>
             <form class="row p-3" action="saveUs" method="POST">
                 <div class="row">
                     <div class="col-md-2 col-12">
                         <div class="form-group">
                             <label>No Alumno</label>
-                            <input type="text" class="form-control" name="txt_usuario" value="<?php echo $a; ?>" readonly>
+                            <input type="text" class="form-control" name="txt_no_usuario" value="<?php echo $a; ?>" readonly>
                         </div>
                     </div>
                     <div class="col-md-3 col-12">

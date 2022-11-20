@@ -27,7 +27,7 @@
                     <div class="col-md-12 col-12">
                             <div class="form-group">
                                 <label>No_Alumno</label>
-                                <input type="text" class="form-control" name="txt_No_Alumno" value="<?php echo $NumerodPedido; ?>" required>
+                                <input type="text" class="form-control" name="txt_No_Alumno" value="<?php echo $NumerodPedido; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-md-4 col-12">

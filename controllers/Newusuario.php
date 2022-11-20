@@ -25,33 +25,27 @@ class Newusuario extends SessionController
 
     function verDetalle()
     {
-
-        if (isset($_POST['txt_buscar'])) {
             $Nalumno[0]  = trim($_POST['txt_buscar']);
             if ($Nalumno[0]  == '') {
                 $this->view->render('Newusuario/nuevo');
-                echo "datso vacios";
             } else {
                 $Alumnos = $this->model->getAllDNombres($Nalumno[0]);
                 $this->view->DatosUsuario = $Alumnos;
                 $this->view->render('Newusuario/nuevo');
-            }
-        }
+            } 
     }
-
-
-
 
 
     function saveUs()
     {
-        $datos[0]  = trim($_POST['txt_usuario']);
-        $datos[1]  = trim($_POST['txt_passw']);
-        $pass_cifrado = password_hash($datos[1], PASSWORD_DEFAULT, array("cost" => 10));
-        $datos[2]  = trim($_POST['txt_rol']);
-        $datos[3]  = trim($_POST['txt_Nom_Completo']);
+        $datos[0]  = trim($_POST['txt_no_usuario']);
+        $datos[1]  = trim($_POST['txt_usuario']);
+        $datos[2]  = trim($_POST['txt_passw']);
+        $pass_cifrado = password_hash($datos[2], PASSWORD_DEFAULT, array("cost" => 10));
+        $datos[3]  = trim($_POST['txt_rol']);
+        $datos[4]  = trim($_POST['txt_Nom_Completo']);
         if ($this->model->insertUsuario([
-            'txt_usuario' => $datos[0], 'txt_passw' => $pass_cifrado, 'txt_rol' => $datos[2], 'txt_Nom_Completo' => $datos[3]
+            'txt_no_usuario' => $datos[0], 'txt_usuario' => $datos[1], 'txt_passw' => $pass_cifrado, 'txt_rol' => $datos[3], 'txt_Nom_Completo' => $datos[4]
         ])) {
             error_log('saveUs::Nuevo usuarios creado');
             $this->redirect('Newusuario', ['success' => Success::SUCCESS_ADMIN_NEW_TUTOR]);

@@ -23,7 +23,8 @@
         <div class="card-body">
             <table class='table table-striped' id="table1">
                 <thead>
-                    <tr>
+                    <tr>                      
+                        <th class="text-center">Id</th>
                         <th class="text-center">Usuario</th>
                         <th class="text-center">Rol</th>
                         <th class="text-center">Acciones</th>
@@ -35,6 +36,7 @@
                         $Nusuario = $row;
                     ?>
                         <tr class="text-center">
+                            .   <td><?php echo $Nusuario->idUser; ?></td>
                             <td><?php echo $Nusuario->username; ?></td>
                             <td><?php echo $Nusuario->role; ?></td>
                             <td class="text-center">
