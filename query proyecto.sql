@@ -19,20 +19,14 @@ select * from vw_detalle_alumnosasignados;
 
 
 
-se
+select * from vw_nombres;
 
 
 
 
 
-
-select No_Alumno,Nombre_Completo,username from vw_detalle_alumnos where No_Alumno='AL09152233';
-
-
-
-
-
-
+SELECT COUNT(profesor_id)as NumProfesores from vw_detalle_maestros where estatus_maestro_id=100 UNION
+SELECT COUNT(alumno_id)as NumAlumnos from vw_detalle_alumnos where id_Estatus=100
 
 
 

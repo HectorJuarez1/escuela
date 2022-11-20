@@ -8,6 +8,11 @@ class Admin extends SessionController{
         
     }
     function render(){
+
+        $Alumnos = $this->model->getAllConAlum();
+        $this->view->TotalAlumnos = $Alumnos;
+        $Profesores = $this->model->getAllConProf();
+        $this->view->TotalProfesores = $Profesores;
         $this->view->render('admin/index');
 
     }

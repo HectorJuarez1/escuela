@@ -22,6 +22,8 @@ class varTodas{
     public $vw_a_Foto_alumno;
     public $vw_a_id_Estatus;
     public $vw_a_Estatus_Detalle;
+    public $vw_a_NumAlumnos;
+
 
     // maestros
     public $vw_m_profesor_id;
@@ -37,7 +39,8 @@ class varTodas{
     public $vw_m_Edad;
     public $vw_m_estatus_maestro_id;
     public $vw_m_Estatus_Detalle;
-
+    public $vw_m_NumProfesores;
+    
     // grados
     public $grado_id;
     public $nombre_grado;

@@ -11,27 +11,38 @@ class Newusuario extends SessionController
 
     function render()
     {
-        
+
         $Nusuarios = $this->model->getAll();
         $this->view->varTodas = $Nusuarios;
 
         $this->view->render('Newusuario/index');
     }
-    
+
     function new()
     {
         $this->view->render('Newusuario/nuevo');
     }
 
-    function verDetalle($Nalumno)
+    function verDetalle()
     {
 
-        $Nalumno[0]  = trim($_POST['txt_usuario']);
-        $alumnos = $this->model->getAllDNombres($Nalumno[0]);
-        $this->view->varTodas = $alumnos;
-        $this->view->render('alumnos/Actualizar');
+        if (isset($_POST['txt_buscar'])) {
+            $Nalumno[0]  = trim($_POST['txt_buscar']);
+            if ($Nalumno[0]  == '') {
+                $this->view->render('Newusuario/nuevo');
+                echo "datso vacios";
+            } else {
+                $Alumnos = $this->model->getAllDNombres($Nalumno[0]);
+                $this->view->DatosUsuario = $Alumnos;
+                $this->view->render('Newusuario/nuevo');
+            }
+        }
     }
-    
+
+
+
+
+
     function saveUs()
     {
         $datos[0]  = trim($_POST['txt_usuario']);
@@ -45,8 +56,8 @@ class Newusuario extends SessionController
             error_log('saveUs::Nuevo usuarios creado');
             $this->redirect('Newusuario', ['success' => Success::SUCCESS_ADMIN_NEW_TUTOR]);
         } else {
-           // error_log('saveAl::Error al crear alumno');
-           // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+            // error_log('saveAl::Error al crear alumno');
+            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
     function eliminarUser($param = null)
@@ -59,7 +70,4 @@ class Newusuario extends SessionController
             $this->redirect('tutor', ['error' => Errors::ERROR_NO_DELATE]);
         }
     }
-
-
 }
-?>
