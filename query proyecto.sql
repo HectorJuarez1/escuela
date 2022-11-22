@@ -21,6 +21,7 @@ select * from vw_detalle_alumnosasignados;
 
 select * from vw_nombres;
 
+select COUNT(*) No_Alumno from alumnos WHERE No_Alumno='AL11152233'
 
 
 

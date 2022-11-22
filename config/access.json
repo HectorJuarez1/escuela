@@ -66,6 +66,11 @@
             "role" : "admin"
         },
         {
+            "site" : "materiasAlumno", 
+            "access" : "private", 
+            "role" : "user"
+        },
+        {
             "site" : "user", 
             "access" : "private", 
             "role" : "user"

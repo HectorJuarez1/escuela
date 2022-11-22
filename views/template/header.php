@@ -116,7 +116,7 @@
                                     <img src="<?php echo constant('URL'); ?>public/assets/images/avatar/usuario.png" alt="" srcset="">
                                 </div>
                                 
-                                <div class="d-none d-md-block d-lg-inline-block">hector.coyotl</div>
+                                <div class="d-none d-md-block d-lg-inline-block">admin</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>

@@ -11,24 +11,6 @@
 <body>
     <?php require 'views/template/headerAlumnos.php'; ?>
     <h1>Vista del alumno --> Dashboard</h1>
-    <?php //echo $user->getId() ?>
-    <table class="table table-striped text-center" id="table1">
-        <thead>
-            <tr>
-                <th class="text-center">Aulas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($this->varTodas as $row) {
-                $aulas = new varTodas();
-                $aulas = $row;
-            ?>
-                <tr>
-                    <td><?php echo $aulas->nombre_aula; ?></td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
     <?php require 'views/template/footerAlumnos.php'; ?>
 </body>
 

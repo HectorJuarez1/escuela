@@ -36,7 +36,7 @@
                         $Nusuario = $row;
                     ?>
                         <tr class="text-center">
-                            .   <td><?php echo $Nusuario->idUser; ?></td>
+                            <td><?php echo $Nusuario->idUser; ?></td>
                             <td><?php echo $Nusuario->username; ?></td>
                             <td><?php echo $Nusuario->role; ?></td>
                             <td class="text-center">

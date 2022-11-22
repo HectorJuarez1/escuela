@@ -29,9 +29,9 @@
                     <ul class="menu ">
                         <li class='sidebar-title '>Menú principal</li>
                         <li class="sidebar-item ">
-                            <a href="<?php echo constant('URL'); ?>" class='sidebar-link'>
-                                <i data-feather="clipboard" width="20"></i>
-                                <span>Clases</span>
+                            <a href="<?php echo constant('URL'); ?>materiasAlumno" class='sidebar-link'>
+                                <i data-feather="book" width="20"></i>
+                                <span>Materias</span>
                             </a>
                         </li>
                     </ul>
