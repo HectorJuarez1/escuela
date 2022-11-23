@@ -8,6 +8,24 @@ class AlumnosModel extends Model
         parent::__construct();
     }
 
+
+    public function ValidarMatricula($No_Alumno)
+    {
+    
+
+        try {
+            $query = $this->db->connect()->prepare("SELECT COUNT(*) No_Alumno from alumnos WHERE No_Alumno=:no_al");
+            $query->execute(['no_al' => $No_Alumno]);
+            $numero = $query->fetchColumn();
+            return $numero;
+        } catch (PDOException $e) {
+            echo 'Error en la linea' . $e->getLine();
+            return null;
+        }
+    }
+
+
+
     public function getAllAlumnos()
     {
         $items = [];

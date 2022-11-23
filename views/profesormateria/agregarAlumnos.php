@@ -22,7 +22,7 @@
                 <div class="col-md-4 col-12">
                             <div class="form-group">
                                 <label>ID PROCESO</label>
-                                <input type="text" class="form-control" name="txt_idproceso" value="<?php echo $this->varTodas->vw_pm_proceso_id; ?>" >
+                                <input type="text" class="form-control" name="txt_idproceso" value="<?php echo $this->varTodas->vw_pm_proceso_id; ?>" readonly>
                             </div>
                         </div>
                 <div class="col-md-4 mb-4">

@@ -5,6 +5,7 @@ class Alumnos extends SessionController
     function __construct()
     {
         parent::__construct();
+
     }
     function render()
     {
@@ -28,23 +29,30 @@ class Alumnos extends SessionController
         $datos[3]   = trim($_POST['txt_FeNacimiento']);
         $datos[4]   = trim($_POST['txt_sexo']);
         $datos[5]   = trim($_POST['txt_curp']);
-        
-
         $datos[6] = $_FILES['filename']['name']; // obtiene el nombre
         $archivotm = $_FILES['filename']['tmp_name']; // obtiene el archiv
         $ruta = 'public/assets/images/Alumnos/';
         move_uploaded_file($archivotm, $ruta . $datos[6]);
         $datos[7]   = trim($_POST['txt_No_Alumno']);
-        if ($this->model->insertAlumno([
-            'txt_nombre' => $datos[0], 'txt_ApPaterno' => $datos[1], 'txt_ApMaterno' => $datos[2], 'txt_FeNacimiento' => $datos[3],
-            'txt_sexo' => $datos[4], 'txt_curp' => $datos[5], 'filename' => $datos[6],'txt_No_Alumno'=> $datos[7]
-        ])) {
-            error_log('saveAl::Nuevo AlumnoCreado');
-            $this->redirect('alumnos', ['success' => Success::SUCCESS_ADMIN_NEW_ALUMNO]);
-        } else {
-            error_log('saveAl::Error al crear alumno');
-            $this->redirect('alumnos', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+        //validar numero de usuario
+        $numero =$this->model->ValidarMatricula($datos[7]);
+        if ( $numero >=1) {
+            echo $numero;
+            echo "Este usuario ya fue registrado";
+        }else{
+            if ($this->model->insertAlumno([
+                'txt_nombre' => $datos[0], 'txt_ApPaterno' => $datos[1], 'txt_ApMaterno' => $datos[2], 'txt_FeNacimiento' => $datos[3],
+                'txt_sexo' => $datos[4], 'txt_curp' => $datos[5], 'filename' => $datos[6],'txt_No_Alumno'=> $datos[7]
+            ])) {
+                error_log('saveAl::Nuevo AlumnoCreado');
+                $this->redirect('alumnos', ['success' => Success::SUCCESS_ADMIN_NEW_ALUMNO]);
+            } else {
+                error_log('saveAl::Error al crear alumno');
+                $this->redirect('alumnos', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+            }
         }
+
+
     }
 
     function eliminarAl($param = null)
