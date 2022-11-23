@@ -17,6 +17,13 @@ select * from vw_detalle_maestros;
 select * from vw_detalle_profesormateria where proceso_id = 6;
 select * from vw_detalle_alumnosasignados;
 
+select nombre_materia from vw_detalle_alumnosasignados where No_Alumno='AL08011212'
+
+
+
+UPDATE `control_escolar`.`users` SET `username` = 'admin' WHERE (`id` = '1');
+
+DELETE FROM `control_escolar`.`users` WHERE (`id` = 'AL11202151');
 
 
 select * from vw_nombres;

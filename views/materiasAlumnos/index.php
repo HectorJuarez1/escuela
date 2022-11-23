@@ -21,7 +21,7 @@
                 <div class="table-responsive">
                     <table class="table text-center table-hover mb-0">
                         <thead>
-                            <tr class="table-success">
+                            <tr class="table-primary">
                                 <th class="text-center">PROFESOR</th>
                                 <th class="text-center">AULA</th>
                                 <th class="text-center">MATERIA</th>
