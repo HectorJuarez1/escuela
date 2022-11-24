@@ -54,6 +54,20 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="trending-up" width="20"></i>
+                                <span>Pagos</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li>
+                                    <a href="<?php echo constant('URL'); ?>Pagos">Consultar</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo constant('URL'); ?>Pagos/newPago">Nuevo</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="sidebar-item ">
                             <a href="<?php echo constant('URL'); ?>profesormateria" class='sidebar-link'>
                                 <i data-feather="edit-2" width="20"></i>
@@ -96,7 +110,6 @@
                                 <span>Actividad</span>
                             </a>
                         </li>
-
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

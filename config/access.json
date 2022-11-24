@@ -16,6 +16,11 @@
             "role" : "admin"
         },
         {
+            "site" : "Pagos", 
+            "access" : "private", 
+            "role" : "admin"
+        },
+        {
             "site" : "profesormateria", 
             "access" : "private", 
             "role" : "admin"
