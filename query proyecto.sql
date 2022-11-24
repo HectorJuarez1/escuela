@@ -18,6 +18,12 @@ select * from vw_detalle_maestros;
 select * from vw_detalle_profesormateria where proceso_id = 6;
 select * from vw_detalle_alumnosasignados;
 
+
+
+
+INSERT INTO `control_escolar`.`pagos` (`No_alumno`, `Nombre_Alumno`, `Pago`, `Detalle_mes`, `concepto_id_concepto`)
+ VALUES ('asda354', 'hector', '182', 'mayo','1');
+
 select nombre_materia from vw_detalle_alumnosasignados where No_Alumno='AL08011212';
 
 

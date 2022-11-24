@@ -1,4 +1,2 @@
-[23-Nov-2022 22:47:43 America/Mexico_City] user::constructor() 
-[23-Nov-2022 22:47:43 America/Mexico_City] user::RENDER() 
-[23-Nov-2022 22:47:45 America/Mexico_City] user::constructor() 
-[23-Nov-2022 22:47:45 America/Mexico_City] user::RENDER() 
+[24-Nov-2022 13:16:27 America/Mexico_City] SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Febrero' for column 'concepto_id_concepto' at row 1
+[24-Nov-2022 13:18:22 America/Mexico_City] SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Enero' for column 'concepto_id_concepto' at row 1

@@ -32,6 +32,9 @@ class Success{
     const SUCCESS_ADMIN_NEW_MAESTRO    = "edabc9e";
     const SUCCESS_ADMIN_UPDATE_MAESTRO    = "T4sD8cVc";
 
+    
+    const SUCCESS_ADMIN_NEW_PAGO    = "PdaDDc9e";
+
 
 
 
@@ -64,6 +67,7 @@ class Success{
             Success::SUCCESS_ADMIN_UPDATE_ACTIVIDAD => "Datos de la actividad actualizados.",
             Success::SUCCESS_ADMIN_NEW_GRADO => "Nuevo grado creado.",
             Success::SUCCESS_ADMIN_UPDATE_GRADO => "Datos del grado actualizados.",
+            Success::SUCCESS_ADMIN_NEW_PAGO => "Pago registrado con exito.",
 
             
 
