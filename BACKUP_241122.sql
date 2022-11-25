@@ -40,6 +40,7 @@ CREATE TABLE `actividad` (
 
 LOCK TABLES `actividad` WRITE;
 /*!40000 ALTER TABLE `actividad` DISABLE KEYS */;
+INSERT INTO `actividad` VALUES (1,'Evaluación 1',100),(2,'Evaluación 2',100),(3,'Evaluación 4',103);
 /*!40000 ALTER TABLE `actividad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +107,6 @@ CREATE TABLE `alumnos_profesor` (
 
 LOCK TABLES `alumnos_profesor` WRITE;
 /*!40000 ALTER TABLE `alumnos_profesor` DISABLE KEYS */;
-INSERT INTO `alumnos_profesor` VALUES (24,11,2,100),(25,14,2,100),(26,15,2,100),(27,16,2,100),(28,17,3,100),(29,18,6,100);
 /*!40000 ALTER TABLE `alumnos_profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +176,7 @@ CREATE TABLE `concepto` (
   `id_concepto` int NOT NULL AUTO_INCREMENT,
   `Descripcion` varchar(45) NOT NULL,
   PRIMARY KEY (`id_concepto`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +200,7 @@ CREATE TABLE `estatus` (
   `idEstatus` int NOT NULL AUTO_INCREMENT,
   `Descripcion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,7 +209,7 @@ CREATE TABLE `estatus` (
 
 LOCK TABLES `estatus` WRITE;
 /*!40000 ALTER TABLE `estatus` DISABLE KEYS */;
-INSERT INTO `estatus` VALUES (100,'Activo'),(101,'Baja'),(102,'Baja Temporal'),(103,'Inactivo');
+INSERT INTO `estatus` VALUES (100,'Activo'),(101,'Baja'),(102,'Baja Temporal'),(103,'Inactivo'),(108,'Registrado'),(109,'Cancelado');
 /*!40000 ALTER TABLE `estatus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -268,7 +268,6 @@ CREATE TABLE `materias` (
 
 LOCK TABLES `materias` WRITE;
 /*!40000 ALTER TABLE `materias` DISABLE KEYS */;
-INSERT INTO `materias` VALUES (5,'Matemáticas','08:00-11:00','11:00-13:00','','','',100),(6,'Español','','','','','',100),(7,'Ciencias de la Naturaleza','','','','','',100),(8,'Segunda lengua extranjera','','','','','',100),(9,'Educación física','','','','','',100),(10,'Educación Artística','','','','','',103),(11,'Geografía','','','','','',100),(12,'Formación Cívica y Ética','','','','','',100),(13,'Primera lengua extranjera','','12:00-14:00','','08:00-10:00','12:00-14:00',100),(14,'Lengua castellana y literatura','','','09:00-11:00','','',100),(15,'Historia','','','','','',100);
 /*!40000 ALTER TABLE `materias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,16 +315,20 @@ DROP TABLE IF EXISTS `pagos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pagos` (
-  `No_alumno` int NOT NULL,
-  `Nombre_Alumno` varchar(75) NOT NULL,
+  `id_pagos` int NOT NULL AUTO_INCREMENT,
+  `No_alumno` varchar(100) NOT NULL,
+  `Nombre_Alumno` varchar(200) NOT NULL,
   `Pago` int NOT NULL,
-  `Concepto` varchar(45) NOT NULL,
-  `Detalle_mes` varchar(20) NOT NULL,
-  `Fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `concepto_id_concepto` int NOT NULL,
-  KEY `fk_pagos_concepto1_idx` (`concepto_id_concepto`),
-  CONSTRAINT `fk_pagos_concepto1` FOREIGN KEY (`concepto_id_concepto`) REFERENCES `concepto` (`id_concepto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `Detalle_mes` varchar(100) NOT NULL,
+  `estatus_id_pago` int NOT NULL,
+  `concepto_id_pago` int NOT NULL,
+  `Fecha_registro` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_pagos`),
+  KEY `fk_pagos_estatus1_idx` (`estatus_id_pago`),
+  KEY `fk_pagos_concepto1_idx` (`concepto_id_pago`),
+  CONSTRAINT `fk_pagos_concepto1` FOREIGN KEY (`concepto_id_pago`) REFERENCES `concepto` (`id_concepto`),
+  CONSTRAINT `fk_pagos_estatus1` FOREIGN KEY (`estatus_id_pago`) REFERENCES `estatus` (`idEstatus`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -334,6 +337,7 @@ CREATE TABLE `pagos` (
 
 LOCK TABLES `pagos` WRITE;
 /*!40000 ALTER TABLE `pagos` DISABLE KEYS */;
+INSERT INTO `pagos` VALUES (3,'AL09152233','Galilea Gonzalez Reyes',21,'Marzo',109,3,'2022-11-25 05:34:06'),(5,'AL05152209','Lizbeth Soledad Falcon Duarte',123,'',109,1,'2022-11-25 05:34:46'),(6,'AL09152233','Galilea Gonzalez Reyes',2134,'',108,2,'2022-11-25 05:27:02'),(7,'AL05152209','Lizbeth Soledad Falcon Duarte',213,'Junio',109,3,'2022-11-25 05:35:11'),(8,'AL01152232','Karen Odette Dominguez Velazquez',123,'Enero',108,3,'2022-11-25 05:33:40');
 /*!40000 ALTER TABLE `pagos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -360,7 +364,6 @@ CREATE TABLE `periodos` (
 
 LOCK TABLES `periodos` WRITE;
 /*!40000 ALTER TABLE `periodos` DISABLE KEYS */;
-INSERT INTO `periodos` VALUES (1,'Enero-Agosto 2022',100),(2,'Agosto-Diciembre 2021',100);
 /*!40000 ALTER TABLE `periodos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,7 +398,6 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
-INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2215628900','Maculino','2000-06-01','2022-11-11 16:23:07',100),(5,'213443f3a','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','2232413215','Maculino','1989-05-01','2022-11-11 16:25:19',100),(6,'D54S2V65','Verónica','Hernández','Gil','Calle 16 De Septiembre Puebla.Pue','2211342354','Femenino','1990-01-09','2022-11-11 16:20:03',100),(7,'776ub543','Adriana','León','León','Calle Coronel Jesús González Arratia Puebla.Pue','2276543211','Femenino','1990-03-01','2022-11-11 16:21:22',100),(8,'bg5423i1a','Rene','Fuentes','Fuentes','Calle Mariano Abasolo Puebla.Pue','2232982364','Maculino','1983-09-17','2022-11-11 16:25:28',101);
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -436,7 +438,6 @@ CREATE TABLE `profesor_materia` (
 
 LOCK TABLES `profesor_materia` WRITE;
 /*!40000 ALTER TABLE `profesor_materia` DISABLE KEYS */;
-INSERT INTO `profesor_materia` VALUES (11,7,6,4,5,1,100),(14,7,6,4,6,1,100),(15,7,6,4,12,1,100),(16,7,6,4,9,1,100),(17,8,13,5,13,1,100),(18,12,11,7,15,1,100);
 /*!40000 ALTER TABLE `profesor_materia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -538,6 +539,26 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `vw_detalle_pagos`
+--
+
+DROP TABLE IF EXISTS `vw_detalle_pagos`;
+/*!50001 DROP VIEW IF EXISTS `vw_detalle_pagos`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_detalle_pagos` AS SELECT 
+ 1 AS `id_pagos`,
+ 1 AS `No_alumno`,
+ 1 AS `Nombre_Alumno`,
+ 1 AS `Pago`,
+ 1 AS `Detalle_mes`,
+ 1 AS `Concepto`,
+ 1 AS `estatus_id_pago`,
+ 1 AS `estatus`,
+ 1 AS `Fecha_registro`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `vw_detalle_profesormateria`
 --
 
@@ -635,6 +656,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `vw_detalle_pagos`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_detalle_pagos`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_detalle_pagos` AS select `pa`.`id_pagos` AS `id_pagos`,`pa`.`No_alumno` AS `No_alumno`,`pa`.`Nombre_Alumno` AS `Nombre_Alumno`,format(`pa`.`Pago`,2) AS `Pago`,`pa`.`Detalle_mes` AS `Detalle_mes`,`con`.`Descripcion` AS `Concepto`,`pa`.`estatus_id_pago` AS `estatus_id_pago`,`est`.`Descripcion` AS `estatus`,`pa`.`Fecha_registro` AS `Fecha_registro` from ((`pagos` `pa` join `concepto` `con` on((`con`.`id_concepto` = `pa`.`concepto_id_pago`))) join `estatus` `est` on((`est`.`idEstatus` = `pa`.`estatus_id_pago`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `vw_detalle_profesormateria`
 --
 
@@ -679,4 +718,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-23 22:52:32
+-- Dump completed on 2022-11-24 23:44:39

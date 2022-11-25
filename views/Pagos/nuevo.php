@@ -69,8 +69,8 @@
           <div class="col-md-3 col-12">
             <div class="form-group">
               <label>MES</label>
-              <select class="form-select" name="com_Mes" required>
-                <option selected>Selección</option>
+              <select class="form-select" name="com_Mes">
+                <option value="">Selección</option>
                 <option value="Enero">Enero</option>
                 <option value="Febrero">Febrero</option>
                 <option value="Marzo">Marzo</option>

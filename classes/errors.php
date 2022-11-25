@@ -19,6 +19,8 @@ class Errors{
     const ERROR_NO_DELATE_GRADO       = "4ESCf1b";
     const ERROR_NO_DELATE_MAESTRO       = "4ESCf1b";
 
+    const ERROR_NO_CANCELA_PAGO       = "PxGF74S";
+
 
 
     const ERROR_ADMIN_NEWCATEGORY_EXISTS        = "1f8f0ae8963b16403c3ec9ebb851f156";
@@ -59,6 +61,10 @@ class Errors{
             Errors::ERROR_NO_DELATE_ACTIVIDAD            => 'Actividad eliminada',
             Errors::ERROR_NO_DELATE_GRADO            => 'Grado eliminada',
             Errors::ERROR_NO_DELATE_MAESTRO            => 'Maestro eliminada',
+            Errors::ERROR_NO_CANCELA_PAGO            => 'Pago cancelado',
+
+
+
 
             Errors::ERROR_ADMIN_NEWCATEGORY_EXISTS => 'El nombre de la categoría ya existe, intenta otra',
             Errors::ERROR_EXPENSES_DELETE           => 'Hubo un problema el eliminar el gasto, inténtalo de nuevo',

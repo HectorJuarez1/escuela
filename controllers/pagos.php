@@ -8,6 +8,8 @@ class Pagos extends SessionController
     }
     function render()
     {
+        $pagos = $this->model->getAllPagos();
+        $this->view->varPagos = $pagos;
         $this->view->render('Pagos/index');
     }
     function newPago()
@@ -39,7 +41,6 @@ class Pagos extends SessionController
      
         if ($this->model->insertPago([
             'txt_no_usuario' => $datos[0], 'txt_Nom_Completo' => $datos[1], 'txt_Pago' => $datos[2], 'com_concepto' => $datos[3], 'com_Mes' => $datos[4]
-            
         ])) {
             error_log('saveUs::Nuevo pago registrado');
             $this->redirect('Pagos', ['success' => Success::SUCCESS_ADMIN_NEW_PAGO]);
@@ -48,7 +49,16 @@ class Pagos extends SessionController
             // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
-
+    function CancelaP($param = null)
+    {
+        $idpago = $param[0];
+        if ($this->model->Cancelapago($idpago)) {
+            error_log('CancelaP::Pago cancelado');
+            $this->redirect('Pagos', ['error' => Errors::ERROR_NO_CANCELA_PAGO]);
+        } else {
+            //   $this->redirect('c', ['error' => Errors::ERROR_NO_DELATE]);
+        }
+    }
 
 
 }
