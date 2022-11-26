@@ -22,14 +22,97 @@
       <div class="card-header">
         <h4><b>Nuevo</b></h4>
         <form class="row p-4" action="<?php echo constant('URL'); ?>materias/saveMaterias" method="POST" autocomplete="off">
-          <div class="col-md-5">
-            <label class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="txt_NomMaterias" required>
+
+          <div class="col-md-5 col-12">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" class="form-control" name="txt_NomMaterias" required>
+            </div>
           </div>
-          <div class="col-md-3 d-flex justify-content-end mt-4">
-            <button type="submit" class="btn btn-success me-1">Registrar</button>
-            <button type="reset" class="btn btn-light">Limpiar</button>
+
+          <div class="col-md-2 col-12">
+            <div class="form-group">
+              <label>Dia Semana</label>
+              <select class="form-select" name="txt_DiaSemana" required>
+                <option selected>Selección</option>
+                <option>Lunes</option>
+                <option>Martes</option>
+                <option>Miercoles</option>
+                <option>Jueves</option>
+                <option>Viernes</option>
+              </select>
+            </div>
           </div>
+
+          <div class="col-md-2 col-12">
+            <div class="form-group">
+              <label>Hora Inicio</label>
+              <select class="form-select" name="txt_HoraInicio" required>
+                <option selected>Selección</option>
+                <option>07:00 AM</option>
+                <option>08:00 AM</option>
+                <option>09:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>13:00 PM</option>
+                <option>14:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="col-md-2 col-12">
+            <div class="form-group">
+              <label>Hora Fin</label>
+              <select class="form-select" name="txt_HoraFin" required>
+                <option selected>Selección</option>
+                <option>07:00 AM</option>
+                <option>08:00 AM</option>
+                <option>09:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>13:00 PM</option>
+                <option>14:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="col-md-2 col-12">
+            <div class="form-group">
+              <label>Grado</label>
+              <select class="form-select" name="txt_Grado" required>
+                <option selected>Selección</option>
+                <option></option>
+                <option>08:00 AM</option>
+                <option>09:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>13:00 PM</option>
+                <option>14:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </form>
       </div>
     </div>

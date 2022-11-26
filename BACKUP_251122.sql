@@ -107,6 +107,7 @@ CREATE TABLE `alumnos_profesor` (
 
 LOCK TABLES `alumnos_profesor` WRITE;
 /*!40000 ALTER TABLE `alumnos_profesor` DISABLE KEYS */;
+INSERT INTO `alumnos_profesor` VALUES (24,11,2,100),(25,14,2,100),(26,15,2,100),(27,16,2,100),(28,17,3,100),(29,18,6,100);
 /*!40000 ALTER TABLE `alumnos_profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,16 +251,18 @@ DROP TABLE IF EXISTS `materias`;
 CREATE TABLE `materias` (
   `materia_id` int NOT NULL AUTO_INCREMENT,
   `nombre_materia` varchar(100) NOT NULL,
-  `lunes` varchar(45) NOT NULL,
-  `martes` varchar(45) NOT NULL,
-  `miercoles` varchar(45) NOT NULL,
-  `jueves` varchar(45) NOT NULL,
-  `viernes` varchar(45) NOT NULL,
+  `dia_semana` varchar(50) NOT NULL,
+  `hora_inicia` varchar(45) NOT NULL,
+  `hora_fin` varchar(45) NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `estatus_materias_id` int NOT NULL,
+  `grados_grado_id` int NOT NULL,
   PRIMARY KEY (`materia_id`),
   KEY `fk_materias_estatus1_idx` (`estatus_materias_id`),
-  CONSTRAINT `fk_materias_estatus1` FOREIGN KEY (`estatus_materias_id`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_materias_grados1_idx` (`grados_grado_id`),
+  CONSTRAINT `fk_materias_estatus1` FOREIGN KEY (`estatus_materias_id`) REFERENCES `estatus` (`idEstatus`),
+  CONSTRAINT `fk_materias_grados1` FOREIGN KEY (`grados_grado_id`) REFERENCES `grados` (`grado_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,6 +271,7 @@ CREATE TABLE `materias` (
 
 LOCK TABLES `materias` WRITE;
 /*!40000 ALTER TABLE `materias` DISABLE KEYS */;
+INSERT INTO `materias` VALUES (5,'Matemáticas','Lunes','08:00','09:00','2022-11-26 04:09:57',100,7),(6,'Español','Martes','11:00','12:00','2022-11-26 04:09:57',100,8),(7,'Ciencias de la Naturaleza','Miercoles','10:00','11:00','2022-11-26 04:15:29',100,11),(8,'Segunda lengua extranjera','Jueves','12:00','13:00','2022-11-26 04:15:29',100,10),(9,'Educación física','Viernes','08:00','12:00','2022-11-26 04:15:29',100,7),(10,'Educación Artística','Lunes','07:00','09:00','2022-11-26 04:15:29',100,12),(11,'Geografía','Martes','11:00','13:00','2022-11-26 04:15:29',100,9),(12,'Formación Cívica y Ética','Miercoles','01:00','02:00','2022-11-26 04:15:29',100,8),(13,'Primera lengua extranjera','Jueves','11:00','12:00','2022-11-26 04:15:29',100,12),(14,'Lengua castellana y literatura','Viernes','07:00','08:00 ','2022-11-26 04:15:29',100,11),(15,'Historia','Lunes','09:00','10:00','2022-11-26 04:15:29',100,10);
 /*!40000 ALTER TABLE `materias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,7 +332,7 @@ CREATE TABLE `pagos` (
   KEY `fk_pagos_concepto1_idx` (`concepto_id_pago`),
   CONSTRAINT `fk_pagos_concepto1` FOREIGN KEY (`concepto_id_pago`) REFERENCES `concepto` (`id_concepto`),
   CONSTRAINT `fk_pagos_estatus1` FOREIGN KEY (`estatus_id_pago`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -337,7 +341,7 @@ CREATE TABLE `pagos` (
 
 LOCK TABLES `pagos` WRITE;
 /*!40000 ALTER TABLE `pagos` DISABLE KEYS */;
-INSERT INTO `pagos` VALUES (3,'AL09152233','Galilea Gonzalez Reyes',21,'Marzo',109,3,'2022-11-25 05:34:06'),(5,'AL05152209','Lizbeth Soledad Falcon Duarte',123,'',109,1,'2022-11-25 05:34:46'),(6,'AL09152233','Galilea Gonzalez Reyes',2134,'',108,2,'2022-11-25 05:27:02'),(7,'AL05152209','Lizbeth Soledad Falcon Duarte',213,'Junio',109,3,'2022-11-25 05:35:11'),(8,'AL01152232','Karen Odette Dominguez Velazquez',123,'Enero',108,3,'2022-11-25 05:33:40');
+INSERT INTO `pagos` VALUES (10,'AL07151256','Juan Cabrera Garcia',1200,'Enero',108,3,'2022-11-26 04:18:28'),(11,'AL05152209','Lizbeth Soledad Falcon Duarte',2500,'',108,1,'2022-11-26 04:18:54');
 /*!40000 ALTER TABLE `pagos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -364,6 +368,7 @@ CREATE TABLE `periodos` (
 
 LOCK TABLES `periodos` WRITE;
 /*!40000 ALTER TABLE `periodos` DISABLE KEYS */;
+INSERT INTO `periodos` VALUES (1,'Enero-Agosto 2022',100),(2,'Agosto-Diciembre 2021',100);
 /*!40000 ALTER TABLE `periodos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -398,6 +403,7 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
+INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2215628900','Maculino','2000-06-01','2022-11-11 16:23:07',100),(5,'213443f3a','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','2232413215','Maculino','1989-05-01','2022-11-11 16:25:19',100),(6,'D54S2V65','Verónica','Hernández','Gil','Calle 16 De Septiembre Puebla.Pue','2211342354','Femenino','1990-01-09','2022-11-11 16:20:03',100),(7,'776ub543','Adriana','León','León','Calle Coronel Jesús González Arratia Puebla.Pue','2276543211','Femenino','1990-03-01','2022-11-11 16:21:22',100),(8,'bg5423i1a','Rene','Fuentes','Fuentes','Calle Mariano Abasolo Puebla.Pue','2232982364','Maculino','1983-09-17','2022-11-11 16:25:28',101);
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -438,6 +444,7 @@ CREATE TABLE `profesor_materia` (
 
 LOCK TABLES `profesor_materia` WRITE;
 /*!40000 ALTER TABLE `profesor_materia` DISABLE KEYS */;
+INSERT INTO `profesor_materia` VALUES (11,7,6,4,5,1,100),(14,7,6,4,6,1,100),(15,7,6,4,12,1,100),(16,7,6,4,9,1,100),(17,8,13,5,13,1,100),(18,12,11,7,15,1,100);
 /*!40000 ALTER TABLE `profesor_materia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -718,4 +725,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-24 23:44:39
+-- Dump completed on 2022-11-25 22:22:49
