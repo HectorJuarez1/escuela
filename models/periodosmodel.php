@@ -33,7 +33,6 @@ class PeriodosModel extends Model
                 VALUES (:nom,100)');
             $query->execute([
                 'nom' => $datos['txt_NomPeriodo']
-
             ]);
             return true;
         } catch (PDOException $e) {
@@ -78,8 +77,7 @@ class PeriodosModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
-
+            //error_log($e->getMessage());
             return false;
         }
     }

@@ -52,9 +52,19 @@ class varTodas{
     public $estatus_aulas_id;
         
     // materias
-    public $materia_id;
-    public $nombre_materia;
-    public $estatus_materias_id;
+    public $vw_mat_materia_id;
+    public $vw_mat_nombre_materia;
+    public $vw_mat_dia_semana;
+    public $vw_mat_HoraInicio;
+    public $vw_mat_HoraFin;
+    public $vw_mat_Horas;
+    public $vw_mat_Grado;
+    public $vw_mat_estatus_materias_id;
+    public $vw_mat_Estatus;
+
+    // hora
+    public $id_horas;
+    public $Horas;
 
     // periodos
     public $periodo_id;

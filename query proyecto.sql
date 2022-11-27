@@ -12,12 +12,15 @@ select * from profesor;
 select * from users;
 select  * from pagos;
 select * from concepto;
+select * from horas;
 select * from alumnos_profesor;
+select * from profesor_materia;
 select * from vw_detalle_alumnos;
 select * from vw_detalle_maestros;
 select * from vw_detalle_profesormateria where proceso_id = 6;
 select * from vw_detalle_alumnosasignados;
 select * from vw_detalle_pagos;
+select * from vw_detalle_materias;
 
 
 
@@ -40,10 +43,13 @@ select * from vw_detalle_pagos;
 
 
 
-
-
-
-
+create view vw_detalle_materias as
+select ma.materia_id,ma.nombre_materia,ma.dia_semana,hri.Detalle as HoraInicio,hri.Detalle as HoraFin,
+ma.estatus_materias_id,est.Descripcion as Estatus
+from materias as ma 
+inner join horas  as hri on hri.id_horas=ma.hora_inicia
+inner join horas  as hrf on hrf.id_horas=ma.hora_fin
+inner join estatus  as est on est.idEstatus=ma.estatus_materias_id; 
 
 
 create view vw_detalle_pagos as

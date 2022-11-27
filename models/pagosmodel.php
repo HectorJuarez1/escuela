@@ -64,7 +64,7 @@ class PagosModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+           // error_log($e->getMessage());
             return false;
         }
     }

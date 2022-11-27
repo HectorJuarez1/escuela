@@ -5,7 +5,6 @@ class Alumnos extends SessionController
     function __construct()
     {
         parent::__construct();
-
     }
     function render()
     {
@@ -51,10 +50,7 @@ class Alumnos extends SessionController
                 $this->redirect('alumnos', ['error' => Errors::ERROR_ALTA_ALUMNO]);
             }
         }
-
-
     }
-
     function eliminarAl($param = null)
     {
         $alumnos = $param[0];
