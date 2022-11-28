@@ -8,22 +8,13 @@ class Materias extends SessionController
     }
     function render()
     {
-
-        
-      $Nmaterias = $this->model->getAllMaterias();
+        $Nmaterias = $this->model->getAllMaterias();
         $this->view->varTodas = $Nmaterias;  
-
-
         $Grados = $this->model->getGrados();
         $this->view->ComboGrados = $Grados;
-
         $Horas = $this->model->getHoras();
         $this->view->ComboHoras = $Horas;
-
-
-
         $this->view->render('materias/index');
-       
     }
     
     function saveMaterias()
@@ -33,16 +24,12 @@ class Materias extends SessionController
         $datos[2]  = trim($_POST['com_horainicio']);
         $datos[3]  = trim($_POST['com_horafin']);
         $datos[4]  = trim($_POST['com_grados']);
-
-
         if ($this->model->insertMateria([
             'txt_NomMaterias' => $datos[0], 'com_DiaSemana' => $datos[1], 'com_horainicio' => $datos[2], 'com_horafin' => $datos[3],
             'com_grados' => $datos[4]
         ])) {
             error_log('saveMaterias::Nueva Materia creada');
             $this->redirect('materias', ['success' => Success::SUCCESS_ADMIN_NEW_MATERIA]);
-
-
         } else {
            // error_log('saveAl::Error al crear alumno');
            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);

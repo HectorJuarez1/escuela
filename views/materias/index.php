@@ -134,7 +134,7 @@
                     ?></td>
                 <td class="text-center">
                   <a href="<?php echo constant('URL') . 'materias/verDetalle/' . $materias->vw_mat_materia_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
-                  <a href="<?php echo constant('URL') . 'materias/eliminarMat/' . $materias->vw_mat_materia_id ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
+                  <a href="<?php echo constant('URL') . 'materias/eliminarMat/' . $materias->vw_mat_materia_id ?>" class="btn icon btn-danger"><i data-feather="x"></i></a>
                 </td>
               </tr>
             <?php } ?>

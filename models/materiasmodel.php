@@ -18,7 +18,7 @@ class MateriasModel extends Model
                 $item->vw_mat_materia_id = $row['materia_id'];
                 $item->vw_mat_nombre_materia = $row['nombre_materia'];
                 $item->vw_mat_dia_semana = $row['dia_semana'];
-                $item->vw_mat_HoraInicio= $row['HoraInicio'];
+                $item->vw_mat_HoraInicio = $row['HoraInicio'];
                 $item->vw_mat_HoraFin = $row['HoraFin'];
                 $item->vw_mat_Horas = $row['Horas'];
                 $item->vw_mat_Grado = $row['Grado'];
@@ -87,7 +87,7 @@ class MateriasModel extends Model
     }
     public function deleteMateria($materia_id)
     {
-        $query = $this->db->connect()->prepare("UPDATE materias SET estatus_materias_id = 103 WHERE materia_id = :id_ma");
+        $query = $this->db->connect()->prepare("DELETE FROM materias WHERE materia_id = :id_ma");
         try {
             $query->execute(['id_ma' => $materia_id]);
             return true;
@@ -123,7 +123,6 @@ class MateriasModel extends Model
             return true;
         } catch (PDOException $e) {
             error_log($e->getMessage());
-
             return false;
         }
     }
