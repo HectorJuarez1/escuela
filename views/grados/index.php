@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,43 +35,38 @@
     </div>
 
 
-    <div class="card">
-      <div class="card-header">
-        DETALLES
-      </div>
-      <div class="card-body">
-        <table class="table table-striped text-center" id="table1">
-          <thead>
-            <tr>
-              <th class="text-center">Grados</th>
-              <th class="text-center">Estatus</th>
-              <th class="text-center">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($this->varTodas as $row) {
-              $grados = new varTodas();
-              $grados = $row;
-            ?>
-              <tr>
-                <td><?php echo $grados->nombre_grado; ?></td>
-                <td><?php
-                    if ($grados->estatus_grados_id == 100) {
-                      echo '  <span class="badge bg-success">Activo</span>';
-                    } elseif ($grados->estatus_grados_id == 103) {
-                      echo '<span class="badge bg-danger">Inactivo</span>';
-                    }
-                    ?></td>
-                <td class="text-center">
-                  <a href="<?php echo constant('URL') . 'grados/verDetalle/' . $grados->grado_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
-                  <a href="<?php echo constant('URL') . 'grados/eliminarGra/' . $grados->grado_id ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
-                </td>
-              </tr>
-            <?php } ?>
-          </tbody>
-        </table>
-      </div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Detalles</h1>
     </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <?php foreach ($this->varTodas as $row) {
+        $grados = new varTodas();
+        $grados = $row;
+      ?>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Grado</h5>
+              <p class="card-text"><?php echo $grados->nombre_grado; ?></p>
+
+              <?php
+              if ($grados->estatus_grados_id == 100) {
+                echo '  <span class="badge bg-success">Activo</span>';
+              } elseif ($grados->estatus_grados_id == 103) {
+                echo '<span class="badge bg-danger">Inactivo</span>';
+              }
+              ?>
+              <a href="<?php echo constant('URL') . 'grados/verDetalle/' . $grados->grado_id ?>"><span class="badge bg-warning">Editar</span></a>
+              <a href="<?php echo constant('URL') . 'grados/eliminarGra/' . $grados->grado_id ?>"><span class="badge bg-danger">Desactivar</span></a>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
+    </div>
+
+
+
 
 
 

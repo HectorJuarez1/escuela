@@ -1,6 +1,7 @@
 
 <?php
 include_once 'models/varTodas.php';
+include_once 'models/varPagos.php';
 class AdminModel extends Model{
 
     public function __construct(){
@@ -40,6 +41,55 @@ class AdminModel extends Model{
             return [];
         }
     }
+
+
+    public function getAllConPago()
+    {
+        $items = [];
+        try {
+            $query = $this->db->connect()->query('SELECT sum(Pago)as TotalPagos FROM vw_detalle_pagos WHERE DATE(Fecha_registro)=CURDATE() AND estatus_id_pago=108;
+            ');
+            while ($row = $query->fetch()) {
+                $item = new varPagos();
+                $item->vw_pg_TotalPagos = $row['TotalPagos'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+                        error_log($e->getMessage());
+            return [];
+        }
+    }
+
+
+
+
+
+
+
+
+
+    
+    public function getAllConMat()
+    {
+        $items = [];
+        try {
+            $query = $this->db->connect()->query('SELECT COUNT(materia_id)as NumMaterias from materias where estatus_materias_id=100');
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->vw_mat_NumMaterias = $row['NumMaterias'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+                        error_log($e->getMessage());
+            return [];
+        }
+    }
+
+
+
+
 
 
 

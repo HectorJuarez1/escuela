@@ -4,7 +4,7 @@ select * from alumnos;
 select * from aulas;
 select * from calificaciones;
 select * from estatus;
-select * from grados;
+select * from grados; 
 select * from materias;
 select * from notas;
 select * from periodos;
@@ -20,15 +20,17 @@ select * from vw_detalle_maestros;
 select * from vw_detalle_profesormateria where proceso_id = 6;
 select * from vw_detalle_alumnosasignados;
 select * from vw_detalle_pagos;
-select * from vw_detalle_materias;
+select materia_id,nombre_materia,grados_grado_id from vw_detalle_materias where grados_grado_id=11;
+select * from vw_detalle_materias 
 
 
+SELECT COUNT(materia_id)as NumMaterias from materias where estatus_materias_id=100
 
+select CURDATE(Fecha_registro) from vw_detalle_pagos; 
 
+SELECT SUM(Pago)as TotalPagos FROM vw_detalle_pagos 
 
-
-
-
+WHERE DATE(Fecha_registro)>=CURDATE() AND estatus_id_pago=108;
 
 
 
@@ -44,11 +46,15 @@ select * from vw_detalle_materias;
 
 
 create view vw_detalle_materias as
-select ma.materia_id,ma.nombre_materia,ma.dia_semana,hri.Detalle as HoraInicio,hri.Detalle as HoraFin,
-ma.estatus_materias_id,est.Descripcion as Estatus
+select ma.materia_id,ma.nombre_materia,ma.dia_semana,
+DATE_FORMAT(hri.Detalle, "%H:%i %p")as HoraInicio
+,DATE_FORMAT(hrf.Detalle, "%H:%i %p")as HoraFin,
+TIMESTAMPDIFF(HOUR, hri.Detalle, hrf.Detalle) AS Horas,
+ma.estatus_materias_id,est.Descripcion as Estatus,ma.grados_grado_id,gra.nombre_grado as Grado
 from materias as ma 
 inner join horas  as hri on hri.id_horas=ma.hora_inicia
 inner join horas  as hrf on hrf.id_horas=ma.hora_fin
+inner join grados  as gra on gra.grado_id=ma.grados_grado_id
 inner join estatus  as est on est.idEstatus=ma.estatus_materias_id; 
 
 

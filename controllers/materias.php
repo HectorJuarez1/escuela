@@ -9,14 +9,14 @@ class Materias extends SessionController
     function render()
     {
         $Nmaterias = $this->model->getAllMaterias();
-        $this->view->varTodas = $Nmaterias;  
+        $this->view->varTodas = $Nmaterias;
         $Grados = $this->model->getGrados();
         $this->view->ComboGrados = $Grados;
         $Horas = $this->model->getHoras();
         $this->view->ComboHoras = $Horas;
         $this->view->render('materias/index');
     }
-    
+
     function saveMaterias()
     {
         $datos[0]  = trim($_POST['txt_NomMaterias']);
@@ -31,8 +31,8 @@ class Materias extends SessionController
             error_log('saveMaterias::Nueva Materia creada');
             $this->redirect('materias', ['success' => Success::SUCCESS_ADMIN_NEW_MATERIA]);
         } else {
-           // error_log('saveAl::Error al crear alumno');
-           // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+            // error_log('saveAl::Error al crear alumno');
+            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
     function eliminarMat($param = null)
@@ -73,6 +73,4 @@ class Materias extends SessionController
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }
     }
-
-
 }

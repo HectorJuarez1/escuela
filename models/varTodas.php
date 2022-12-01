@@ -58,9 +58,11 @@ class varTodas{
     public $vw_mat_HoraInicio;
     public $vw_mat_HoraFin;
     public $vw_mat_Horas;
-    public $vw_mat_Grado;
     public $vw_mat_estatus_materias_id;
     public $vw_mat_Estatus;
+    public $vw_mat_grados_grado_id;
+    public $vw_mat_Grado;
+    public $vw_mat_NumMaterias;
 
     // hora
     public $id_horas;

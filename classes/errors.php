@@ -16,7 +16,7 @@ class Errors{
     const ERROR_NO_DELATE_ALUMNO       = "a5bcd708";
     const ERROR_NO_DELATE_PERIODO       = "85Sef0b";
     const ERROR_NO_DELATE_ACTIVIDAD       = "u4Sgf1b";
-    const ERROR_NO_DELATE_GRADO       = "4ESCf1b";
+    const ERROR_NO_DELATE_GRADO       = "407Cf1b";
     const ERROR_NO_DELATE_MAESTRO       = "4ESCf1b";
 
     const ERROR_NO_CANCELA_PAGO       = "PxGF74S";
@@ -59,7 +59,7 @@ class Errors{
             Errors::ERROR_NO_DELATE_ALUMNO            => 'Alumno eliminado',
             Errors::ERROR_NO_DELATE_PERIODO            => 'Periodo eliminado',
             Errors::ERROR_NO_DELATE_ACTIVIDAD            => 'Actividad eliminada',
-            Errors::ERROR_NO_DELATE_GRADO            => 'Grado eliminada',
+            Errors::ERROR_NO_DELATE_GRADO            => 'Grado desactivado',
             Errors::ERROR_NO_DELATE_MAESTRO            => 'Maestro eliminada',
             Errors::ERROR_NO_CANCELA_PAGO            => 'Pago cancelado',
 

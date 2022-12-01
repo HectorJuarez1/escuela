@@ -45,22 +45,6 @@ class ProfesormateriaModel extends Model
                 return [];
             }
         } 
-        public function getGrados()
-        {
-            $items = [];
-            try {
-                $query = $this->db->connect()->query('SELECT * FROM grados where estatus_grados_id=100');
-                while ($row = $query->fetch()) {
-                    $item = new varTodas();
-                    $item->grado_id = $row['grado_id'];
-                    $item->nombre_grado = $row['nombre_grado'];
-                    array_push($items, $item);
-                }
-                return $items;
-            } catch (PDOException $e) {
-                return [];
-            }
-        }
         public function getAulas()
         {
             $items = [];
@@ -110,6 +94,48 @@ class ProfesormateriaModel extends Model
                 return [];
             }
         } 
+
+            public function getAllGrados()
+    {
+        $items = [];
+        try {
+            $query = $this->db->connect()->query('SELECT * FROM grados where estatus_grados_id=100');
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->grado_id = $row['grado_id'];
+                $item->nombre_grado = $row['nombre_grado'];
+                $item->estatus_grados_id = $row['estatus_grados_id'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+
+    
+
+    public function getAgregaGrados($grados_grado_id)
+    {
+        $items = [];
+
+        try {
+            $query = $this->db->connect()->prepare("SELECT materia_id,nombre_materia,grados_grado_id from vw_detalle_materias where grados_grado_id=:id_grado;
+            ");
+            $query->execute(['id_grado' => $grados_grado_id]);
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->vw_mat_materia_id = $row['materia_id'];
+                $item->vw_mat_nombre_materia = $row['nombre_materia'];
+                $item->vw_mat_grados_grado_id = $row['grados_grado_id'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
+
         public function getAlumnos()
         {
             $items = [];
@@ -133,7 +159,7 @@ class ProfesormateriaModel extends Model
                 ->prepare('INSERT INTO profesor_materia(grado_id,aula_id,profesor_id,materias_id,periodos_id,estatus_procesoprofesor_id) 
                 VALUES (:grad,:aul,:prof,:mat,:per,100)');
             $query->execute([
-                'grad' => $datos['com_grados'],
+                'grad' => $datos['id_grado'],
                 'aul' => $datos['com_aulas'],
                 'prof' => $datos['com_profesor'],
                 'mat' => $datos['com_materias'],
@@ -180,26 +206,5 @@ class ProfesormateriaModel extends Model
             return null;
         }
     }
-    public function update($item)
-    {
-        $query = $this->db->connect()->prepare("UPDATE alumnos SET Nombres = :Nom,Apellido_Paterno = :Ap,Apellido_Materno = :Am,
-        Sexo = :Sex,Fecha_nacimiento = :Fn,Curp=:Cur,id_Estatus=:est WHERE alumno_id = :id_al");
-        try {
-            $query->execute([
-                'id_al' => $item['txt_IdAlumno'],
-                'Nom' => $item['txt_nombre'],
-                'Ap' => $item['txt_ApPaterno'],
-                'Am' => $item['txt_ApMaterno'],
-                'Sex' => $item['txt_sexo'],
-                'Fn' => $item['txt_FeNacimiento'],
-                'Cur' => $item['txt_curp'],
-                'est' => $item['com_estatus']
-            ]);
-            return true;
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
 
-            return false;
-        }
-    }
 }

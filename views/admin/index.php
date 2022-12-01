@@ -69,7 +69,13 @@
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h2 class="text-white">
-                                    $ 100.0</h2>
+                                <?php foreach ($this->TotalPagos as $row) {
+                                        $Tpagos= new varPagos();
+                                        $Tpagos = $row;
+                                        echo $Tpagos->vw_pg_TotalPagos;
+                                    } ?>
+                                
+                                </h2>
                             </div>
                         </div>
                     </div>
@@ -84,7 +90,13 @@
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h2 class="text-white">
-                                    20</h2>
+                                <?php foreach ($this->TotalMaterias as $row) {
+                                        $Tmaterias= new varTodas();
+                                        $Tmaterias = $row;
+                                        echo $Tmaterias->vw_mat_NumMaterias;
+                                    } ?>
+                            
+                            </h2>
                             </div>
                         </div>
                     </div>

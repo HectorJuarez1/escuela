@@ -12,6 +12,7 @@ class varPagos{
     public $vw_pg_estatus_id_pago;
     public $vw_pg_estatus;
     public $vw_pg_Fecha_creacion;
+    public $vw_pg_TotalPagos;
     
 }
 

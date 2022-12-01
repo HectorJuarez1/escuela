@@ -32,7 +32,7 @@ class Grados extends SessionController
         $Dgrado = $param[0];
         if ($this->model->deleteGrado($Dgrado)) {
             error_log('eliminarGra::Grado dado de baja');
-            $this->redirect('grados', ['error' => Errors::ERROR_DELATE_TUTOR]);
+            $this->redirect('grados', ['error' => Errors::ERROR_NO_DELATE_GRADO]);
         } else {
             $this->redirect('grados', ['error' => Errors::ERROR_NO_DELATE_GRADO]);
         }
