@@ -69,12 +69,16 @@
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h2 class="text-white">
-                                <?php foreach ($this->TotalPagos as $row) {
-                                        $Tpagos= new varPagos();
+                                    <?php foreach ($this->TotalPagos as $row) {
+                                        $Tpagos = new varPagos();
                                         $Tpagos = $row;
-                                        echo $Tpagos->vw_pg_TotalPagos;
+                                        if ($Tpagos->vw_pg_TotalPagos == "") {
+                                            echo "$" . number_format($Tpagos->vw_pg_TotalPagos = 0, 1, '.', ',');
+                                        } else {
+                                            echo "$" . number_format($Tpagos->vw_pg_TotalPagos, 1, '.', ',');
+                                        }
                                     } ?>
-                                
+
                                 </h2>
                             </div>
                         </div>
@@ -90,21 +94,19 @@
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h2 class="text-white">
-                                <?php foreach ($this->TotalMaterias as $row) {
-                                        $Tmaterias= new varTodas();
+                                    <?php foreach ($this->TotalMaterias as $row) {
+                                        $Tmaterias = new varTodas();
                                         $Tmaterias = $row;
                                         echo $Tmaterias->vw_mat_NumMaterias;
                                     } ?>
-                            
-                            </h2>
+
+                                </h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </section>
     <?php require 'views/template/footer.php'; ?>
 </body>

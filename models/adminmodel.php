@@ -47,7 +47,8 @@ class AdminModel extends Model{
     {
         $items = [];
         try {
-            $query = $this->db->connect()->query('SELECT sum(Pago)as TotalPagos FROM vw_detalle_pagos WHERE DATE(Fecha_registro)=CURDATE() AND estatus_id_pago=108;
+            $query = $this->db->connect()->query('SELECT SUM(Pago)as TotalPagos from vw_detalle_pagos WHERE DATE(Fecha_registro)>=CURDATE() AND estatus_id_pago=108; 
+            ;
             ');
             while ($row = $query->fetch()) {
                 $item = new varPagos();

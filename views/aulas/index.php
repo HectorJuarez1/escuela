@@ -11,28 +11,61 @@
 
 <body>
   <?php require 'views/template/header.php'; ?>
-  <!-- Begin Page Content -->
-  <div class="container-fluid">
+
     <?php $this->showMessages(); ?>
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Aulas</h1>
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h2 mb-0 text-gray-800">Aula</h1>
     </div>
-    <div class="card">
-      <div class="card-header">
-        <h4><b>Nuevo</b></h4>
-        <form class="row p-4" action="<?php echo constant('URL'); ?>aulas/saveAulas" method="POST" autocomplete="off">
-          <div class="col-md-5">
-            <label class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="txt_NomGrado" required>
+  
+ <!-- Button trigger modal -->
+ <button type="button" class="btn btn-primary round" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Nueva aula
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nueva Aula</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="col-md-3 d-flex justify-content-end mt-4">
-            <button type="submit" class="btn btn-success me-1">Registrar</button>
-            <button type="reset" class="btn btn-light">Limpiar</button>
+          <div class="modal-body">
+
+          <form class="row p-4" action="<?php echo constant('URL'); ?>aulas/saveAulas" method="POST" autocomplete="off">
+              <div class="col-md-12">
+                <label class="form-label">Nombre de la aula</label>
+                <input type="text" class="form-control" name="txt_NomGrado" required>
+              </div>
           </div>
-        </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+          </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </div><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <div class="card">
