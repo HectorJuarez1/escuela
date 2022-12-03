@@ -76,6 +76,11 @@
             "role" : "user"
         },
         {
+            "site" : "pagosAlumno", 
+            "access" : "private", 
+            "role" : "user"
+        },
+        {
             "site" : "user", 
             "access" : "private", 
             "role" : "user"

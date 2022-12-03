@@ -34,6 +34,12 @@
                                 <span>Materias</span>
                             </a>
                         </li>
+                        <li class="sidebar-item ">
+                            <a href="<?php echo constant('URL'); ?>pagosAlumno" class='sidebar-link'>
+                                <i data-feather="dollar-sign" width="20"></i>
+                                <span>Pagos Realizados</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
