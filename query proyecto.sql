@@ -23,17 +23,15 @@ select * from vw_detalle_pagos;
 select materia_id,nombre_materia,grados_grado_id from vw_detalle_materias where grados_grado_id=11;
 select * from vw_detalle_materias 
 
+SELECT Nombre_Alumno,Pago,Concepto,Fecha_registro FROM vw_detalle_pagos WHERE No_alumno='AL08011212' AND estatus_id_pago='108';
 
-SELECT COUNT(materia_id)as NumMaterias from materias where estatus_materias_id=100
-
-select CURDATE(Fecha_registro) from vw_detalle_pagos; 
-
-SELECT SUM(Pago)as TotalPagos FROM vw_detalle_pagos 
+SELECT sum(Pago) FROM vw_detalle_pagos 
 
 WHERE DATE(Fecha_registro)>=CURDATE() AND estatus_id_pago=108;
 
 
 
+SELECT SUM(Pago)as TotalPagos from vw_detalle_pagos WHERE DATE(Fecha_registro)>=CURDATE() AND estatus_id_pago=108; 
 
 
 
@@ -59,7 +57,7 @@ inner join estatus  as est on est.idEstatus=ma.estatus_materias_id;
 
 
 create view vw_detalle_pagos as
-select pa.id_pagos,pa.No_alumno,pa.Nombre_Alumno,format(pa.Pago,2)as Pago,pa.Detalle_mes,
+select pa.id_pagos,pa.No_alumno,pa.Nombre_Alumno,pa.Pago,pa.Detalle_mes,
 con.Descripcion as Concepto,
 pa.estatus_id_pago,est.Descripcion as estatus,pa.Fecha_registro
 from pagos as pa 
