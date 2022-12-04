@@ -10,8 +10,8 @@
 </head>
 
 <body>
+  
   <?php require 'views/template/header.php'; ?>
-
   <?php $this->showMessages(); ?>
 
   <a href="<?php echo constant('URL'); ?>alumnos/new" class="btn btn-success rounded-pill">Nuevo</a><br><br>

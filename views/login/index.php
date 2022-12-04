@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="clearfix">
                                     <button class="btn btn-primary float-end">Inicia sesión</button>
-                                </div>
+                                </div><br>
                                 <?php $this->showMessages(); ?>
                                 <?php (isset($this->errorMessage)) ?  $this->errorMessage : '' ?>
                             </form>

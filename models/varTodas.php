@@ -1,12 +1,8 @@
 <?php
 
-class varTodas{
-    // users
-    public $idUser;
-    public $username;
-    public $role;
-    public $name;
+class varAlumnos{
 
+    
     // alumno vista
     public $vw_a_alumno_id;
     public $vw_a_No_Alumno;
@@ -23,6 +19,16 @@ class varTodas{
     public $vw_a_id_Estatus;
     public $vw_a_Estatus_Detalle;
     public $vw_a_NumAlumnos;
+
+}
+
+
+class varTodas{
+    // users
+    public $idUser;
+    public $username;
+    public $role;
+    public $name;
 
 
     // maestros

@@ -76,9 +76,6 @@
                     </div>
                 </div>
             </form>
-
-
-
         </div>
     </div>
     <?php require 'views/template/footer.php'; ?>
