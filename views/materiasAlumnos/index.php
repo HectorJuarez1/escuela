@@ -25,6 +25,9 @@
                                 <th class="text-center">PROFESOR</th>
                                 <th class="text-center">AULA</th>
                                 <th class="text-center">MATERIA</th>
+                                <th class="text-center">DIA SEMANA</th>
+                                <th class="text-center">HORA INICIO</th>
+                                <th class="text-center">HORA FIN</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,6 +39,10 @@
                                     <td><?php echo $materiasalumno->vw_daa_Nombre_Profesor; ?></td>
                                     <td><?php echo $materiasalumno->vw_daa_nombre_aula; ?></td>
                                     <td><?php echo $materiasalumno->vw_daa_nombre_materia; ?></td>
+                                    <td><?php echo $materiasalumno->vw_daa_dia_semana; ?></td>
+                                    <td><?php echo $materiasalumno->vw_daa_Hora_Inicio; ?></td>
+                                    <td><?php echo $materiasalumno->vw_daa_Hora_Fin; ?></td>
+
                                 </tr>
                             <?php } ?>
                         </tbody>

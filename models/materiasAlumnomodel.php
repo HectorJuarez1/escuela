@@ -22,6 +22,9 @@ class MateriasAlumnoModel extends Model {
                 $item->vw_daa_nombre_grado = $row['nombre_grado'];
                 $item->vw_daa_nombre_aula = $row['nombre_aula'];
                 $item->vw_daa_nombre_materia = $row['nombre_materia'];
+                $item->vw_daa_dia_semana = $row['dia_semana'];
+                $item->vw_daa_Hora_Inicio = $row['Hora_Inicio'];
+                $item->vw_daa_Hora_Fin = $row['Hora_Fin'];
                 array_push($items, $item);
             }
             return $items;
