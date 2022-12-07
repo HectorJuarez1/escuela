@@ -111,6 +111,12 @@ class varTodas{
     public $vw_daa_nombre_grado;
     public $vw_daa_nombre_aula;
     public $vw_daa_nombre_materia;
+    public $vw_daa_dia_semana;
+    public $vw_daa_Hora_Inicio;
+    public $vw_daa_Hora_Fin;
+    public $vw_daa_estatus_id;
+    public $vw_daa_Descripcion;
+
 
 
 

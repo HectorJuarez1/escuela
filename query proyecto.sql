@@ -67,21 +67,25 @@ inner join estatus  as est on est.idEstatus=pa.estatus_id_pago;
 
 create view vw_detalle_alumnosasignados as
 select al.proceso_id,vpm.Nombre_Profesor,vda.No_Alumno,vda.Nombre_Completo as NombreAlumno,
-vpm.nombre_grado,vpm.nombre_aula,vpm.nombre_materia,vpm.nombre_periodo,al.estatus_id,est.Descripcion
+vpm.nombre_grado,vpm.nombre_aula,vpm.nombre_materia,vpm.nombre_periodo,vpm.dia_semana,vpm.Hora_Inicio,vpm.Hora_Fin,al.estatus_id,est.Descripcion
 from alumnos_profesor as al 
 inner join vw_detalle_profesormateria as vpm on vpm.proceso_id=al.proceso_id 
 inner join vw_detalle_alumnos as vda on vda.alumno_id=al.alumnos_id 
 inner join estatus  as est on est.idEstatus=al.estatus_id; 
 
 create view vw_detalle_profesormateria as
-select gr.proceso_id,es.nombre_grado,au.nombre_aula,pro.Nombre_Completo as Nombre_Profesor,mat.nombre_materia,per.nombre_periodo,est.Descripcion as Estatus
+select gr.proceso_id,es.grado_id,es.nombre_grado,au.nombre_aula,pro.Nombre_Completo as Nombre_Profesor,mat.nombre_materia,hr.Detalle as Hora_Inicio,hrf.Detalle as Hora_Fin,mat.dia_semana,
+per.nombre_periodo,est.Descripcion as Estatus
 from profesor_materia as gr 
 inner join grados as es on gr.grado_id=es.grado_id  
 inner join aulas as au on gr.aula_id=au.aula_id 
 inner join vw_detalle_maestros  as pro on gr.profesor_id=pro.profesor_id 
 inner join materias  as mat on gr.materias_id=mat.materia_id 
 inner join periodos  as per on gr.periodos_id=per.periodo_id 
-inner join estatus  as est on gr.estatus_procesoprofesor_id=est.idEstatus;
+inner join horas  as hr on mat.hora_inicia=hr.id_horas 
+inner join horas  as hrf on mat.hora_fin=hrf.id_horas 
+inner join estatus  as est on gr.estatus_procesoprofesor_id=est.idEstatus
+;
 
 select * from vw_detalle_alumnos;
 create view vw_detalle_alumnos as
