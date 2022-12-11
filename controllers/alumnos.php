@@ -36,7 +36,6 @@ class Alumnos extends SessionController
         //validar numero de usuario
         $numero =$this->model->ValidarMatricula($datos[7]);
         if ( $numero >=1) {
-            echo $numero;
             echo "Este usuario ya fue registrado";
         }else{
             if ($this->model->insertAlumno([

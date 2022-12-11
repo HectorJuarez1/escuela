@@ -34,6 +34,7 @@ class Success{
 
     
     const SUCCESS_ADMIN_NEW_PAGO    = "PdaDDc9e";
+    const SUCCESS_ADMIN_NEW_USUARIO    = "8281e0";
 
 
 
@@ -68,6 +69,7 @@ class Success{
             Success::SUCCESS_ADMIN_NEW_GRADO => "Nuevo grado creado.",
             Success::SUCCESS_ADMIN_UPDATE_GRADO => "Datos del grado actualizados.",
             Success::SUCCESS_ADMIN_NEW_PAGO => "Pago registrado con exito.",
+            Success::SUCCESS_ADMIN_NEW_USUARIO => "Nuevo usuario creado con exito.",
 
             
 

@@ -71,6 +71,21 @@ class NewusuarioModel extends Model{
         }
     }
 
+
+
+    public function ValidarIdUsuario($Id_Usuario)
+    {
+        try {
+            $query = $this->db->connect()->prepare("SELECT COUNT(*) id from users WHERE id=:id_usuario");
+            $query->execute(['id_usuario' => $Id_Usuario]);
+            $numero = $query->fetchColumn();
+            return $numero;
+        } catch (PDOException $e) {
+            echo 'Error en la linea' . $e->getLine();
+            return null;
+        }
+    }
+
     public function insertUsuario($datos)
     {
         try {

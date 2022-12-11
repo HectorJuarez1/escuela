@@ -207,4 +207,17 @@ class ProfesormateriaModel extends Model
         }
     }
 
+    public function ValidarMateria($Id_Materia)
+    {
+        try {
+            $query = $this->db->connect()->prepare("SELECT COUNT(*) materias_id from profesor_materia WHERE materias_id=:id_Mat");
+            $query->execute(['id_Mat' => $Id_Materia]);
+            $numero = $query->fetchColumn();
+            return $numero;
+        } catch (PDOException $e) {
+            echo 'Error en la linea' . $e->getLine();
+            return null;
+        }
+    }
+
 }

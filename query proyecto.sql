@@ -29,9 +29,10 @@ SELECT sum(Pago) FROM vw_detalle_pagos
 
 WHERE DATE(Fecha_registro)>=CURDATE() AND estatus_id_pago=108;
 
+SELECT COUNT(*) No_Alumno from alumnos WHERE No_Alumno='AL09152233'
 
+SELECT COUNT(*) materias_id from profesor_materia WHERE materias_id='55'
 
-SELECT SUM(Pago)as TotalPagos from vw_detalle_pagos WHERE DATE(Fecha_registro)>=CURDATE() AND estatus_id_pago=108; 
 
 
 

@@ -23,8 +23,8 @@
       <table class="table table-striped text-center" id="table1">
         <thead>
           <tr>
+          <th class="text-center">No Maestro</th>
             <th class="text-center">Nombre</th>
-            <th class="text-center">Direccion</th>
             <th class="text-center">Telefono</th>
             <th class="text-center">Sexo</th>
             <th class="text-center">Edad</th>
@@ -37,9 +37,8 @@
             $maestros = new varTodas();
             $maestros = $row;
           ?>
-            <tr>
+            <td><?php echo $maestros->vw_m_NumProfesores; ?></td>
               <td><?php echo $maestros->vw_m_Nombre_Completo; ?></td>
-              <td><?php echo $maestros->vw_m_Direccion; ?></td>
               <td><?php echo $maestros->vw_m_Telefono; ?></td>
               <td><?php echo $maestros->vw_m_Sexo; ?></td>
               <td><?php echo $maestros->vw_m_Edad; ?></td>
@@ -55,7 +54,7 @@
                   ?></td>
               <td class="text-center">
                 <a href="<?php echo constant('URL') . 'maestros/verDetalle/' . $maestros->vw_m_profesor_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
-                <a href="<?php echo constant('URL') . 'maestros/eliminarMa/' . $maestros->vw_m_profesor_id ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
+                <a href="<?php echo constant('URL') . 'maestros/eliminarMa/' . $maestros->vw_m_profesor_id ?>" class="btn icon btn-danger"><i data-feather="x"></i></a>
               </td>
             </tr>
           <?php } ?>

@@ -23,8 +23,8 @@
       <table class="table table-striped text-center" id="table1">
         <thead>
           <tr>
+          <th class="text-center">No Alumno</th>
             <th class="text-center">Nombre</th>
-            <th class="text-center">Curp</th>
             <th class="text-center">Edad</th>
             <th class="text-center">Sexo</th>
             <th class="text-center">Foto</th>
@@ -39,8 +39,8 @@
             $ruta = "public/assets/images/Alumnos/" . $alumnos->vw_a_Foto_alumno;
           ?>
             <tr>
+              <td><?php echo $alumnos->vw_a_No_Alumno; ?></td>
               <td><?php echo $alumnos->vw_a_Nombre_Completo; ?></td>
-              <td><?php echo $alumnos->vw_a_Curp; ?></td>
               <td><?php echo $alumnos->vw_a_Edad; ?></td>
               <td><?php echo $alumnos->vw_a_Sexo; ?></td>
               <td class="text-center"><img src="<?php echo $ruta; ?>" height="50px" width="50px"></td>
@@ -56,7 +56,7 @@
                   ?></td>
               <td class="text-center">
                 <a href="<?php echo constant('URL') . 'alumnos/verDetalle/' . $alumnos->vw_a_alumno_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
-                <a href="<?php echo constant('URL') . 'alumnos/eliminarAl/' . $alumnos->vw_a_alumno_id ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
+                <a href="<?php echo constant('URL') . 'alumnos/eliminarAl/' . $alumnos->vw_a_alumno_id ?>" class="btn icon btn-danger"><i data-feather="x"></i></a>
               </td>
             </tr>
           <?php } ?>

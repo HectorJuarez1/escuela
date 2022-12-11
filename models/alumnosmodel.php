@@ -11,8 +11,6 @@ class AlumnosModel extends Model
 
     public function ValidarMatricula($No_Alumno)
     {
-    
-
         try {
             $query = $this->db->connect()->prepare("SELECT COUNT(*) No_Alumno from alumnos WHERE No_Alumno=:no_al");
             $query->execute(['no_al' => $No_Alumno]);
@@ -36,7 +34,7 @@ class AlumnosModel extends Model
                 $item->vw_a_alumno_id = $row['alumno_id'];
                 $item->vw_a_Nombre_Completo = $row['Nombre_Completo'];
                 $item->vw_a_Sexo = $row['Sexo'];
-                $item->vw_a_Curp = $row['Curp'];
+                $item->vw_a_No_Alumno = $row['No_Alumno'];
                 $item->vw_a_Edad = $row['Edad'];
                 $item->vw_a_Foto_alumno = $row['Foto_alumno'];
                 $item->vw_a_id_Estatus = $row['id_Estatus'];

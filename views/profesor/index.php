@@ -11,9 +11,11 @@ $profesor = $this->d['profesor'];
     <title>Document</title>
 </head>
 <body>
+
+<?php require 'views/template/headerMaestro.php'; ?>
 <h1>Vista del profesor --> Dashboard</h1>
-<?php echo $profesor->getUsername() ?><br>
-<?php echo $profesor->getId() ?>
-<a href="<?php echo constant('URL'); ?>logout">Logout</a>
+
+<?php require 'views/template/footerMaestro.php'; ?>
+
 </body>
 </html>

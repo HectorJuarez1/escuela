@@ -8,7 +8,7 @@ class Periodos extends SessionController
     }
     function render()
     {
-         $Nperiodos = $this->model->getAllPeriodos();
+        $Nperiodos = $this->model->getAllPeriodos();
         $this->view->varTodas = $Nperiodos; 
         $this->view->render('periodos/index');
     }

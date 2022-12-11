@@ -16,9 +16,8 @@ class MaestrosModel extends Model
             while ($row = $query->fetch()) {
                 $item = new varTodas();
                 $item->vw_m_profesor_id = $row['profesor_id'];
-                $item->vw_m_Cedula = $row['Cedula'];
+                $item->vw_m_NumProfesores = $row['No_profesor'];
                 $item->vw_m_Nombre_Completo = $row['Nombre_Completo'];
-                $item->vw_m_Direccion = $row['Direccion'];
                 $item->vw_m_Telefono = $row['Telefono'];
                 $item->vw_m_Sexo = $row['Sexo'];
                 $item->vw_m_Edad = $row['Edad'];
