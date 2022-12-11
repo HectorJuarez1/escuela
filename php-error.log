@@ -1,6 +1,2 @@
-[11-Dec-2022 14:06:12 America/Mexico_City] user::constructor() 
-[11-Dec-2022 14:06:18 America/Mexico_City] user::constructor() 
-[11-Dec-2022 14:06:18 America/Mexico_City] user::RENDER() 
-[11-Dec-2022 14:06:18 America/Mexico_City] user::constructor() 
-[11-Dec-2022 14:06:20 America/Mexico_City] user::constructor() 
-[11-Dec-2022 14:06:37 America/Mexico_City] user::constructor() 
+[11-Dec-2022 16:54:01 America/Mexico_City] eliminarGra::Grado dado de baja
+[11-Dec-2022 16:54:23 America/Mexico_City] ActGrado::Datos del grado Actualizados

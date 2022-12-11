@@ -6,7 +6,7 @@ class Profesor extends SessionController
     {
         parent::__construct();
         $this->profesor = $this->getUserSessionData();
-        error_log("user::constructor() ");
+       // error_log("user::constructor() ");
     }
     function render()
     {

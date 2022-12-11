@@ -46,9 +46,9 @@
                                 <li>
                                     <a href="<?php echo constant('URL'); ?>alumnos">Alumnos</a>
                                 </li>
-                                <li>
+<!--                                 <li>
                                     <a href="<?php echo constant('URL'); ?>tutor">Padre / Tutor</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="<?php echo constant('URL'); ?>maestros">Maestros</a>
                                 </li>

@@ -29,15 +29,15 @@
                     <ul class="menu ">
                         <li class='sidebar-title '>Menú principal</li>
                         <li class="sidebar-item ">
-                            <a href="<?php echo constant('URL'); ?>materiasAlumno" class='sidebar-link'>
-                                <i data-feather="book" width="20"></i>
-                                <span>Materias</span>
+                            <a href="<?php echo constant('URL'); ?>" class='sidebar-link'>
+                                <i data-feather="clock" width="20"></i>
+                                <span>Clases</span>
                             </a>
                         </li>
                         <li class="sidebar-item ">
-                            <a href="<?php echo constant('URL'); ?>pagosAlumno" class='sidebar-link'>
-                                <i data-feather="dollar-sign" width="20"></i>
-                                <span>Pagos</span>
+                            <a href="<?php echo constant('URL'); ?>" class='sidebar-link'>
+                                <i data-feather="check" width="20"></i>
+                                <span>Asistencias</span>
                             </a>
                         </li>
                     </ul>

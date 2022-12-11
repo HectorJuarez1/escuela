@@ -75,7 +75,7 @@ inner join vw_detalle_alumnos as vda on vda.alumno_id=al.alumnos_id
 inner join estatus  as est on est.idEstatus=al.estatus_id; 
 
 create view vw_detalle_profesormateria as
-select gr.proceso_id,es.grado_id,es.nombre_grado,au.nombre_aula,pro.Nombre_Completo as Nombre_Profesor,mat.nombre_materia,hr.Detalle as Hora_Inicio,hrf.Detalle as Hora_Fin,mat.dia_semana,
+select gr.proceso_id,es.grado_id,es.nombre_grado,au.nombre_aula,pro.No_profesor,pro.Nombre_Completo as Nombre_Profesor,mat.nombre_materia,hr.Detalle as Hora_Inicio,hrf.Detalle as Hora_Fin,mat.dia_semana,
 per.nombre_periodo,est.Descripcion as Estatus
 from profesor_materia as gr 
 inner join grados as es on gr.grado_id=es.grado_id  
@@ -99,13 +99,13 @@ inner join vw_nombres vw_n  on a.alumno_id=vw_n.alumno_id;
 
 select * from vw_detalle_maestros;
 create view vw_detalle_maestros as
-select a.profesor_id,a.Cedula,concat_ws(' ',a.Nombre,a.Apellido_Paterno ,a.Apellido_Materno)as Nombre_Completo,
+select a.profesor_id,a.No_profesor,a.Cedula,concat_ws(' ',a.Nombre,a.Apellido_Paterno ,a.Apellido_Materno)as Nombre_Completo,
 LOWER(concat_ws('',vw_m.PrimerNombre,'.',vw_m.Apellido_paterno))as username,
 a.Nombre,a.Apellido_Paterno ,a.Apellido_Materno,a.Direccion,
 a.Telefono,a.Sexo,a.Fecha_nacimiento,TIMESTAMPDIFF(YEAR,a.Fecha_nacimiento,CURDATE()) AS Edad ,a.estatus_maestro_id,Es.Descripcion as Estatus_Detalle
 from profesor as a 
 inner join estatus as Es on a.estatus_maestro_id=Es.idEstatus
-inner join vw_nombres_maestros vw_m  on a.alumno_id=vw_n.alumno_id;
+inner join vw_nombres_maestros vw_m  on a.profesor_id=vw_n.profesor_id;
 
 
 
@@ -141,3 +141,7 @@ INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Acosta','Acosta','Cal
 INSERT INTO `profesor_materia` VALUES (11,7,6,4,5,1,100),(14,7,6,4,6,1,100),(15,7,6,4,12,1,100),(16,7,6,4,9,1,100),(17,8,13,5,13,1,100),(18,12,11,7,15,1,100);
 INSERT INTO `alumnos_profesor` VALUES (24,11,2,100),(25,14,2,100),(26,15,2,100),(27,16,2,100),(28,17,3,100),(29,18,6,100);
 INSERT INTO `concepto` VALUES (1,'Inscripcion'),(2,'Reinscripcion'),(3,'Colegiatura');
+
+
+
+

@@ -5,7 +5,7 @@ class User extends SessionController
 {
     function __construct()
     {
-        parent::__construct();
+       parent::__construct();
         $this->user = $this->getUserSessionData();
         //error_log("user::constructor() ");
     }

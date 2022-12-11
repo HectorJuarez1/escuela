@@ -206,7 +206,7 @@ class ProfesormateriaModel extends Model
             return null;
         }
     }
-
+/* 
     public function ValidarMateria($Id_Materia)
     {
         try {
@@ -218,6 +218,6 @@ class ProfesormateriaModel extends Model
             echo 'Error en la linea' . $e->getLine();
             return null;
         }
-    }
+    } */
 
 }

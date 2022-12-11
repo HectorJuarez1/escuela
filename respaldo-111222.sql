@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `control_escolar` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `control_escolar`;
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: control_escolar
@@ -75,7 +73,7 @@ CREATE TABLE `alumnos` (
 
 LOCK TABLES `alumnos` WRITE;
 /*!40000 ALTER TABLE `alumnos` DISABLE KEYS */;
-INSERT INTO `alumnos` VALUES (2,'Hector','Coyotl','Juarez','Maculino','2012-09-10','FODF910819HMSLZR07','1.png','2022-11-22 08:46:03','AL08011212',100),(3,'Galilea','Gonzalez','Reyes','Femenino','2015-03-06','FABM770222MMSJNR00','4.png','2022-11-16 11:32:47','AL09152233',100),(4,'Juan','Cabrera','Garcia','Maculino','2015-01-10','CAGS620415HVZBRT22','8.png','2022-11-22 08:46:03','AL07151256',102),(5,'Karen Odette','Dominguez','Velazquez','Femenino','2015-06-05','CATC650228MMCMRR03','7.png','2022-11-22 08:46:03','AL01152232',100),(6,'Lizbeth Soledad','Falcon','Duarte','Femenino','2016-05-01','CAVA550828HGRNLG04','6.png','2022-11-22 08:46:03','AL05152209',100),(7,'Oscar','Carranco','Mandujado','Maculino','2014-03-06','CAMJ680624MGRRRN00','9.png','2022-11-23 10:43:03','AL03153212',101),(17,'sad','sad','sad','Femenino','2222-01-01','sadsadsad','HECTOR_COYOTL.gif','2022-12-03 18:47:22','AL11222313',102),(18,'ewq','wqe','wqe','Femenino','2222-02-01','wqe','HECTOR_COYOTL.gif','2022-11-23 11:14:19','AL11222314',100);
+INSERT INTO `alumnos` VALUES (2,'Hector','Coyotl','Juarez','Maculino','2012-09-10','FODF910819HMSLZR07','1.png','2022-11-22 08:46:03','AL08011212',100),(3,'Galilea','Gonzalez','Reyes','Femenino','2015-03-06','FABM770222MMSJNR00','4.png','2022-11-16 11:32:47','AL09152233',100),(4,'Juan','Cabrera','Garcia','Maculino','2015-01-10','CAGS620415HVZBRT22','8.png','2022-11-22 08:46:03','AL07151256',102),(5,'Karen Odette','Dominguez','Velazquez','Femenino','2015-06-05','CATC650228MMCMRR03','7.png','2022-11-22 08:46:03','AL01152232',100),(6,'Lizbeth Soledad','Falcon','Duarte','Femenino','2016-05-01','CAVA550828HGRNLG04','6.png','2022-11-22 08:46:03','AL05152209',100),(7,'Oscar','Carranco','Mandujado','Maculino','2014-03-06','CAMJ680624MGRRRN00','9.png','2022-11-23 10:43:03','AL03153212',101);
 /*!40000 ALTER TABLE `alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -415,10 +413,11 @@ CREATE TABLE `profesor` (
   `Fecha_nacimiento` date NOT NULL,
   `Fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `estatus_maestro_id` int NOT NULL,
+  `No_profesor` varchar(45) NOT NULL,
   PRIMARY KEY (`profesor_id`),
   KEY `fk_profesor_estatus1_idx` (`estatus_maestro_id`),
   CONSTRAINT `fk_profesor_estatus1` FOREIGN KEY (`estatus_maestro_id`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -427,7 +426,7 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
-INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2215628900','Maculino','2000-06-01','2022-11-11 16:23:07',100),(5,'213443f3a','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','2232413215','Maculino','1989-05-01','2022-11-11 16:25:19',100),(6,'D54S2V65','Verónica','Hernández','Gil','Calle 16 De Septiembre Puebla.Pue','2211342354','Femenino','1990-01-09','2022-11-11 16:20:03',100),(7,'776ub543','Adriana','León','León','Calle Coronel Jesús González Arratia Puebla.Pue','2276543211','Femenino','1990-03-01','2022-12-02 05:22:09',101),(8,'bg5423i1a','Rene','Fuentes','Fuentes','Calle Mariano Abasolo Puebla.Pue','2232982364','Maculino','1983-09-17','2022-12-02 05:18:15',102);
+INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2215628900','Maculino','2000-06-01','2022-12-11 17:57:13',100,'PR11013021'),(5,'213443f3a','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','2232413215','Maculino','1989-05-01','2022-12-11 17:57:13',100,'PR13022112'),(6,'D54S2V65','Verónica','Hernández','Gil','Calle 16 De Septiembre Puebla.Pue','2211342354','Femenino','1990-01-09','2022-12-11 17:57:13',100,'PR14091052'),(7,'776ub543','Adriana','León','León','Calle Coronel Jesús González Arratia Puebla.Pue','2276543211','Femenino','1990-03-01','2022-12-11 17:57:13',101,'PR15030112'),(8,'bg5423i1a','Rene','Fuentes','Fuentes','Calle Mariano Abasolo Puebla.Pue','2232982364','Maculino','1983-09-17','2022-12-11 17:57:13',102,'PR13053008');
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -495,7 +494,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('1','admin','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-11-22 08:47:46'),('AL08011212','hector.coyotl','$2y$10$c6q30gHbbfSZh2abT08HCek9ZMTR.o7yW1te2lBiZ9nkobPVXy9Vq','user','Hector Coyotl Juarez','2022-11-22 08:50:09'),('AL09152233','galilea.gonzalez','$2y$10$7./q3idrIQ1UbB5YRJDnqOmesvS8tPnDzCDD5qOi.pz7MDcfp1MLm','user','Galilea Gonzalez Reyes','2022-11-22 08:50:20'),('AL07151256','juan.cabrera','$2y$10$dDnLGL/a/7LqT.2Ccdirku8MUoLrW7EwrNvGc2QPIjPuy8rVZ/2yW','user','Juan Cabrera Garcia','2022-11-22 08:51:26'),('AL01152232','karen.dominguez','$2y$10$qRl4ZW3ncTps8aC9XiO7VuJzPCGXwu3NVehlD4HdNoIOJ.lHM7V52','user','Karen Odette Dominguez Velazquez','2022-11-22 08:51:35'),('AL05152209','lizbeth.falcon','$2y$10$weEQfs5ZMUim4imCzMPGcenaqnq/kA6ek9G.QNuRIFeo8rocf4BKe','user','Lizbeth Soledad Falcon Duarte','2022-11-22 08:51:44'),('AL03153212','oscar.carranco','$2y$10$QdOhTCkwD.fva89Ikcsv9OI0036/qmbl/gBkgmdmMDkBb0Dqy0yg6','user','Oscar Carranco Mandujado','2022-11-22 08:51:53');
+INSERT INTO `users` VALUES ('1','admin','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-11-22 14:47:46'),('AL09152233','galilea.gonzalez','$2y$10$7./q3idrIQ1UbB5YRJDnqOmesvS8tPnDzCDD5qOi.pz7MDcfp1MLm','user','Galilea Gonzalez Reyes','2022-11-22 14:50:20'),('AL07151256','juan.cabrera','$2y$10$dDnLGL/a/7LqT.2Ccdirku8MUoLrW7EwrNvGc2QPIjPuy8rVZ/2yW','user','Juan Cabrera Garcia','2022-11-22 14:51:26'),('AL01152232','karen.dominguez','$2y$10$qRl4ZW3ncTps8aC9XiO7VuJzPCGXwu3NVehlD4HdNoIOJ.lHM7V52','user','Karen Odette Dominguez Velazquez','2022-11-22 14:51:35'),('AL05152209','lizbeth.falcon','$2y$10$weEQfs5ZMUim4imCzMPGcenaqnq/kA6ek9G.QNuRIFeo8rocf4BKe','user','Lizbeth Soledad Falcon Duarte','2022-11-22 14:51:44'),('AL08011212','hector.coyotl','$2y$10$mcLYnzwmZ/Q1tEaijnoa5uVocqe7afLhJDyzsVnXBpEZHtrihGaDW','user','Hector Coyotl Juarez','2022-12-11 11:22:49'),('PR11013021','juan.acosta','$2y$10$Z6.CoG7.g/EB9ah6Npfnm.q/aRluR4hJHluOdTJJ0NKlaZDbcAoeq','profesor','Juan Carlos Acosta Acosta','2022-12-11 23:58:15'),('PR13022112','gustavo.valdez','$2y$10$YG1wKPBjrJ5/Lk.MGkwjPuTRZjrQWd3UXtaLDZlHPjBXe17xAnKvW','profesor','Gustavo Valdez Valdez','2022-12-11 23:58:24'),('PR15030112','adriana.león','$2y$10$bvQTCMPvF3gfXJFnTkYFi.GGK5TaX5M4Fke4exI8fnozVVPR1RF4u','profesor','Adriana León León','2022-12-11 23:58:44'),('PR14091052','verónica.hernández','$2y$10$DTUoQ9.1.AcnZhlJ1nltHOprw7eLyI6GBdLMiXrB/khPvaHZlaVSO','profesor','Verónica Hernández Gil','2022-12-12 00:52:21');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -541,6 +540,9 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `nombre_aula`,
  1 AS `nombre_materia`,
  1 AS `nombre_periodo`,
+ 1 AS `dia_semana`,
+ 1 AS `Hora_Inicio`,
+ 1 AS `Hora_Fin`,
  1 AS `estatus_id`,
  1 AS `Descripcion`*/;
 SET character_set_client = @saved_cs_client;
@@ -555,8 +557,10 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vw_detalle_maestros` AS SELECT 
  1 AS `profesor_id`,
+ 1 AS `No_profesor`,
  1 AS `Cedula`,
  1 AS `Nombre_Completo`,
+ 1 AS `username`,
  1 AS `Nombre`,
  1 AS `Apellido_Paterno`,
  1 AS `Apellido_Materno`,
@@ -620,10 +624,15 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vw_detalle_profesormateria` AS SELECT 
  1 AS `proceso_id`,
+ 1 AS `grado_id`,
  1 AS `nombre_grado`,
  1 AS `nombre_aula`,
+ 1 AS `No_profesor`,
  1 AS `Nombre_Profesor`,
  1 AS `nombre_materia`,
+ 1 AS `Hora_Inicio`,
+ 1 AS `Hora_Fin`,
+ 1 AS `dia_semana`,
  1 AS `nombre_periodo`,
  1 AS `Estatus`*/;
 SET character_set_client = @saved_cs_client;
@@ -642,6 +651,23 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `PrimerNombre`,
  1 AS `SegundoNombre`,
  1 AS `Apellido_Paterno`,
+ 1 AS `Apellido_Materno`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_nombres_maestros`
+--
+
+DROP TABLE IF EXISTS `vw_nombres_maestros`;
+/*!50001 DROP VIEW IF EXISTS `vw_nombres_maestros`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_nombres_maestros` AS SELECT 
+ 1 AS `profesor_id`,
+ 1 AS `No_profesor`,
+ 1 AS `PrimerNombre`,
+ 1 AS `SegundoNombre`,
+ 1 AS `Apellido_paterno`,
  1 AS `Apellido_Materno`*/;
 SET character_set_client = @saved_cs_client;
 
@@ -684,7 +710,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_detalle_alumnosasignados` AS select `al`.`proceso_id` AS `proceso_id`,`vpm`.`Nombre_Profesor` AS `Nombre_Profesor`,`vda`.`No_Alumno` AS `No_Alumno`,`vda`.`Nombre_Completo` AS `NombreAlumno`,`vpm`.`nombre_grado` AS `nombre_grado`,`vpm`.`nombre_aula` AS `nombre_aula`,`vpm`.`nombre_materia` AS `nombre_materia`,`vpm`.`nombre_periodo` AS `nombre_periodo`,`al`.`estatus_id` AS `estatus_id`,`est`.`Descripcion` AS `Descripcion` from (((`alumnos_profesor` `al` join `vw_detalle_profesormateria` `vpm` on((`vpm`.`proceso_id` = `al`.`proceso_id`))) join `vw_detalle_alumnos` `vda` on((`vda`.`alumno_id` = `al`.`alumnos_id`))) join `estatus` `est` on((`est`.`idEstatus` = `al`.`estatus_id`))) */;
+/*!50001 VIEW `vw_detalle_alumnosasignados` AS select `al`.`proceso_id` AS `proceso_id`,`vpm`.`Nombre_Profesor` AS `Nombre_Profesor`,`vda`.`No_Alumno` AS `No_Alumno`,`vda`.`Nombre_Completo` AS `NombreAlumno`,`vpm`.`nombre_grado` AS `nombre_grado`,`vpm`.`nombre_aula` AS `nombre_aula`,`vpm`.`nombre_materia` AS `nombre_materia`,`vpm`.`nombre_periodo` AS `nombre_periodo`,`vpm`.`dia_semana` AS `dia_semana`,`vpm`.`Hora_Inicio` AS `Hora_Inicio`,`vpm`.`Hora_Fin` AS `Hora_Fin`,`al`.`estatus_id` AS `estatus_id`,`est`.`Descripcion` AS `Descripcion` from (((`alumnos_profesor` `al` join `vw_detalle_profesormateria` `vpm` on((`vpm`.`proceso_id` = `al`.`proceso_id`))) join `vw_detalle_alumnos` `vda` on((`vda`.`alumno_id` = `al`.`alumnos_id`))) join `estatus` `est` on((`est`.`idEstatus` = `al`.`estatus_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -702,7 +728,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_detalle_maestros` AS select `a`.`profesor_id` AS `profesor_id`,`a`.`Cedula` AS `Cedula`,concat_ws(' ',`a`.`Nombre`,`a`.`Apellido_paterno`,`a`.`Apellido_Materno`) AS `Nombre_Completo`,`a`.`Nombre` AS `Nombre`,`a`.`Apellido_paterno` AS `Apellido_Paterno`,`a`.`Apellido_Materno` AS `Apellido_Materno`,`a`.`Direccion` AS `Direccion`,`a`.`Telefono` AS `Telefono`,`a`.`Sexo` AS `Sexo`,`a`.`Fecha_nacimiento` AS `Fecha_nacimiento`,timestampdiff(YEAR,`a`.`Fecha_nacimiento`,curdate()) AS `Edad`,`a`.`estatus_maestro_id` AS `estatus_maestro_id`,`es`.`Descripcion` AS `Estatus_Detalle` from (`profesor` `a` join `estatus` `es` on((`a`.`estatus_maestro_id` = `es`.`idEstatus`))) */;
+/*!50001 VIEW `vw_detalle_maestros` AS select `a`.`profesor_id` AS `profesor_id`,`a`.`No_profesor` AS `No_profesor`,`a`.`Cedula` AS `Cedula`,concat_ws(' ',`a`.`Nombre`,`a`.`Apellido_paterno`,`a`.`Apellido_Materno`) AS `Nombre_Completo`,lower(concat_ws('',`vw_m`.`PrimerNombre`,'.',`vw_m`.`Apellido_paterno`)) AS `username`,`a`.`Nombre` AS `Nombre`,`a`.`Apellido_paterno` AS `Apellido_Paterno`,`a`.`Apellido_Materno` AS `Apellido_Materno`,`a`.`Direccion` AS `Direccion`,`a`.`Telefono` AS `Telefono`,`a`.`Sexo` AS `Sexo`,`a`.`Fecha_nacimiento` AS `Fecha_nacimiento`,timestampdiff(YEAR,`a`.`Fecha_nacimiento`,curdate()) AS `Edad`,`a`.`estatus_maestro_id` AS `estatus_maestro_id`,`es`.`Descripcion` AS `Estatus_Detalle` from ((`profesor` `a` join `estatus` `es` on((`a`.`estatus_maestro_id` = `es`.`idEstatus`))) join `vw_nombres_maestros` `vw_m` on((`a`.`No_profesor` = `vw_m`.`No_profesor`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -756,7 +782,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_detalle_profesormateria` AS select `gr`.`proceso_id` AS `proceso_id`,`es`.`nombre_grado` AS `nombre_grado`,`au`.`nombre_aula` AS `nombre_aula`,`pro`.`Nombre_Completo` AS `Nombre_Profesor`,`mat`.`nombre_materia` AS `nombre_materia`,`per`.`nombre_periodo` AS `nombre_periodo`,`est`.`Descripcion` AS `Estatus` from ((((((`profesor_materia` `gr` join `grados` `es` on((`gr`.`grado_id` = `es`.`grado_id`))) join `aulas` `au` on((`gr`.`aula_id` = `au`.`aula_id`))) join `vw_detalle_maestros` `pro` on((`gr`.`profesor_id` = `pro`.`profesor_id`))) join `materias` `mat` on((`gr`.`materias_id` = `mat`.`materia_id`))) join `periodos` `per` on((`gr`.`periodos_id` = `per`.`periodo_id`))) join `estatus` `est` on((`gr`.`estatus_procesoprofesor_id` = `est`.`idEstatus`))) */;
+/*!50001 VIEW `vw_detalle_profesormateria` AS select `gr`.`proceso_id` AS `proceso_id`,`es`.`grado_id` AS `grado_id`,`es`.`nombre_grado` AS `nombre_grado`,`au`.`nombre_aula` AS `nombre_aula`,`pro`.`No_profesor` AS `No_profesor`,`pro`.`Nombre_Completo` AS `Nombre_Profesor`,`mat`.`nombre_materia` AS `nombre_materia`,`hr`.`Detalle` AS `Hora_Inicio`,`hrf`.`Detalle` AS `Hora_Fin`,`mat`.`dia_semana` AS `dia_semana`,`per`.`nombre_periodo` AS `nombre_periodo`,`est`.`Descripcion` AS `Estatus` from ((((((((`profesor_materia` `gr` join `grados` `es` on((`gr`.`grado_id` = `es`.`grado_id`))) join `aulas` `au` on((`gr`.`aula_id` = `au`.`aula_id`))) join `vw_detalle_maestros` `pro` on((`gr`.`profesor_id` = `pro`.`profesor_id`))) join `materias` `mat` on((`gr`.`materias_id` = `mat`.`materia_id`))) join `periodos` `per` on((`gr`.`periodos_id` = `per`.`periodo_id`))) join `horas` `hr` on((`mat`.`hora_inicia` = `hr`.`id_horas`))) join `horas` `hrf` on((`mat`.`hora_fin` = `hrf`.`id_horas`))) join `estatus` `est` on((`gr`.`estatus_procesoprofesor_id` = `est`.`idEstatus`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -778,6 +804,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_nombres_maestros`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_nombres_maestros`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_nombres_maestros` AS select `a`.`profesor_id` AS `profesor_id`,`a`.`No_profesor` AS `No_profesor`,substring_index(`a`.`Nombre`,' ',1) AS `PrimerNombre`,substr(`a`.`Nombre`,(length(substring_index(`a`.`Nombre`,' ',1)) + 1)) AS `SegundoNombre`,`a`.`Apellido_paterno` AS `Apellido_paterno`,`a`.`Apellido_Materno` AS `Apellido_Materno` from `profesor` `a` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -788,4 +832,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-03 22:59:03
+-- Dump completed on 2022-12-11 16:58:56

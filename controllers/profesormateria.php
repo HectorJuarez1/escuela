@@ -30,23 +30,24 @@ class Profesormateria extends SessionController
         $datos[3]   = trim($_POST['com_materias']);
         $datos[4]   = trim($_POST['com_periodos']);
 
+        if ($this->model->insertProfesorMateria([
+            'id_grado' => $datos[0], 'com_aulas' => $datos[1], 'com_profesor' => $datos[2], 'com_materias' => $datos[3],
+            'com_periodos' => $datos[4]
+        ])) {
+            error_log('saveProfesorMateria::Nuevo materias asignadas al profesor');
+            $this->redirect('profesormateria', ['success' => Success::SUCCESS_ADMIN_NEW_ALUMNO]);
+        } else {
+            error_log('saveProfesorMateria::Error al asignadas materias al profesor');
+            $this->redirect('profesormateria', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+        }
         //validar materia que no tenga la misma
-        $num =$this->model->ValidarMateria($datos[3]);
+/*         $num =$this->model->ValidarMateria($datos[3]);
         if ($num>=1) {
             $this->redirect('profesormateria', ['error' => Errors::ERROR_MATERIA_ASIGNADA]);
         echo "Esta Materia ya la tiene asignada";
         }else{
-            if ($this->model->insertProfesorMateria([
-                'id_grado' => $datos[0], 'com_aulas' => $datos[1], 'com_profesor' => $datos[2], 'com_materias' => $datos[3],
-                'com_periodos' => $datos[4]
-            ])) {
-                error_log('saveProfesorMateria::Nuevo materias asignadas al profesor');
-                $this->redirect('profesormateria', ['success' => Success::SUCCESS_ADMIN_NEW_ALUMNO]);
-            } else {
-                error_log('saveProfesorMateria::Error al asignadas materias al profesor');
-                $this->redirect('profesormateria', ['error' => Errors::ERROR_ALTA_ALUMNO]);
-            }
-        }        
+            
+        }   */      
     }
 
     function verDetalle($param = null)
