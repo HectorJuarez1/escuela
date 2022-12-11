@@ -99,17 +99,32 @@ inner join vw_nombres vw_n  on a.alumno_id=vw_n.alumno_id;
 select * from vw_detalle_maestros;
 create view vw_detalle_maestros as
 select a.profesor_id,a.Cedula,concat_ws(' ',a.Nombre,a.Apellido_Paterno ,a.Apellido_Materno)as Nombre_Completo,
+LOWER(concat_ws('',vw_m.PrimerNombre,'.',vw_m.Apellido_paterno))as username,
 a.Nombre,a.Apellido_Paterno ,a.Apellido_Materno,a.Direccion,
 a.Telefono,a.Sexo,a.Fecha_nacimiento,TIMESTAMPDIFF(YEAR,a.Fecha_nacimiento,CURDATE()) AS Edad ,a.estatus_maestro_id,Es.Descripcion as Estatus_Detalle
-from profesor as a inner join estatus as Es on a.estatus_maestro_id=Es.idEstatus;
+from profesor as a 
+inner join estatus as Es on a.estatus_maestro_id=Es.idEstatus
+inner join vw_nombres_maestros vw_m  on a.alumno_id=vw_n.alumno_id;
 
 
-create view vw_nombres as
+
+create view vw_nombres_alumnos as
 select a.alumno_id,a.No_Alumno,
  SUBSTRING_INDEX(a.Nombres, " ", 1) AS "PrimerNombre",
     SUBSTR(a.Nombres, LENGTH( SUBSTRING_INDEX(a.Nombres, " ", 1) ) + 1 ) AS "SegundoNombre",
   a.Apellido_Paterno,a.Apellido_Materno
 from alumnos as a ;
+
+create view vw_nombres_maestros as
+select a.profesor_id,a.No_profesor,
+ SUBSTRING_INDEX(a.Nombre, " ", 1) AS "PrimerNombre",
+    SUBSTR(a.Nombre, LENGTH( SUBSTRING_INDEX(a.Nombre, " ", 1) ) + 1 ) AS "SegundoNombre",
+  a.Apellido_paterno,a.Apellido_Materno
+from profesor as a ;
+
+
+
+
 
 
 

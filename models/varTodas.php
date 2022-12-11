@@ -1,7 +1,5 @@
 <?php
-
-class varAlumnos{
-
+class varTodas{
     
     // alumno vista
     public $vw_a_alumno_id;
@@ -20,10 +18,6 @@ class varAlumnos{
     public $vw_a_Estatus_Detalle;
     public $vw_a_NumAlumnos;
 
-}
-
-
-class varTodas{
     // users
     public $idUser;
     public $username;
@@ -34,8 +28,10 @@ class varTodas{
     // maestros
     public $vw_m_profesor_id;
     public $vw_m_Cedula;
+    public $vw_m_NumProfesores;
     public $vw_m_Nombre_Completo;
     public $vw_m_Nombre;
+    public $vw_m_username;
     public $vw_m_Apellido_paterno;
     public $vw_m_Apellido_Materno;
     public $vw_m_Direccion;
@@ -45,7 +41,8 @@ class varTodas{
     public $vw_m_Edad;
     public $vw_m_estatus_maestro_id;
     public $vw_m_Estatus_Detalle;
-    public $vw_m_NumProfesores;
+
+
     
     // grados
     public $grado_id;

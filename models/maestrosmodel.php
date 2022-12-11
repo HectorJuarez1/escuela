@@ -34,8 +34,8 @@ class MaestrosModel extends Model
     {
         try {
             $query = $this->db->connect()
-                ->prepare('INSERT INTO profesor(Cedula,Nombre,Apellido_Paterno,Apellido_Materno,Direccion,Sexo,Telefono,Fecha_nacimiento,estatus_maestro_id) 
-                VALUES (:ced,:nom,:ap,:am,:dir,:sex,:tel,:fech,100)');
+                ->prepare('INSERT INTO profesor(Cedula,Nombre,Apellido_Paterno,Apellido_Materno,Direccion,Sexo,Telefono,Fecha_nacimiento,estatus_maestro_id,No_profesor) 
+                VALUES (:ced,:nom,:ap,:am,:dir,:sex,:tel,:fech,100,:Nopro)');
             $query->execute([
                 'ced' => $datos['txt_cedula'],
                 'nom' => $datos['txt_nombre'],
@@ -44,7 +44,8 @@ class MaestrosModel extends Model
                 'dir' => $datos['txt_direccion'],
                 'sex' => $datos['txt_sexo'],
                 'tel' => $datos['txt_telefono'],
-                'fech' => $datos['txt_FeNacimiento']
+                'fech' => $datos['txt_FeNacimiento'],
+                'Nopro' => $datos['txt_No_Profesor']
             ]);
             return true;
         } catch (PDOException $e) {

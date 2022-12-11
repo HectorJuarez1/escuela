@@ -1,0 +1,8 @@
+[10-Dec-2022 23:15:34 America/Mexico_City] eliminarTur::Usuario Eliminado
+[10-Dec-2022 23:15:40 America/Mexico_City] PHP Notice:  Undefined index: txt_buscar in C:\xampp\htdocs\escuela\controllers\Newusuario.php on line 35
+[10-Dec-2022 23:15:44 America/Mexico_City] PHP Notice:  Undefined index: txt_buscar in C:\xampp\htdocs\escuela\controllers\Newusuario.php on line 35
+[10-Dec-2022 23:15:53 America/Mexico_City] PHP Notice:  Undefined index: txt_buscar in C:\xampp\htdocs\escuela\controllers\Newusuario.php on line 35
+[10-Dec-2022 23:18:08 America/Mexico_City] saveUs::Nuevo usuarios creado
+[10-Dec-2022 23:18:39 America/Mexico_City] eliminarTur::Usuario Eliminado
+[10-Dec-2022 23:20:16 America/Mexico_City] saveUs::Nuevo usuarios creado
+[10-Dec-2022 23:20:21 America/Mexico_City] user::constructor() 

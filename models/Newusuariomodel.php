@@ -32,13 +32,26 @@ class NewusuarioModel extends Model{
 
 
 
+    public function getAllDMaestro($No_Maestro)
+    {
+        $items = [];
 
-
-
-
-
-
-
+        try {
+            $query = $this->db->connect()->prepare("SELECT No_profesor,Nombre_Completo,username  FROM vw_detalle_maestros WHERE No_profesor = :no_pro");
+            $query->execute(['no_pro' => $No_Maestro]);
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->vw_m_NumProfesores = $row['No_profesor'];
+                $item->vw_m_Nombre_Completo = $row['Nombre_Completo'];
+                $item->vw_m_username = $row['username'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            return null;
+        }
+    }
 
     public function getAll()
     {
@@ -63,12 +76,29 @@ class NewusuarioModel extends Model{
         try {
             $query = $this->db->connect()
                 ->prepare('INSERT INTO users(id,username,password,role,name) 
-                VALUES (:id,:usse,:pass,:rol,:nam)');
+                VALUES (:id,:usse,:pass,"user",:nam)');
                 $query->execute([
                     'id' => $datos['txt_no_usuario'],
                 'usse' => $datos['txt_usuario'],
                 'pass' => $datos['txt_passw'],
-                'rol' => $datos['txt_rol'],
+                'nam' => $datos['txt_Nom_Completo']
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+    public function insertMaestro($datos)
+    {
+        try {
+            $query = $this->db->connect()
+                ->prepare('INSERT INTO users(id,username,password,role,name) 
+                VALUES (:id,:usse,:pass,"profesor",:nam)');
+                $query->execute([
+                    'id' => $datos['txt_no_usuario'],
+                'usse' => $datos['txt_usuario'],
+                'pass' => $datos['txt_passw'],
                 'nam' => $datos['txt_Nom_Completo']
             ]);
             return true;

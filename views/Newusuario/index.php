@@ -14,7 +14,7 @@
     <?php require 'views/template/header.php'; ?>
     <?php $this->showMessages(); ?>
 
-<a href="<?php echo constant('URL'); ?>Newusuario/new" class="btn btn-success rounded-pill">Nuevo</a><br><br>
+<a href="<?php echo constant('URL'); ?>Newusuario/rol" class="btn btn-success rounded-pill">Nuevo</a><br><br>
 
     <div class="card">
         <div class="card-header">
@@ -40,8 +40,7 @@
                             <td><?php echo $Nusuario->username; ?></td>
                             <td><?php echo $Nusuario->role; ?></td>
                             <td class="text-center">
-                                <a href="<?php echo constant('URL') . 'Newusuario/verDetalle/' . $Nusuario->idUser ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
-                                <a href="<?php echo constant('URL') . 'Newusuario/eliminarUser/' . $Nusuario->idUser ?>" class="btn icon btn-danger"><i data-feather="delete"></i></a>
+                                <a href="<?php echo constant('URL') . 'Newusuario/eliminarUser/' . $Nusuario->idUser ?>" class="btn icon btn-danger"><i data-feather="x"></i></a>
                             </td>
                         </tr>
                     <?php } ?>

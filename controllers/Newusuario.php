@@ -7,8 +7,6 @@ class Newusuario extends SessionController
         parent::__construct();
     }
 
-
-
     function render()
     {
 
@@ -18,9 +16,18 @@ class Newusuario extends SessionController
         $this->view->render('Newusuario/index');
     }
 
+    function rol()
+    {
+        $this->view->render('Newusuario/rol');
+    }
+
     function new()
     {
         $this->view->render('Newusuario/nuevo');
+    }
+    function newM()
+    {
+        $this->view->render('Newusuario/nuevoMaestro');
     }
 
     function verDetalle()
@@ -36,16 +43,29 @@ class Newusuario extends SessionController
     }
 
 
+    
+    function verDetalleM()
+    {
+            $Nmaestro[0]  = trim($_POST['txt_buscarM']);
+            if ($Nmaestro[0]  == '') {
+                $this->view->render('Newusuario/nuevoMaestro');
+            } else {
+                $Maestros = $this->model->getAllDMaestro($Nmaestro[0]);
+                $this->view->DatosMaestro = $Maestros;
+                $this->view->render('Newusuario/nuevoMaestro');
+            } 
+    }
+
+
     function saveUs()
     {
         $datos[0]  = trim($_POST['txt_no_usuario']);
         $datos[1]  = trim($_POST['txt_usuario']);
         $datos[2]  = trim($_POST['txt_passw']);
         $pass_cifrado = password_hash($datos[2], PASSWORD_DEFAULT, array("cost" => 10));
-        $datos[3]  = trim($_POST['txt_rol']);
-        $datos[4]  = trim($_POST['txt_Nom_Completo']);
+        $datos[3]  = trim($_POST['txt_Nom_Completo']);
         if ($this->model->insertUsuario([
-            'txt_no_usuario' => $datos[0], 'txt_usuario' => $datos[1], 'txt_passw' => $pass_cifrado, 'txt_rol' => $datos[3], 'txt_Nom_Completo' => $datos[4]
+            'txt_no_usuario' => $datos[0], 'txt_usuario' => $datos[1], 'txt_passw' => $pass_cifrado, 'txt_Nom_Completo' => $datos[3]
         ])) {
             error_log('saveUs::Nuevo usuarios creado');
             $this->redirect('Newusuario', ['success' => Success::SUCCESS_ADMIN_NEW_TUTOR]);
@@ -54,14 +74,36 @@ class Newusuario extends SessionController
             // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
+
+
+    function saveUsMa()
+    {
+        $datos[0]  = trim($_POST['txt_no_maestro']);
+        $datos[1]  = trim($_POST['txt_usuario']);
+        $datos[2]  = trim($_POST['txt_passw']);
+        $pass_cifrado = password_hash($datos[2], PASSWORD_DEFAULT, array("cost" => 10));
+        $datos[3]  = trim($_POST['txt_Nom_Completo']);
+        if ($this->model->insertMaestro([
+            'txt_no_usuario' => $datos[0], 'txt_usuario' => $datos[1], 'txt_passw' => $pass_cifrado, 'txt_Nom_Completo' => $datos[3]
+        ])) {
+            error_log('saveUs::Nuevo usuarios creado');
+            $this->redirect('Newusuario', ['success' => Success::SUCCESS_ADMIN_NEW_TUTOR]);
+        } else {
+            // error_log('saveAl::Error al crear alumno');
+            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+        }
+    }
+
+
+
     function eliminarUser($param = null)
     {
         $Duser = $param[0];
         if ($this->model->deleteUsuario($Duser)) {
-            error_log('eliminarTur::Padre / Tutor dado de baja');
-            $this->redirect('tutor', ['error' => Errors::ERROR_DELATE_TUTOR]);
+            error_log('eliminarTur::Usuario Eliminado');
+            $this->redirect('Newusuario', ['error' => Errors::ERROR_NO_DELATE_USUARIO]);
         } else {
-            $this->redirect('tutor', ['error' => Errors::ERROR_NO_DELATE]);
+            $this->redirect('Newusuario', ['error' => Errors::ERROR_NO_DELATE_USUARIO]);
         }
     }
 }

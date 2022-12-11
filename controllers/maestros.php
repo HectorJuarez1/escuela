@@ -28,9 +28,10 @@ class Maestros extends SessionController
         $datos[5]  = trim($_POST['txt_telefono']);
         $datos[6]  = trim($_POST['txt_FeNacimiento']);
         $datos[7]  = trim($_POST['txt_sexo']);
+        $datos[8]  = trim($_POST['txt_No_Profesor']);
         if ($this->model->insertMaestro([
             'txt_cedula' => $datos[0], 'txt_nombre' => $datos[1], 'txt_ApPaterno' => $datos[2],'txt_ApMaterno' => $datos[3], 
-            'txt_direccion' => $datos[4], 'txt_telefono' => $datos[5], 'txt_FeNacimiento' => $datos[6], 'txt_sexo' => $datos[7]
+            'txt_direccion' => $datos[4], 'txt_telefono' => $datos[5], 'txt_FeNacimiento' => $datos[6], 'txt_sexo' => $datos[7], 'txt_No_Profesor' => $datos[8]
         ])) {
             error_log('saveUs::Nuevo maestro creado');
             $this->redirect('maestros', ['success' => Success::SUCCESS_ADMIN_NEW_MAESTRO]);

@@ -21,6 +21,8 @@ class Errors{
 
     const ERROR_NO_CANCELA_PAGO       = "PxGF74S";
 
+    const ERROR_NO_DELATE_USUARIO       = "7D7CC1H";
+
 
 
     const ERROR_ADMIN_NEWCATEGORY_EXISTS        = "1f8f0ae8963b16403c3ec9ebb851f156";
@@ -62,7 +64,7 @@ class Errors{
             Errors::ERROR_NO_DELATE_GRADO            => 'Grado desactivado',
             Errors::ERROR_NO_DELATE_MAESTRO            => 'Maestro eliminada',
             Errors::ERROR_NO_CANCELA_PAGO            => 'Pago cancelado',
-
+            Errors::ERROR_NO_DELATE_USUARIO            => 'Usuario eliminada',
 
 
 

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/assets/images/icono.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewAlumnos</title>
+    <title>NewMaestro</title>
 </head>
 
 <body>
@@ -15,13 +15,13 @@
     <?php $this->showMessages(); ?>
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h2 mb-0 text-gray-800">ALUMNO</h1>
+        <h1 class="h2 mb-0 text-gray-800">MAESTRO</h1>
     </div>
     <div class="card">
         <div class="card-body">
             <div class="col-md-5 col-12">
-                <form class="p-3 d-flex" action="verDetalle" method="POST">
-                    <input class="form-control me-2" type="text" name="txt_buscar" placeholder="No Alumno" required>
+                <form class="p-3 d-flex" action="verDetalleM" method="POST">
+                    <input class="form-control me-2" type="text" name="txt_buscarM" placeholder="No Maestro" required>
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
             </div>
@@ -29,22 +29,22 @@
             $a = "";
             $b = "";
             $c = "";
-            if (isset($_POST['txt_buscar'])) {
-                foreach ($this->DatosUsuario as $row) {
-                    $Dusuarios = new varTodas();
-                    $Dusuarios = $row;
-                    $a = $Dusuarios->vw_a_No_Alumno;
-                    $b = $Dusuarios->vw_a_username;
-                    $c = $Dusuarios->vw_a_Nombre_Completo;
+            if (isset($_POST['txt_buscarM'])) {
+                foreach ($this->DatosMaestro as $row) {
+                    $Dmaestros = new varTodas();
+                    $Dmaestros = $row;
+                    $a = $Dmaestros->vw_m_NumProfesores;
+                    $b = $Dmaestros->vw_m_username;
+                    $c = $Dmaestros->vw_m_Nombre_Completo;
                 }
             }
             ?>
-            <form class="row p-3" action="saveUs" method="POST">
+            <form class="row p-3" action="saveUsMa" method="POST">
                 <div class="row">
                     <div class="col-md-2 col-12">
                         <div class="form-group">
-                            <label>No Alumno</label>
-                            <input type="text" class="form-control" name="txt_no_usuario" value="<?php echo $a; ?>" readonly>
+                            <label>No Maestro</label>
+                            <input type="text" class="form-control" name="txt_no_maestro" value="<?php echo $a; ?>" readonly>
                         </div>
                     </div>
                     <div class="col-md-3 col-12">
