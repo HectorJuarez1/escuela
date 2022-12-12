@@ -94,7 +94,19 @@
             "site" : "profesor", 
             "access" : "private", 
             "role" : "profesor"
+        },
+        {
+            "site" : "clasesMaestro", 
+            "access" : "private", 
+            "role" : "profesor"
         }
+
+
+
+
+
+
+        
     ],
 
     "default-sites":{

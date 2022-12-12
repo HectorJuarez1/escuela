@@ -96,7 +96,7 @@ CREATE TABLE `alumnos_profesor` (
   CONSTRAINT `fk_alumno_profesor_estatus1` FOREIGN KEY (`estatus_id`) REFERENCES `estatus` (`idEstatus`),
   CONSTRAINT `fk_alumnos_profesor_alumnos1` FOREIGN KEY (`alumnos_id`) REFERENCES `alumnos` (`alumno_id`),
   CONSTRAINT `fk_alumnos_profesor_profesor_materia1` FOREIGN KEY (`proceso_id`) REFERENCES `profesor_materia` (`proceso_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,7 +105,7 @@ CREATE TABLE `alumnos_profesor` (
 
 LOCK TABLES `alumnos_profesor` WRITE;
 /*!40000 ALTER TABLE `alumnos_profesor` DISABLE KEYS */;
-INSERT INTO `alumnos_profesor` VALUES (24,11,2,100),(25,14,2,100),(26,15,2,100),(27,16,2,100),(28,17,3,100),(29,18,6,100),(30,21,6,100),(31,20,6,100);
+INSERT INTO `alumnos_profesor` VALUES (24,11,2,100),(25,14,2,100),(26,15,2,100),(27,16,2,100),(28,17,3,100),(29,18,6,100),(30,21,6,100),(31,20,6,100),(32,22,3,100),(33,23,3,100),(34,24,3,100);
 /*!40000 ALTER TABLE `alumnos_profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -284,7 +284,7 @@ CREATE TABLE `materias` (
   KEY `fk_materias_grados1_idx` (`grados_grado_id`),
   CONSTRAINT `fk_materias_estatus1` FOREIGN KEY (`estatus_materias_id`) REFERENCES `estatus` (`idEstatus`),
   CONSTRAINT `fk_materias_grados1` FOREIGN KEY (`grados_grado_id`) REFERENCES `grados` (`grado_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -293,7 +293,7 @@ CREATE TABLE `materias` (
 
 LOCK TABLES `materias` WRITE;
 /*!40000 ALTER TABLE `materias` DISABLE KEYS */;
-INSERT INTO `materias` VALUES (55,'Matemáticas','Lunes','1','10','2022-11-27 04:02:07',100,10),(56,'Español','Lunes','11','12','2022-11-27 04:02:21',100,11),(57,'Ciencias de la Naturaleza','Viernes','14','15','2022-11-27 04:02:34',100,12),(58,'Lengua castellana y literatura','Martes','11','12','2022-11-27 04:02:57',100,10),(59,'Formación Cívica y Ética','Miercoles','11','12','2022-11-27 04:03:31',100,7),(60,'Geografía','Miercoles','10','12','2022-11-27 04:03:46',100,11),(61,'Educación Artística','Lunes','2','11','2022-11-27 04:04:29',100,8),(62,'Educación física','Jueves','14','15','2022-11-27 04:04:53',100,12);
+INSERT INTO `materias` VALUES (55,'Matemáticas','Lunes','1','10','2022-11-27 04:02:07',100,10),(56,'Español','Lunes','11','12','2022-11-27 04:02:21',100,11),(57,'Ciencias de la Naturaleza','Viernes','14','15','2022-11-27 04:02:34',100,12),(58,'Lengua castellana y literatura','Martes','11','12','2022-11-27 04:02:57',100,10),(59,'Formación Cívica y Ética','Miercoles','11','12','2022-11-27 04:03:31',100,7),(60,'Geografía','Miercoles','10','12','2022-11-27 04:03:46',100,11),(61,'Educación Artística','Lunes','2','11','2022-11-27 04:04:29',100,8),(62,'Educación física','Jueves','14','15','2022-11-27 04:04:53',100,12),(64,'Geografía','Martes','10','11','2022-12-11 23:16:04',100,8),(65,'Ingles','Miercoles','11','12','2022-12-11 23:18:24',100,8),(66,'Matemáticas','Jueves','2','11','2022-12-11 23:20:07',100,8);
 /*!40000 ALTER TABLE `materias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -426,7 +426,7 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
-INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2215628900','Maculino','2000-06-01','2022-12-11 17:57:13',100,'PR11013021'),(5,'213443f3a','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','2232413215','Maculino','1989-05-01','2022-12-11 17:57:13',100,'PR13022112'),(6,'D54S2V65','Verónica','Hernández','Gil','Calle 16 De Septiembre Puebla.Pue','2211342354','Femenino','1990-01-09','2022-12-11 17:57:13',100,'PR14091052'),(7,'776ub543','Adriana','León','León','Calle Coronel Jesús González Arratia Puebla.Pue','2276543211','Femenino','1990-03-01','2022-12-11 17:57:13',101,'PR15030112'),(8,'bg5423i1a','Rene','Fuentes','Fuentes','Calle Mariano Abasolo Puebla.Pue','2232982364','Maculino','1983-09-17','2022-12-11 17:57:13',102,'PR13053008');
+INSERT INTO `profesor` VALUES (4,'213443f3','Juan Carlos','Acosta','Acosta','Calle Azucenas Puebla Puebla','2215628900','Maculino','2000-06-01','2022-12-11 17:57:13',100,'PR11013021'),(5,'213443f3a','Gustavo','Valdez','Valdez','Calle Venustiano Carranza Puebla .Puebla','2232413215','Maculino','1989-05-01','2022-12-11 17:57:13',100,'PR13022112'),(6,'D54S2V65','Verónica','Hernández','Gil','Calle 16 De Septiembre Puebla.Pue','2211342354','Femenino','1990-01-09','2022-12-11 17:57:13',100,'PR14091052'),(7,'776ub543','Adriana','León','León','Calle Coronel Jesús González Arratia Puebla.Pue','2276543211','Femenino','1990-03-01','2022-12-11 17:57:13',101,'PR15030112'),(8,'bg5423i1a','Rene','Fuentes','Fuentes','Calle Mariano Abasolo Puebla.Pue','2232982364','Maculino','1983-09-17','2022-12-11 23:20:53',100,'PR13053008');
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -458,7 +458,7 @@ CREATE TABLE `profesor_materia` (
   CONSTRAINT `procesoprofesor_ibfk_1` FOREIGN KEY (`aula_id`) REFERENCES `aulas` (`aula_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `procesoprofesor_ibfk_2` FOREIGN KEY (`grado_id`) REFERENCES `grados` (`grado_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `procesoprofesor_ibfk_3` FOREIGN KEY (`profesor_id`) REFERENCES `profesor` (`profesor_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -467,7 +467,7 @@ CREATE TABLE `profesor_materia` (
 
 LOCK TABLES `profesor_materia` WRITE;
 /*!40000 ALTER TABLE `profesor_materia` DISABLE KEYS */;
-INSERT INTO `profesor_materia` VALUES (11,7,6,4,55,1,100),(14,7,6,4,55,1,100),(15,7,6,4,55,1,100),(16,7,6,4,55,1,100),(17,8,13,5,55,1,100),(18,12,11,7,55,1,100),(19,11,6,4,56,1,100),(20,7,13,5,59,1,100),(21,10,13,7,58,1,100);
+INSERT INTO `profesor_materia` VALUES (11,12,11,4,57,1,100),(14,7,6,8,59,1,100),(15,10,14,4,58,1,100),(16,10,6,4,55,1,100),(17,8,13,5,61,1,100),(18,12,11,7,62,1,100),(19,11,6,4,56,1,100),(20,7,13,5,59,1,100),(21,10,13,7,58,1,100),(22,8,11,5,64,1,100),(23,8,6,6,65,1,100),(24,8,10,8,66,1,100);
 /*!40000 ALTER TABLE `profesor_materia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -494,7 +494,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('1','admin','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-11-22 14:47:46'),('AL09152233','galilea.gonzalez','$2y$10$7./q3idrIQ1UbB5YRJDnqOmesvS8tPnDzCDD5qOi.pz7MDcfp1MLm','user','Galilea Gonzalez Reyes','2022-11-22 14:50:20'),('AL07151256','juan.cabrera','$2y$10$dDnLGL/a/7LqT.2Ccdirku8MUoLrW7EwrNvGc2QPIjPuy8rVZ/2yW','user','Juan Cabrera Garcia','2022-11-22 14:51:26'),('AL01152232','karen.dominguez','$2y$10$qRl4ZW3ncTps8aC9XiO7VuJzPCGXwu3NVehlD4HdNoIOJ.lHM7V52','user','Karen Odette Dominguez Velazquez','2022-11-22 14:51:35'),('AL05152209','lizbeth.falcon','$2y$10$weEQfs5ZMUim4imCzMPGcenaqnq/kA6ek9G.QNuRIFeo8rocf4BKe','user','Lizbeth Soledad Falcon Duarte','2022-11-22 14:51:44'),('AL08011212','hector.coyotl','$2y$10$mcLYnzwmZ/Q1tEaijnoa5uVocqe7afLhJDyzsVnXBpEZHtrihGaDW','user','Hector Coyotl Juarez','2022-12-11 11:22:49'),('PR11013021','juan.acosta','$2y$10$Z6.CoG7.g/EB9ah6Npfnm.q/aRluR4hJHluOdTJJ0NKlaZDbcAoeq','profesor','Juan Carlos Acosta Acosta','2022-12-11 23:58:15'),('PR13022112','gustavo.valdez','$2y$10$YG1wKPBjrJ5/Lk.MGkwjPuTRZjrQWd3UXtaLDZlHPjBXe17xAnKvW','profesor','Gustavo Valdez Valdez','2022-12-11 23:58:24'),('PR15030112','adriana.león','$2y$10$bvQTCMPvF3gfXJFnTkYFi.GGK5TaX5M4Fke4exI8fnozVVPR1RF4u','profesor','Adriana León León','2022-12-11 23:58:44'),('PR14091052','verónica.hernández','$2y$10$DTUoQ9.1.AcnZhlJ1nltHOprw7eLyI6GBdLMiXrB/khPvaHZlaVSO','profesor','Verónica Hernández Gil','2022-12-12 00:52:21');
+INSERT INTO `users` VALUES ('1','admin','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-11-22 14:47:46'),('AL09152233','galilea.gonzalez','$2y$10$7./q3idrIQ1UbB5YRJDnqOmesvS8tPnDzCDD5qOi.pz7MDcfp1MLm','user','Galilea Gonzalez Reyes','2022-11-22 14:50:20'),('AL07151256','juan.cabrera','$2y$10$dDnLGL/a/7LqT.2Ccdirku8MUoLrW7EwrNvGc2QPIjPuy8rVZ/2yW','user','Juan Cabrera Garcia','2022-11-22 14:51:26'),('AL01152232','karen.dominguez','$2y$10$qRl4ZW3ncTps8aC9XiO7VuJzPCGXwu3NVehlD4HdNoIOJ.lHM7V52','user','Karen Odette Dominguez Velazquez','2022-11-22 14:51:35'),('AL05152209','lizbeth.falcon','$2y$10$weEQfs5ZMUim4imCzMPGcenaqnq/kA6ek9G.QNuRIFeo8rocf4BKe','user','Lizbeth Soledad Falcon Duarte','2022-11-22 14:51:44'),('AL08011212','hector.coyotl','$2y$10$mcLYnzwmZ/Q1tEaijnoa5uVocqe7afLhJDyzsVnXBpEZHtrihGaDW','user','Hector Coyotl Juarez','2022-12-11 11:22:49'),('PR11013021','juan.acosta','$2y$10$Z6.CoG7.g/EB9ah6Npfnm.q/aRluR4hJHluOdTJJ0NKlaZDbcAoeq','profesor','Juan Carlos Acosta Acosta','2022-12-11 23:58:15'),('PR13022112','gustavo.valdez','$2y$10$YG1wKPBjrJ5/Lk.MGkwjPuTRZjrQWd3UXtaLDZlHPjBXe17xAnKvW','profesor','Gustavo Valdez Valdez','2022-12-11 23:58:24'),('PR15030112','adriana.león','$2y$10$bvQTCMPvF3gfXJFnTkYFi.GGK5TaX5M4Fke4exI8fnozVVPR1RF4u','profesor','Adriana León León','2022-12-11 23:58:44'),('PR14091052','verónica.hernández','$2y$10$DTUoQ9.1.AcnZhlJ1nltHOprw7eLyI6GBdLMiXrB/khPvaHZlaVSO','profesor','Verónica Hernández Gil','2022-12-12 00:52:21'),('AL03153212','oscar.carranco','$2y$10$YqkfxqjaaT..dxRlMxpCj./XGJ5Iog2d59r2IDiAvSDT7mJco564O','user','Oscar Carranco Mandujado','2022-12-11 23:13:54');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -832,4 +832,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 16:58:56
+-- Dump completed on 2022-12-11 17:48:10

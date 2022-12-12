@@ -1,24 +1,21 @@
 <?php
 include_once 'models/varTodas.php';
-class MateriasAlumnoModel extends Model {
+class ClasesMaestroModel extends Model {
 
     public function __construct()
     {
         parent::__construct();
     }
-
-
-    public function getAllMaterias($id_alumno)
+    public function getAllClases($id_maestro)
     {
         $items = [];
-
         try {
-            $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_alumnosasignados WHERE No_Alumno = :no_al");
-            $query->execute(['no_al' => $id_alumno]);
+            $query = $this->db->connect()->prepare("SELECT No_profesor,nombre_materia,nombre_grado,nombre_aula,dia_semana,Hora_Inicio,Hora_Fin,Horas from vw_detalle_alumnosasignados where No_profesor= :no_pro");
+            $query->execute(['no_pro' => $id_maestro]);
             while ($row = $query->fetch()) {
                 $item = new varTodas();
-                $item->vw_daa_No_Alumno = $row['No_Alumno'];
-                $item->vw_daa_Nombre_Profesor = $row['Nombre_Profesor'];
+                $item->vw_daa_No_profesor = $row['No_profesor'];
+                $item->vw_daa_nombre_materia = $row['nombre_materia'];
                 $item->vw_daa_nombre_grado = $row['nombre_grado'];
                 $item->vw_daa_nombre_aula = $row['nombre_aula'];
                 $item->vw_daa_nombre_materia = $row['nombre_materia'];

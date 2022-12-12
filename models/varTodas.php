@@ -103,6 +103,7 @@ class varTodas{
     
     //vw_detalle_alumnosasignados
 
+    public $vw_daa_No_profesor;
     public $vw_daa_No_Alumno;
     public $vw_daa_Nombre_Profesor;
     public $vw_daa_nombre_grado;
@@ -111,6 +112,7 @@ class varTodas{
     public $vw_daa_dia_semana;
     public $vw_daa_Hora_Inicio;
     public $vw_daa_Hora_Fin;
+    public $vw_daa_Horas;
     public $vw_daa_estatus_id;
     public $vw_daa_Descripcion;
 

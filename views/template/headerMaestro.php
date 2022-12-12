@@ -29,7 +29,7 @@
                     <ul class="menu ">
                         <li class='sidebar-title '>Menú principal</li>
                         <li class="sidebar-item ">
-                            <a href="<?php echo constant('URL'); ?>" class='sidebar-link'>
+                            <a href="<?php echo constant('URL'); ?>clasesMaestro" class='sidebar-link'>
                                 <i data-feather="clock" width="20"></i>
                                 <span>Clases</span>
                             </a>
