@@ -533,6 +533,7 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vw_detalle_alumnosasignados` AS SELECT 
  1 AS `proceso_id`,
+ 1 AS `No_profesor`,
  1 AS `Nombre_Profesor`,
  1 AS `No_Alumno`,
  1 AS `NombreAlumno`,
@@ -543,6 +544,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dia_semana`,
  1 AS `Hora_Inicio`,
  1 AS `Hora_Fin`,
+ 1 AS `Horas`,
  1 AS `estatus_id`,
  1 AS `Descripcion`*/;
 SET character_set_client = @saved_cs_client;
@@ -710,7 +712,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_detalle_alumnosasignados` AS select `al`.`proceso_id` AS `proceso_id`,`vpm`.`Nombre_Profesor` AS `Nombre_Profesor`,`vda`.`No_Alumno` AS `No_Alumno`,`vda`.`Nombre_Completo` AS `NombreAlumno`,`vpm`.`nombre_grado` AS `nombre_grado`,`vpm`.`nombre_aula` AS `nombre_aula`,`vpm`.`nombre_materia` AS `nombre_materia`,`vpm`.`nombre_periodo` AS `nombre_periodo`,`vpm`.`dia_semana` AS `dia_semana`,`vpm`.`Hora_Inicio` AS `Hora_Inicio`,`vpm`.`Hora_Fin` AS `Hora_Fin`,`al`.`estatus_id` AS `estatus_id`,`est`.`Descripcion` AS `Descripcion` from (((`alumnos_profesor` `al` join `vw_detalle_profesormateria` `vpm` on((`vpm`.`proceso_id` = `al`.`proceso_id`))) join `vw_detalle_alumnos` `vda` on((`vda`.`alumno_id` = `al`.`alumnos_id`))) join `estatus` `est` on((`est`.`idEstatus` = `al`.`estatus_id`))) */;
+/*!50001 VIEW `vw_detalle_alumnosasignados` AS select `al`.`proceso_id` AS `proceso_id`,`vpm`.`No_profesor` AS `No_profesor`,`vpm`.`Nombre_Profesor` AS `Nombre_Profesor`,`vda`.`No_Alumno` AS `No_Alumno`,`vda`.`Nombre_Completo` AS `NombreAlumno`,`vpm`.`nombre_grado` AS `nombre_grado`,`vpm`.`nombre_aula` AS `nombre_aula`,`vpm`.`nombre_materia` AS `nombre_materia`,`vpm`.`nombre_periodo` AS `nombre_periodo`,`vpm`.`dia_semana` AS `dia_semana`,date_format(`vpm`.`Hora_Inicio`,'%H:%i %p') AS `Hora_Inicio`,date_format(`vpm`.`Hora_Fin`,'%H:%i %p') AS `Hora_Fin`,timestampdiff(HOUR,`vpm`.`Hora_Inicio`,`vpm`.`Hora_Fin`) AS `Horas`,`al`.`estatus_id` AS `estatus_id`,`est`.`Descripcion` AS `Descripcion` from (((`alumnos_profesor` `al` join `vw_detalle_profesormateria` `vpm` on((`vpm`.`proceso_id` = `al`.`proceso_id`))) join `vw_detalle_alumnos` `vda` on((`vda`.`alumno_id` = `al`.`alumnos_id`))) join `estatus` `est` on((`est`.`idEstatus` = `al`.`estatus_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -832,4 +834,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 17:48:10
+-- Dump completed on 2022-12-11 19:59:18
