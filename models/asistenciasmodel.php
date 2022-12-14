@@ -1,30 +1,22 @@
 <?php
 include_once 'models/varTodas.php';
-class ClasesMaestroModel extends Model {
+class AsistenciasModel extends Model {
 
     public function __construct()
     {
         parent::__construct();
     }
-    public function getAllClases($id_maestro)
+    public function getAllMateriasA($id_maestro)
     {
         $items = [];
         try {
-            $query = $this->db->connect()->prepare("SELECT proceso_id,No_profesor,nombre_materia,nombre_grado,nombre_aula,dia_semana,Hora_Inicio,Hora_Fin,Horas 
-            from vw_detalle_profesormateria where No_profesor= :no_pro ORDER BY dia_semana");
+            $query = $this->db->connect()->prepare("SELECT proceso_id,nombre_materia from vw_detalle_profesormateria where No_profesor= :no_pro ORDER BY nombre_materia");
             $query->execute(['no_pro' => $id_maestro]);
             while ($row = $query->fetch()) {
                 $item = new varTodas();
                 $item->vw_dfm_proceso_id = $row['proceso_id'];
-                $item->vw_dfm_No_profesor = $row['No_profesor'];
                 $item->vw_dfm_nombre_materia = $row['nombre_materia'];
-                $item->vw_dfm_nombre_grado = $row['nombre_grado'];
-                $item->vw_dfm_nombre_aula = $row['nombre_aula'];
-                $item->vw_dfm_nombre_materia = $row['nombre_materia'];
-                $item->vw_dfm_dia_semana = $row['dia_semana'];
-                $item->vw_dfm_Hora_Inicio = $row['Hora_Inicio'];
-                $item->vw_dfm_Hora_Fin = $row['Hora_Fin'];
-                $item->vw_dfm_Horas = $row['Horas'];
+                
                 array_push($items, $item);
             }
             return $items;
@@ -52,6 +44,4 @@ class ClasesMaestroModel extends Model {
             return null;
         }
     }
-
-
 }

@@ -56,8 +56,8 @@
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Grado</h5>
-              <p class="card-text"><?php echo $grados->nombre_grado; ?></p>
+              <h4 class="card-title"><?php echo $grados->nombre_grado; ?></h4>
+              <p class="card-text">Grado</p>
 
               <?php
               if ($grados->estatus_grados_id == 100) {

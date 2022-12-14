@@ -13,7 +13,7 @@ class MateriasAlumnoModel extends Model {
         $items = [];
 
         try {
-            $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_alumnosasignados WHERE No_Alumno = :no_al");
+            $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_alumnosasignados WHERE No_Alumno = :no_al  ORDER BY dia_semana");
             $query->execute(['no_al' => $id_alumno]);
             while ($row = $query->fetch()) {
                 $item = new varTodas();

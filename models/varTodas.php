@@ -103,8 +103,10 @@ class varTodas{
     
     //vw_detalle_alumnosasignados
 
+    public $vw_daa_proceso_id;
     public $vw_daa_No_profesor;
     public $vw_daa_No_Alumno;
+    public $vw_daa_NombreAlumno;
     public $vw_daa_Nombre_Profesor;
     public $vw_daa_nombre_grado;
     public $vw_daa_nombre_aula;
@@ -115,6 +117,25 @@ class varTodas{
     public $vw_daa_Horas;
     public $vw_daa_estatus_id;
     public $vw_daa_Descripcion;
+
+    //vw_detalle_profesormateria
+
+    public $vw_dfm_proceso_id;
+    public $vw_dfm_No_profesor;
+    public $vw_dfm_Nombre_Profesor;
+    public $vw_dfm_nombre_grado;
+    public $vw_dfm_nombre_aula;
+    public $vw_dfm_nombre_materia;
+    public $vw_dfm_Hora_Inicio;
+    public $vw_dfm_Hora_Fin;
+    public $vw_dfm_Horas;
+    public $vw_dfm_dia_semana;
+
+
+  
+  
+
+
 
 
 

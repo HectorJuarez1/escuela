@@ -49,25 +49,6 @@
       </div>
     </div><br><br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="card">
       <div class="card-header">
         DETALLES

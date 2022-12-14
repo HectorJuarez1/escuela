@@ -35,7 +35,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item ">
-                            <a href="<?php echo constant('URL'); ?>" class='sidebar-link'>
+                            <a href="<?php echo constant('URL'); ?>asistencias" class='sidebar-link'>
                                 <i data-feather="check" width="20"></i>
                                 <span>Asistencias</span>
                             </a>

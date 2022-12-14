@@ -99,7 +99,13 @@
             "site" : "clasesMaestro", 
             "access" : "private", 
             "role" : "profesor"
+        },
+        {
+            "site" : "asistencias", 
+            "access" : "private", 
+            "role" : "profesor"
         }
+
 
 
 

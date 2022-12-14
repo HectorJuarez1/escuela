@@ -1,10 +1,10 @@
 
 <?php
-class ClasesMaestro extends SessionController
+class Asistencias extends SessionController
 {
     function __construct()
     {
-      parent::__construct();
+       parent::__construct();
         $this->profesor = $this->getUserSessionData();
       //  error_log("user::constructor() ");
     }
@@ -12,10 +12,12 @@ class ClasesMaestro extends SessionController
     {  
        // error_log("user::RENDER() ");
         $id_maestro = current($this->profesor);
-        $Nclases = $this->model->getAllClases($id_maestro);
-        $this->view->varTodas = $Nclases; 
-        $this->view->render('clasesMaestro/index', ['profesor' => $this->profesor]);
+        $NmateriasAsig = $this->model->getAllMateriasA($id_maestro);
+        $this->view->varTodas = $NmateriasAsig; 
+        $this->view->render('asistencias/index', ['profesor' => $this->profesor]);
     }
+
+
     function verDetalle($param = null)
     {
         $proceso_id = $param[0];
