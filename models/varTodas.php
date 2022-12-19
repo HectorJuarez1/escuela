@@ -125,6 +125,7 @@ class varTodas{
     public $vw_dfm_Nombre_Profesor;
     public $vw_dfm_nombre_grado;
     public $vw_dfm_nombre_aula;
+    public $vw_dfm_id_materia;
     public $vw_dfm_nombre_materia;
     public $vw_dfm_Hora_Inicio;
     public $vw_dfm_Hora_Fin;

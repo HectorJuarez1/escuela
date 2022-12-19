@@ -31,11 +31,6 @@
             "role" : "admin"
         },
         {
-            "site" : "actividad", 
-            "access" : "private", 
-            "role" : "admin"
-        },
-        {
             "site" : "periodos", 
             "access" : "private", 
             "role" : "admin"
@@ -102,6 +97,11 @@
         },
         {
             "site" : "asistencias", 
+            "access" : "private", 
+            "role" : "profesor"
+        },
+        {
+            "site" : "actividad", 
             "access" : "private", 
             "role" : "profesor"
         }

@@ -17,21 +17,9 @@ select * from alumnos_profesor;
 select * from profesor_materia;
 select * from vw_detalle_alumnos;
 select * from vw_detalle_maestros;
-select * from vw_detalle_profesormateria where proceso_id = 6;
-select * from vw_detalle_alumnosasignados;
+select * from vw_detalle_profesormateria where proceso_id='11' where No_profesor='PR11013021';
+select * from vw_detalle_alumnosasignados where proceso_id='11';
 select * from vw_detalle_pagos;
-select materia_id,nombre_materia,grados_grado_id from vw_detalle_materias where grados_grado_id=11;
-select * from vw_detalle_materias 
-
-SELECT Nombre_Alumno,Pago,Concepto,Fecha_registro FROM vw_detalle_pagos WHERE No_alumno='AL08011212' AND estatus_id_pago='108';
-
-SELECT sum(Pago) FROM vw_detalle_pagos 
-
-WHERE DATE(Fecha_registro)>=CURDATE() AND estatus_id_pago=108;
-
-SELECT COUNT(*) No_Alumno from alumnos WHERE No_Alumno='AL09152233'
-
-SELECT COUNT(*) materias_id from profesor_materia WHERE materias_id='55'
 
 
 
@@ -42,6 +30,16 @@ SELECT COUNT(*) materias_id from profesor_materia WHERE materias_id='55'
 
 
 
+
+
+
+
+
+
+select proceso_id,nombre_materia from ; where No_profesor='PR11013021';
+
+
+select proceso_id,No_Alumno,NombreAlumno from vw_detalle_alumnosasignados where proceso_id='11';
 
 
 create view vw_detalle_materias as
@@ -67,15 +65,22 @@ inner join estatus  as est on est.idEstatus=pa.estatus_id_pago;
 
 
 create view vw_detalle_alumnosasignados as
-select al.proceso_id,vpm.Nombre_Profesor,vda.No_Alumno,vda.Nombre_Completo as NombreAlumno,
-vpm.nombre_grado,vpm.nombre_aula,vpm.nombre_materia,vpm.nombre_periodo,vpm.dia_semana,vpm.Hora_Inicio,vpm.Hora_Fin,al.estatus_id,est.Descripcion
+select al.proceso_id,vpm.No_profesor,vpm.Nombre_Profesor,vda.No_Alumno,vda.Nombre_Completo as NombreAlumno,
+vpm.nombre_grado,vpm.nombre_aula,vpm.nombre_materia,vpm.nombre_periodo,vpm.dia_semana,vpm.Hora_Inicio,vpm.Hora_Fin,
+vpm.Horas,al.estatus_id,est.Descripcion
 from alumnos_profesor as al 
 inner join vw_detalle_profesormateria as vpm on vpm.proceso_id=al.proceso_id 
 inner join vw_detalle_alumnos as vda on vda.alumno_id=al.alumnos_id 
-inner join estatus  as est on est.idEstatus=al.estatus_id; 
+inner join estatus  as est on est.idEstatus=al.estatus_id; where al.proceso_id='11'; 
+
+
+
+
 
 create view vw_detalle_profesormateria as
-select gr.proceso_id,es.grado_id,es.nombre_grado,au.nombre_aula,pro.No_profesor,pro.Nombre_Completo as Nombre_Profesor,mat.nombre_materia,hr.Detalle as Hora_Inicio,hrf.Detalle as Hora_Fin,mat.dia_semana,
+select gr.proceso_id,pro.No_profesor,pro.Nombre_Completo as Nombre_Profesor,es.grado_id,es.nombre_grado,au.nombre_aula,
+mat.materia_id,mat.nombre_materia,DATE_FORMAT(hr.Detalle, "%H:%i %p") as Hora_Inicio,DATE_FORMAT(hrf.Detalle, "%H:%i %p")as Hora_Fin,
+TIMESTAMPDIFF(HOUR,hr.Detalle ,hrf.Detalle) AS Horas,mat.dia_semana,
 per.nombre_periodo,est.Descripcion as Estatus
 from profesor_materia as gr 
 inner join grados as es on gr.grado_id=es.grado_id  
@@ -105,7 +110,7 @@ a.Nombre,a.Apellido_Paterno ,a.Apellido_Materno,a.Direccion,
 a.Telefono,a.Sexo,a.Fecha_nacimiento,TIMESTAMPDIFF(YEAR,a.Fecha_nacimiento,CURDATE()) AS Edad ,a.estatus_maestro_id,Es.Descripcion as Estatus_Detalle
 from profesor as a 
 inner join estatus as Es on a.estatus_maestro_id=Es.idEstatus
-inner join vw_nombres_maestros vw_m  on a.profesor_id=vw_n.profesor_id;
+inner join vw_nombres_maestros vw_m  on a.No_profesor=vw_m.No_profesor;
 
 
 
@@ -142,6 +147,30 @@ INSERT INTO `profesor_materia` VALUES (11,7,6,4,5,1,100),(14,7,6,4,6,1,100),(15,
 INSERT INTO `alumnos_profesor` VALUES (24,11,2,100),(25,14,2,100),(26,15,2,100),(27,16,2,100),(28,17,3,100),(29,18,6,100);
 INSERT INTO `concepto` VALUES (1,'Inscripcion'),(2,'Reinscripcion'),(3,'Colegiatura');
 
+
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` varchar(45) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('user','admin','profesor') NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `Fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES ('1','admin','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-11-22 08:47:46'),('AL09152233','galilea.gonzalez','$2y$10$7./q3idrIQ1UbB5YRJDnqOmesvS8tPnDzCDD5qOi.pz7MDcfp1MLm','user','Galilea Gonzalez Reyes','2022-11-22 08:50:20'),('AL07151256','juan.cabrera','$2y$10$dDnLGL/a/7LqT.2Ccdirku8MUoLrW7EwrNvGc2QPIjPuy8rVZ/2yW','user','Juan Cabrera Garcia','2022-11-22 08:51:26'),('AL01152232','karen.dominguez','$2y$10$qRl4ZW3ncTps8aC9XiO7VuJzPCGXwu3NVehlD4HdNoIOJ.lHM7V52','user','Karen Odette Dominguez Velazquez','2022-11-22 08:51:35'),('AL05152209','lizbeth.falcon','$2y$10$weEQfs5ZMUim4imCzMPGcenaqnq/kA6ek9G.QNuRIFeo8rocf4BKe','user','Lizbeth Soledad Falcon Duarte','2022-11-22 08:51:44'),('AL08011212','hector.coyotl','$2y$10$mcLYnzwmZ/Q1tEaijnoa5uVocqe7afLhJDyzsVnXBpEZHtrihGaDW','user','Hector Coyotl Juarez','2022-12-11 05:22:49'),('PR11013021','juan.acosta','$2y$10$Z6.CoG7.g/EB9ah6Npfnm.q/aRluR4hJHluOdTJJ0NKlaZDbcAoeq','profesor','Juan Carlos Acosta Acosta','2022-12-11 17:58:15'),('PR13022112','gustavo.valdez','$2y$10$YG1wKPBjrJ5/Lk.MGkwjPuTRZjrQWd3UXtaLDZlHPjBXe17xAnKvW','profesor','Gustavo Valdez Valdez','2022-12-11 17:58:24'),('PR15030112','adriana.león','$2y$10$bvQTCMPvF3gfXJFnTkYFi.GGK5TaX5M4Fke4exI8fnozVVPR1RF4u','profesor','Adriana León León','2022-12-11 17:58:44'),('PR14091052','verónica.hernández','$2y$10$DTUoQ9.1.AcnZhlJ1nltHOprw7eLyI6GBdLMiXrB/khPvaHZlaVSO','profesor','Verónica Hernández Gil','2022-12-11 18:52:21');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
