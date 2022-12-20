@@ -23,7 +23,6 @@
             <div class="card-body">
                 <form class="row p-3" action="saveAl" method="POST" enctype="multipart/form-data" accept=".png, .jpg, .jpeg, .webp">
                     <div class="row">
-
                     <div class="col-md-12 col-12">
                             <div class="form-group">
                                 <label>No_Alumno</label>

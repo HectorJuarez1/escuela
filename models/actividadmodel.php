@@ -57,33 +57,68 @@ class ActividadModel extends Model
             while ($row = $query->fetch()) {
                 $item = new varTodas();
                 $item->actividad_id = $row['actividad_id'];
-                $item->nombre_actividad = $row['nombre_actividad'];
-                $item->estatus_actividad_id = $row['estatus_actividad_id'];
+                $item->titulo = $row['titulo'];
+                $item->descripcion = $row['descripcion'];
+                $item->Activida_id_materia = $row['id_materia'];
+                $item->Activida_estatus_actividad_id = $row['estatus_actividad_id'];
                 array_push($items, $item);
             }
             return $items;
         } catch (PDOException $e) {
-            return [];
+            return null;
         }
     }
+
+
     public function insertActividad($datos)
     {
         try {
             $query = $this->db->connect()
-                ->prepare('INSERT INTO actividad(nombre_actividad,estatus_actividad_id) 
-                VALUES (:nom,100)');
+                ->prepare('INSERT INTO actividad(titulo,descripcion,fecha_inicio,fecha_fin,id_materia,no_profesor,estatus_actividad_id) 
+                VALUES (:tit,:descr,:fini,:ffin,:idm,:idp,110)');
             $query->execute([
-                'nom' => $datos['txt_NomActividad']
+                'tit' => $datos['txt_titulo_act'],
+                'descr' => $datos['txt_descripcion'],
+                'fini' => $datos['date_FInicio'],
+                'ffin' => $datos['date_FFin'],
+                'idm' => $datos['id_materia'],
+                'idp' => $datos['id_profesor']
+                
             ]);
             return true;
         } catch (PDOException $e) {
-            //error_log($e->getMessage());
+            error_log($e->getMessage());
             return false;
         }
     }
+
+
+
+    public function getActividad($materia_id)
+    {
+        $items = [];
+        $query = $this->db->connect()->prepare("SELECT actividad_id,titulo,descripcion,id_materia,estatus_actividad_id FROM  actividad WHERE id_materia = :id_mat");
+        try {
+            $query->execute(['id_mat' => $materia_id]);
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->actividad_id = $row['actividad_id'];
+                $item->titulo = $row['titulo'];
+                $item->descripcion = $row['descripcion'];
+                $item->Activida_id_materia = $row['id_materia'];
+                $item->Activida_estatus_actividad_id = $row['estatus_actividad_id'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
+
+
     public function deleteActividad($actividad_id)
     {
-        $query = $this->db->connect()->prepare("UPDATE actividad SET estatus_actividad_id = 103 WHERE actividad_id = :id_act");
+        $query = $this->db->connect()->prepare("DELETE FROM actividad WHERE actividad_id = :id_act");
         try {
             $query->execute(['id_act' => $actividad_id]);
             return true;
@@ -95,20 +130,6 @@ class ActividadModel extends Model
 
 
 
-    public function update($item)
-    {
-        $query = $this->db->connect()->prepare("UPDATE actividad SET nombre_actividad = :Nom,estatus_actividad_id=:est WHERE actividad_id = :id_act");
-        try {
-            $query->execute([
-                'id_act' => $item['txt_IdAct'],
-                'Nom' => $item['txt_NomAct'],
-                'est' => $item['com_estatus']
-            ]);
-            return true;
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
 
-            return false;
-        }
-    }
+
 }

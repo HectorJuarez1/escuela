@@ -28,6 +28,9 @@ class Errors{
     const ERROR_MATERIA_ASIGNADA          = "83f45e1";
 
 
+    const ERROR_DELATE_ACTIVIDAD         = "09Ds5r";
+
+
     const ERROR_ADMIN_NEWCATEGORY_EXISTS        = "1f8f0ae8963b16403c3ec9ebb851f156";
     const ERROR_EXPENSES_DELETE                 = "8f48a0845b4f8704cb7e8b00d4981233";
     const ERROR_EXPENSES_NEWEXPENSE             = "8f48a0845b4f8704cb7e8b00d4981233";
@@ -70,6 +73,7 @@ class Errors{
             Errors::ERROR_NO_DELATE_USUARIO            => 'Usuario eliminada',
             Errors::ERROR_SIGNUP_NEWUSER_EXISTS     => 'El usuario ya esta registrado.',
             Errors::ERROR_MATERIA_ASIGNADA     => 'La materia ya fue asiganada al prosefor.',
+            Errors::ERROR_DELATE_ACTIVIDAD     => 'La actividad ha sido eliminada.',
 
 
             Errors::ERROR_ADMIN_NEWCATEGORY_EXISTS => 'El nombre de la categoría ya existe, intenta otra',

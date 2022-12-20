@@ -76,10 +76,7 @@ class varTodas{
     public $nombre_periodo;
     public $estatus_periodos_id;
 
-    // actividad
-    public $actividad_id;
-    public $nombre_actividad;
-    public $estatus_actividad_id;
+
 
     // profesormateria
     public $vw_pm_proceso_id;
@@ -133,7 +130,19 @@ class varTodas{
     public $vw_dfm_dia_semana;
 
 
+    //actividad
+    public $actividad_id;
+    public $titulo;
+    public $descripcion;
+    public $Activida_fecha_inicio;
+    public $Activida_fecha_fin;
+    public $Activida_id_materia;
+    public $Activida_no_profesor;
+    public $Activida_estatus_actividad_id;
+
+
   
+
   
 
 
