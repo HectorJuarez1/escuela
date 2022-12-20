@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `control_escolar` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `control_escolar`;
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: control_escolar
@@ -24,12 +26,17 @@ DROP TABLE IF EXISTS `actividad`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `actividad` (
   `actividad_id` int NOT NULL AUTO_INCREMENT,
-  `nombre_actividad` varchar(100) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `descripcion` varchar(225) NOT NULL,
+  `fecha_inicio` varchar(45) NOT NULL,
+  `fecha_fin` varchar(45) NOT NULL,
+  `id_materia` int NOT NULL,
+  `no_profesor` varchar(20) NOT NULL,
   `estatus_actividad_id` int NOT NULL,
   PRIMARY KEY (`actividad_id`),
   KEY `fk_actividad_estatus1_idx` (`estatus_actividad_id`),
   CONSTRAINT `fk_actividad_estatus1` FOREIGN KEY (`estatus_actividad_id`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +45,7 @@ CREATE TABLE `actividad` (
 
 LOCK TABLES `actividad` WRITE;
 /*!40000 ALTER TABLE `actividad` DISABLE KEYS */;
-INSERT INTO `actividad` VALUES (1,'Evaluación 1',100),(2,'Evaluación 2',100),(3,'Evaluación 4',103);
+INSERT INTO `actividad` VALUES (13,'Resumen','Realizar un resumen de la pagina 10','2022-12-20','2022-12-23',56,'',110),(21,'123','123','2022-12-20','2022-12-20',65,'PR14091052',110);
 /*!40000 ALTER TABLE `actividad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +103,7 @@ CREATE TABLE `alumnos_profesor` (
   CONSTRAINT `fk_alumno_profesor_estatus1` FOREIGN KEY (`estatus_id`) REFERENCES `estatus` (`idEstatus`),
   CONSTRAINT `fk_alumnos_profesor_alumnos1` FOREIGN KEY (`alumnos_id`) REFERENCES `alumnos` (`alumno_id`),
   CONSTRAINT `fk_alumnos_profesor_profesor_materia1` FOREIGN KEY (`proceso_id`) REFERENCES `profesor_materia` (`proceso_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,7 +112,7 @@ CREATE TABLE `alumnos_profesor` (
 
 LOCK TABLES `alumnos_profesor` WRITE;
 /*!40000 ALTER TABLE `alumnos_profesor` DISABLE KEYS */;
-INSERT INTO `alumnos_profesor` VALUES (24,11,2,100),(25,14,2,100),(26,15,2,100),(27,16,2,100),(28,17,3,100),(29,18,6,100),(30,21,6,100),(31,20,6,100),(32,22,3,100),(33,23,3,100),(34,24,3,100);
+INSERT INTO `alumnos_profesor` VALUES (24,11,2,100),(25,14,2,100),(26,15,2,100),(27,16,2,100),(28,17,3,100),(29,18,6,100),(30,21,6,100),(31,20,6,100),(32,22,3,100),(33,23,3,100),(34,24,3,100),(35,11,5,100);
 /*!40000 ALTER TABLE `alumnos_profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,7 +206,7 @@ CREATE TABLE `estatus` (
   `idEstatus` int NOT NULL AUTO_INCREMENT,
   `Descripcion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,7 +215,7 @@ CREATE TABLE `estatus` (
 
 LOCK TABLES `estatus` WRITE;
 /*!40000 ALTER TABLE `estatus` DISABLE KEYS */;
-INSERT INTO `estatus` VALUES (100,'Activo'),(101,'Baja'),(102,'Baja Temporal'),(103,'Inactivo'),(108,'Registrado'),(109,'Cancelado');
+INSERT INTO `estatus` VALUES (100,'Activo'),(101,'Baja'),(102,'Baja Temporal'),(103,'Inactivo'),(108,'Registrado'),(109,'Cancelado'),(110,'Nueva'),(111,'Enviada'),(112,'Calificada');
 /*!40000 ALTER TABLE `estatus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -626,14 +633,16 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vw_detalle_profesormateria` AS SELECT 
  1 AS `proceso_id`,
+ 1 AS `No_profesor`,
+ 1 AS `Nombre_Profesor`,
  1 AS `grado_id`,
  1 AS `nombre_grado`,
  1 AS `nombre_aula`,
- 1 AS `No_profesor`,
- 1 AS `Nombre_Profesor`,
+ 1 AS `materia_id`,
  1 AS `nombre_materia`,
  1 AS `Hora_Inicio`,
  1 AS `Hora_Fin`,
+ 1 AS `Horas`,
  1 AS `dia_semana`,
  1 AS `nombre_periodo`,
  1 AS `Estatus`*/;
@@ -712,7 +721,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_detalle_alumnosasignados` AS select `al`.`proceso_id` AS `proceso_id`,`vpm`.`No_profesor` AS `No_profesor`,`vpm`.`Nombre_Profesor` AS `Nombre_Profesor`,`vda`.`No_Alumno` AS `No_Alumno`,`vda`.`Nombre_Completo` AS `NombreAlumno`,`vpm`.`nombre_grado` AS `nombre_grado`,`vpm`.`nombre_aula` AS `nombre_aula`,`vpm`.`nombre_materia` AS `nombre_materia`,`vpm`.`nombre_periodo` AS `nombre_periodo`,`vpm`.`dia_semana` AS `dia_semana`,date_format(`vpm`.`Hora_Inicio`,'%H:%i %p') AS `Hora_Inicio`,date_format(`vpm`.`Hora_Fin`,'%H:%i %p') AS `Hora_Fin`,timestampdiff(HOUR,`vpm`.`Hora_Inicio`,`vpm`.`Hora_Fin`) AS `Horas`,`al`.`estatus_id` AS `estatus_id`,`est`.`Descripcion` AS `Descripcion` from (((`alumnos_profesor` `al` join `vw_detalle_profesormateria` `vpm` on((`vpm`.`proceso_id` = `al`.`proceso_id`))) join `vw_detalle_alumnos` `vda` on((`vda`.`alumno_id` = `al`.`alumnos_id`))) join `estatus` `est` on((`est`.`idEstatus` = `al`.`estatus_id`))) */;
+/*!50001 VIEW `vw_detalle_alumnosasignados` AS select `al`.`proceso_id` AS `proceso_id`,`vpm`.`No_profesor` AS `No_profesor`,`vpm`.`Nombre_Profesor` AS `Nombre_Profesor`,`vda`.`No_Alumno` AS `No_Alumno`,`vda`.`Nombre_Completo` AS `NombreAlumno`,`vpm`.`nombre_grado` AS `nombre_grado`,`vpm`.`nombre_aula` AS `nombre_aula`,`vpm`.`nombre_materia` AS `nombre_materia`,`vpm`.`nombre_periodo` AS `nombre_periodo`,`vpm`.`dia_semana` AS `dia_semana`,`vpm`.`Hora_Inicio` AS `Hora_Inicio`,`vpm`.`Hora_Fin` AS `Hora_Fin`,`vpm`.`Horas` AS `Horas`,`al`.`estatus_id` AS `estatus_id`,`est`.`Descripcion` AS `Descripcion` from (((`alumnos_profesor` `al` join `vw_detalle_profesormateria` `vpm` on((`vpm`.`proceso_id` = `al`.`proceso_id`))) join `vw_detalle_alumnos` `vda` on((`vda`.`alumno_id` = `al`.`alumnos_id`))) join `estatus` `est` on((`est`.`idEstatus` = `al`.`estatus_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -784,7 +793,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_detalle_profesormateria` AS select `gr`.`proceso_id` AS `proceso_id`,`es`.`grado_id` AS `grado_id`,`es`.`nombre_grado` AS `nombre_grado`,`au`.`nombre_aula` AS `nombre_aula`,`pro`.`No_profesor` AS `No_profesor`,`pro`.`Nombre_Completo` AS `Nombre_Profesor`,`mat`.`nombre_materia` AS `nombre_materia`,`hr`.`Detalle` AS `Hora_Inicio`,`hrf`.`Detalle` AS `Hora_Fin`,`mat`.`dia_semana` AS `dia_semana`,`per`.`nombre_periodo` AS `nombre_periodo`,`est`.`Descripcion` AS `Estatus` from ((((((((`profesor_materia` `gr` join `grados` `es` on((`gr`.`grado_id` = `es`.`grado_id`))) join `aulas` `au` on((`gr`.`aula_id` = `au`.`aula_id`))) join `vw_detalle_maestros` `pro` on((`gr`.`profesor_id` = `pro`.`profesor_id`))) join `materias` `mat` on((`gr`.`materias_id` = `mat`.`materia_id`))) join `periodos` `per` on((`gr`.`periodos_id` = `per`.`periodo_id`))) join `horas` `hr` on((`mat`.`hora_inicia` = `hr`.`id_horas`))) join `horas` `hrf` on((`mat`.`hora_fin` = `hrf`.`id_horas`))) join `estatus` `est` on((`gr`.`estatus_procesoprofesor_id` = `est`.`idEstatus`))) */;
+/*!50001 VIEW `vw_detalle_profesormateria` AS select `gr`.`proceso_id` AS `proceso_id`,`pro`.`No_profesor` AS `No_profesor`,`pro`.`Nombre_Completo` AS `Nombre_Profesor`,`es`.`grado_id` AS `grado_id`,`es`.`nombre_grado` AS `nombre_grado`,`au`.`nombre_aula` AS `nombre_aula`,`mat`.`materia_id` AS `materia_id`,`mat`.`nombre_materia` AS `nombre_materia`,date_format(`hr`.`Detalle`,'%H:%i %p') AS `Hora_Inicio`,date_format(`hrf`.`Detalle`,'%H:%i %p') AS `Hora_Fin`,timestampdiff(HOUR,`hr`.`Detalle`,`hrf`.`Detalle`) AS `Horas`,`mat`.`dia_semana` AS `dia_semana`,`per`.`nombre_periodo` AS `nombre_periodo`,`est`.`Descripcion` AS `Estatus` from ((((((((`profesor_materia` `gr` join `grados` `es` on((`gr`.`grado_id` = `es`.`grado_id`))) join `aulas` `au` on((`gr`.`aula_id` = `au`.`aula_id`))) join `vw_detalle_maestros` `pro` on((`gr`.`profesor_id` = `pro`.`profesor_id`))) join `materias` `mat` on((`gr`.`materias_id` = `mat`.`materia_id`))) join `periodos` `per` on((`gr`.`periodos_id` = `per`.`periodo_id`))) join `horas` `hr` on((`mat`.`hora_inicia` = `hr`.`id_horas`))) join `horas` `hrf` on((`mat`.`hora_fin` = `hrf`.`id_horas`))) join `estatus` `est` on((`gr`.`estatus_procesoprofesor_id` = `est`.`idEstatus`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -834,4 +843,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 19:59:18
+-- Dump completed on 2022-12-19 22:08:23

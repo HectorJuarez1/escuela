@@ -48,7 +48,7 @@
                     }
                     ?></td>
                 <td class="text-center">
-                  <a href="<?php echo constant('URL') . 'actividad/eliminarAct/' . $Actividad->actividad_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
+                  <a href="<?php echo constant('URL') . 'actividad/Detalle/' . $Actividad->actividad_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
                   <a href="<?php echo constant('URL') . 'actividad/elimAct/'. $Actividad->actividad_id  ?>" class="btn icon btn-danger"><i data-feather="x"></i></a>
                 </td>
               </tr>

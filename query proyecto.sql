@@ -22,7 +22,7 @@ select * from vw_detalle_alumnosasignados where proceso_id='11';
 select * from vw_detalle_pagos;
 
 
-
+SELECT actividad_id,titulo,descripcion,id_materia,estatus_actividad_id FROM  actividad WHERE id_materia ='65'
 
 
 

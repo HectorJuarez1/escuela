@@ -1,50 +1,64 @@
+<?php $profesor = $this->d['profesor']; ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/assets/images/icono.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar</title>
 </head>
-
 <body>
-    <?php require 'views/template/header.php'; ?>
+<?php require 'views/template/headerMaestro.php'; ?>
 
     <div class="card">
-        <div class="card-header">
-            <h4><b>ACTUALIZAR DATOS</b></h4>
-            <form class="row p-4" action="<?php echo constant('URL'); ?>actividad/Actactividad" method="POST" autocomplete="off">
-                <div class="col-md-5">
-                    <input type="hidden" class="form-control" name="txt_IdAct" value="<?php echo $this->varTodas->actividad_id; ?>" readonly>
-                    <label class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="txt_NomAct" value="<?php echo $this->varTodas->nombre_actividad; ?>" required>
-                </div>
-                <div class="col-md-2 col-12">
-                    <div class="form-group">
-                        <label class="form-label">Estatus</label>
-                        <select class="form-select" name="com_estatus">
-                            <?php if ($this->varTodas->estatus_actividad_id == 100) { ?>
-                                <option value="100">Activo</option>
-                                <option value="103">Inactivo</option>
-                            <?php } elseif ($this->varTodas->estatus_actividad_id == 103) {
-                                echo '
-                                <option value="103">Inactivo</option>
-                                <option value="100">Activo</option>
-                                ';
-                            }
-
-                            ?>
-                        </select>
+        <div class="card-body">
+            <form class="row p-3" action="<?php echo constant('URL'); ?>actividad/ActualizarAct" method="POST">
+                <div class="row">
+                <input type="hidden" class="form-control" name="txt_IdActividad" value="<?php echo $this->varTodas->actividad_id; ?>" readonly>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Titulo</label>
+                            <input type="text" class="form-control" name="txt_titulo_act"  value="<?php echo $this->varTodas->titulo; ?>"required>
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 d-flex justify-content-end mt-4">
-                    <button type="submit" class="btn btn-warning me-1 mb-1">Actualizar</button>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="city-column">Descripcion</label>
+                            <textarea class="form-control" rows="3"  name="txt_descripcion"> <?php echo $this->varTodas->descripcion; ?></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label>Fecha Inicio</label>
+                            <input type="date" class="form-control" name="date_FInicio"   value="<?php echo $this->varTodas->Activida_fecha_inicio; ?>" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label>Fecha Fin</label>
+                            <input type="date" class="form-control" name="date_FFin"   value="<?php echo $this->varTodas->Activida_fecha_fin; ?>" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-12">
+                            <div class="form-group">
+                                <label>Estatus</label>
+                                <select class="form-select" name="com_estatus">
+                                    <option value="110">Nueva</option>
+                                    <option value="111">Enviada</option>
+                                    <option value="112">Calificada</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="col-12 d-flex justify-content-end mt-4">
+                            <button type="submit" class="btn btn-warning me-1 mb-1">Actualizar</button>
+                        </div>
                 </div>
             </form>
         </div>
     </div>
-    <?php require 'views/template/footer.php'; ?>
+    <?php require 'views/template/footerMaestro.php'; ?>
 </body>
 
 </html>

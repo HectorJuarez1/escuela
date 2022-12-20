@@ -128,6 +128,47 @@ class ActividadModel extends Model
     }
 
 
+    public function getUpActividad($actividad_id)
+    {
+        $item = new varTodas();
+        $query = $this->db->connect()->prepare("SELECT * FROM actividad WHERE actividad_id = :id_acti");
+        try {
+            $query->execute(['id_acti' => $actividad_id]);
+            while ($row = $query->fetch()) {
+                $item->actividad_id = $row['actividad_id'];
+                $item->titulo = $row['titulo'];
+                $item->descripcion = $row['descripcion'];
+                $item->Activida_fecha_inicio = $row['fecha_inicio'];
+                $item->Activida_fecha_fin = $row['fecha_fin'];
+                $item->Activida_estatus_actividad_id = $row['estatus_actividad_id'];
+            }
+            return $item;
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            return null;
+        }
+    }
+
+    public function update($item)
+    {
+        $query = $this->db->connect()->prepare("UPDATE actividad SET titulo = :tit,descripcion = :descri,fecha_inicio = :fein,
+        fecha_fin = :fef,estatus_actividad_id = :est WHERE actividad_id = :id_act");
+        try {
+            $query->execute([
+                'id_act' => $item['txt_IdActividad'],
+                'tit' => $item['txt_titulo_act'],
+                'descri' => $item['txt_descripcion'],
+                'fein' => $item['date_FInicio'],
+                'fef' => $item['date_FFin'],
+                'est' => $item['com_estatus']
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+
+            return false;
+        }
+    }
 
 
 

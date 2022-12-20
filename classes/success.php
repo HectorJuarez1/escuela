@@ -42,6 +42,7 @@ class Success{
 
 
 
+
     const SUCCESS_EXPENSES_DELETE       = "fcd919285d5759328b143801573ec47d";
     const SUCCESS_EXPENSES_NEWEXPENSE   = "fbbd0f23184e820e1df466abe6102955";
     const SUCCESS_USER_UPDATEBUDGET     = "2ee085ac8828407f4908e4d134195e5c";
@@ -74,6 +75,7 @@ class Success{
             Success::SUCCESS_ADMIN_NEW_PAGO => "Pago registrado con exito.",
             Success::SUCCESS_ADMIN_NEW_USUARIO => "Nuevo usuario creado con exito.",
             Success::SUCCESS_PROFESOR_NEW => "Nueva actividad creada.",
+
 
 
             
