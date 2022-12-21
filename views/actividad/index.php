@@ -29,14 +29,15 @@
         <p class="card-text">Actividades : Sin calificar 10</p>
         <div class="col-12 d-flex justify-content-end mt-4">
         <a href="<?php echo constant('URL') . 'actividad/verDetalle/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-success me-1">Crear</a>
-        <a href="<?php echo constant('URL') . 'actividad/Consultar/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-warning">Revisar</a>  
+        <a href="<?php echo constant('URL') . 'actividad/Consultar/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-primary me-1">Consultar</a>  
+        <a href="<?php echo constant('URL') . 'actividad/verDetalle/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-warning ">Calificar</a>
       </div>
       </div>
     </div>
 
       <?php } ?>
 
-
+  </div>
     <?php require 'views/template/footerMaestro.php'; ?>
 </body>
 

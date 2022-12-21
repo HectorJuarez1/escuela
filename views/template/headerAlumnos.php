@@ -35,6 +35,12 @@
                             </a>
                         </li>
                         <li class="sidebar-item ">
+                            <a href="<?php echo constant('URL'); ?>actividadAlumnos" class='sidebar-link'>
+                                <i data-feather="file-text" width="20"></i>
+                                <span>Actividades</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item ">
                             <a href="<?php echo constant('URL'); ?>pagosAlumno" class='sidebar-link'>
                                 <i data-feather="dollar-sign" width="20"></i>
                                 <span>Pagos</span>

@@ -20,15 +20,18 @@ select * from vw_detalle_maestros;
 select * from vw_detalle_profesormateria where proceso_id='11' where No_profesor='PR11013021';
 select * from vw_detalle_alumnosasignados where proceso_id='11';
 select * from vw_detalle_pagos;
-
+select * from vw_detalle_actividad;
 
 SELECT actividad_id,titulo,descripcion,id_materia,estatus_actividad_id FROM  actividad WHERE id_materia ='65'
 
 
 
 
-
-
+create view vw_detalle_actividad as
+SET lc_time_names = 'es_ES';
+select actividad_id,titulo,descripcion,TIMESTAMPDIFF(HOUR, fecha_inicio, fecha_fin) AS DiasEntrega,
+DATE_FORMAT(fecha_fin,"%d %M %Y")AS fecha_fin,id_materia,estatus_actividad_id
+from actividad;
 
 
 
@@ -66,12 +69,12 @@ inner join estatus  as est on est.idEstatus=pa.estatus_id_pago;
 
 create view vw_detalle_alumnosasignados as
 select al.proceso_id,vpm.No_profesor,vpm.Nombre_Profesor,vda.No_Alumno,vda.Nombre_Completo as NombreAlumno,
-vpm.nombre_grado,vpm.nombre_aula,vpm.nombre_materia,vpm.nombre_periodo,vpm.dia_semana,vpm.Hora_Inicio,vpm.Hora_Fin,
+vpm.nombre_grado,vpm.nombre_aula,vpm.materia_id,vpm.nombre_materia,vpm.nombre_periodo,vpm.dia_semana,vpm.Hora_Inicio,vpm.Hora_Fin,
 vpm.Horas,al.estatus_id,est.Descripcion
 from alumnos_profesor as al 
 inner join vw_detalle_profesormateria as vpm on vpm.proceso_id=al.proceso_id 
 inner join vw_detalle_alumnos as vda on vda.alumno_id=al.alumnos_id 
-inner join estatus  as est on est.idEstatus=al.estatus_id; where al.proceso_id='11'; 
+inner join estatus  as est on est.idEstatus=al.estatus_id;
 
 
 

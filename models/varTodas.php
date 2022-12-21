@@ -107,6 +107,7 @@ class varTodas{
     public $vw_daa_Nombre_Profesor;
     public $vw_daa_nombre_grado;
     public $vw_daa_nombre_aula;
+    public $vw_daa_materia_id;
     public $vw_daa_nombre_materia;
     public $vw_daa_dia_semana;
     public $vw_daa_Hora_Inicio;
@@ -140,8 +141,16 @@ class varTodas{
     public $Activida_no_profesor;
     public $Activida_estatus_actividad_id;
 
+    // vw_detalle_actividad
 
-  
+    public $vw_act_actividad_id;
+    public $vw_act_titulo;
+    public $vw_act_descripcion;
+    public $vw_act_DiasEntrega;
+    public $vw_act_fecha_fin;
+    public $vw_act_id_materia;
+    public $vw_act_estatus_actividad_id;
+
 
   
 

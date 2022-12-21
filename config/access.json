@@ -76,6 +76,11 @@
             "role" : "user"
         },
         {
+            "site" : "actividadAlumnos", 
+            "access" : "private", 
+            "role" : "user"
+        },
+        {
             "site" : "user", 
             "access" : "private", 
             "role" : "user"

@@ -34,15 +34,9 @@
                                 <span>Clases</span>
                             </a>
                         </li>
-                        <li class="sidebar-item ">
-                            <a href="<?php echo constant('URL'); ?>asistencias" class='sidebar-link'>
-                                <i data-feather="check" width="20"></i>
-                                <span>Asistencias</span>
-                            </a>
-                        </li>
                         <li class="sidebar-item  ">
                             <a href="<?php echo constant('URL'); ?>actividad" class='sidebar-link'>
-                                <i data-feather="plus-circle" width="20"></i>
+                                <i data-feather="file-text" width="20"></i>
                                 <span>Actividad</span>
                             </a>
                         </li>
