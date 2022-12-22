@@ -1,8 +1,8 @@
 use control_escolar;
 select * from actividad;
+select * from calificaciones;
 select * from alumnos;
 select * from aulas;
-select * from calificaciones;
 select * from estatus;
 select * from grados; 
 select * from materias;
@@ -26,9 +26,8 @@ SELECT actividad_id,titulo,descripcion,id_materia,estatus_actividad_id FROM  act
 
 
 
-
-create view vw_detalle_actividad as
 SET lc_time_names = 'es_ES';
+create view vw_detalle_actividad as
 select actividad_id,titulo,descripcion,TIMESTAMPDIFF(HOUR, fecha_inicio, fecha_fin) AS DiasEntrega,
 DATE_FORMAT(fecha_fin,"%d %M %Y")AS fecha_fin,id_materia,estatus_actividad_id
 from actividad;

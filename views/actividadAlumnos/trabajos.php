@@ -14,12 +14,12 @@
     <?php $this->showMessages(); ?>
     <div class="card">
         <div class="card-body">
-            <form class="row p-3" action="<?php echo constant('URL'); ?>actividad/saveActividad"  method="POST" enctype="multipart/form-data">
+            <form class="row p-3" action="<?php echo constant('URL'); ?>actividadAlumnos/saveActEstatus"  method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
                             <label for="city-column">Actividad realizada</label>
-                            <textarea class="form-control" rows="5" name="txt_descripcion"></textarea>
+                            <textarea class="form-control" rows="5" name="txt_actividad_realizada"></textarea>
                         </div>
                     </div>
 

@@ -70,4 +70,57 @@ class ActividadAlumnosModel extends Model
             return null;
         }
     }
+
+
+
+
+
+
+    public function insertActEstatus($item)
+    {
+        $query = $this->db->connect()->prepare("UPDATE actividad SET estatus_actividad_id = 111 WHERE actividad_id = :id_act");
+        try {
+            $query->execute([
+                'id_act' => $item['id_actividad'],
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+
+            return false;
+        }
+    }
+
+
+    public function insertCalificacion($datos)
+    {
+        try {
+            $query = $this->db->connect()
+                ->prepare('INSERT INTO calificaciones(actividad_id,no_alumno,materia_id,actividad_realizada,ruta_archivo) 
+                VALUES (:act,:noal,:mat,:actr,:rutaar)');
+            $query->execute([
+                'act' => $datos['id_actividad'],
+                'noal' => $datos['id_alumno'],
+                'mat' => $datos['id_materia_alum'],
+                'actr' => $datos['txt_actividad_realizada'],
+                'rutaar' => $datos['filename']
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            return false;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
