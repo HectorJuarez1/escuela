@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS `actividad`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `actividad` (
   `actividad_id` int NOT NULL AUTO_INCREMENT,
+  `nombre_actividad` varchar(100) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `descripcion` longtext NOT NULL,
   `fecha_inicio` varchar(45) NOT NULL,
@@ -36,7 +37,7 @@ CREATE TABLE `actividad` (
   PRIMARY KEY (`actividad_id`),
   KEY `fk_actividad_estatus1_idx` (`estatus_actividad_id`),
   CONSTRAINT `fk_actividad_estatus1` FOREIGN KEY (`estatus_actividad_id`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +46,7 @@ CREATE TABLE `actividad` (
 
 LOCK TABLES `actividad` WRITE;
 /*!40000 ALTER TABLE `actividad` DISABLE KEYS */;
-INSERT INTO `actividad` VALUES (13,'Resumen','Realizar un resumen de la pagina 10','2022-12-20','2022-12-23',56,'',110),(23,'Resumen9','Realizar un resumen de la pagina 098','2022-12-22','2022-12-24',56,'PR11013021',110),(24,'verdos en ingles','Realizar una lista de verdos por lo menos 20','2022-12-21','2022-12-22',65,'PR14091052',110),(25,'Números naturales','Presentación\r\nEl sistema de numeración decimal permite escribir cualquier número con diez','2022-12-21','2022-12-22',55,'PR11013021',111),(26,'El sintagma verbal','Investigar a que se refiere sintagma verbal.','2022-12-20','2023-01-01',58,'PR11013021',110),(27,'Historia de la vida en la Tierra','Los estudios de los fósiles de rocas antiguas nos revelan que la vida probablemente comenzó hace unos 4 billones de años, cuando la Tierra era muy joven. Nadie sabe cómo comenzó la vida en nuestro planeta. La mayoría de los científicos piensa que se originó en el agua líquida.','2022-12-21','2022-12-24',57,'PR11013021',110);
+INSERT INTO `actividad` VALUES (13,'rwefdfs','Resumen','Realizar un resumen de la pagina 10','2022-12-20','2022-12-23',56,'',110),(23,'dsfdsf','Resumen9','Realizar un resumen de la pagina 098','2022-12-22','2022-12-24',56,'PR11013021',110),(25,'sdf','Números naturales','Presentación\r\nEl sistema de numeración decimal permite escribir cualquier número con diez','2022-12-21','2022-12-22',55,'PR11013021',110),(26,'sdf','El sintagma verbal','Investigar a que se refiere sintagma verbal.','2022-12-20','2023-01-01',58,'PR11013021',110),(27,'Actividad 1','Historia de la vida en la Tierra','Los estudios de los fósiles de rocas antiguas nos revelan que la vida probablemente comenzó hace unos 4 billones de años, cuando la Tierra era muy joven. Nadie sabe cómo comenzó la vida en nuestro planeta. La mayoría de los científicos piensa que se originó en el agua líqdduida.adasd','2022-12-21','2022-12-24',57,'PR11013021',110),(30,'ACTIVIDAD 1','Números','Investigar como se escribes los numero en ingles del 1 al 20','2022-12-24','2022-12-26',65,'PR14091052',110);
 /*!40000 ALTER TABLE `actividad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,7 +131,7 @@ CREATE TABLE `aulas` (
   PRIMARY KEY (`aula_id`),
   KEY `fk_aulas_estatus1_idx` (`estatus_aulas_id`),
   CONSTRAINT `fk_aulas_estatus1` FOREIGN KEY (`estatus_aulas_id`) REFERENCES `estatus` (`idEstatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,7 +140,7 @@ CREATE TABLE `aulas` (
 
 LOCK TABLES `aulas` WRITE;
 /*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
-INSERT INTO `aulas` VALUES (1,'Primero A',103),(2,'Segundo B',103),(3,'Sexto C',103),(6,'B-4',100),(10,'503',100),(11,'A-6',100),(13,'202',100),(14,'403',100);
+INSERT INTO `aulas` VALUES (1,'Primero A',103),(2,'Segundo B',103),(3,'Sexto C',103),(6,'B-4',100),(10,'503',100),(11,'A-6',100),(13,'202',100),(14,'403',100),(17,'',100);
 /*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,9 +159,12 @@ CREATE TABLE `calificaciones` (
   `actividad_realizada` text NOT NULL,
   `ruta_archivo` varchar(100) NOT NULL,
   `fecha_envio` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `calificacion_actividad` int DEFAULT NULL,
+  `comentario` text,
+  `id_estatus` int NOT NULL,
   PRIMARY KEY (`calificacion_id`),
   KEY `alumno_id` (`materia_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +173,7 @@ CREATE TABLE `calificaciones` (
 
 LOCK TABLES `calificaciones` WRITE;
 /*!40000 ALTER TABLE `calificaciones` DISABLE KEYS */;
-INSERT INTO `calificaciones` VALUES (2,25,'AL08011212',55,'10.0\r\n12.1\r\n23.011','COMPORTAMIENTO ORGANIZACIONAL SAMSUNG.pdf','2022-12-22 04:43:34');
+INSERT INTO `calificaciones` VALUES (12,26,'AL08011212',58,'23213213','COMPORTAMIENTO ORGANIZACIONAL SAMSUNG.pdf','2022-12-24 04:21:48',8,'213123',111),(13,30,'AL09152233',65,'Se adjunta archivo de la actividad','Cuestionario.pdf','2022-12-23 22:56:18',123,'33',111),(14,27,'AL01152232',57,'sadsad','Auditoria y seguridad informatica.docx','2022-12-24 04:21:48',8,'213213',111),(15,26,'AL05152209',58,'sadsad','COMPORTAMIENTO ORGANIZACIONAL SAMSUNG.docx','2022-12-24 04:21:48',10,'123213',111),(16,27,'AL08011212',57,'fdsf','comando de git.txt','2022-12-24 04:21:48',10,'excelente',111);
 /*!40000 ALTER TABLE `calificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,7 +221,7 @@ CREATE TABLE `estatus` (
 
 LOCK TABLES `estatus` WRITE;
 /*!40000 ALTER TABLE `estatus` DISABLE KEYS */;
-INSERT INTO `estatus` VALUES (100,'Activo'),(101,'Baja'),(102,'Baja Temporal'),(103,'Inactivo'),(108,'Registrado'),(109,'Cancelado'),(110,'Nueva'),(111,'Enviada'),(112,'Calificada'),(113,'No entregada');
+INSERT INTO `estatus` VALUES (100,'Activo'),(101,'Baja'),(102,'Baja Temporal'),(103,'Inactivo'),(108,'Registrado'),(109,'Cancelado'),(110,'Nueva'),(111,'Enviada'),(112,'Calificado'),(113,'No entregada');
 /*!40000 ALTER TABLE `estatus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -517,6 +521,7 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vw_detalle_actividad` AS SELECT 
  1 AS `actividad_id`,
+ 1 AS `nombre_actividad`,
  1 AS `titulo`,
  1 AS `descripcion`,
  1 AS `DiasEntrega`,
@@ -575,6 +580,28 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `Horas`,
  1 AS `estatus_id`,
  1 AS `Descripcion`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_detalle_calificacion`
+--
+
+DROP TABLE IF EXISTS `vw_detalle_calificacion`;
+/*!50001 DROP VIEW IF EXISTS `vw_detalle_calificacion`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_detalle_calificacion` AS SELECT 
+ 1 AS `calificacion_id`,
+ 1 AS `nombre_actividad`,
+ 1 AS `nombre_materia`,
+ 1 AS `Nombre_Completo`,
+ 1 AS `actividad_realizada`,
+ 1 AS `ruta_archivo`,
+ 1 AS `calificacion_actividad`,
+ 1 AS `comentario`,
+ 1 AS `No_Alumno`,
+ 1 AS `no_profesor`,
+ 1 AS `id_estatus`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -704,14 +731,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Dumping events for database 'control_escolar'
---
-
---
--- Dumping routines for database 'control_escolar'
---
-
---
 -- Final view structure for view `vw_detalle_actividad`
 --
 
@@ -724,7 +743,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_detalle_actividad` AS select `actividad`.`actividad_id` AS `actividad_id`,`actividad`.`titulo` AS `titulo`,`actividad`.`descripcion` AS `descripcion`,timestampdiff(HOUR,`actividad`.`fecha_inicio`,`actividad`.`fecha_fin`) AS `DiasEntrega`,date_format(`actividad`.`fecha_fin`,'%d %M %Y') AS `fecha_fin`,`actividad`.`id_materia` AS `id_materia`,`actividad`.`estatus_actividad_id` AS `estatus_actividad_id` from `actividad` */;
+/*!50001 VIEW `vw_detalle_actividad` AS select `actividad`.`actividad_id` AS `actividad_id`,`actividad`.`nombre_actividad` AS `nombre_actividad`,`actividad`.`titulo` AS `titulo`,`actividad`.`descripcion` AS `descripcion`,timestampdiff(HOUR,`actividad`.`fecha_inicio`,`actividad`.`fecha_fin`) AS `DiasEntrega`,date_format(`actividad`.`fecha_fin`,'%d %M %Y') AS `fecha_fin`,`actividad`.`id_materia` AS `id_materia`,`actividad`.`estatus_actividad_id` AS `estatus_actividad_id` from `actividad` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -761,6 +780,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `vw_detalle_alumnosasignados` AS select `al`.`proceso_id` AS `proceso_id`,`vpm`.`No_profesor` AS `No_profesor`,`vpm`.`Nombre_Profesor` AS `Nombre_Profesor`,`vda`.`No_Alumno` AS `No_Alumno`,`vda`.`Nombre_Completo` AS `NombreAlumno`,`vpm`.`nombre_grado` AS `nombre_grado`,`vpm`.`nombre_aula` AS `nombre_aula`,`vpm`.`materia_id` AS `materia_id`,`vpm`.`nombre_materia` AS `nombre_materia`,`vpm`.`nombre_periodo` AS `nombre_periodo`,`vpm`.`dia_semana` AS `dia_semana`,`vpm`.`Hora_Inicio` AS `Hora_Inicio`,`vpm`.`Hora_Fin` AS `Hora_Fin`,`vpm`.`Horas` AS `Horas`,`al`.`estatus_id` AS `estatus_id`,`est`.`Descripcion` AS `Descripcion` from (((`alumnos_profesor` `al` join `vw_detalle_profesormateria` `vpm` on((`vpm`.`proceso_id` = `al`.`proceso_id`))) join `vw_detalle_alumnos` `vda` on((`vda`.`alumno_id` = `al`.`alumnos_id`))) join `estatus` `est` on((`est`.`idEstatus` = `al`.`estatus_id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_detalle_calificacion`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_detalle_calificacion`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_detalle_calificacion` AS select `ca`.`calificacion_id` AS `calificacion_id`,`act`.`nombre_actividad` AS `nombre_actividad`,`mat`.`nombre_materia` AS `nombre_materia`,`vwal`.`Nombre_Completo` AS `Nombre_Completo`,`ca`.`actividad_realizada` AS `actividad_realizada`,`ca`.`ruta_archivo` AS `ruta_archivo`,`ca`.`calificacion_actividad` AS `calificacion_actividad`,`ca`.`comentario` AS `comentario`,`vwal`.`No_Alumno` AS `No_Alumno`,`act`.`no_profesor` AS `no_profesor`,`ca`.`id_estatus` AS `id_estatus` from (((`calificaciones` `ca` join `actividad` `act` on((`act`.`actividad_id` = `ca`.`actividad_id`))) join `materias` `mat` on((`mat`.`materia_id` = `ca`.`materia_id`))) join `vw_detalle_alumnos` `vwal` on((`vwal`.`No_Alumno` = `ca`.`no_alumno`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -882,4 +919,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-21 22:48:22
+-- Dump completed on 2022-12-25 19:15:30

@@ -29,22 +29,30 @@
                     <ul class="menu ">
                         <li class='sidebar-title '>Menú principal</li>
                         <li class="sidebar-item ">
+                            <a href="<?php echo constant('URL'); ?>pagosAlumno" class='sidebar-link'>
+                                <i data-feather="dollar-sign" width="20"></i>
+                                <span>Pagos</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item ">
                             <a href="<?php echo constant('URL'); ?>materiasAlumno" class='sidebar-link'>
                                 <i data-feather="book" width="20"></i>
                                 <span>Materias</span>
                             </a>
                         </li>
-                        <li class="sidebar-item ">
-                            <a href="<?php echo constant('URL'); ?>actividadAlumnos" class='sidebar-link'>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
                                 <i data-feather="file-text" width="20"></i>
                                 <span>Actividades</span>
                             </a>
-                        </li>
-                        <li class="sidebar-item ">
-                            <a href="<?php echo constant('URL'); ?>pagosAlumno" class='sidebar-link'>
-                                <i data-feather="dollar-sign" width="20"></i>
-                                <span>Pagos</span>
-                            </a>
+                            <ul class="submenu ">
+                                <li>
+                                    <a href="<?php echo constant('URL'); ?>actividadAlumnos">Realizar</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo constant('URL'); ?>calificacionesAlumnos">Calificaciones</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

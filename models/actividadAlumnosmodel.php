@@ -30,7 +30,7 @@ class ActividadAlumnosModel extends Model
 
     public function getById($materia_id)
     {
-       $items = [];
+    $items = [];
 
         try {
             $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_actividad WHERE id_materia = :id_mat AND estatus_actividad_id=110");
@@ -38,6 +38,7 @@ class ActividadAlumnosModel extends Model
             while ($row = $query->fetch()) {
                 $item = new varTodas();
                 $item->vw_act_id_materia = $row['id_materia'];
+                $item->vw_act_nombre_actividad = $row['nombre_actividad'];
                 $item->vw_act_titulo = $row['titulo'];
                 $item->vw_act_descripcion = $row['descripcion'];
                 $item->vw_act_DiasEntrega = $row['DiasEntrega'];
@@ -76,28 +77,18 @@ class ActividadAlumnosModel extends Model
 
 
 
-    public function insertActEstatus($item)
-    {
-        $query = $this->db->connect()->prepare("UPDATE actividad SET estatus_actividad_id = 111 WHERE actividad_id = :id_act");
-        try {
-            $query->execute([
-                'id_act' => $item['id_actividad'],
-            ]);
-            return true;
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
 
-            return false;
-        }
-    }
+
+
+
 
 
     public function insertCalificacion($datos)
     {
         try {
             $query = $this->db->connect()
-                ->prepare('INSERT INTO calificaciones(actividad_id,no_alumno,materia_id,actividad_realizada,ruta_archivo) 
-                VALUES (:act,:noal,:mat,:actr,:rutaar)');
+                ->prepare('INSERT INTO calificaciones(actividad_id,no_alumno,materia_id,actividad_realizada,ruta_archivo,id_estatus) 
+                VALUES (:act,:noal,:mat,:actr,:rutaar,111)');
             $query->execute([
                 'act' => $datos['id_actividad'],
                 'noal' => $datos['id_alumno'],
@@ -111,6 +102,27 @@ class ActividadAlumnosModel extends Model
             return false;
         }
     }
+
+
+
+    public function ValidarActividad($datos)
+    {
+        try {
+            $query = $this->db->connect()->prepare("SELECT COUNT(*)AS existen  from calificaciones where actividad_id=:idact and no_alumno=:noalum
+            ");
+            $query->execute([
+                'idact' => $datos['id_actividad'],
+                'noalum' => $datos['id_alumno']
+            ]);
+            $numero = $query->fetchColumn();
+            return $numero;
+        } catch (PDOException $e) {
+            echo 'Error en la linea' . $e->getLine();
+            return null;
+        }
+    }
+
+
 
 
 

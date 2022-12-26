@@ -38,18 +38,12 @@ class Success{
 
 
     const SUCCESS_PROFESOR_NEW    = "Gi51e4";
+    const SUCCESS_ACTIVIDA_REALIZA  = "f6acb0";
+    const SUCCESS_ACTIVIDA_ENVIADA  = "a901d2";
+    const SUCCESS_ACTIVIDA_CALIFICADA  = "2ccfc138";
 
 
-
-
-
-    const SUCCESS_EXPENSES_DELETE       = "fcd919285d5759328b143801573ec47d";
-    const SUCCESS_EXPENSES_NEWEXPENSE   = "fbbd0f23184e820e1df466abe6102955";
-    const SUCCESS_USER_UPDATEBUDGET     = "2ee085ac8828407f4908e4d134195e5c";
-    const SUCCESS_USER_UPDATENAME       = "6fb34a5e4118fb823636ca24a1d21669";
-    const SUCCESS_USER_UPDATEPASSWORD       = "6fb34a5e4118fb823636ca24a1d21669";
-    const SUCCESS_USER_UPDATEPHOTO       = "edabc9e4581fee3f0056fff4685ee9a8";
-    const SUCCESS_SIGNUP_NEWUSER       = "8281e04ed52ccfc13820d0f6acb0985a";
+    const SUCCESS_SIGNUP_NEWUSER       = "d52ccf";
     
     private $successList = [];
 
@@ -75,15 +69,9 @@ class Success{
             Success::SUCCESS_ADMIN_NEW_PAGO => "Pago registrado con exito.",
             Success::SUCCESS_ADMIN_NEW_USUARIO => "Nuevo usuario creado con exito.",
             Success::SUCCESS_PROFESOR_NEW => "Nueva actividad creada.",
-
-
-
-            
-
-            Success::SUCCESS_USER_UPDATEBUDGET => "Presupuesto actualizado correctamente",
-            Success::SUCCESS_USER_UPDATENAME => "Nombre actualizado correctamente",
-            Success::SUCCESS_USER_UPDATEPASSWORD => "Contraseña actualizado correctamente",
-            Success::SUCCESS_USER_UPDATEPHOTO => "Imagen de usuario actualizada correctamente",
+            Success::SUCCESS_ACTIVIDA_REALIZA => "Esta actividad ya fue realiza.",
+            Success::SUCCESS_ACTIVIDA_ENVIADA => "Actividad enviada al maestro.",
+            Success::SUCCESS_ACTIVIDA_CALIFICADA => "Actividad calificada.",
             Success::SUCCESS_SIGNUP_NEWUSER => "Dato registrado correctamente"
         ];
     }

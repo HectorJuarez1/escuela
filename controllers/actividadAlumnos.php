@@ -9,8 +9,9 @@ class ActividadAlumnos extends SessionController
     }
     function render()
     {
-        $_SESSION['id_alumno'] = current($this->user);
-        $NMaterias = $this->model->getAllMaterias($_SESSION['id_alumno']);
+        $alumnos = current($this->user);
+        $_SESSION['id_alumno'] = $alumnos;
+        $NMaterias = $this->model->getAllMaterias($alumnos);
         $this->view->varTodas = $NMaterias;
         $this->view->render('actividadAlumnos/index', ['user' => $this->user]);
     }
@@ -24,13 +25,20 @@ class ActividadAlumnos extends SessionController
     }
     function Detalle($param = null)
     {
+
         $_SESSION['id_actividad'] = $param[0];
+        $datos[0]  = $_SESSION['id_actividad'];
+        $datos[1]  = $_SESSION['id_alumno'];
         $materia = $this->model->getById($_SESSION['id_actividad']);
-        var_dump($_SESSION['id_actividad']);
-        var_dump($_SESSION['id_alumno']);
-        var_dump($_SESSION['id_materia_alum']);
         $this->view->varTodas = $materia;
-        $this->view->render('actividadAlumnos/trabajos', ['user' => $this->user]);
+        $numero = $this->model->ValidarActividad([
+            'id_actividad' => $datos[0], 'id_alumno' => $datos[1]
+        ]);
+        if ($numero >= 1) {
+            $this->redirect('actividadAlumnos', ['success' => Success::SUCCESS_ACTIVIDA_REALIZA]);
+        } else {
+            $this->view->render('actividadAlumnos/trabajos', ['user' => $this->user]);
+        }
     }
 
 
@@ -44,19 +52,14 @@ class ActividadAlumnos extends SessionController
         $archivotm = $_FILES['filename']['tmp_name']; // obtiene el archiv
         $ruta = 'actividades/';
         move_uploaded_file($archivotm, $ruta . $datos[4]);
-        if ($this->model->insertActEstatus([
-            'id_actividad' => $datos[0]
-        ])) 
+
 
         if ($this->model->insertCalificacion([
             'id_actividad' => $datos[0], 'id_alumno' => $datos[1], 'id_materia_alum' => $datos[2],
             'txt_actividad_realizada' => $datos[3], 'filename' => $datos[4]
-        ]))
-        
-        
-        {
-            error_log('saveActividad::Nuevo actividad creada');
-            $this->redirect('actividad', ['success' => Success::SUCCESS_PROFESOR_NEW]);
+        ])) {
+            error_log('saveActividad::Actividad enviada para calificar');
+            $this->redirect('actividadAlumnos', ['success' => Success::SUCCESS_ACTIVIDA_ENVIADA]);
         } else {
             // error_log('saveAl::Error al crear alumno');
             // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
@@ -64,7 +67,10 @@ class ActividadAlumnos extends SessionController
     }
 
 
-    function saveActEsta()
+    function calificaciones()
     {
+    /*   $tutor = $this->model->getTutor();
+        $this->view->TutorCom = $tutor; */
+        $this->view->render('calificaciones');
     }
 }

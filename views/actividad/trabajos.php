@@ -16,9 +16,15 @@
         <div class="card-body">
             <form class="row p-3" action="<?php echo constant('URL'); ?>actividad/saveActividad" method="POST">
                 <div class="row">
+                <div class="col-6">
+                        <div class="form-group">
+                            <label>Nombre de la actividad</label>
+                            <input type="text" class="form-control" name="txt_nombre_act" required>
+                        </div>
+                    </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label>Titulo</label>
+                            <label>Tema</label>
                             <input type="text" class="form-control" name="txt_titulo_act" required>
                         </div>
                     </div>

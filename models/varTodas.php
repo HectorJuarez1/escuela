@@ -99,7 +99,6 @@ class varTodas{
     public $vw_as_Estatus;
     
     //vw_detalle_alumnosasignados
-
     public $vw_daa_proceso_id;
     public $vw_daa_No_profesor;
     public $vw_daa_No_Alumno;
@@ -117,7 +116,6 @@ class varTodas{
     public $vw_daa_Descripcion;
 
     //vw_detalle_profesormateria
-
     public $vw_dfm_proceso_id;
     public $vw_dfm_No_profesor;
     public $vw_dfm_Nombre_Profesor;
@@ -133,6 +131,7 @@ class varTodas{
 
     //actividad
     public $actividad_id;
+    public $nombre_actividad;
     public $titulo;
     public $descripcion;
     public $Activida_fecha_inicio;
@@ -142,8 +141,8 @@ class varTodas{
     public $Activida_estatus_actividad_id;
 
     // vw_detalle_actividad
-
     public $vw_act_actividad_id;
+    public $vw_act_nombre_actividad;
     public $vw_act_titulo;
     public $vw_act_descripcion;
     public $vw_act_DiasEntrega;
@@ -152,8 +151,26 @@ class varTodas{
     public $vw_act_estatus_actividad_id;
 
 
-  
+    //vw_detalle_calificacion
+    public $vw_ca_calificacion_id;
+    public $vw_ca_nombre_actividad;
+    public $vw_ca_nombre_materia;
+    public $vw_ca_Nombre_Completo;
+    public $vw_ca_actividad_realizada;
+    public $vw_ca_ruta_archivo;
+    public $vw_ca_no_profesor;
+    public $vw_ca_id_estatus;
 
+    public $vw_ca_calificacion_actividad;
+    public $vw_ca_comentario;
+
+
+
+
+
+
+
+    public $vw_ca_calificacion;
 
 
 

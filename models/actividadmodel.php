@@ -60,7 +60,6 @@ class ActividadModel extends Model
                 $item->titulo = $row['titulo'];
                 $item->descripcion = $row['descripcion'];
                 $item->Activida_id_materia = $row['id_materia'];
-                $item->Activida_estatus_actividad_id = $row['estatus_actividad_id'];
                 array_push($items, $item);
             }
             return $items;
@@ -74,9 +73,10 @@ class ActividadModel extends Model
     {
         try {
             $query = $this->db->connect()
-                ->prepare('INSERT INTO actividad(titulo,descripcion,fecha_inicio,fecha_fin,id_materia,no_profesor,estatus_actividad_id) 
-                VALUES (:tit,:descr,:fini,:ffin,:idm,:idp,110)');
+                ->prepare('INSERT INTO actividad(nombre_actividad,titulo,descripcion,fecha_inicio,fecha_fin,id_materia,no_profesor,estatus_actividad_id) 
+                VALUES (:nomact,:tit,:descr,:fini,:ffin,:idm,:idp,110)');
             $query->execute([
+                'nomact' => $datos['txt_nombre_act'],
                 'tit' => $datos['txt_titulo_act'],
                 'descr' => $datos['txt_descripcion'],
                 'fini' => $datos['date_FInicio'],
@@ -97,12 +97,13 @@ class ActividadModel extends Model
     public function getActividad($materia_id)
     {
         $items = [];
-        $query = $this->db->connect()->prepare("SELECT actividad_id,titulo,descripcion,id_materia,estatus_actividad_id FROM  actividad WHERE id_materia = :id_mat");
+        $query = $this->db->connect()->prepare("SELECT nombre_actividad,actividad_id,titulo,descripcion,id_materia,estatus_actividad_id FROM  actividad WHERE id_materia = :id_mat");
         try {
             $query->execute(['id_mat' => $materia_id]);
             while ($row = $query->fetch()) {
                 $item = new varTodas();
                 $item->actividad_id = $row['actividad_id'];
+                $item->nombre_actividad = $row['nombre_actividad'];
                 $item->titulo = $row['titulo'];
                 $item->descripcion = $row['descripcion'];
                 $item->Activida_id_materia = $row['id_materia'];
@@ -152,15 +153,14 @@ class ActividadModel extends Model
     public function update($item)
     {
         $query = $this->db->connect()->prepare("UPDATE actividad SET titulo = :tit,descripcion = :descri,fecha_inicio = :fein,
-        fecha_fin = :fef,estatus_actividad_id = :est WHERE actividad_id = :id_act");
+        fecha_fin = :fef WHERE actividad_id = :id_act");
         try {
             $query->execute([
                 'id_act' => $item['txt_IdActividad'],
                 'tit' => $item['txt_titulo_act'],
                 'descri' => $item['txt_descripcion'],
                 'fein' => $item['date_FInicio'],
-                'fef' => $item['date_FFin'],
-                'est' => $item['com_estatus']
+                'fef' => $item['date_FFin']
             ]);
             return true;
         } catch (PDOException $e) {
@@ -172,5 +172,71 @@ class ActividadModel extends Model
 
 
 
+    public function getCalificarAct($no_profesor)
+    {
+    $items = [];
 
+        try {
+            $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_calificacion WHERE no_profesor = :no_pro AND id_estatus=111 ");
+            $query->execute(['no_pro' => $no_profesor]);
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->vw_ca_calificacion_id = $row['calificacion_id'];
+                $item->vw_ca_nombre_actividad = $row['nombre_actividad'];
+                $item->vw_ca_nombre_materia = $row['nombre_materia'];
+                $item->vw_ca_Nombre_Completo = $row['Nombre_Completo'];
+                $item->vw_ca_actividad_realizada = $row['actividad_realizada'];
+                $item->vw_ca_ruta_archivo = $row['ruta_archivo'];
+                $item->vw_ca_no_profesor = $row['no_profesor'];
+                $item->vw_ca_id_estatus = $row['id_estatus'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+                        error_log($e->getMessage());
+            return null;
+        }
+    }
+
+    public function updateAct($item)
+    {
+        $query = $this->db->connect()->prepare("UPDATE calificaciones SET calificacion_actividad = :cal,comentario = :com,id_estatus = 112
+         WHERE calificacion_id = :id_cal");
+        try {
+            $query->execute([
+                'id_cal' => $item['txt_Idcalif'],
+                'cal' => $item['com_calificacion'],
+                'com' => $item['txt_retroalimentacion']
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+
+            return false;
+        }
+    }
+
+
+    public function getUpActividad2($actividad_id)
+    {
+        $item = new varTodas();
+        $query = $this->db->connect()->prepare("SELECT calificacion_id FROM calificaciones WHERE calificacion_id = :id_acti");
+        try {
+            $query->execute(['id_acti' => $actividad_id]);
+            while ($row = $query->fetch()) {
+                $item->vw_ca_calificacion = $row['calificacion_id'];
+
+            }
+            return $item;
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            return null;
+        }
+    }
+
+
+
+
+
+    
 }

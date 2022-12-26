@@ -15,7 +15,7 @@
   <!-- Begin Page Content -->
   <div class="container-fluid">
     <?php $this->showMessages(); ?>
-
+    <a href="<?php echo constant('URL') . 'actividad/calificarAct/' ?>" class="btn btn-warning ">Calificar Actividades</a><br><br>
       <?php foreach ($this->varTodas as $row) {
         $NMaterias = new varTodas();
         $NMaterias = $row;
@@ -30,7 +30,6 @@
         <div class="col-12 d-flex justify-content-end mt-4">
         <a href="<?php echo constant('URL') . 'actividad/verDetalle/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-success me-1">Crear</a>
         <a href="<?php echo constant('URL') . 'actividad/Consultar/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-primary me-1">Consultar</a>  
-        <a href="<?php echo constant('URL') . 'actividad/verDetalle/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-warning ">Calificar</a>
       </div>
       </div>
     </div>

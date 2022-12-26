@@ -18,17 +18,28 @@ class Actividad extends SessionController
     {
         $this->view->render('actividad/trabajos', ['profesor' => $this->profesor]);
     }
+
+    function calificarAct()
+    {
+        $Calificar_Act = $this->model->getCalificarAct($_SESSION['id_profesor']);
+        $this->view->varTodas = $Calificar_Act;
+        $this->view->render('actividad/calificar', ['profesor' => $this->profesor]);
+    }
+
+
+
     function saveActividad()
     {
-        $datos[0]  = trim($_POST['txt_titulo_act']);
-        $datos[1]  = trim($_POST['txt_descripcion']);
-        $datos[2]  = trim($_POST['date_FInicio']);
-        $datos[3]  = trim($_POST['date_FFin']);
-        $datos[4]  = $_SESSION['id_materia'];
-        $datos[5]  = $_SESSION['id_profesor'];
+        $datos[0]  = strtoupper(trim($_POST['txt_nombre_act']));
+        $datos[1]  = trim($_POST['txt_titulo_act']);
+        $datos[2]  = trim($_POST['txt_descripcion']);
+        $datos[3]  = trim($_POST['date_FInicio']);
+        $datos[4]  = trim($_POST['date_FFin']);
+        $datos[5]  = $_SESSION['id_materia'];
+        $datos[6]  = $_SESSION['id_profesor'];
         if ($this->model->insertActividad([
-            'txt_titulo_act' => $datos[0], 'txt_descripcion' => $datos[1], 'date_FInicio' => $datos[2],
-            'date_FFin' => $datos[3], 'id_materia' => $datos[4], 'id_profesor' => $datos[5]
+            'txt_nombre_act' => $datos[0],'txt_titulo_act' => $datos[1], 'txt_descripcion' => $datos[2], 'date_FInicio' => $datos[3],
+            'date_FFin' => $datos[4], 'id_materia' => $datos[5], 'id_profesor' => $datos[6]
         ])) {
             error_log('saveActividad::Nuevo actividad creada');
             $this->redirect('actividad', ['success' => Success::SUCCESS_PROFESOR_NEW]);
@@ -47,7 +58,7 @@ class Actividad extends SessionController
         $this->view->render('actividad/trabajos', ['profesor' => $this->profesor]);
     }
 
-    function Consultar($param = null)
+    function consultar($param = null)
     {
         $_SESSION['id_materia'] = $param[0];
         $materia = $this->model->getActividad($_SESSION['id_materia']);
@@ -80,10 +91,9 @@ class Actividad extends SessionController
         $Dactividad[2]  = trim($_POST['txt_descripcion']);
         $Dactividad[3]  = trim($_POST['date_FInicio']);
         $Dactividad[4]   = trim($_POST['date_FFin']);
-        $Dactividad[5]   = trim($_POST['com_estatus']);
         if ($this->model->update([
             'txt_IdActividad' => $Dactividad[0], 'txt_titulo_act' =>  $Dactividad[1], 'txt_descripcion' =>  $Dactividad[2],
-            'date_FInicio' =>  $Dactividad[3], 'date_FFin' =>  $Dactividad[4], 'com_estatus' =>  $Dactividad[5]
+            'date_FInicio' =>  $Dactividad[3], 'date_FFin' =>  $Dactividad[4]
         ])) {
             // actualizar alumno exito
             $actividad = new varTodas();
@@ -92,7 +102,6 @@ class Actividad extends SessionController
             $actividad->descripcion = $Dactividad[2];
             $actividad->Activida_fecha_inicio = $Dactividad[3];
             $actividad->Activida_fecha_fin =  $Dactividad[4];
-            $actividad->Activida_estatus_actividad_id =  $Dactividad[5];
             $this->view->varTodas = $actividad;
             error_log('ActualizarAct::Datos de la actividad Actualizados');
             $this->redirect('actividad', ['success' => Success::SUCCESS_ADMIN_UPDATE_ACTIVIDAD]);
@@ -102,6 +111,35 @@ class Actividad extends SessionController
     }
 
 
+    function ver($param = null)
+    {
+
+
+                $_SESSION['id_call'] = $param[0];
+                $calif = $this->model->getUpActividad2($_SESSION['id_call']);
+                $this->view->varTodas = $calif;
+                $this->view->render('actividad/asignarcalif', ['profesor' => $this->profesor]);
+    }
+
+
+
+    function CalificacionAct()
+    {
+        //modificar
+        $Dcalificacion[0] = trim($_POST['txt_Idcalif']);
+        $Dcalificacion[1]  = trim($_POST['com_calificacion']);
+        $Dcalificacion[2]  = trim($_POST['txt_retroalimentacion']);
+
+        if ($this->model->updateAct([
+            'txt_Idcalif' => $Dcalificacion[0], 'com_calificacion' =>  $Dcalificacion[1], 'txt_retroalimentacion' =>  $Dcalificacion[2]
+        ])) {
+
+            error_log('Calificacion Asignada::Se a calificado  esta actividad');
+            $this->redirect('actividad/calificarAct', ['success' => Success::SUCCESS_ADMIN_UPDATE_ACTIVIDAD]);
+        } else {
+            //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
+        }
+    }
 
 
 

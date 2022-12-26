@@ -41,16 +41,6 @@
                             <input type="date" class="form-control" name="date_FFin"   value="<?php echo $this->varTodas->Activida_fecha_fin; ?>" required>
                         </div>
                     </div>
-                    <div class="col-md-2 col-12">
-                            <div class="form-group">
-                                <label>Estatus</label>
-                                <select class="form-select" name="com_estatus">
-                                    <option value="110">Nueva</option>
-                                    <option value="111">Enviada</option>
-                                    <option value="112">Calificada</option>
-                                </select>
-                            </div>
-                        </div>
                     <div class="col-12 d-flex justify-content-end mt-4">
                             <button type="submit" class="btn btn-warning me-1 mb-1">Actualizar</button>
                         </div>

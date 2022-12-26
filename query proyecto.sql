@@ -22,7 +22,39 @@ select * from vw_detalle_alumnosasignados where proceso_id='11';
 select * from vw_detalle_pagos;
 select * from vw_detalle_actividad;
 
-SELECT actividad_id,titulo,descripcion,id_materia,estatus_actividad_id FROM  actividad WHERE id_materia ='65'
+
+
+
+
+select * from calificaciones;
+select * from vw_detalle_calificacion;
+
+
+select nombre_materia,nombre_actividad,calificacion_actividad,comentario from vw_detalle_calificacion
+where No_Alumno='AL01152232' and id_estatus=112
+
+
+
+
+create view vw_detalle_calificacion as
+select ca.calificacion_id,act.nombre_actividad,mat.nombre_materia,vwal.Nombre_Completo,
+ca.actividad_realizada,ca.ruta_archivo,ca.calificacion_actividad,ca.comentario,vwal.No_Alumno,act.no_profesor,ca.id_estatus
+from calificaciones as ca 
+inner join actividad as act on act.actividad_id=ca.actividad_id
+inner join materias as mat on mat.materia_id=ca.materia_id
+inner join vw_detalle_alumnos as vwal on vwal.No_Alumno=ca.no_alumno
+
+
+
+
+inner join estatus  as est on est.idEstatus=pa.estatus_id_pago; 
+
+
+UPDATE `control_escolar`.`calificaciones` SET `calificacion_actividad` = '123', `comentario` = '33' WHERE (`calificacion_id` = '13');
+
+
+
+
 
 
 
@@ -173,6 +205,5 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES ('1','admin','$2y$12$ukq79N4jUBBN14rFbHI1k.amcHUtDxunMRrJUI35OuKAykRKMnDt6','admin','Hector Juarez','2022-11-22 08:47:46'),('AL09152233','galilea.gonzalez','$2y$10$7./q3idrIQ1UbB5YRJDnqOmesvS8tPnDzCDD5qOi.pz7MDcfp1MLm','user','Galilea Gonzalez Reyes','2022-11-22 08:50:20'),('AL07151256','juan.cabrera','$2y$10$dDnLGL/a/7LqT.2Ccdirku8MUoLrW7EwrNvGc2QPIjPuy8rVZ/2yW','user','Juan Cabrera Garcia','2022-11-22 08:51:26'),('AL01152232','karen.dominguez','$2y$10$qRl4ZW3ncTps8aC9XiO7VuJzPCGXwu3NVehlD4HdNoIOJ.lHM7V52','user','Karen Odette Dominguez Velazquez','2022-11-22 08:51:35'),('AL05152209','lizbeth.falcon','$2y$10$weEQfs5ZMUim4imCzMPGcenaqnq/kA6ek9G.QNuRIFeo8rocf4BKe','user','Lizbeth Soledad Falcon Duarte','2022-11-22 08:51:44'),('AL08011212','hector.coyotl','$2y$10$mcLYnzwmZ/Q1tEaijnoa5uVocqe7afLhJDyzsVnXBpEZHtrihGaDW','user','Hector Coyotl Juarez','2022-12-11 05:22:49'),('PR11013021','juan.acosta','$2y$10$Z6.CoG7.g/EB9ah6Npfnm.q/aRluR4hJHluOdTJJ0NKlaZDbcAoeq','profesor','Juan Carlos Acosta Acosta','2022-12-11 17:58:15'),('PR13022112','gustavo.valdez','$2y$10$YG1wKPBjrJ5/Lk.MGkwjPuTRZjrQWd3UXtaLDZlHPjBXe17xAnKvW','profesor','Gustavo Valdez Valdez','2022-12-11 17:58:24'),('PR15030112','adriana.león','$2y$10$bvQTCMPvF3gfXJFnTkYFi.GGK5TaX5M4Fke4exI8fnozVVPR1RF4u','profesor','Adriana León León','2022-12-11 17:58:44'),('PR14091052','verónica.hernández','$2y$10$DTUoQ9.1.AcnZhlJ1nltHOprw7eLyI6GBdLMiXrB/khPvaHZlaVSO','profesor','Verónica Hernández Gil','2022-12-11 18:52:21');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
-
 
 

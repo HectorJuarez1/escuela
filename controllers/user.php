@@ -16,7 +16,7 @@ class User extends SessionController
         $Naulas = $this->model->getAllAulas($id);
         $this->view->varTodas = $Naulas; 
         $this->view->render('user/index', ['user' => $this->user]);
-        echo $id;
+
     }
 
 }
