@@ -34,6 +34,11 @@
             </tr>
           </thead>
           <tbody>
+
+            <?php
+            $NumerodPedido = "Descarga" . date("mdHi");
+            ?>
+
             <?php foreach ($this->varTodas as $row) {
               $Calificar_act = new varTodas();
               $Calificar_act = $row;
@@ -43,15 +48,16 @@
                 <td><?php echo $Calificar_act->vw_ca_nombre_actividad; ?></td>
                 <td><?php echo $Calificar_act->vw_ca_nombre_materia; ?></td>
                 <td><?php echo $Calificar_act->vw_ca_actividad_realizada; ?></td>
-                <td><?php echo $Calificar_act->vw_ca_ruta_archivo; ?></td>
+                <td><a href="<?php echo constant('URL') . "actividades/" . $Calificar_act->vw_ca_ruta_archivo; ?>" download="<?php echo $NumerodPedido ?>" class="btn icon btn-success">
+                  <i data-feather="download"></i></a>
+                </td>
                 <td><?php
                     if ($Calificar_act->vw_ca_id_estatus == 111) {
                       echo '  <span class="badge bg-info">Enviada</span>';
                     }
                     ?></td>
-
                 <td class="text-center">
-                  <a href="<?php echo constant('URL') . 'actividad/ver/' . $Calificar_act->vw_ca_calificacion_id;  ?>" class="btn icon btn-success" ><i data-feather="check"></i></a>
+                  <a href="<?php echo constant('URL') . 'actividad/ver/' . $Calificar_act->vw_ca_calificacion_id;  ?>" class="btn icon btn-warning"><i data-feather="check"></i></a>
                 </td>
               </tr>
             <?php } ?>
