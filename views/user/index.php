@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php require 'views/template/headerAlumnos.php'; ?>
-    <h1>Vista del alumno --> Dashboard</h1>
+    <h1>Bienvenido...</h1>
     <?php require 'views/template/footerAlumnos.php'; ?>
 </body>
 

@@ -15,7 +15,7 @@
   <!-- Begin Page Content -->
   <div class="container-fluid">
     <?php $this->showMessages(); ?>
-    <a href="<?php echo constant('URL') . 'actividad/calificarAct/' ?>" class="btn btn-warning ">Calificar Actividades</a><br><br>
+    <a href="<?php echo constant('URL') . 'actividad/calificarAct/' ?>" class="btn btn-warning ">Calificar actividades</a><br><br>
       <?php foreach ($this->varTodas as $row) {
         $NMaterias = new varTodas();
         $NMaterias = $row;
