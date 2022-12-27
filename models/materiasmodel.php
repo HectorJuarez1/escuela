@@ -65,6 +65,8 @@ class MateriasModel extends Model
         }
     }
 
+
+
     public function insertMateria($datos)
     {
         try {

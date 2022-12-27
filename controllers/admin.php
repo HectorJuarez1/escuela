@@ -17,6 +17,9 @@ class Admin extends SessionController{
         $this->view->TotalPagos = $Pagos;
         $Materias = $this->model->getAllConMat();
         $this->view->TotalMaterias = $Materias;
+
+        $GraficaP = $this->model->getAllGrafica();
+        $this->view->DatosGraficaP = $GraficaP;
         
 
         $this->view->render('admin/index');

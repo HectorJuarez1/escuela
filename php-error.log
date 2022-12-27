@@ -1,0 +1,1 @@
+[27-Dec-2022 14:03:21 America/Mexico_City] PHP Notice:  Undefined property: varPagos::$TotalPago in C:\xampp\htdocs\escuela\views\admin\index.php on line 125

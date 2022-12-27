@@ -13,6 +13,10 @@ class varPagos{
     public $vw_pg_estatus;
     public $vw_pg_Fecha_creacion;
     public $vw_pg_TotalPagos;
+
+
+    public $Concepto;
+    public $TotalPagos;
     
 }
 

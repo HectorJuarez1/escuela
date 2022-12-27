@@ -54,7 +54,7 @@ class varTodas{
     public $nombre_aula;
     public $estatus_aulas_id;
         
-    // materias
+    // vw_detalle_materias
     public $vw_mat_materia_id;
     public $vw_mat_nombre_materia;
     public $vw_mat_dia_semana;
@@ -164,57 +164,22 @@ class varTodas{
     public $vw_ca_calificacion_actividad;
     public $vw_ca_comentario;
 
-
-
-
-
-
-
     public $vw_ca_calificacion;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //tutor vista combo
-        public $vw_id_Tutor;
-        public $vw_Nombre_tutor;
+    //tutor vista combo
+    public $vw_id_Tutor;
+    public $vw_Nombre_tutor;
     
-        //padre  tutor
-        public $id_Tutorr;
-        public $Tur_Nombres;
-        public $Tur_Apellido_Paterno;
-        public $Tur_Apellido_Materno;
-        public $Tur_Direccion;
-        public $Tur_Telefono_Casa;
-        public $Tur_Telefono_Celular;
-        public $Tur_Correo;
-        public $Tur_Sexo;
-
-
-
-
-
-
-
-
-
+    //padre  tutor
+    public $id_Tutorr;
+    public $Tur_Nombres;
+    public $Tur_Apellido_Paterno;
+    public $Tur_Apellido_Materno;
+    public $Tur_Direccion;
+    public $Tur_Telefono_Casa;
+    public $Tur_Telefono_Celular;
+    public $Tur_Correo;
+    public $Tur_Sexo;
 
 }
-
 ?>
