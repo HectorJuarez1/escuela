@@ -140,7 +140,7 @@ CREATE TABLE `aulas` (
 
 LOCK TABLES `aulas` WRITE;
 /*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
-INSERT INTO `aulas` VALUES (1,'Primero A',103),(2,'Segundo B',103),(3,'Sexto C',103),(6,'B-4',100),(10,'503',100),(11,'A-6',100),(13,'202',100),(14,'403',100),(17,'',100);
+INSERT INTO `aulas` VALUES (1,'Primero A',103),(2,'Segundo B',103),(3,'Sexto C',103),(6,'B-4',100),(10,'503',100),(11,'A-6',100),(13,'202',100),(14,'403',100);
 /*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +164,7 @@ CREATE TABLE `calificaciones` (
   `id_estatus` int NOT NULL,
   PRIMARY KEY (`calificacion_id`),
   KEY `alumno_id` (`materia_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,7 +173,7 @@ CREATE TABLE `calificaciones` (
 
 LOCK TABLES `calificaciones` WRITE;
 /*!40000 ALTER TABLE `calificaciones` DISABLE KEYS */;
-INSERT INTO `calificaciones` VALUES (12,26,'AL08011212',58,'23213213','COMPORTAMIENTO ORGANIZACIONAL SAMSUNG.pdf','2022-12-24 04:21:48',8,'213123',111),(13,30,'AL09152233',65,'Se adjunta archivo de la actividad','Cuestionario.pdf','2022-12-23 22:56:18',123,'33',111),(14,27,'AL01152232',57,'sadsad','Auditoria y seguridad informatica.docx','2022-12-24 04:21:48',8,'213213',111),(15,26,'AL05152209',58,'sadsad','COMPORTAMIENTO ORGANIZACIONAL SAMSUNG.docx','2022-12-24 04:21:48',10,'123213',111),(16,27,'AL08011212',57,'fdsf','comando de git.txt','2022-12-24 04:21:48',10,'excelente',111);
+INSERT INTO `calificaciones` VALUES (17,27,'AL08011212',57,'se adjunta la actividad en el archivo','Cuestionario.pdf','2022-12-27 03:21:17',9,'Le falto el punto 5',112);
 /*!40000 ALTER TABLE `calificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -308,42 +308,6 @@ LOCK TABLES `materias` WRITE;
 /*!40000 ALTER TABLE `materias` DISABLE KEYS */;
 INSERT INTO `materias` VALUES (55,'Matemáticas','Lunes','1','10','2022-11-27 04:02:07',100,10),(56,'Español','Lunes','11','12','2022-11-27 04:02:21',100,11),(57,'Ciencias de la Naturaleza','Viernes','14','15','2022-11-27 04:02:34',100,12),(58,'Lengua castellana y literatura','Martes','11','12','2022-11-27 04:02:57',100,10),(59,'Formación Cívica y Ética','Miercoles','11','12','2022-11-27 04:03:31',100,7),(60,'Geografía','Miercoles','10','12','2022-11-27 04:03:46',100,11),(61,'Educación Artística','Lunes','2','11','2022-11-27 04:04:29',100,8),(62,'Educación física','Jueves','14','15','2022-11-27 04:04:53',100,12),(64,'Geografía','Martes','10','11','2022-12-11 23:16:04',100,8),(65,'Ingles','Miercoles','11','12','2022-12-11 23:18:24',100,8),(66,'Matemáticas','Jueves','2','11','2022-12-11 23:20:07',100,8);
 /*!40000 ALTER TABLE `materias` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `notas`
---
-
-DROP TABLE IF EXISTS `notas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `notas` (
-  `nota_id` int NOT NULL AUTO_INCREMENT,
-  `materia_id` int NOT NULL,
-  `alumno_id` int NOT NULL,
-  `actividad_id` int NOT NULL,
-  `valor_nota` int NOT NULL,
-  `periodo_id` int NOT NULL,
-  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`nota_id`),
-  KEY `materia_id` (`materia_id`),
-  KEY `alumno_id` (`alumno_id`),
-  KEY `actividad_id` (`actividad_id`),
-  KEY `periodo_id` (`periodo_id`),
-  CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `notas_ibfk_2` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`alumno_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `notas_ibfk_3` FOREIGN KEY (`actividad_id`) REFERENCES `actividad` (`actividad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `notas_ibfk_4` FOREIGN KEY (`periodo_id`) REFERENCES `periodos` (`periodo_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `notas`
---
-
-LOCK TABLES `notas` WRITE;
-/*!40000 ALTER TABLE `notas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `notas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -731,6 +695,14 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping events for database 'control_escolar'
+--
+
+--
+-- Dumping routines for database 'control_escolar'
+--
+
+--
 -- Final view structure for view `vw_detalle_actividad`
 --
 
@@ -919,4 +891,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-25 19:15:30
+-- Dump completed on 2022-12-26 21:46:09

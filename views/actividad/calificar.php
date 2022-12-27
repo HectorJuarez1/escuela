@@ -36,7 +36,7 @@
           <tbody>
 
             <?php
-            $NumerodPedido = "Descarga" . date("mdHi");
+            $NumerodPedido = "Descarga_" . date("mdHi");
             ?>
 
             <?php foreach ($this->varTodas as $row) {
