@@ -6,44 +6,29 @@ class Success{
     //method
     //operation
 
-    const SUCCESS_ADMIN_ALTAS      = "fcd919";
-    const SUCCESS_ADMIN_NEW_TUTOR    = "8281e0";
-
-
-
-    const SUCCESS_ADMIN_NEW_ALUMNO    = "al1235";
+    const SUCCESS_ADMIN_ALTAS            = "fcd919";
+    const SUCCESS_ADMIN_NEW_TUTOR        = "8281e0";
+    const SUCCESS_ADMIN_NEW_ALUMNO       = "al1235";
     const SUCCESS_ADMIN_UPDATE_ALUMNO    = "6fb34a";
-
-    const SUCCESS_ADMIN_NEW_AULA    = "f52245";
-    const SUCCESS_ADMIN_UPDATE_AULA    = "52ccR4";
-
-    const SUCCESS_ADMIN_NEW_MATERIA    = "eSYaic9e";
-    const SUCCESS_ADMIN_UPDATE_MATERIA    = "deYauc9o";
-
-    const SUCCESS_ADMIN_NEW_PERIODO    = "RqYair9e";
-    const SUCCESS_ADMIN_UPDATE_PERIODO    = "yeYxsc9o";
-
+    const SUCCESS_ADMIN_NEW_AULA         = "f52245";
+    const SUCCESS_ADMIN_UPDATE_AULA      = "52ccR4";
+    const SUCCESS_ADMIN_NEW_MATERIA      = "eSYaic9e";
+    const SUCCESS_ADMIN_UPDATE_MATERIA   = "deYauc9o";
+    const SUCCESS_ADMIN_NEW_PERIODO      = "RqYair9e";
+    const SUCCESS_ADMIN_UPDATE_PERIODO   = "yeYxsc9o";
     const SUCCESS_ADMIN_NEW_ACTIVIDAD    = "s3Yaid9e";
-    const SUCCESS_ADMIN_UPDATE_ACTIVIDAD    = "jt3636c";
-
-    const SUCCESS_ADMIN_NEW_GRADO    = "tR3dz9e";
-    const SUCCESS_ADMIN_UPDATE_GRADO    = "jtD83Vc";
-
-    const SUCCESS_ADMIN_NEW_MAESTRO    = "edabc9e";
-    const SUCCESS_ADMIN_UPDATE_MAESTRO    = "T4sD8cVc";
-
-    
-    const SUCCESS_ADMIN_NEW_PAGO    = "PdaDDc9e";
-    const SUCCESS_ADMIN_NEW_USUARIO    = "8281e0";
-
-
-    const SUCCESS_PROFESOR_NEW    = "Gi51e4";
-    const SUCCESS_ACTIVIDA_REALIZA  = "f6acb0";
-    const SUCCESS_ACTIVIDA_ENVIADA  = "a901d2";
-    const SUCCESS_ACTIVIDA_CALIFICADA  = "2ccfc138";
-
-
-    const SUCCESS_SIGNUP_NEWUSER       = "d52ccf";
+    const SUCCESS_ADMIN_UPDATE_ACTIVIDAD = "jt3636c";
+    const SUCCESS_ADMIN_NEW_GRADO        = "tR3dz9e";
+    const SUCCESS_ADMIN_UPDATE_GRADO     = "jtD83Vc";
+    const SUCCESS_ADMIN_NEW_MAESTRO      = "edabc9e";
+    const SUCCESS_ADMIN_UPDATE_MAESTRO   = "T4sD8cVc";
+    const SUCCESS_ADMIN_NEW_PAGO         = "PdaDDc9e";
+    const SUCCESS_ADMIN_NEW_USUARIO      = "8281e0";
+    const SUCCESS_PROFESOR_NEW           = "Gi51e4";
+    const SUCCESS_ACTIVIDA_REALIZA       = "f6acb0";
+    const SUCCESS_ACTIVIDA_ENVIADA       = "a901d2";
+    const SUCCESS_ACTIVIDA_CALIFICADA    = "2ccfc138";
+    const SUCCESS_SIGNUP_NEWUSER         = "d52ccf";
     
     private $successList = [];
 
