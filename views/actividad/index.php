@@ -1,4 +1,4 @@
-<?php $profesor = $this->d['profesor'];?>
+<?php $profesor = $this->d['profesor']; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,28 +16,24 @@
   <div class="container-fluid">
     <?php $this->showMessages(); ?>
     <a href="<?php echo constant('URL') . 'actividad/calificarAct/' ?>" class="btn btn-warning ">Calificar actividades</a><br><br>
-      <?php foreach ($this->varTodas as $row) {
-        $NMaterias = new varTodas();
-        $NMaterias = $row;
-        //var_dump($NMaterias);
-      ?>
-          <div class="card">
-      <h5 class="card-header"></h5>
-      <div class="card-body">
-        <h3 class="card-title"><?php echo $NMaterias->vw_dfm_nombre_materia; ?></h3>
-        <p class="card-text">Grado: <?php echo $NMaterias->vw_dfm_nombre_grado; ?> Aula :<?php echo $NMaterias->vw_dfm_nombre_aula; ?></p>
-        <p class="card-text">Actividades : Sin calificar 10</p>
-        <div class="col-12 d-flex justify-content-end mt-4">
-        <a href="<?php echo constant('URL') . 'actividad/verDetalle/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-success me-1">Crear</a>
-        <a href="<?php echo constant('URL') . 'actividad/Consultar/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-primary me-1">Consultar</a>  
+    <?php foreach ($this->varTodas as $row) {
+      $NMaterias = new varTodas();
+      $NMaterias = $row;    ?>
+      <div class="card">
+        <h5 class="card-header"></h5>
+        <div class="card-body">
+          <h3 class="card-title"><?php echo $NMaterias->vw_dfm_nombre_materia; ?></h3>
+          <p class="card-text">Grado: <?php echo $NMaterias->vw_dfm_nombre_grado; ?> Aula :<?php echo $NMaterias->vw_dfm_nombre_aula; ?></p>
+          <p class="card-text">Actividades : Sin calificar 10</p>
+          <div class="col-12 d-flex justify-content-end mt-4">
+            <a href="<?php echo constant('URL') . 'actividad/verDetalle/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-success me-1">Crear</a>
+            <a href="<?php echo constant('URL') . 'actividad/Consultar/' . $NMaterias->vw_dfm_id_materia ?>" class="btn btn-primary me-1">Consultar</a>
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
-
-      <?php } ?>
-
+    <?php } ?>
   </div>
-    <?php require 'views/template/footerMaestro.php'; ?>
+  <?php require 'views/template/footerMaestro.php'; ?>
 </body>
 
 </html>

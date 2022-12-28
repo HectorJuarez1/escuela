@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/assets/images/icono.png" type="image/x-icon">
     <title>Administrador</title>
 </head>
+
 <body>
 
     <?php require 'views/template/header.php'; ?>
@@ -122,25 +123,19 @@
                 <?php foreach ($this->DatosGraficaP as $row) {
                     $Dgrafica = new varPagos();
                     $Dgrafica = $row;
-                    ?>['<?php echo $Dgrafica->Concepto;  ?> <?php echo  $Dgrafica->TotalPagos;  ?>', <?php echo  $Dgrafica->TotalPagos;?>],
+                ?>['<?php echo $Dgrafica->Concepto;  ?> <?php echo  $Dgrafica->TotalPagos;  ?>',
+                        <?php echo  $Dgrafica->TotalPagos; ?>],
                 <?php } ?>
             ]);
             var options = {
                 chart: {
                     title: 'PAGOS DEL MES',
-                    
-                    
-
                 }
             };
             var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
             chart.draw(data, google.charts.Bar.convertOptions(options));
         }
     </script>
-
-
-
-
     <?php require 'views/template/footer.php'; ?>
 </body>
 

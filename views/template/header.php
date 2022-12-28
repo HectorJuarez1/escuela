@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/css/app.css">
     <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/assets/images/icono.png" type="image/x-icon">
-   
+
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/vendors/simple-datatables/style.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
 
@@ -30,7 +30,7 @@
                         <li class='sidebar-title '>Menú principal</li>
                         <li class="sidebar-item ">
                             <a href="<?php echo constant('URL'); ?>admin" class='sidebar-link'>
-                            <i data-feather="home" width="20"></i> 
+                                <i data-feather="home" width="20"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
@@ -46,7 +46,7 @@
                                 <li>
                                     <a href="<?php echo constant('URL'); ?>alumnos">Alumnos</a>
                                 </li>
-<!--                                 <li>
+                                <!--                                 <li>
                                     <a href="<?php echo constant('URL'); ?>tutor">Padre / Tutor</a>
                                 </li> -->
                                 <li>
@@ -122,7 +122,7 @@
                                 <div class="avatar me-2">
                                     <img src="<?php echo constant('URL'); ?>public/assets/images/avatar/usuario.png" alt="" srcset="">
                                 </div>
-                                
+
                                 <div class="d-none d-md-block d-lg-inline-block">admin</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">

@@ -1,134 +1,124 @@
 {
-    "sites":[
+    "sites": [
         {
-            "site" : "", 
-            "access" : "public", 
-            "role" : ""
+            "site": "",
+            "access": "public",
+            "role": ""
         },
         {
-            "site" : "signup", 
-            "access" : "public", 
-            "role" : ""
+            "site": "signup",
+            "access": "public",
+            "role": ""
         },
         {
-            "site" : "Newusuario", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "Newusuario",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "Pagos", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "Pagos",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "profesormateria", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "profesormateria",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "profesoralumnos", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "profesoralumnos",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "periodos", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "periodos",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "materias", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "materias",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "aulas", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "aulas",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "grados", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "grados",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "maestros", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "maestros",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "tutor", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "tutor",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "alumnos", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "alumnos",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "materiasAlumno", 
-            "access" : "private", 
-            "role" : "user"
+            "site": "materiasAlumno",
+            "access": "private",
+            "role": "user"
         },
         {
-            "site" : "pagosAlumno", 
-            "access" : "private", 
-            "role" : "user"
+            "site": "pagosAlumno",
+            "access": "private",
+            "role": "user"
         },
         {
-            "site" : "actividadAlumnos", 
-            "access" : "private", 
-            "role" : "user"
+            "site": "actividadAlumnos",
+            "access": "private",
+            "role": "user"
         },
         {
-            "site" : "user", 
-            "access" : "private", 
-            "role" : "user"
+            "site": "user",
+            "access": "private",
+            "role": "user"
         },
         {
-            "site" : "calificacionesAlumnos", 
-            "access" : "private", 
-            "role" : "user"
+            "site": "calificacionesAlumnos",
+            "access": "private",
+            "role": "user"
         },
         {
-            "site" : "admin", 
-            "access" : "private", 
-            "role" : "admin"
+            "site": "admin",
+            "access": "private",
+            "role": "admin"
         },
         {
-            "site" : "profesor", 
-            "access" : "private", 
-            "role" : "profesor"
+            "site": "profesor",
+            "access": "private",
+            "role": "profesor"
         },
         {
-            "site" : "clasesMaestro", 
-            "access" : "private", 
-            "role" : "profesor"
+            "site": "clasesMaestro",
+            "access": "private",
+            "role": "profesor"
         },
         {
-            "site" : "asistencias", 
-            "access" : "private", 
-            "role" : "profesor"
+            "site": "asistencias",
+            "access": "private",
+            "role": "profesor"
         },
         {
-            "site" : "actividad", 
-            "access" : "private", 
-            "role" : "profesor"
+            "site": "actividad",
+            "access": "private",
+            "role": "profesor"
         }
-
-
-
-
-
-
-
-        
     ],
-
-    "default-sites":{
+    "default-sites": {
         "user": "user",
         "admin": "admin",
         "profesor": "profesor"
-        
     }
 }

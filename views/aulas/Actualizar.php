@@ -33,7 +33,6 @@
                                 <option value="100">Activo</option>
                                 ';
                             }
-
                             ?>
                         </select>
                     </div>
@@ -46,5 +45,4 @@
     </div>
     <?php require 'views/template/footer.php'; ?>
 </body>
-
 </html>

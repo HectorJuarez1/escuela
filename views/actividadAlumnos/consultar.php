@@ -15,30 +15,22 @@
 
   <div class="container-fluid">
     <?php $this->showMessages(); ?>
-
     <?php foreach ($this->varTodas as $row) {
       $Actividad = new varTodas();
-      $Actividad = $row;
-      //var_dump($Actividad);
-    ?>
+      $Actividad = $row; ?>
       <div class="card">
         <div class="card-body">
           <a href="<?php echo constant('URL') . 'actividadAlumnos/Detalle/' . $Actividad->vw_act_actividad_id ?>" class="link-primary">
-          <h3 class="card-title text-primary"><?php echo $Actividad->vw_act_nombre_actividad; ?></h3><br>
-          <h3 class="card-title text-primary"><?php echo $Actividad->vw_act_titulo; ?></h3><br>
+            <h3 class="card-title text-primary"><?php echo $Actividad->vw_act_nombre_actividad; ?></h3><br>
+            <h3 class="card-title text-primary"><?php echo $Actividad->vw_act_titulo; ?></h3><br>
           </a>
           <p class="card-text">Descripcion :<?php echo " " . $Actividad->vw_act_descripcion; ?></p>
           <p class="card-text">Horas : <?php echo $Actividad->vw_act_DiasEntrega . " Hrs"; ?></p>
           <p class="card-text">Fecha Limite : <?php echo $Actividad->vw_act_fecha_fin ?></p>
         </div>
       </div>
-
     <?php } ?>
-
   </div>
-
-
-
   <?php require 'views/template/footerAlumnos.php'; ?>
 </body>
 

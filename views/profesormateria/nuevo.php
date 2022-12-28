@@ -17,7 +17,6 @@
         <h1 class="h2 mb-0 text-gray-800">ASIGNAR MAESTROS</h1>
     </div>
 
-
     <div class="card">
         <div class="card-body">
             <form class="row p-3" action="<?php echo constant('URL'); ?>profesormateria/saveProfesorMateria" method="POST">

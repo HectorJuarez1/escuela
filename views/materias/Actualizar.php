@@ -25,18 +25,18 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-              <div class="form-group">
-                <label  class="form-label">Dia Semana</label>
-                <select class="form-select" name="com_DiaSemana" required>
-                  <option selected>Selección</option>
-                  <option value="Lunes">Lunes</option>
-                  <option value="Martes">Martes</option>
-                  <option value="Miercoles">Miercoles</option>
-                  <option value="Jueves">Jueves</option>
-                  <option value="Viernes">Viernes</option>
-                </select>
-              </div>
-            </div>
+                        <div class="form-group">
+                            <label class="form-label">Dia Semana</label>
+                            <select class="form-select" name="com_DiaSemana" required>
+                                <option selected>Selección</option>
+                                <option value="Lunes">Lunes</option>
+                                <option value="Martes">Martes</option>
+                                <option value="Miercoles">Miercoles</option>
+                                <option value="Jueves">Jueves</option>
+                                <option value="Viernes">Viernes</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label class="form-label">Hora Inicio</label>

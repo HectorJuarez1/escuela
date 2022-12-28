@@ -1,6 +1,5 @@
 <?php
 $profesor = $this->d['profesor'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +11,7 @@ $profesor = $this->d['profesor'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asistencias</title>
 </head>
+
 <body>
     <?php require 'views/template/headerMaestro.php'; ?>
     <?php $this->showMessages(); ?>
@@ -35,19 +35,15 @@ $profesor = $this->d['profesor'];
                         <tr>
                             <td><?php echo $MateriaAs->vw_dfm_nombre_materia; ?></td>
                             <td class="text-center">
-                                <a href="<?php echo constant('URL') . 'asistencias/verDetalle/' . $MateriaAs->vw_dfm_proceso_id; ?>" class="btn icon btn-primary"> <i data-feather="user"></i></a></td>
+                                <a href="<?php echo constant('URL') . 'asistencias/verDetalle/' . $MateriaAs->vw_dfm_proceso_id; ?>" class="btn icon btn-primary"> <i data-feather="user"></i></a>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
         </div>
     </div>
-
-
-
-
     <?php require 'views/template/footerMaestro.php'; ?>
-
 </body>
 
 </html>

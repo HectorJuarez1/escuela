@@ -27,5 +27,3 @@ class Session{
         return isset($_SESSION[$this->sessionName]);
     }
 }
-
-?>

@@ -12,8 +12,8 @@
 <body>
     <?php require 'views/template/header.php'; ?>
 
-    <?php $this->showMessages(); 
-                    $NumerodPedido = "PR" . date("mdHi");
+    <?php $this->showMessages();
+    $NumerodPedido = "PR" . date("mdHi");
     ?>
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -23,12 +23,12 @@
         <div class="card-body">
             <form class="row p-3" action="saveMaestro" method="POST">
                 <div class="row">
-                <div class="col-md-12 col-12">
-                            <div class="form-group">
-                                <label>No_Profesor</label>
-                                <input type="text" class="form-control" name="txt_No_Profesor" value="<?php echo $NumerodPedido; ?>" readonly>
-                            </div>
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label>No_Profesor</label>
+                            <input type="text" class="form-control" name="txt_No_Profesor" value="<?php echo $NumerodPedido; ?>" readonly>
                         </div>
+                    </div>
                     <div class="col-md-3 col-12">
                         <div class="form-group">
                             <label>Cedula</label>

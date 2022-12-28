@@ -17,7 +17,7 @@
   <a href="<?php echo constant('URL'); ?>profesormateria/new" class="btn btn-success rounded-pill">Nuevo</a><br><br>
   <div class="card">
     <div class="card-header">
-    ASIGNAR MAESTROS
+      ASIGNAR MAESTROS
     </div>
     <div class="card-body">
       <table class="table table-striped text-center" id="table1">
@@ -54,8 +54,6 @@
       </table>
     </div>
   </div>
-
-
   <?php require 'views/template/footer.php'; ?>
 </body>
 

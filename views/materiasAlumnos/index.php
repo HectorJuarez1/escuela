@@ -53,8 +53,6 @@
             </div>
         </div>
     </div>
-
-
     <?php require 'views/template/footerAlumnos.php'; ?>
 </body>
 

@@ -40,10 +40,7 @@
                 </a>
             </div>
         </div>
-
-
     </div>
-
     <?php require 'views/template/footer.php'; ?>
 </body>
 

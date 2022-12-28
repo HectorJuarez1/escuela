@@ -33,7 +33,6 @@
                                 <option value="100">Activo</option>
                                 ';
                             }
-
                             ?>
                         </select>
                     </div>

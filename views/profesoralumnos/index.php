@@ -49,8 +49,6 @@
             </table>
         </div>
     </div>
-
-
     <?php require 'views/template/footer.php'; ?>
 </body>
 

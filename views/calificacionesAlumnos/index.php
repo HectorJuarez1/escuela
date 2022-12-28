@@ -26,7 +26,6 @@
                         <th class="text-center">Calificacion</th>
                         <th class="text-center">Retroalimentación</th>
                         <th class="text-center">Estatus</th>
-
                     </tr>
                 </thead>
                 <tbody>

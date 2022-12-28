@@ -78,7 +78,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="col-12 d-flex justify-content-end mt-4">
                             <button type="submit" class="btn btn-warning me-1 mb-1">Actualizar</button>
                         </div>
