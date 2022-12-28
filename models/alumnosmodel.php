@@ -7,8 +7,6 @@ class AlumnosModel extends Model
     {
         parent::__construct();
     }
-
-
     public function ValidarMatricula($No_Alumno)
     {
         try {
@@ -17,13 +15,10 @@ class AlumnosModel extends Model
             $numero = $query->fetchColumn();
             return $numero;
         } catch (PDOException $e) {
-            echo 'Error en la linea' . $e->getLine();
+          //  echo 'Error en la linea' . $e->getLine();
             return null;
         }
     }
-
-
-
     public function getAllAlumnos()
     {
         $items = [];
@@ -45,22 +40,6 @@ class AlumnosModel extends Model
             return [];
         }
     }
-    /*     public function getTutor()
-        {
-            $items = [];
-            try {
-                $query = $this->db->connect()->query('SELECT * FROM vw_com_tutor');
-                while ($row = $query->fetch()) {
-                    $item = new varTodas();
-                    $item->vw_id_Tutor = $row['id_Tutor'];
-                    $item->vw_Nombre_tutor = $row['Nombre_Completo'];
-                    array_push($items, $item);
-                }
-                return $items;
-            } catch (PDOException $e) {
-                return [];
-            }
-        } */
     public function insertAlumno($datos)
     {
         try {
@@ -132,8 +111,7 @@ class AlumnosModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
-
+           // error_log($e->getMessage());
             return false;
         }
     }

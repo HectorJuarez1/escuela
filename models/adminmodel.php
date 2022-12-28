@@ -1,10 +1,11 @@
-
 <?php
 include_once 'models/varTodas.php';
 include_once 'models/varPagos.php';
-class AdminModel extends Model{
+class AdminModel extends Model
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
     }
 
@@ -20,7 +21,7 @@ class AdminModel extends Model{
             }
             return $items;
         } catch (PDOException $e) {
-                        error_log($e->getMessage());
+           // error_log($e->getMessage());
             return [];
         }
     }
@@ -37,12 +38,10 @@ class AdminModel extends Model{
             }
             return $items;
         } catch (PDOException $e) {
-                        error_log($e->getMessage());
+           // error_log($e->getMessage());
             return [];
         }
     }
-
-
     public function getAllConPago()
     {
         $items = [];
@@ -57,20 +56,11 @@ class AdminModel extends Model{
             }
             return $items;
         } catch (PDOException $e) {
-                        error_log($e->getMessage());
+          //  error_log($e->getMessage());
             return [];
         }
     }
 
-
-
-
-
-
-
-
-
-    
     public function getAllConMat()
     {
         $items = [];
@@ -83,14 +73,10 @@ class AdminModel extends Model{
             }
             return $items;
         } catch (PDOException $e) {
-                        error_log($e->getMessage());
+           // error_log($e->getMessage());
             return [];
         }
     }
-
-
-
-
     public function getAllGrafica()
     {
         $items = [];
@@ -105,17 +91,10 @@ class AdminModel extends Model{
             }
             return $items;
         } catch (PDOException $e) {
-                        error_log($e->getMessage());
+          //  error_log($e->getMessage());
             return [];
         }
     }
-
-
-
-
-
-
-
 }
 
 ?>

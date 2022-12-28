@@ -1,14 +1,12 @@
 <?php
-
-class Admin extends SessionController{
-
-    function __construct(){
-        
+class Admin extends SessionController
+{
+    function __construct()
+    {
         parent::__construct();
-        
     }
-    function render(){
-
+    function render()
+    {
         $Alumnos = $this->model->getAllConAlum();
         $this->view->TotalAlumnos = $Alumnos;
         $Profesores = $this->model->getAllConProf();
@@ -17,16 +15,8 @@ class Admin extends SessionController{
         $this->view->TotalPagos = $Pagos;
         $Materias = $this->model->getAllConMat();
         $this->view->TotalMaterias = $Materias;
-
         $GraficaP = $this->model->getAllGrafica();
         $this->view->DatosGraficaP = $GraficaP;
-        
-
         $this->view->render('admin/index');
-
     }
-
-    
 }
-
-?>

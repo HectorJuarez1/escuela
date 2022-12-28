@@ -16,7 +16,6 @@ class AsistenciasModel extends Model {
                 $item = new varTodas();
                 $item->vw_dfm_proceso_id = $row['proceso_id'];
                 $item->vw_dfm_nombre_materia = $row['nombre_materia'];
-                
                 array_push($items, $item);
             }
             return $items;
@@ -40,7 +39,7 @@ class AsistenciasModel extends Model {
             }
             return $items;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+           // error_log($e->getMessage());
             return null;
         }
     }

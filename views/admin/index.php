@@ -120,7 +120,7 @@
             var data = google.visualization.arrayToDataTable([
                 ['Concepto', 'Pagos'],
                 <?php foreach ($this->DatosGraficaP as $row) {
-                    $Dgrafica = new varTodas();
+                    $Dgrafica = new varPagos();
                     $Dgrafica = $row;
                     ?>['<?php echo $Dgrafica->Concepto;  ?> <?php echo  $Dgrafica->TotalPagos;  ?>', <?php echo  $Dgrafica->TotalPagos;?>],
                 <?php } ?>

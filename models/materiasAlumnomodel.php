@@ -6,8 +6,6 @@ class MateriasAlumnoModel extends Model {
     {
         parent::__construct();
     }
-
-
     public function getAllMaterias($id_alumno)
     {
         $items = [];

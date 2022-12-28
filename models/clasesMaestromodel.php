@@ -1,6 +1,7 @@
 <?php
 include_once 'models/varTodas.php';
-class ClasesMaestroModel extends Model {
+class ClasesMaestroModel extends Model
+{
 
     public function __construct()
     {
@@ -32,10 +33,9 @@ class ClasesMaestroModel extends Model {
             return null;
         }
     }
-
     public function getAllId($proceso_id)
     {
-        $items =[] ;
+        $items = [];
         $query = $this->db->connect()->prepare("SELECT proceso_id,No_Alumno,NombreAlumno from vw_detalle_alumnosasignados where proceso_id= :id_pro");
         try {
             $query->execute(['id_pro' => $proceso_id]);
@@ -44,14 +44,12 @@ class ClasesMaestroModel extends Model {
                 $item->vw_daa_proceso_id = $row['proceso_id'];
                 $item->vw_daa_No_Alumno = $row['No_Alumno'];
                 $item->vw_daa_NombreAlumno = $row['NombreAlumno'];
-                array_push($items,$item);
+                array_push($items, $item);
             }
             return $items;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            // error_log($e->getMessage());
             return null;
         }
     }
-
-
 }

@@ -24,7 +24,6 @@ class varTodas{
     public $role;
     public $name;
 
-
     // maestros
     public $vw_m_profesor_id;
     public $vw_m_Cedula;
@@ -42,8 +41,6 @@ class varTodas{
     public $vw_m_estatus_maestro_id;
     public $vw_m_Estatus_Detalle;
 
-
-    
     // grados
     public $grado_id;
     public $nombre_grado;
@@ -75,8 +72,6 @@ class varTodas{
     public $periodo_id;
     public $nombre_periodo;
     public $estatus_periodos_id;
-
-
 
     // profesormateria
     public $vw_pm_proceso_id;
@@ -150,7 +145,6 @@ class varTodas{
     public $vw_act_id_materia;
     public $vw_act_estatus_actividad_id;
 
-
     //vw_detalle_calificacion
     public $vw_ca_calificacion_id;
     public $vw_ca_nombre_actividad;
@@ -160,7 +154,6 @@ class varTodas{
     public $vw_ca_ruta_archivo;
     public $vw_ca_no_profesor;
     public $vw_ca_id_estatus;
-
     public $vw_ca_calificacion_actividad;
     public $vw_ca_comentario;
 

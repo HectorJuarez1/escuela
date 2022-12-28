@@ -65,8 +65,6 @@ class MateriasModel extends Model
         }
     }
 
-
-
     public function insertMateria($datos)
     {
         try {
@@ -83,7 +81,7 @@ class MateriasModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            //  error_log($e->getMessage());
             return false;
         }
     }
@@ -124,7 +122,7 @@ class MateriasModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            // error_log($e->getMessage());
             return false;
         }
     }

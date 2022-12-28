@@ -26,10 +26,8 @@ class CalificacionesAlumnosModel extends Model
             }
             return $items;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            // error_log($e->getMessage());
             return null;
         }
     }
-
- 
 }

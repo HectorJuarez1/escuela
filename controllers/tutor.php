@@ -30,13 +30,13 @@ class Tutor extends SessionController
         $datos[7]  = trim($_POST['txt_sexo']);
         if ($this->model->insertTutor([
             'txt_nombre' => $datos[0], 'txt_ApPaterno' => $datos[1], 'txt_ApMaterno' => $datos[2], 'txt_Direccion' => $datos[3],
-            'txt_tel_casa' => $datos[4], 'txt_celular' => $datos[5], 'txt_correo' => $datos[6],'txt_sexo'=>$datos[7]
+            'txt_tel_casa' => $datos[4], 'txt_celular' => $datos[5], 'txt_correo' => $datos[6], 'txt_sexo' => $datos[7]
         ])) {
             error_log('saveAl::Nuevo Padre / Tutor Creado');
             $this->redirect('tutor', ['success' => Success::SUCCESS_ADMIN_NEW_TUTOR]);
         } else {
-           // error_log('saveAl::Error al crear alumno');
-           // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+            // error_log('saveAl::Error al crear alumno');
+            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
 
@@ -72,7 +72,7 @@ class Tutor extends SessionController
         if ($this->model->update([
             'id_Tutor' => $Dtutor[0], 'txt_nombre' =>  $Dtutor[1], 'txt_ApPaterno' =>  $Dtutor[2],
             'txt_ApMaterno' =>  $Dtutor[3], 'txt_Direccion' =>  $Dtutor[4], 'txt_tel_casa' =>  $Dtutor[5],
-            'txt_celular' =>  $Dtutor[6],'txt_correo' =>  $Dtutor[7],'txt_sexo' =>  $Dtutor[8]
+            'txt_celular' =>  $Dtutor[6], 'txt_correo' =>  $Dtutor[7], 'txt_sexo' =>  $Dtutor[8]
         ])) {
             // actualizar exito
             $tutor = new varTodas();

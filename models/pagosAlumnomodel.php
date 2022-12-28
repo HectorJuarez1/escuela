@@ -1,12 +1,12 @@
 <?php
 include_once 'models/varPagos.php';
-class pagosAlumnoModel extends Model {
+class pagosAlumnoModel extends Model
+{
 
     public function __construct()
     {
         parent::__construct();
     }
-
 
     public function getAllPagos($id_alumno)
     {
@@ -24,7 +24,7 @@ class pagosAlumnoModel extends Model {
             }
             return $items;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+           // error_log($e->getMessage());
             return null;
         }
     }

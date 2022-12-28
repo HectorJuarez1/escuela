@@ -15,8 +15,6 @@ class Alumnos extends SessionController
 
     function new()
     {
-    /*   $tutor = $this->model->getTutor();
-        $this->view->TutorCom = $tutor; */
         $this->view->render('alumnos/nuevo');
     }
 
@@ -34,13 +32,13 @@ class Alumnos extends SessionController
         move_uploaded_file($archivotm, $ruta . $datos[6]);
         $datos[7]   = trim($_POST['txt_No_Alumno']);
         //validar numero de usuario
-        $numero =$this->model->ValidarMatricula($datos[7]);
-        if ( $numero >=1) {
+        $numero = $this->model->ValidarMatricula($datos[7]);
+        if ($numero >= 1) {
             echo "Este usuario ya fue registrado";
-        }else{
+        } else {
             if ($this->model->insertAlumno([
                 'txt_nombre' => $datos[0], 'txt_ApPaterno' => $datos[1], 'txt_ApMaterno' => $datos[2], 'txt_FeNacimiento' => $datos[3],
-                'txt_sexo' => $datos[4], 'txt_curp' => $datos[5], 'filename' => $datos[6],'txt_No_Alumno'=> $datos[7]
+                'txt_sexo' => $datos[4], 'txt_curp' => $datos[5], 'filename' => $datos[6], 'txt_No_Alumno' => $datos[7]
             ])) {
                 error_log('saveAl::Nuevo AlumnoCreado');
                 $this->redirect('alumnos', ['success' => Success::SUCCESS_ADMIN_NEW_ALUMNO]);
@@ -81,7 +79,7 @@ class Alumnos extends SessionController
         if ($this->model->update([
             'txt_IdAlumno' => $Dalumnos[0], 'txt_nombre' =>  $Dalumnos[1], 'txt_ApPaterno' =>  $Dalumnos[2],
             'txt_ApMaterno' =>  $Dalumnos[3], 'txt_FeNacimiento' =>  $Dalumnos[4], 'txt_sexo' =>  $Dalumnos[5],
-            'txt_curp' =>  $Dalumnos[6],'com_estatus' =>  $Dalumnos[7]
+            'txt_curp' =>  $Dalumnos[6], 'com_estatus' =>  $Dalumnos[7]
         ])) {
             // actualizar alumno exito
             $alumnos = new varTodas();

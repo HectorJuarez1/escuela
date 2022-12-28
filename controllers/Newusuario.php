@@ -27,25 +27,25 @@ class Newusuario extends SessionController
     }
     function verDetalle()
     {
-            $Nalumno[0]  = trim($_POST['txt_buscar']);
-            if ($Nalumno[0]  == '') {
-                $this->view->render('Newusuario/nuevo');
-            } else {
-                $Alumnos = $this->model->getAllDNombres($Nalumno[0]);
-                $this->view->DatosUsuario = $Alumnos;
-                $this->view->render('Newusuario/nuevo');
-            } 
+        $Nalumno[0]  = trim($_POST['txt_buscar']);
+        if ($Nalumno[0]  == '') {
+            $this->view->render('Newusuario/nuevo');
+        } else {
+            $Alumnos = $this->model->getAllDNombres($Nalumno[0]);
+            $this->view->DatosUsuario = $Alumnos;
+            $this->view->render('Newusuario/nuevo');
+        }
     }
     function verDetalleM()
     {
-            $Nmaestro[0]  = trim($_POST['txt_buscarM']);
-            if ($Nmaestro[0]  == '') {
-                $this->view->render('Newusuario/nuevoMaestro');
-            } else {
-                $Maestros = $this->model->getAllDMaestro($Nmaestro[0]);
-                $this->view->DatosMaestro = $Maestros;
-                $this->view->render('Newusuario/nuevoMaestro');
-            } 
+        $Nmaestro[0]  = trim($_POST['txt_buscarM']);
+        if ($Nmaestro[0]  == '') {
+            $this->view->render('Newusuario/nuevoMaestro');
+        } else {
+            $Maestros = $this->model->getAllDMaestro($Nmaestro[0]);
+            $this->view->DatosMaestro = $Maestros;
+            $this->view->render('Newusuario/nuevoMaestro');
+        }
     }
     function saveUs()
     {
@@ -55,10 +55,10 @@ class Newusuario extends SessionController
         $pass_cifrado = password_hash($datos[2], PASSWORD_DEFAULT, array("cost" => 10));
         $datos[3]  = trim($_POST['txt_Nom_Completo']);
         //validar id de usuario
-        $numero =$this->model->ValidarIdUsuario($datos[0]);
-        if ($numero >=1) {
+        $numero = $this->model->ValidarIdUsuario($datos[0]);
+        if ($numero >= 1) {
             $this->redirect('Newusuario', ['error' => Errors::ERROR_SIGNUP_NEWUSER_EXISTS]);
-        }else{
+        } else {
             if ($this->model->insertUsuario([
                 'txt_no_usuario' => $datos[0], 'txt_usuario' => $datos[1], 'txt_passw' => $pass_cifrado, 'txt_Nom_Completo' => $datos[3]
             ])) {
@@ -70,8 +70,6 @@ class Newusuario extends SessionController
             }
         }
     }
-
-
     function saveUsMa()
     {
         $datos[0]  = trim($_POST['txt_no_maestro']);
@@ -79,12 +77,11 @@ class Newusuario extends SessionController
         $datos[2]  = trim($_POST['txt_passw']);
         $pass_cifrado = password_hash($datos[2], PASSWORD_DEFAULT, array("cost" => 10));
         $datos[3]  = trim($_POST['txt_Nom_Completo']);
-          //validar id de usuario
-            $numero =$this->model->ValidarIdUsuario($datos[0]);
-            if ($numero >=1) {
-                $this->redirect('Newusuario', ['error' => Errors::ERROR_SIGNUP_NEWUSER_EXISTS]);
-        }else
-        {
+        //validar id de usuario
+        $numero = $this->model->ValidarIdUsuario($datos[0]);
+        if ($numero >= 1) {
+            $this->redirect('Newusuario', ['error' => Errors::ERROR_SIGNUP_NEWUSER_EXISTS]);
+        } else {
             if ($this->model->insertMaestro([
                 'txt_no_usuario' => $datos[0], 'txt_usuario' => $datos[1], 'txt_passw' => $pass_cifrado, 'txt_Nom_Completo' => $datos[3]
             ])) {

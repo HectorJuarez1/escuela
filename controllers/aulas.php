@@ -9,22 +9,21 @@ class Aulas extends SessionController
     function render()
     {
         $Naulas = $this->model->getAllAulas();
-        $this->view->varTodas = $Naulas; 
+        $this->view->varTodas = $Naulas;
         $this->view->render('aulas/index');
     }
-    
+
     function saveAulas()
     {
         $datos[0]  = trim($_POST['txt_NomGrado']);
-
         if ($this->model->insertAula([
             'txt_NomGrado' => $datos[0]
         ])) {
             error_log('saveAulas::Nuevo Aula creado');
             $this->redirect('aulas', ['success' => Success::SUCCESS_ADMIN_NEW_AULA]);
         } else {
-           // error_log('saveAl::Error al crear alumno');
-           // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+            // error_log('saveAl::Error al crear alumno');
+            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
     function eliminarAul($param = null)
@@ -53,7 +52,7 @@ class Aulas extends SessionController
         if ($this->model->update([
             'txt_IdAulas' => $Daulas[0], 'txt_NomGrado' =>  $Daulas[1], 'com_estatus' =>  $Daulas[2]
         ])) {
-            // actualizar maestro exito
+            // actualizar con exito
             $aulas = new varTodas();
             $aulas->aula_id = $Daulas[0];
             $aulas->nombre_aula =  $Daulas[1];
@@ -65,6 +64,4 @@ class Aulas extends SessionController
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }
     }
-
-
 }
