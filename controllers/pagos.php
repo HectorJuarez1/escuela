@@ -16,21 +16,17 @@ class Pagos extends SessionController
     {
         $this->view->render('Pagos/nuevo');
     }
-
- 
     function verDetalle()
     {
-            $Nalumno[0]  = trim($_POST['txt_buscar']);
-            if ($Nalumno[0]  == '') {
-                $this->view->render('Pagos/nuevo');
-            } else {
-                $Alumnos = $this->model->getAllDNombres($Nalumno[0]);
-                $this->view->DatosUsuario = $Alumnos;
-                $this->view->render('Pagos/nuevo');
-            } 
+        $Nalumno[0]  = trim($_POST['txt_buscar']);
+        if ($Nalumno[0]  == '') {
+            $this->view->render('Pagos/nuevo');
+        } else {
+            $Alumnos = $this->model->getAllDNombres($Nalumno[0]);
+            $this->view->DatosUsuario = $Alumnos;
+            $this->view->render('Pagos/nuevo');
+        }
     }
-
-
     function savePa()
     {
         $datos[0]  = trim($_POST['txt_no_usuario']);
@@ -38,7 +34,7 @@ class Pagos extends SessionController
         $datos[2]  = trim($_POST['txt_Pago']);
         $datos[3]  = trim($_POST['com_concepto']);
         $datos[4]  = trim($_POST['com_Mes']);
-     
+
         if ($this->model->insertPago([
             'txt_no_usuario' => $datos[0], 'txt_Nom_Completo' => $datos[1], 'txt_Pago' => $datos[2], 'com_concepto' => $datos[3], 'com_Mes' => $datos[4]
         ])) {
@@ -59,6 +55,4 @@ class Pagos extends SessionController
             //   $this->redirect('c', ['error' => Errors::ERROR_NO_DELATE]);
         }
     }
-
-
 }

@@ -12,12 +12,12 @@ class Maestros extends SessionController
         $this->view->varTodas = $Nmaestros;
         $this->view->render('maestros/index');
     }
-    
+
     function new()
     {
         $this->view->render('maestros/nuevo');
     }
-    
+
     function saveMaestro()
     {
         $datos[0]  = trim($_POST['txt_cedula']);
@@ -30,14 +30,14 @@ class Maestros extends SessionController
         $datos[7]  = trim($_POST['txt_sexo']);
         $datos[8]  = trim($_POST['txt_No_Profesor']);
         if ($this->model->insertMaestro([
-            'txt_cedula' => $datos[0], 'txt_nombre' => $datos[1], 'txt_ApPaterno' => $datos[2],'txt_ApMaterno' => $datos[3], 
+            'txt_cedula' => $datos[0], 'txt_nombre' => $datos[1], 'txt_ApPaterno' => $datos[2], 'txt_ApMaterno' => $datos[3],
             'txt_direccion' => $datos[4], 'txt_telefono' => $datos[5], 'txt_FeNacimiento' => $datos[6], 'txt_sexo' => $datos[7], 'txt_No_Profesor' => $datos[8]
         ])) {
             error_log('saveUs::Nuevo maestro creado');
             $this->redirect('maestros', ['success' => Success::SUCCESS_ADMIN_NEW_MAESTRO]);
         } else {
-           // error_log('saveAl::Error al crear alumno');
-           // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+            // error_log('saveAl::Error al crear alumno');
+            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
     function eliminarMa($param = null)
@@ -73,7 +73,7 @@ class Maestros extends SessionController
         if ($this->model->update([
             'txt_idprofesor' => $Dmaestros[0], 'txt_cedula' =>  $Dmaestros[1], 'txt_nombre' =>  $Dmaestros[2],
             'txt_ApPaterno' =>  $Dmaestros[3], 'txt_ApMaterno' =>  $Dmaestros[4], 'txt_direccion' =>  $Dmaestros[5],
-            'txt_FeNacimiento' =>  $Dmaestros[6],'txt_telefono' =>  $Dmaestros[7],'txt_sexo' =>  $Dmaestros[8],'com_estatus' =>  $Dmaestros[9]
+            'txt_FeNacimiento' =>  $Dmaestros[6], 'txt_telefono' =>  $Dmaestros[7], 'txt_sexo' =>  $Dmaestros[8], 'com_estatus' =>  $Dmaestros[9]
         ])) {
             // actualizar maestro exito
             $maestros = new varTodas();
@@ -94,6 +94,4 @@ class Maestros extends SessionController
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }
     }
-
-
 }

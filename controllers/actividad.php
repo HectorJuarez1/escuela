@@ -26,8 +26,6 @@ class Actividad extends SessionController
         $this->view->render('actividad/calificar', ['profesor' => $this->profesor]);
     }
 
-
-
     function saveActividad()
     {
         $datos[0]  = strtoupper(trim($_POST['txt_nombre_act']));
@@ -38,7 +36,7 @@ class Actividad extends SessionController
         $datos[5]  = $_SESSION['id_materia'];
         $datos[6]  = $_SESSION['id_profesor'];
         if ($this->model->insertActividad([
-            'txt_nombre_act' => $datos[0],'txt_titulo_act' => $datos[1], 'txt_descripcion' => $datos[2], 'date_FInicio' => $datos[3],
+            'txt_nombre_act' => $datos[0], 'txt_titulo_act' => $datos[1], 'txt_descripcion' => $datos[2], 'date_FInicio' => $datos[3],
             'date_FFin' => $datos[4], 'id_materia' => $datos[5], 'id_profesor' => $datos[6]
         ])) {
             error_log('saveActividad::Nuevo actividad creada');
@@ -48,8 +46,6 @@ class Actividad extends SessionController
             // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
-
-
     function verDetalle($param = null)
     {
         $_SESSION['id_materia'] = $param[0];
@@ -110,18 +106,13 @@ class Actividad extends SessionController
         }
     }
 
-
     function ver($param = null)
     {
-
-
-                $_SESSION['id_call'] = $param[0];
-                $calif = $this->model->getUpActividad2($_SESSION['id_call']);
-                $this->view->varTodas = $calif;
-                $this->view->render('actividad/asignarcalif', ['profesor' => $this->profesor]);
+        $_SESSION['id_call'] = $param[0];
+        $calif = $this->model->getUpActividad2($_SESSION['id_call']);
+        $this->view->varTodas = $calif;
+        $this->view->render('actividad/asignarcalif', ['profesor' => $this->profesor]);
     }
-
-
 
     function CalificacionAct()
     {
@@ -140,17 +131,4 @@ class Actividad extends SessionController
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -9,10 +9,10 @@ class Periodos extends SessionController
     function render()
     {
         $Nperiodos = $this->model->getAllPeriodos();
-        $this->view->varTodas = $Nperiodos; 
+        $this->view->varTodas = $Nperiodos;
         $this->view->render('periodos/index');
     }
-    
+
     function savePeridos()
     {
         $datos[0]  = trim($_POST['txt_NomPeriodo']);
@@ -23,8 +23,8 @@ class Periodos extends SessionController
             error_log('savePeridos::Nuevo periodo creado');
             $this->redirect('periodos', ['success' => Success::SUCCESS_ADMIN_NEW_PERIODO]);
         } else {
-           // error_log('saveAl::Error al crear alumno');
-           // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+            // error_log('saveAl::Error al crear alumno');
+            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
     function eliminarPer($param = null)
@@ -65,6 +65,4 @@ class Periodos extends SessionController
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }
     }
-
-
 }

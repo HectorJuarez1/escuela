@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  
+
   <?php require 'views/template/header.php'; ?>
   <?php $this->showMessages(); ?>
 
@@ -22,7 +22,7 @@
       <table class="table table-striped text-center" id="table1">
         <thead>
           <tr>
-          <th class="text-center">No Alumno</th>
+            <th class="text-center">No Alumno</th>
             <th class="text-center">Nombre</th>
             <th class="text-center">Edad</th>
             <th class="text-center">Sexo</th>
@@ -48,8 +48,7 @@
                     echo '  <span class="badge bg-success">Activo</span>';
                   } elseif ($alumnos->vw_a_id_Estatus == 101) {
                     echo '<span class="badge bg-danger">Baja</span>';
-                  }
-                  elseif ($alumnos->vw_a_id_Estatus == 102) {
+                  } elseif ($alumnos->vw_a_id_Estatus == 102) {
                     echo '<span class="badge bg-warning">Baja Temporal</span>';
                   }
                   ?></td>
@@ -63,9 +62,6 @@
       </table>
     </div>
   </div>
-
-
-
   <?php require 'views/template/footer.php'; ?>
 </body>
 

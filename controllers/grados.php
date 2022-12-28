@@ -12,19 +12,18 @@ class Grados extends SessionController
         $this->view->varTodas = $Ngrados;
         $this->view->render('grados/index');
     }
-    
+
     function saveGrados()
     {
         $datos[0]  = trim($_POST['txt_NomGrado']);
-
         if ($this->model->insertGrado([
             'txt_NomGrado' => $datos[0]
         ])) {
             error_log('saveGrados::Nuevo grado creado');
             $this->redirect('grados', ['success' => Success::SUCCESS_ADMIN_NEW_GRADO]);
         } else {
-           // error_log('saveAl::Error al crear alumno');
-           // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
+            // error_log('saveAl::Error al crear alumno');
+            // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
     function eliminarGra($param = null)
@@ -65,6 +64,4 @@ class Grados extends SessionController
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }
     }
-
-
 }

@@ -24,7 +24,7 @@
         <table class='table table-striped' id="table1">
           <thead>
             <tr>
-            <th class="text-center">Nombre</th>
+              <th class="text-center">Nombre</th>
               <th class="text-center">Tema</th>
               <th class="text-center">Descripcion</th>
               <th class="text-center">Acciones</th>
@@ -36,12 +36,12 @@
               $Actividad = $row;
             ?>
               <tr class="text-center">
-              <td><?php echo $Actividad->nombre_actividad;?></td>
+                <td><?php echo $Actividad->nombre_actividad; ?></td>
                 <td><?php echo $Actividad->titulo; ?></td>
                 <td><?php echo $Actividad->descripcion; ?></td>
                 <td class="text-center">
                   <a href="<?php echo constant('URL') . 'actividad/Detalle/' . $Actividad->actividad_id ?>" class="btn icon btn-warning"> <i data-feather="edit-3"></i></a>
-                  <a href="<?php echo constant('URL') . 'actividad/elimAct/'. $Actividad->actividad_id  ?>" class="btn icon btn-danger"><i data-feather="x"></i></a>
+                  <a href="<?php echo constant('URL') . 'actividad/elimAct/' . $Actividad->actividad_id  ?>" class="btn icon btn-danger"><i data-feather="x"></i></a>
                 </td>
               </tr>
             <?php } ?>
@@ -49,9 +49,6 @@
         </table>
       </div>
     </div>
-
-
-
     <?php require 'views/template/footerMaestro.php'; ?>
 </body>
 

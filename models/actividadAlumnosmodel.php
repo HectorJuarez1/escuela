@@ -23,14 +23,14 @@ class ActividadAlumnosModel extends Model
             }
             return $items;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            // error_log($e->getMessage());
             return null;
         }
     }
 
     public function getById($materia_id)
     {
-    $items = [];
+        $items = [];
 
         try {
             $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_actividad WHERE id_materia = :id_mat AND estatus_actividad_id=110");
@@ -49,14 +49,10 @@ class ActividadAlumnosModel extends Model
             }
             return $items;
         } catch (PDOException $e) {
-                        error_log($e->getMessage());
+            //error_log($e->getMessage());
             return null;
         }
     }
-
-
-
-    
     public function getByAct($actividad_id)
     {
         $item = new varTodas();
@@ -71,18 +67,6 @@ class ActividadAlumnosModel extends Model
             return null;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
     public function insertCalificacion($datos)
     {
         try {
@@ -98,13 +82,10 @@ class ActividadAlumnosModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            //  error_log($e->getMessage());
             return false;
         }
     }
-
-
-
     public function ValidarActividad($datos)
     {
         try {
@@ -117,22 +98,8 @@ class ActividadAlumnosModel extends Model
             $numero = $query->fetchColumn();
             return $numero;
         } catch (PDOException $e) {
-            echo 'Error en la linea' . $e->getLine();
+            //  echo 'Error en la linea' . $e->getLine();
             return null;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -12,6 +12,7 @@ $profesor = $this->d['profesor'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asistencias</title>
 </head>
+
 <body>
     <?php require 'views/template/headerMaestro.php'; ?>
     <?php $this->showMessages(); ?>
@@ -36,17 +37,12 @@ $profesor = $this->d['profesor'];
                             <td><?php echo $Alasignados->vw_daa_No_Alumno; ?></td>
                             <td><?php echo $Alasignados->vw_daa_NombreAlumno; ?></td>
 
-                    <?php } ?>
+                        <?php } ?>
                 </tbody>
             </table>
         </div>
     </div>
-
-
-
-
     <?php require 'views/template/footerMaestro.php'; ?>
-
 </body>
 
 </html>

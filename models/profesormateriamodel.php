@@ -29,73 +29,73 @@ class ProfesormateriaModel extends Model
             return [];
         }
     }
-        public function getProfesor()
-        {
-            $items = [];
-            try {
-                $query = $this->db->connect()->query('SELECT profesor_id,Nombre_Completo FROM vw_detalle_maestros where estatus_maestro_id=100');
-                while ($row = $query->fetch()) {
-                    $item = new varTodas();
-                    $item->vw_m_profesor_id = $row['profesor_id'];
-                    $item->vw_m_Nombre_Completo = $row['Nombre_Completo'];
-                    array_push($items, $item);
-                }
-                return $items;
-            } catch (PDOException $e) {
-                return [];
+    public function getProfesor()
+    {
+        $items = [];
+        try {
+            $query = $this->db->connect()->query('SELECT profesor_id,Nombre_Completo FROM vw_detalle_maestros where estatus_maestro_id=100');
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->vw_m_profesor_id = $row['profesor_id'];
+                $item->vw_m_Nombre_Completo = $row['Nombre_Completo'];
+                array_push($items, $item);
             }
-        } 
-        public function getAulas()
-        {
-            $items = [];
-            try {
-                $query = $this->db->connect()->query('SELECT * FROM aulas where estatus_aulas_id=100');
-                while ($row = $query->fetch()) {
-                    $item = new varTodas();
-                    $item->aula_id = $row['aula_id'];
-                    $item->nombre_aula = $row['nombre_aula'];
-                    array_push($items, $item);
-                }
-                return $items;
-            } catch (PDOException $e) {
-                return [];
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+    public function getAulas()
+    {
+        $items = [];
+        try {
+            $query = $this->db->connect()->query('SELECT * FROM aulas where estatus_aulas_id=100');
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->aula_id = $row['aula_id'];
+                $item->nombre_aula = $row['nombre_aula'];
+                array_push($items, $item);
             }
-        } 
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
 
-        public function getPeriodos()
-        {
-            $items = [];
-            try {
-                $query = $this->db->connect()->query('SELECT * FROM periodos where estatus_periodos_id=100');
-                while ($row = $query->fetch()) {
-                    $item = new varTodas();
-                    $item->periodo_id = $row['periodo_id'];
-                    $item->nombre_periodo = $row['nombre_periodo'];
-                    array_push($items, $item);
-                }
-                return $items;
-            } catch (PDOException $e) {
-                return [];
+    public function getPeriodos()
+    {
+        $items = [];
+        try {
+            $query = $this->db->connect()->query('SELECT * FROM periodos where estatus_periodos_id=100');
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->periodo_id = $row['periodo_id'];
+                $item->nombre_periodo = $row['nombre_periodo'];
+                array_push($items, $item);
             }
-        } 
-        public function getMaterias()
-        {
-            $items = [];
-            try {
-                $query = $this->db->connect()->query('SELECT * FROM materias where estatus_materias_id=100');
-                while ($row = $query->fetch()) {
-                    $item = new varTodas();
-                    $item->materia_id = $row['materia_id'];
-                    $item->nombre_materia = $row['nombre_materia'];
-                    array_push($items, $item);
-                }
-                return $items;
-            } catch (PDOException $e) {
-                return [];
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+    public function getMaterias()
+    {
+        $items = [];
+        try {
+            $query = $this->db->connect()->query('SELECT * FROM materias where estatus_materias_id=100');
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->materia_id = $row['materia_id'];
+                $item->nombre_materia = $row['nombre_materia'];
+                array_push($items, $item);
             }
-        } 
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
 
-            public function getAllGrados()
+    public function getAllGrados()
     {
         $items = [];
         try {
@@ -112,9 +112,6 @@ class ProfesormateriaModel extends Model
             return [];
         }
     }
-
-    
-
     public function getAgregaGrados($grados_grado_id)
     {
         $items = [];
@@ -136,22 +133,22 @@ class ProfesormateriaModel extends Model
         }
     }
 
-        public function getAlumnos()
-        {
-            $items = [];
-            try {
-                $query = $this->db->connect()->query('SELECT alumno_id,Nombre_Completo from vw_detalle_alumnos where id_Estatus=100;');
-                while ($row = $query->fetch()) {
-                    $item = new varTodas();
-                    $item->vw_a_alumno_id = $row['alumno_id'];
-                    $item->vw_a_Nombre_Completo = $row['Nombre_Completo'];
-                    array_push($items, $item);
-                }
-                return $items;
-            } catch (PDOException $e) {
-                return [];
+    public function getAlumnos()
+    {
+        $items = [];
+        try {
+            $query = $this->db->connect()->query('SELECT alumno_id,Nombre_Completo from vw_detalle_alumnos where id_Estatus=100;');
+            while ($row = $query->fetch()) {
+                $item = new varTodas();
+                $item->vw_a_alumno_id = $row['alumno_id'];
+                $item->vw_a_Nombre_Completo = $row['Nombre_Completo'];
+                array_push($items, $item);
             }
-        } 
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
     public function insertProfesorMateria($datos)
     {
         try {
@@ -167,7 +164,7 @@ class ProfesormateriaModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            //error_log($e->getMessage());
             return false;
         }
     }
@@ -182,7 +179,7 @@ class ProfesormateriaModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            //error_log($e->getMessage());
             return false;
         }
     }
@@ -206,18 +203,4 @@ class ProfesormateriaModel extends Model
             return null;
         }
     }
-/* 
-    public function ValidarMateria($Id_Materia)
-    {
-        try {
-            $query = $this->db->connect()->prepare("SELECT COUNT(*) materias_id from profesor_materia WHERE materias_id=:id_Mat");
-            $query->execute(['id_Mat' => $Id_Materia]);
-            $numero = $query->fetchColumn();
-            return $numero;
-        } catch (PDOException $e) {
-            echo 'Error en la linea' . $e->getLine();
-            return null;
-        }
-    } */
-
 }

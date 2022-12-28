@@ -1,4 +1,4 @@
-<?php $profesor = $this->d['profesor'];?>
+<?php $profesor = $this->d['profesor']; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actividad</title>
 </head>
+
 <body>
     <?php require 'views/template/headerMaestro.php'; ?>
     <?php $this->showMessages(); ?>
@@ -16,7 +17,7 @@
         <div class="card-body">
             <form class="row p-3" action="<?php echo constant('URL'); ?>actividad/saveActividad" method="POST">
                 <div class="row">
-                <div class="col-6">
+                    <div class="col-6">
                         <div class="form-group">
                             <label>Nombre de la actividad</label>
                             <input type="text" class="form-control" name="txt_nombre_act" required>
@@ -56,4 +57,5 @@
     </div>
     <?php require 'views/template/footerMaestro.php'; ?>
 </body>
+
 </html>

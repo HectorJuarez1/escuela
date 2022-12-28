@@ -40,8 +40,6 @@ class ActividadAlumnos extends SessionController
             $this->view->render('actividadAlumnos/trabajos', ['user' => $this->user]);
         }
     }
-
-
     function saveActEstatus()
     {
         $datos[0]  = $_SESSION['id_actividad'];
@@ -52,8 +50,6 @@ class ActividadAlumnos extends SessionController
         $archivotm = $_FILES['filename']['tmp_name']; // obtiene el archiv
         $ruta = 'actividades/';
         move_uploaded_file($archivotm, $ruta . $datos[4]);
-
-
         if ($this->model->insertCalificacion([
             'id_actividad' => $datos[0], 'id_alumno' => $datos[1], 'id_materia_alum' => $datos[2],
             'txt_actividad_realizada' => $datos[3], 'filename' => $datos[4]
@@ -65,12 +61,8 @@ class ActividadAlumnos extends SessionController
             // $this->redirect('tutor', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
-
-
     function calificaciones()
     {
-    /*   $tutor = $this->model->getTutor();
-        $this->view->TutorCom = $tutor; */
         $this->view->render('calificaciones');
     }
 }

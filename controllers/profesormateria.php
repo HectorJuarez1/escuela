@@ -5,12 +5,11 @@ class Profesormateria extends SessionController
     function __construct()
     {
         parent::__construct();
-        
     }
     function render()
     {
         $detalle_profesormateria = $this->model->getAllDprofesor();
-        $this->view->varTodas = $detalle_profesormateria;  
+        $this->view->varTodas = $detalle_profesormateria;
         $this->view->render('profesormateria/index');
     }
 
@@ -20,7 +19,6 @@ class Profesormateria extends SessionController
         $this->view->varTodas = $Ngrados;
         $this->view->render('profesormateria/grados');
     }
-
 
     function saveProfesorMateria()
     {
@@ -40,14 +38,6 @@ class Profesormateria extends SessionController
             error_log('saveProfesorMateria::Error al asignadas materias al profesor');
             $this->redirect('profesormateria', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
-        //validar materia que no tenga la misma
-/*         $num =$this->model->ValidarMateria($datos[3]);
-        if ($num>=1) {
-            $this->redirect('profesormateria', ['error' => Errors::ERROR_MATERIA_ASIGNADA]);
-        echo "Esta Materia ya la tiene asignada";
-        }else{
-            
-        }   */      
     }
 
     function verDetalle($param = null)
@@ -59,6 +49,7 @@ class Profesormateria extends SessionController
         $this->view->varTodas = $proceso;
         $this->view->render('profesormateria/agregarAlumnos');
     }
+    
     function saveAlumnoProfesor()
     {
         $datos[0]  = trim($_POST['txt_idproceso']);
@@ -73,25 +64,19 @@ class Profesormateria extends SessionController
             $this->redirect('profesoralumnos', ['error' => Errors::ERROR_ALTA_ALUMNO]);
         }
     }
-    
+
     function AgregarM($param = null)
     {
         $Dgrado = $param[0];
-        $_SESSION['id_grado']=  $Dgrado;
+        $_SESSION['id_grado'] =  $Dgrado;
         $profesor = $this->model->getProfesor();
         $this->view->ProfesorCom = $profesor;
-
         $Aulas = $this->model->getAulas();
         $this->view->ComboAulas = $Aulas;
-  
         $Materias = $this->model->getAgregaGrados($Dgrado);
         $this->view->ComboMaterias = $Materias;
-
         $Periodos = $this->model->getPeriodos();
         $this->view->ComboPeriodos = $Periodos;
-      
         $this->view->render('profesormateria/nuevo');
     }
-
-
 }

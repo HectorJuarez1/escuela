@@ -45,10 +45,6 @@ class ActividadModel extends Model
             return null;
         }
     }
-
-
-
-
     public function getAllActividad()
     {
         $items = [];
@@ -67,8 +63,6 @@ class ActividadModel extends Model
             return null;
         }
     }
-
-
     public function insertActividad($datos)
     {
         try {
@@ -83,16 +77,14 @@ class ActividadModel extends Model
                 'ffin' => $datos['date_FFin'],
                 'idm' => $datos['id_materia'],
                 'idp' => $datos['id_profesor']
-                
+
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            // error_log($e->getMessage());
             return false;
         }
     }
-
-
 
     public function getActividad($materia_id)
     {
@@ -115,8 +107,6 @@ class ActividadModel extends Model
             return null;
         }
     }
-
-
     public function deleteActividad($actividad_id)
     {
         $query = $this->db->connect()->prepare("DELETE FROM actividad WHERE actividad_id = :id_act");
@@ -127,8 +117,6 @@ class ActividadModel extends Model
             return false;
         }
     }
-
-
     public function getUpActividad($actividad_id)
     {
         $item = new varTodas();
@@ -145,7 +133,7 @@ class ActividadModel extends Model
             }
             return $item;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            // error_log($e->getMessage());
             return null;
         }
     }
@@ -164,18 +152,13 @@ class ActividadModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
-
+            //  error_log($e->getMessage());
             return false;
         }
     }
-
-
-
     public function getCalificarAct($no_profesor)
     {
-    $items = [];
-
+        $items = [];
         try {
             $query = $this->db->connect()->prepare("SELECT * FROM vw_detalle_calificacion WHERE no_profesor = :no_pro AND id_estatus=111 ");
             $query->execute(['no_pro' => $no_profesor]);
@@ -193,7 +176,7 @@ class ActividadModel extends Model
             }
             return $items;
         } catch (PDOException $e) {
-                        error_log($e->getMessage());
+            //error_log($e->getMessage());
             return null;
         }
     }
@@ -210,13 +193,10 @@ class ActividadModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
-
+            // error_log($e->getMessage());
             return false;
         }
     }
-
-
     public function getUpActividad2($actividad_id)
     {
         $item = new varTodas();
@@ -228,9 +208,12 @@ class ActividadModel extends Model
             }
             return $item;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            //error_log($e->getMessage());
             return null;
         }
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 94f799c53e8d7497d337dbe6762a755c9fdfc78f
 }

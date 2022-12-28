@@ -1,4 +1,3 @@
-
 <?php
 include_once 'models/varTodas.php';
 class NewusuarioModel extends Model{
@@ -6,8 +5,6 @@ class NewusuarioModel extends Model{
     public function __construct(){
         parent::__construct();
     }
-
-
     public function getAllDNombres($No_Alumno)
     {
         $items = [];
@@ -28,10 +25,6 @@ class NewusuarioModel extends Model{
             return null;
         }
     }
-
-
-
-
     public function getAllDMaestro($No_Maestro)
     {
         $items = [];
@@ -71,8 +64,6 @@ class NewusuarioModel extends Model{
         }
     }
 
-
-
     public function ValidarIdUsuario($Id_Usuario)
     {
         try {
@@ -81,7 +72,7 @@ class NewusuarioModel extends Model{
             $numero = $query->fetchColumn();
             return $numero;
         } catch (PDOException $e) {
-            echo 'Error en la linea' . $e->getLine();
+          //  echo 'Error en la linea' . $e->getLine();
             return null;
         }
     }
@@ -93,14 +84,14 @@ class NewusuarioModel extends Model{
                 ->prepare('INSERT INTO users(id,username,password,role,name) 
                 VALUES (:id,:usse,:pass,"user",:nam)');
                 $query->execute([
-                    'id' => $datos['txt_no_usuario'],
+                'id' => $datos['txt_no_usuario'],
                 'usse' => $datos['txt_usuario'],
                 'pass' => $datos['txt_passw'],
                 'nam' => $datos['txt_Nom_Completo']
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+           // error_log($e->getMessage());
             return false;
         }
     }
@@ -111,14 +102,14 @@ class NewusuarioModel extends Model{
                 ->prepare('INSERT INTO users(id,username,password,role,name) 
                 VALUES (:id,:usse,:pass,"profesor",:nam)');
                 $query->execute([
-                    'id' => $datos['txt_no_usuario'],
+                'id' => $datos['txt_no_usuario'],
                 'usse' => $datos['txt_usuario'],
                 'pass' => $datos['txt_passw'],
                 'nam' => $datos['txt_Nom_Completo']
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            //error_log($e->getMessage());
             return false;
         }
     }
@@ -130,14 +121,11 @@ class NewusuarioModel extends Model{
             $query->execute(['id_u' => $id_Usuario]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+           // error_log($e->getMessage());
             return false;
         }
     }
 
-
 }
-
-
 
 ?>

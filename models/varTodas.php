@@ -24,7 +24,6 @@ class varTodas{
     public $role;
     public $name;
 
-
     // maestros
     public $vw_m_profesor_id;
     public $vw_m_Cedula;
@@ -42,8 +41,6 @@ class varTodas{
     public $vw_m_estatus_maestro_id;
     public $vw_m_Estatus_Detalle;
 
-
-    
     // grados
     public $grado_id;
     public $nombre_grado;
@@ -54,7 +51,7 @@ class varTodas{
     public $nombre_aula;
     public $estatus_aulas_id;
         
-    // materias
+    // vw_detalle_materias
     public $vw_mat_materia_id;
     public $vw_mat_nombre_materia;
     public $vw_mat_dia_semana;
@@ -75,8 +72,6 @@ class varTodas{
     public $periodo_id;
     public $nombre_periodo;
     public $estatus_periodos_id;
-
-
 
     // profesormateria
     public $vw_pm_proceso_id;
@@ -150,7 +145,6 @@ class varTodas{
     public $vw_act_id_materia;
     public $vw_act_estatus_actividad_id;
 
-
     //vw_detalle_calificacion
     public $vw_ca_calificacion_id;
     public $vw_ca_nombre_actividad;
@@ -160,61 +154,25 @@ class varTodas{
     public $vw_ca_ruta_archivo;
     public $vw_ca_no_profesor;
     public $vw_ca_id_estatus;
-
     public $vw_ca_calificacion_actividad;
     public $vw_ca_comentario;
 
-
-
-
-
-
-
     public $vw_ca_calificacion;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //tutor vista combo
-        public $vw_id_Tutor;
-        public $vw_Nombre_tutor;
+    //tutor vista combo
+    public $vw_id_Tutor;
+    public $vw_Nombre_tutor;
     
-        //padre  tutor
-        public $id_Tutorr;
-        public $Tur_Nombres;
-        public $Tur_Apellido_Paterno;
-        public $Tur_Apellido_Materno;
-        public $Tur_Direccion;
-        public $Tur_Telefono_Casa;
-        public $Tur_Telefono_Celular;
-        public $Tur_Correo;
-        public $Tur_Sexo;
-
-
-
-
-
-
-
-
-
+    //padre  tutor
+    public $id_Tutorr;
+    public $Tur_Nombres;
+    public $Tur_Apellido_Paterno;
+    public $Tur_Apellido_Materno;
+    public $Tur_Direccion;
+    public $Tur_Telefono_Casa;
+    public $Tur_Telefono_Celular;
+    public $Tur_Correo;
+    public $Tur_Sexo;
 
 }
-
 ?>

@@ -50,6 +50,12 @@ class Materias extends SessionController
         $materia_id = $param[0];
         $materias = $this->model->getById($materia_id);
         $this->view->varTodas = $materias;
+
+        $GradosAct = $this->model->getGrados();
+        $this->view->ComboGradosAct = $GradosAct;
+
+        $Horas = $this->model->getHoras();
+        $this->view->ComboHorasAct = $Horas;
         $this->view->render('materias/Actualizar');
     }
     function ActMaterias()

@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/assets/images/icono.png" type="image/x-icon">
     <title>Administrador</title>
 </head>
+
 <body>
 
     <?php require 'views/template/header.php'; ?>
@@ -107,9 +108,7 @@
         </div>
     </section>
 
-
-
-    <div id="columnchart_material" style="width: 500px; height: 500px;"></div>
+    <div id="columnchart_material" style="width: 450px; height: 350px;"></div>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -120,24 +119,23 @@
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Codigo de producto', 'Ventas'],
-                <?php foreach ($resultado as $key) { ?>['<?php echo $key['Codigo'];  ?>', <?php echo $key['Cantidad'];  ?>],
+                ['Concepto', 'Pagos'],
+                <?php foreach ($this->DatosGraficaP as $row) {
+                    $Dgrafica = new varPagos();
+                    $Dgrafica = $row;
+                ?>['<?php echo $Dgrafica->Concepto;  ?> <?php echo  $Dgrafica->TotalPagos;  ?>',
+                        <?php echo  $Dgrafica->TotalPagos; ?>],
                 <?php } ?>
             ]);
             var options = {
                 chart: {
-                    title: 'Company Call-Shop',
-                    subtitle: 'Ventas del dia',
+                    title: 'PAGOS DEL MES',
                 }
             };
             var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
             chart.draw(data, google.charts.Bar.convertOptions(options));
         }
     </script>
-
-
-
-
     <?php require 'views/template/footer.php'; ?>
 </body>
 

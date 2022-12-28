@@ -34,7 +34,6 @@
             </tr>
           </thead>
           <tbody>
-
             <?php
             $NumerodPedido = "Descarga_" . date("mdHi");
             ?>
@@ -49,7 +48,7 @@
                 <td><?php echo $Calificar_act->vw_ca_nombre_materia; ?></td>
                 <td><?php echo $Calificar_act->vw_ca_actividad_realizada; ?></td>
                 <td><a href="<?php echo constant('URL') . "actividades/" . $Calificar_act->vw_ca_ruta_archivo; ?>" download="<?php echo $NumerodPedido ?>" class="btn icon btn-success">
-                  <i data-feather="download"></i></a>
+                    <i data-feather="download"></i></a>
                 </td>
                 <td><?php
                     if ($Calificar_act->vw_ca_id_estatus == 111) {
@@ -65,7 +64,6 @@
         </table>
       </div>
     </div>
-
     <?php require 'views/template/footerMaestro.php'; ?>
 </body>
 

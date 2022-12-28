@@ -15,8 +15,8 @@
   <?php $this->showMessages(); ?>
 
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h2 mb-0 text-gray-800">Materias</h1>
-    </div>
+    <h1 class="h2 mb-0 text-gray-800">Materias</h1>
+  </div>
 
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary round" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -104,36 +104,6 @@
       </div>
     </div>
   </div><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <div class="card">
     <div class="card-header">

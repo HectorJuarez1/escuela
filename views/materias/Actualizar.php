@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/assets/images/icono.png" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/assets/images/icono.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar</title>
 </head>
 
@@ -23,27 +24,45 @@
                             <input type="text" class="form-control" name="txt_NomMaterias" value="<?php echo $this->varTodas->nombre_materia; ?>" required>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                         <div class="form-group">
-                            <label class="form-label">Dia semana</label>
-                            <input type="text" class="form-control" name="txt_diasemana" value="" required>
+                            <label class="form-label">Dia Semana</label>
+                            <select class="form-select" name="com_DiaSemana" required>
+                                <option selected>Selección</option>
+                                <option value="Lunes">Lunes</option>
+                                <option value="Martes">Martes</option>
+                                <option value="Miercoles">Miercoles</option>
+                                <option value="Jueves">Jueves</option>
+                                <option value="Viernes">Viernes</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label  class="form-label">Hora Inicio</label>
+                            <label class="form-label">Hora Inicio</label>
                             <select class="form-select" name="com_horainicio" required>
                                 <option selected>Eligir hora</option>
+                                <?php foreach ($this->ComboHorasAct as $row) {
+                                    $horainicio = new varTodas();
+                                    $horainicio = $row; ?>
+                                    <option value="<?php echo $horainicio->id_horas; ?>">
+                                        <?php echo $horainicio->Horas; ?></option>
+                                <?php } ?>
 
                             </select>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label  class="form-label">Hora Fin</label>
+                            <label class="form-label">Hora Fin</label>
                             <select class="form-select" name="com_horafin" required>
                                 <option selected>Eligir hora</option>
-
+                                <?php foreach ($this->ComboHorasAct as $row) {
+                                    $horainicio = new varTodas();
+                                    $horainicio = $row; ?>
+                                    <option value="<?php echo $horainicio->id_horas; ?>">
+                                        <?php echo $horainicio->Horas; ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -52,7 +71,12 @@
                             <label class="form-label">Grado</label>
                             <select class="form-select" name="com_grado" required>
                                 <option selected>Eligir el grado</option>
-
+                                <?php foreach ($this->ComboGradosAct as $row) {
+                                    $grados = new varTodas();
+                                    $grados = $row; ?>
+                                    <option value="<?php echo $grados->grado_id; ?>">
+                                        <?php echo $grados->nombre_grado; ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -82,4 +106,5 @@
     </div>
     <?php require 'views/template/footer.php'; ?>
 </body>
+
 </html>

@@ -1,13 +1,11 @@
 <?php
 include_once 'models/varTodas.php';
-
 class AulasModel extends Model
 {
     public function __construct()
     {
         parent::__construct();
     }
-
     public function getAllAulas()
     {
         $items = [];
@@ -78,8 +76,7 @@ class AulasModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
-
+            //error_log($e->getMessage());
             return false;
         }
     }

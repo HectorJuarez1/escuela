@@ -18,9 +18,7 @@
 
     <?php foreach ($this->varTodas as $row) {
       $NMaterias_Alm_Alm = new varTodas();
-      $NMaterias_Alm = $row;
-      //var_dump($NMaterias_Alm);
-    ?>
+      $NMaterias_Alm = $row;    ?>
       <div class="card">
         <h5 class="card-header"></h5>
         <div class="card-body">

@@ -45,7 +45,7 @@ class TutorModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            //error_log($e->getMessage());
             return false;
         }
     }
@@ -59,13 +59,14 @@ class TutorModel extends Model
             return false;
         }
     }
-    
-    public function getById($id_Tutor){
+
+    public function getById($id_Tutor)
+    {
         $item = new varTodas();
         $query = $this->db->connect()->prepare("SELECT * FROM tutor WHERE id_Tutor = :id_t");
-        try{
+        try {
             $query->execute(['id_t' => $id_Tutor]);
-            while($row = $query->fetch()){
+            while ($row = $query->fetch()) {
                 $item->id_Tutorr = $row['id_Tutor'];
                 $item->Tur_Nombres = $row['Nombres'];
                 $item->Tur_Apellido_Paterno = $row['Apellido_Paterno'];
@@ -77,32 +78,30 @@ class TutorModel extends Model
                 $item->Tur_Sexo = $row['Sexo'];
             }
             return $item;
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             return null;
         }
     }
-    public function update($item){
+    public function update($item)
+    {
         $query = $this->db->connect()->prepare("UPDATE tutor SET Nombres = :Nom,Apellido_Paterno = :Ap,Apellido_Materno = :Am,
         Direccion = :Dir,Telefono_Casa = :Tca,Telefono_Celular=:Tce,Correo=:Cor,Sexo=:Sex WHERE id_Tutor = :id_T");
-        try{
+        try {
             $query->execute([
-                'id_T'=> $item['id_Tutor'],
-                'Nom'=> $item['txt_nombre'],
-                'Ap'=> $item['txt_ApPaterno'],
-                'Am'=> $item['txt_ApMaterno'],
-                'Dir'=> $item['txt_Direccion'],
-                'Tca'=> $item['txt_tel_casa'],
-                'Tce'=> $item['txt_celular'],
-                'Cor'=> $item['txt_correo'],
-                'Sex'=> $item['txt_sexo']
+                'id_T' => $item['id_Tutor'],
+                'Nom' => $item['txt_nombre'],
+                'Ap' => $item['txt_ApPaterno'],
+                'Am' => $item['txt_ApMaterno'],
+                'Dir' => $item['txt_Direccion'],
+                'Tca' => $item['txt_tel_casa'],
+                'Tce' => $item['txt_celular'],
+                'Cor' => $item['txt_correo'],
+                'Sex' => $item['txt_sexo']
             ]);
             return true;
-        }catch(PDOException $e){
-            error_log($e->getMessage());
-        
+        } catch (PDOException $e) {
+            // error_log($e->getMessage());
             return false;
         }
-        
     }
-
 }

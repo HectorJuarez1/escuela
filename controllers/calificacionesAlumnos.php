@@ -15,5 +15,4 @@ class CalificacionesAlumnos extends SessionController
         $this->view->varTodas = $Califi;
         $this->view->render('calificacionesAlumnos/index', ['user' => $this->user]);
     }
-
 }

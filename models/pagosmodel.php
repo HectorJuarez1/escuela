@@ -31,7 +31,6 @@ class PagosModel extends Model
             return [];
         }
     }
-    
     public function getAllDNombres($No_Alumno)
     {
         $items = [];
@@ -46,7 +45,7 @@ class PagosModel extends Model
             }
             return $items;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
+            //error_log($e->getMessage());
             return null;
         }
     }
@@ -55,7 +54,7 @@ class PagosModel extends Model
         try {
             $query = $this->db->connect()->prepare('INSERT INTO pagos(No_alumno,Nombre_Alumno,Pago,Detalle_mes,estatus_id_pago,concepto_id_pago) 
                 VALUES (:no_al,:nombreC,:pago,:mes,108,:id_conc)');
-                $query->execute([
+            $query->execute([
                 'no_al' => $datos['txt_no_usuario'],
                 'nombreC' => $datos['txt_Nom_Completo'],
                 'pago' => $datos['txt_Pago'],
@@ -64,7 +63,7 @@ class PagosModel extends Model
             ]);
             return true;
         } catch (PDOException $e) {
-           // error_log($e->getMessage());
+            // error_log($e->getMessage());
             return false;
         }
     }
@@ -78,7 +77,4 @@ class PagosModel extends Model
             return false;
         }
     }
-
-
-
 }
