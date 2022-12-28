@@ -108,34 +108,47 @@
         </div>
     </section>
 
-    <div id="columnchart_material" style="width: 450px; height: 350px;"></div>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['bar']
+        google.charts.load("current", {
+            packages: ['corechart']
         });
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Concepto', 'Pagos'],
+                ["Concepto", "Pagos", {
+                    role: "style"
+                }],
                 <?php foreach ($this->DatosGraficaP as $row) {
                     $Dgrafica = new varPagos();
                     $Dgrafica = $row;
-                ?>['<?php echo $Dgrafica->Concepto;  ?> <?php echo  $Dgrafica->TotalPagos;  ?>',
-                        <?php echo  $Dgrafica->TotalPagos; ?>],
+                ?>["<?php echo $Dgrafica->Concepto;  ?> ", <?php echo  $Dgrafica->TotalPagos; ?>, 'fill-color: #1b9e77; fill-opacity: 0.5'],
                 <?php } ?>
             ]);
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+                {
+                    calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation"
+                },
+                2
+            ]);
+
             var options = {
-                chart: {
-                    title: 'PAGOS DEL MES',
-                }
+                title: "PAGOS DEL MES",
+                legend: {
+                    position: "none"
+                },
             };
-            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-            chart.draw(data, google.charts.Bar.convertOptions(options));
+            var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+            chart.draw(view, options);
         }
     </script>
+    <div id="columnchart_values" style="width: 300px; height: 350px;"></div>
     <?php require 'views/template/footer.php'; ?>
 </body>
 

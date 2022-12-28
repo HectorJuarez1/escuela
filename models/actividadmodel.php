@@ -212,8 +212,5 @@ class ActividadModel extends Model
             return null;
         }
     }
-<<<<<<< HEAD
     
-=======
->>>>>>> 94f799c53e8d7497d337dbe6762a755c9fdfc78f
 }
