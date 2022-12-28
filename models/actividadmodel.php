@@ -201,7 +201,7 @@ class ActividadModel extends Model
     public function updateAct($item)
     {
         $query = $this->db->connect()->prepare("UPDATE calificaciones SET calificacion_actividad = :cal,comentario = :com,id_estatus = 112
-         WHERE calificacion_id = :id_cal");
+        WHERE calificacion_id = :id_cal");
         try {
             $query->execute([
                 'id_cal' => $item['txt_Idcalif'],
@@ -225,7 +225,6 @@ class ActividadModel extends Model
             $query->execute(['id_acti' => $actividad_id]);
             while ($row = $query->fetch()) {
                 $item->vw_ca_calificacion = $row['calificacion_id'];
-
             }
             return $item;
         } catch (PDOException $e) {
@@ -233,10 +232,5 @@ class ActividadModel extends Model
             return null;
         }
     }
-
-
-
-
-
     
 }
