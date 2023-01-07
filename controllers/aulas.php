@@ -31,9 +31,9 @@ class Aulas extends SessionController
         $Daulas = $param[0];
         if ($this->model->deleteAula($Daulas)) {
             error_log('eliminarAul::Aula dado de baja');
-            $this->redirect('aulas', ['error' => Errors::ERROR_DELATE_TUTOR]);
+            $this->redirect('aulas', ['error' => Errors::ERROR_DELATE_AULA]);
         } else {
-            $this->redirect('aulas', ['error' => Errors::ERROR_NO_DELATE]);
+            $this->redirect('aulas', ['error' => Errors::ERROR_DELATE_AULA]);
         }
     }
     function verDetalle($param = null)
@@ -59,7 +59,7 @@ class Aulas extends SessionController
             $aulas->estatus_aulas_id = $Daulas[2];
             $this->view->varTodas = $aulas;
             error_log('ActAulas::Datos de la aula Actualizados');
-            $this->redirect('aulas', ['success' => Success::SUCCESS_ADMIN_UPDATE_ALUMNO]);
+            $this->redirect('aulas', ['success' => Success::SUCCESS_ADMIN_UPDATE_AULA]);
         } else {
             //    $this->redirect('consultarMarca', ['warning' => WarningMessages::ADVERTENCIA_NOREGISTRADO]);
         }

@@ -23,6 +23,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center">CONCEPTO</th>
+                                <th class="text-center">MES</th>
                                 <th class="text-center">MONTO</th>
                                 <th class="text-center">FECHE DE REGISTRO</th>
                             </tr>
@@ -34,7 +35,8 @@
                             ?>
                                 <tr>
                                     <td><?php echo $Alpagos->vw_pg_Concepto; ?></td>
-                                    <td><?php echo $Alpagos->vw_pg_Pago; ?></td>
+                                    <td><?php echo $Alpagos->vw_pg_Detalle_mes; ?></td>
+                                    <td><?php echo"$ " . number_format($Alpagos->vw_pg_Pago, 2, '.', ','); ?></td>
                                     <td><?php echo $Alpagos->vw_pg_Fecha_creacion; ?></td>
                                 </tr>
                             <?php } ?>

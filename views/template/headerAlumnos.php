@@ -23,7 +23,8 @@
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
-                    <img src="<?php echo constant('URL'); ?>public/assets/images/logo.png" alt="" srcset="">
+                <a href="<?php echo constant('URL'); ?>user">
+                    <img src="<?php echo constant('URL'); ?>public/assets/images/logo.png" alt="" srcset=""></a>
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu ">

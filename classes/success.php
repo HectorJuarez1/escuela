@@ -29,6 +29,7 @@ class Success{
     const SUCCESS_ACTIVIDA_ENVIADA       = "a901d2";
     const SUCCESS_ACTIVIDA_CALIFICADA    = "2ccfc138";
     const SUCCESS_SIGNUP_NEWUSER         = "d52ccf";
+
     
     private $successList = [];
 
@@ -57,7 +58,8 @@ class Success{
             Success::SUCCESS_ACTIVIDA_REALIZA => "Esta actividad ya fue realiza.",
             Success::SUCCESS_ACTIVIDA_ENVIADA => "Actividad enviada al maestro.",
             Success::SUCCESS_ACTIVIDA_CALIFICADA => "Actividad calificada.",
-            Success::SUCCESS_SIGNUP_NEWUSER => "Dato registrado correctamente"
+            Success::SUCCESS_SIGNUP_NEWUSER => "Dato registrado correctamente",
+            Success::SUCCESS_ADMIN_UPDATE_AULA => "Datos de la aula actualizados"
         ];
     }
 

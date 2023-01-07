@@ -26,6 +26,7 @@ class Errors{
     const ERROR_LOGIN_AUTHENTICATE_DATA          = "bcbe63ed";
     const ERROR_SIGNUP_NEWUSER                   = "1fdce6bb";
     const ERROR_SIGNUP_NEWUSER_EMPTY             = "a5bcd708";
+    const ERROR_DELATE_AULA         = "8wC35";
 
 
 
@@ -56,6 +57,7 @@ class Errors{
             Errors::ERROR_LOGIN_AUTHENTICATE_DATA   => 'Nombre de usuario y/o password incorrectos',
             Errors::ERROR_SIGNUP_NEWUSER            => 'Hubo un error al intentar registrarte. Intenta de nuevo',
             Errors::ERROR_SIGNUP_NEWUSER_EMPTY      => 'Los campos no pueden estar vacíos',
+            Errors::ERROR_DELATE_AULA      => 'Aula eliminada',
 
         ];
     }
